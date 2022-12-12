@@ -248,7 +248,7 @@ class HomeViewModel(
 
     fun insertData() {
         val answerEntity = AnswerEntity(
-            nameOfRespondent = "",
+            nameOfRespondent = answers["A1"] ?: "",
             data = Gson().toJson(answers.toMap()),
             createdAt = System.currentTimeMillis()
         )
