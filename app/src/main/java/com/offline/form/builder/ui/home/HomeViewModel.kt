@@ -90,7 +90,7 @@ class HomeViewModel(
                 id = "A8",
                 question = " Age of Respondent",
                 options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "Enter Age of Respondent")
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter Age of Respondent")
                 ),
                 validate = StringInputValidation(),
                 optionType = OptionTypeEnum.INPUT
@@ -113,7 +113,7 @@ class HomeViewModel(
                 id = "A10",
                 question = "Mobile number of respondent / House Hold member",
                 options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "Enter Mobile number of respondent / House Hold member")
+                    OptionType.InputField(InputType.TYPE_CLASS_PHONE, "Enter Mobile number of respondent / House Hold member")
                 ),
                 validate = StringInputValidation(),
                 optionType = OptionTypeEnum.INPUT
