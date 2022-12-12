@@ -6,4 +6,8 @@ interface OfflineViewHolder {
 
     fun onBind(item: Question)
 
+    fun onAttachedToWindow()
+
+    fun onDetachedFromWindow()
+
 }

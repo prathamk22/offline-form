@@ -68,7 +68,7 @@ class HomeViewModel(
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter Household Serial No.")
                 ),
-                validate = StringInputValidation(),
+                validate = NumberInputValidation(0, Int.MAX_VALUE),
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
@@ -92,7 +92,7 @@ class HomeViewModel(
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter Age of Respondent")
                 ),
-                validate = StringInputValidation(),
+                validate = NumberInputValidation(0, 100),
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
@@ -113,7 +113,10 @@ class HomeViewModel(
                 id = "A10",
                 question = "Mobile number of respondent / House Hold member",
                 options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_PHONE, "Enter Mobile number of respondent / House Hold member")
+                    OptionType.InputField(
+                        InputType.TYPE_CLASS_PHONE,
+                        "Enter Mobile number of respondent / House Hold member"
+                    )
                 ),
                 validate = StringInputValidation(),
                 optionType = OptionTypeEnum.INPUT
@@ -162,7 +165,7 @@ class HomeViewModel(
                             CheckBoxItems("6", "Other relatives"),
                             CheckBoxItems("7", "Unrelated"),
 
-                        )
+                            )
                     )
                 ),
                 validate = CheckboxInputValidation(),
@@ -216,7 +219,7 @@ class HomeViewModel(
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter no. of people")
                 ),
-                validate = StringInputValidation(),
+                validate = NumberInputValidation(0, Int.MAX_VALUE),
                 optionType = OptionTypeEnum.INPUT
             ),
 
@@ -226,7 +229,10 @@ class HomeViewModel(
                 id = "B12",
                 question = "What is the most common health related issue/disease in your area?",
                 options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "Enter the most common health related issue/disease in the area")
+                    OptionType.InputField(
+                        InputType.TYPE_CLASS_TEXT,
+                        "Enter the most common health related issue/disease in the area"
+                    )
                 ),
                 validate = StringInputValidation(),
                 optionType = OptionTypeEnum.INPUT
@@ -271,7 +277,7 @@ class HomeViewModel(
                             CheckBoxItems("4", "BOREHOLE"),
                             CheckBoxItems("5", "RIVER, DAM OR STREAM"),
                             CheckBoxItems("6", "OTHER"),
-                            )
+                        )
                     )
                 ),
                 validate = CheckboxInputValidation(),
@@ -339,7 +345,7 @@ class HomeViewModel(
                             CheckBoxItems("6", "Firewood"),
                             CheckBoxItems("7", "Dung"),
                             CheckBoxItems("8", "Other"),
-                            )
+                        )
                     )
                 ),
                 validate = CheckboxInputValidation(),
@@ -384,135 +390,180 @@ class HomeViewModel(
                 id = "D1",
                 question = "Annual Household Income (in Kwacha)",
                 options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter Annual Household Income (in Kwacha)")
+                    OptionType.InputField(
+                        InputType.TYPE_CLASS_NUMBER,
+                        "Enter Annual Household Income (in Kwacha)"
+                    )
                 ),
-                validate = StringInputValidation(),
+                validate = NumberInputValidation(),
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
                 id = "D2",
                 question = "Number of earning household members",
                 options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter Number of earning household members")
+                    OptionType.InputField(
+                        InputType.TYPE_CLASS_NUMBER,
+                        "Enter Number of earning household members"
+                    )
                 ),
-                validate = StringInputValidation(),
+                validate = NumberInputValidation(0, 100),
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
                 id = "D3",
                 question = "Income earned by Women household members (in Kwacha)",
                 options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter Income earned by Women household members (in Kwacha)")
+                    OptionType.InputField(
+                        InputType.TYPE_CLASS_NUMBER,
+                        "Enter Income earned by Women household members (in Kwacha)"
+                    )
                 ),
-                validate = StringInputValidation(),
+                validate = NumberInputValidation(),
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
                 id = "D41",
                 question = "Annual Income of the Household From Farming / Agriculture",
                 options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter Annual Income of the Household From Farming / Agriculture ")
+                    OptionType.InputField(
+                        InputType.TYPE_CLASS_NUMBER,
+                        "Enter Annual Income of the Household From Farming / Agriculture "
+                    )
                 ),
-                validate = StringInputValidation(),
+                validate = NumberInputValidation(),
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
                 id = "D42",
                 question = "Annual Income of the Household From Livestock / Dairy",
                 options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter Annual Income of the Household From Livestock / Dairy ")
+                    OptionType.InputField(
+                        InputType.TYPE_CLASS_NUMBER,
+                        "Enter Annual Income of the Household From Livestock / Dairy "
+                    )
                 ),
-                validate = StringInputValidation(),
+                validate = NumberInputValidation(),
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
                 id = "D43",
                 question = "Annual Income of the Household From selling animal meat",
                 options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter Annual Income of the Household From selling animal meat ")
+                    OptionType.InputField(
+                        InputType.TYPE_CLASS_NUMBER,
+                        "Enter Annual Income of the Household From selling animal meat "
+                    )
                 ),
-                validate = StringInputValidation(),
+                validate = NumberInputValidation(),
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
                 id = "D44",
                 question = "Annual Income of the Household From Labour (on-farm)",
                 options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter Annual Income of the Household From Labour (on-farm) ")
+                    OptionType.InputField(
+                        InputType.TYPE_CLASS_NUMBER,
+                        "Enter Annual Income of the Household From Labour (on-farm) "
+                    )
                 ),
-                validate = StringInputValidation(),
+                validate = NumberInputValidation(),
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
                 id = "D45",
                 question = "Annual Income of the Household From Labour (off-farm activities such as construction etc.)",
                 options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter Annual Income of the Household From Labour (off-farm activities such as construction etc.) ")
+                    OptionType.InputField(
+                        InputType.TYPE_CLASS_NUMBER,
+                        "Enter Annual Income of the Household From Labour (off-farm activities such as construction etc.) "
+                    )
                 ),
-                validate = StringInputValidation(),
+                validate = NumberInputValidation(),
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
                 id = "D46",
                 question = "Annual Income of the Household From non-farm business activities",
                 options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter Annual Income of the Household From non-farm business activities ")
+                    OptionType.InputField(
+                        InputType.TYPE_CLASS_NUMBER,
+                        "Enter Annual Income of the Household From non-farm business activities "
+                    )
                 ),
-                validate = StringInputValidation(),
+                validate = NumberInputValidation(),
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
                 id = "D47",
                 question = "Annual Income of the Household From Salary of HH member (migrated/non-migrated) ",
                 options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter Annual Income of the Household From Salary of HH member (migrated/non-migrated)  ")
+                    OptionType.InputField(
+                        InputType.TYPE_CLASS_NUMBER,
+                        "Enter Annual Income of the Household From Salary of HH member (migrated/non-migrated)  "
+                    )
                 ),
-                validate = StringInputValidation(),
+                validate = NumberInputValidation(),
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
                 id = "D48",
                 question = "Annual Income of the Household From fish farming",
                 options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter Annual Income of the Household From fish farming")
+                    OptionType.InputField(
+                        InputType.TYPE_CLASS_NUMBER,
+                        "Enter Annual Income of the Household From fish farming"
+                    )
                 ),
-                validate = StringInputValidation(),
+                validate = NumberInputValidation(),
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
                 id = "D49",
                 question = "Annual Income of the Household From Remittances",
                 options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter Annual Income of the Household From Remittances")
+                    OptionType.InputField(
+                        InputType.TYPE_CLASS_NUMBER,
+                        "Enter Annual Income of the Household From Remittances"
+                    )
                 ),
-                validate = StringInputValidation(),
+                validate = NumberInputValidation(),
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
                 id = "D410",
                 question = "Annual Income of the Household From Pension",
                 options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter Annual Income of the Household From Pension")
+                    OptionType.InputField(
+                        InputType.TYPE_CLASS_NUMBER,
+                        "Enter Annual Income of the Household From Pension"
+                    )
                 ),
-                validate = StringInputValidation(),
+                validate = NumberInputValidation(),
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
                 id = "D411",
                 question = "Annual Income of the Household From Aid",
                 options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter Annual Income of the Household From Aid")
+                    OptionType.InputField(
+                        InputType.TYPE_CLASS_NUMBER,
+                        "Enter Annual Income of the Household From Aid"
+                    )
                 ),
-                validate = StringInputValidation(),
+                validate = NumberInputValidation(),
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
                 id = "D412",
                 question = "Annual Income of the Household From Other",
                 options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter Annual Income of the Household From Other")
+                    OptionType.InputField(
+                        InputType.TYPE_CLASS_NUMBER,
+                        "Enter Annual Income of the Household From Other"
+                    )
                 ),
-                validate = StringInputValidation(),
+                validate = NumberInputValidation(),
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
@@ -550,36 +601,48 @@ class HomeViewModel(
                 id = "E1",
                 question = "Total Area under cultivation (in Ha.)",
                 options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter Total Area under cultivation (in Ha.)")
+                    OptionType.InputField(
+                        InputType.TYPE_CLASS_NUMBER,
+                        "Enter Total Area under cultivation (in Ha.)"
+                    )
                 ),
-                validate = StringInputValidation(),
+                validate = NumberInputValidation(),
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
                 id = "E2",
                 question = "Area under Irrigation (in Ha.)",
                 options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter Area under Irrigation (in Ha.)")
+                    OptionType.InputField(
+                        InputType.TYPE_CLASS_NUMBER,
+                        "Enter Area under Irrigation (in Ha.)"
+                    )
                 ),
-                validate = StringInputValidation(),
+                validate = NumberInputValidation(),
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
                 id = "E3",
                 question = "Rain fed Area (in Ha.)",
                 options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter Rain fed Area (in Ha.)")
+                    OptionType.InputField(
+                        InputType.TYPE_CLASS_NUMBER,
+                        "Enter Rain fed Area (in Ha.)"
+                    )
                 ),
-                validate = StringInputValidation(),
+                validate = NumberInputValidation(),
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
                 id = "E4",
                 question = "Leased in / Rent in Land, if any (in Ha.) ",
                 options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter Leased in / Rent in Land, if any (in Ha.) ")
+                    OptionType.InputField(
+                        InputType.TYPE_CLASS_NUMBER,
+                        "Enter Leased in / Rent in Land, if any (in Ha.) "
+                    )
                 ),
-                validate = StringInputValidation(),
+                validate = NumberInputValidation(),
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
@@ -616,13 +679,6 @@ class HomeViewModel(
             ),
 
             //SECTION F not created
-            
-
-
-
-
-
-
 
 
         )
@@ -653,6 +709,7 @@ class HomeViewModel(
     fun getAnsIfAvailable(key: String): String? = answers[key]
 
     fun clearValue(key: String) {
+        Log.e("TAG", "clearValue: value removed $key")
         answers.remove(key)
         checkAndUpdateButton()
     }

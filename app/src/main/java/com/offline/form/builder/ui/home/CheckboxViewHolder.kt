@@ -51,4 +51,12 @@ class CheckboxViewHolder(
             otherCheckBox.root.isVisible = checkBoxOption.isOtherOptionAllowed
         }
     }
+
+    override fun onAttachedToWindow() {
+
+    }
+
+    override fun onDetachedFromWindow() {
+
+    }
 }

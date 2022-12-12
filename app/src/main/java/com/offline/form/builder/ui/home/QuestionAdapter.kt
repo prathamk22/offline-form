@@ -35,10 +35,21 @@ class QuestionAdapter(
                 StringItemBinding.inflate(
                     LayoutInflater.from(parent.context), parent, false
                 ),
-                homeViewModel
+                homeViewModel,
+                LocalTextWatcher(homeViewModel)
             )
             else -> throw IllegalStateException("Input type not found")
         }
+    }
+
+    override fun onViewAttachedToWindow(holder: ViewHolder) {
+        super.onViewAttachedToWindow(holder)
+        (holder as? OfflineViewHolder)?.onAttachedToWindow()
+    }
+
+    override fun onViewDetachedFromWindow(holder: ViewHolder){
+        super.onViewDetachedFromWindow(holder)
+        (holder as? OfflineViewHolder)?.onDetachedFromWindow()
     }
 
     override fun getItemViewType(position: Int): Int {
@@ -46,6 +57,7 @@ class QuestionAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        (holder as? StringViewHolder)?.localTextWatcher?.updateItem(getItem(position))
         (holder as? OfflineViewHolder)?.onBind(getItem(position))
     }
 }

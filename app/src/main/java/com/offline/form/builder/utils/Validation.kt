@@ -4,6 +4,6 @@ interface Validation<T> {
 
     fun isValid(it: T): Boolean
 
-    fun getError(): String
+    fun getError(): String?
 
 }
