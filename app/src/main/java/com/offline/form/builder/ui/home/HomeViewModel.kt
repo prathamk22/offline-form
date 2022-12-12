@@ -679,7 +679,7 @@ class HomeViewModel(
             ),
 
             //SECTION F not created
-<<<<<<< HEAD
+
             Question(
                 id = "G1",
                 question = "Are you aware of Cashew Infrastructure Development Project (CIDP) being implemented in the District?",
@@ -1270,27 +1270,13 @@ class HomeViewModel(
                 ),
                 validate = StringInputValidation(),
                 optionType = OptionTypeEnum.INPUT
-            )
+            ),
 
 
 
 
 
 
-
-
-
-
-
-            
-
-
-
-
-
-
-=======
->>>>>>> c109bde97f6b1c3c0f4978eaf4aa89b82c4a4707
 
 
         )
