@@ -3,9 +3,14 @@ package com.offline.form.builder.ui.home
 import android.text.InputType
 import android.util.Log
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.offline.form.builder.data.db.AnswerEntity
 import com.offline.form.builder.utils.*
+import kotlinx.coroutines.launch
 
-class HomeViewModel : ViewModel() {
+class HomeViewModel(
+    private val repo: HomeRepository = HomeRepository()
+) : ViewModel() {
 
     val questions: List<Question> by lazy {
         listOf(
@@ -48,5 +53,10 @@ class HomeViewModel : ViewModel() {
         answers.remove(key)
     }
 
+    fun insertData(answerEntity: AnswerEntity) {
+        viewModelScope.launch {
+            repo.insertData(answerEntity)
+        }
+    }
 
 }
