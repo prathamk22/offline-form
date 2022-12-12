@@ -10,7 +10,9 @@ import com.offline.form.builder.databinding.StringItemBinding
 import com.offline.form.builder.utils.OptionTypeEnum
 import com.offline.form.builder.utils.Question
 
-class QuestionAdapter :
+class QuestionAdapter(
+    private val homeViewModel: HomeViewModel
+) :
     ListAdapter<Question, ViewHolder>(object : DiffUtil.ItemCallback<Question>() {
         override fun areItemsTheSame(oldItem: Question, newItem: Question): Boolean {
             return oldItem == newItem
@@ -26,12 +28,14 @@ class QuestionAdapter :
             OptionTypeEnum.CHECK_BOX.id -> CheckboxViewHolder(
                 CheckboxItemBinding.inflate(
                     LayoutInflater.from(parent.context), null, false
-                )
+                ),
+                homeViewModel
             )
             OptionTypeEnum.INPUT.id -> StringViewHolder(
                 StringItemBinding.inflate(
                     LayoutInflater.from(parent.context), null, false
-                )
+                ),
+                homeViewModel
             )
             else -> throw IllegalStateException("Input type not found")
         }

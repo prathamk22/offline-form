@@ -1,7 +1,7 @@
 package com.offline.form.builder.utils
 
-interface Validation {
+interface Validation<T> {
 
-    fun isValid()
+    fun isValid(item: T): Boolean
 
 }
