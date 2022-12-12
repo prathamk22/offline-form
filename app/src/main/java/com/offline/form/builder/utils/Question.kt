@@ -5,7 +5,8 @@ data class Question(
     val question: String,
     val optionType: OptionTypeEnum,
     val options: List<OptionType>,
-    val validate: Validation<Any>
+    val validate: Validation<Any>,
+    val isOptional: Boolean = false
 )
 
 enum class OptionTypeEnum(val id: Int){

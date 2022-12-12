@@ -41,6 +41,8 @@ class CheckboxViewHolder(
                 }.let {
                     if (item.validate.isValid(checkboxText)) {
                         homeViewModel.valueEntered(item.id, it.id)
+                    } else {
+                        homeViewModel.clearValue(item.id)
                     }
                 }
             }
