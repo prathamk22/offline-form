@@ -1,7 +1,5 @@
 package com.offline.form.builder.utils
 
-import android.text.InputType
-
 sealed class OptionType {
 
     data class InputField(val inputType: Int) : OptionType()
