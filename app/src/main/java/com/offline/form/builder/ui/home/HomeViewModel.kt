@@ -616,6 +616,608 @@ class HomeViewModel(
             ),
 
             //SECTION F not created
+            Question(
+                id = "G1",
+                question = "Are you aware of Cashew Infrastructure Development Project (CIDP) being implemented in the District?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "Yes"),
+                            CheckBoxItems("2", "No"),
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+
+            //G2 - G4 not created
+
+            //H1 not created
+
+            Question(
+                id = "H2",
+                question = "Have you received/purchased new planting material in the last five years (2016-21)",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "Yes"),
+                            CheckBoxItems("2", "No"),
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "H3",
+                question = "From where did you received/purchased planting material for new plantation",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "Cashew Nursery at ZARI, Simulumbe Station"),
+                            CheckBoxItems("2", "Clone Garden"),
+                            CheckBoxItems("3", "Public demonstration nurseries(at Namushakende / Nangweshi / Kalabo Farmer Training Centres (FTCs))"),
+                            CheckBoxItems("4", "Community Nursery developed under CIDP"),
+                            CheckBoxItems("5", "Any other source"),
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "H4",
+                question = "How far is the nearest nursery/planting material source from your place (in Kms) ",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter (in Kms) ")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT
+            ),
+            Question(
+                id = "H5",
+                question = "How will you rate the planting material used at your farm on a scale of “1 to 5”, wherein “1 “is poor and “5” is the best?",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter Value")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT
+            ),
+            Question(
+                id = "H6",
+                question = " Can you mention three benefits that you think the community has received from nurseries promoted under the project?",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "Enter Benefits")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT
+            ),
+            Question(
+                id = "H7",
+                question = "Did you get your Cashew plantation rejuvenated/rehabilitated under the project in last five years (2016-21)",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "Yes"),
+                            CheckBoxItems("2", "No"),
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+
+            //H8 not written
+
+            Question(
+                id = "H9",
+                question = "Can you please mention specific support received for cashew plantation rejuvenation/rehabilitation",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "Enter Benefits")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT
+            ),
+            Question(
+                id = "H10",
+                question = "Did the productivity of the cashew plantation  improve because of rejuvenation?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "Yes"),
+                            CheckBoxItems("2", "No"),
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "H11",
+                question = "Did you get bare area in your cashew plantation replanted under the project in last five years (2016-21)",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "Yes"),
+                            CheckBoxItems("2", "No"),
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "H13",
+                question = "Can you please mention specific support received for replantation in bare are in orchard",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "Enter")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT
+            ),
+            Question(
+                id = "H14",
+                question = "Did the productivity of the cashew plantation improved due to replantation?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "Yes"),
+                            CheckBoxItems("2", "No"),
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "H16",
+                question = "Did you bring new area under cashew production during CIDP project in the last five years (2016-21)",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "Yes"),
+                            CheckBoxItems("2", "No"),
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "H18",
+                question = "Can you please mention specific support received for bringing new area under the cashew production ?",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "Enter")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT
+            ),
+            Question(
+                id = "H19",
+                question = "Is yield levels of new orchard is higher than the old orchards?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "Yes"),
+                            CheckBoxItems("2", "No"),
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "I1",
+                question = "Did you or anyone in your family receive any training under the project in the last five years (2016-21)",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "Yes"),
+                            CheckBoxItems("2", "No"),
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+
+            //I2 to I4 not written
+            Question(
+                id = "J1",
+                question = "Where do you sell the cashew nuts?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "at village level"),
+                            CheckBoxItems("2", "In nearest town"),
+                            CheckBoxItems("3", "At district level"),
+                            CheckBoxItems("4", "outside the district"),
+                            CheckBoxItems("5", "Outside the Country (export)"),
+                            CheckBoxItems("6", "Any other"),
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "J2",
+                question = "Can you please mention the name of the market?",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "Enter")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT
+            ),
+            Question(
+                id = "J3",
+                question = "How far is the market from your place? (in Kms)",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT
+            ),
+            Question(
+                id = "J5",
+                question = "How do you pack the Cashew Nuts for marketing?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "In gunny bags / plastic bags"),
+                            CheckBoxItems("2", "In plastic crates"),
+                            CheckBoxItems("3", "in wooden baskets"),
+                            CheckBoxItems("4", "Open sacks"),
+                            CheckBoxItems("5", "Any other"),
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "J6",
+                question = "How do you transport Cashew nuts to the marketplace?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "In carts"),
+                            CheckBoxItems("2", "In Auto / tempo"),
+                            CheckBoxItems("3", "in Public transport (bus etc.)"),
+                            CheckBoxItems("4", "Pick-up"),
+                            CheckBoxItems("5", "Mini truck"),
+                            CheckBoxItems("6", "Any other"),
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "J7",
+                question = "How is the connectivity of the market to your place? ",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "walking track/uncleared path"),
+                            CheckBoxItems("2", "Feeder road"),
+                            CheckBoxItems("3", "Trunk /Main/District road"),
+                            CheckBoxItems("4", "Any other"),
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "J8",
+                question = "Whom do you sell your Cashew nuts in the market?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "Aggregator"),
+                            CheckBoxItems("2", "Wholesaler"),
+                            CheckBoxItems("3", "Primary processor"),
+                            CheckBoxItems("4", "Large processor"),
+                            CheckBoxItems("5", "Cooperative"),
+                            CheckBoxItems("6", "Any other"),
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "J9",
+                question = "What is the type of market, in which you sell Cashew Nuts? ",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "Community Collection Centre"),
+                            CheckBoxItems("2", "Bulking facility"),
+                            CheckBoxItems("3", "Wholesale market"),
+                            CheckBoxItems("4", " At the plant of processor"),
+                            CheckBoxItems("5", "Any other"),
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+
+            //J10 not done
+
+            Question(
+                id = "J11",
+                question = "What are the main challenges in marketing Cashew Nuts?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "Lack of markets"),
+                            CheckBoxItems("2", "Lack of marketing infrastructure"),
+                            CheckBoxItems("3", "Lack of market information"),
+                            CheckBoxItems("4", "Poor Communication"),
+                            CheckBoxItems("5", "Bad Road infrastructure"),
+                            CheckBoxItems("6", "Other"),
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "J12",
+                question = "What are the sources of market information?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "Fellow farmers"),
+                            CheckBoxItems("2", "Traders"),
+                            CheckBoxItems("3", "Government extension officers"),
+                            CheckBoxItems("4", "CIDP Project staff"),
+                            CheckBoxItems("5", "CIDP Project partners"),
+                            CheckBoxItems("6", "Any Other"),
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "K1",
+                question = "Have you been  availed any loan/grant  for Cashew Production",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "Yes"),
+                            CheckBoxItems("2", "No"),
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "K3",
+                question = "What is the source of the loan / financing?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "Commercial bank "),
+                            CheckBoxItems("2", "Cooperative Bank"),
+                            CheckBoxItems("3", "Micro-credit Institutions"),
+                            CheckBoxItems("4", "Family and friends"),
+                            CheckBoxItems("5", "other"),
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "K4",
+                question = "What is the purpose of loan / Funding?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "Land preparation "),
+                            CheckBoxItems("2", "Irrigation infrastructure at farm"),
+                            CheckBoxItems("3", "Planting material procurement"),
+                            CheckBoxItems("4", "Purchase of farm machinery / tractor"),
+                            CheckBoxItems("5", "Any other"),
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "K5",
+                question = "What has been annual rate of interest for the loan amount?",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT
+            ),
+            Question(
+                id = "K6",
+                question = "What is the repayment period for the loan?",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT
+            ),
+            Question(
+                id = "K7",
+                question = "Did the loan require mortgage of property or any guarantee?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "Yes"),
+                            CheckBoxItems("2", "No"),
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "K8",
+                question = "How will you rate ease of availing loan for cashew production?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "Very Easy"),
+                            CheckBoxItems("2", "Somewhat easy"),
+                            CheckBoxItems("3", "Difficult"),
+                            CheckBoxItems("4", "Very Difficult"),
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+
+            //L not created
+
+            Question(
+                id = "M1",
+                question = "How satisfied are you with the support received under the Cashew Infrastructure Development Project (CIDP)? ",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "Very satisfied"),
+                            CheckBoxItems("2", "Satisfied"),
+                            CheckBoxItems("3", "Neutral"),
+                            CheckBoxItems("4", "Dissatisfied"),
+                            CheckBoxItems("5", "Very dissatisfied"),
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "M2",
+                question = "How satisfied are you with the CIDP program intervention for women and youth engagement? ",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "Very satisfied"),
+                            CheckBoxItems("2", "Satisfied"),
+                            CheckBoxItems("3", "Neutral"),
+                            CheckBoxItems("4", "Dissatisfied"),
+                            CheckBoxItems("5", "Very dissatisfied"),
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "M3",
+                question = " Are there any changes in women involvement in household decision making after the CIDP program?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "Yes(women role increased in decision marking)"),
+                            CheckBoxItems("2", "No"),
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "M4",
+                question = "Are there any changes in women’s incomes and welfare, including nutrition  as a result of the Cashew project interventions?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "Yes"),
+                            CheckBoxItems("2", "No"),
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "M5",
+                question = "Are you willing to participate in similar projects in the future?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "Extremely unlikely"),
+                            CheckBoxItems("2", "Unlikely"),
+                            CheckBoxItems("3", "Neutral"),
+                            CheckBoxItems("4", "Likely"),
+                            CheckBoxItems("5", "extremely Likely"),
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "M6",
+                question = "How satisfied are you with the support  of the extension staff?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "Very satisfied"),
+                            CheckBoxItems("2", "Satisfied"),
+                            CheckBoxItems("3", "Neutral"),
+                            CheckBoxItems("4", "Dissatisfied"),
+                            CheckBoxItems("5", "Very dissatisfied"),
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "M7",
+                question = "Which aspect of the Cashew Infrastructure Development Project (CIDP) should  be improved?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "behaviour of extension staff"),
+                            CheckBoxItems("2", "provision of inputs"),
+                            CheckBoxItems("3", "communication"),
+                            CheckBoxItems("4", "marketing and processing"),
+                            CheckBoxItems("5", "capacity building"),
+                            CheckBoxItems("6", "access to financial resources"),
+                            CheckBoxItems("6", "others (please mention)"),
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "M8",
+                question = "Please provide any suggestions or comments regarding the Cashew Infrastructure Development Project (CIDP)",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "Enter")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT
+            )
+
+
+
+
+
+
+
+
+
+
+
             
 
 
