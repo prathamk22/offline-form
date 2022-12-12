@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.google.gson.Gson
 import com.offline.form.builder.data.db.AnswerEntity
 import com.offline.form.builder.utils.*
 import kotlinx.coroutines.Dispatchers
@@ -657,10 +658,14 @@ class HomeViewModel(
     }
 
     fun insertData() {
-//        val answerEntity =
-//        viewModelScope.launch {
-//            repo.insertData(answerEntity)
-//        }
+        val answerEntity = AnswerEntity(
+            nameOfRespondent = answers["A1"] ?: "",
+            data = Gson().toJson(answers.toMap()),
+            createdAt = System.currentTimeMillis()
+        )
+        viewModelScope.launch {
+            repo.insertData(answerEntity)
+        }
     }
 
 }

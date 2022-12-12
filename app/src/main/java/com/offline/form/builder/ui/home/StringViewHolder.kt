@@ -18,13 +18,13 @@ class StringViewHolder(
         with(binding) {
             questionTitle.text = item.question
             val inputOption = (item.options.firstOrNull() as? OptionType.InputField) ?: return
-            if (inputOption.hint.isEmpty()) {
-                textInputLayout.hint = ""
-            } else {
-                textInputLayout.hint = inputOption.hint
-            }
+//            if (inputOption.hint.isEmpty()) {
+//                textInputLayout.hint = ""
+//            } else {
+//                textInputLayout.hint = inputOption.hint
+//            }
             textInputEditText.inputType = inputOption.inputType
-            textInputLayout.hint = inputOption.hint
+            textInputEditText.setText(homeViewModel.getAnsIfAvailable(item.id))
             textInputEditText.addTextChangedListener {
                 val text = it?.toString() ?: return@addTextChangedListener
                 if (item.validate.isValid(text)) {

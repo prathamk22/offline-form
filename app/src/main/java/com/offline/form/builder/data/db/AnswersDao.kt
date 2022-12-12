@@ -19,7 +19,7 @@ interface AnswersDao {
     @Delete
     suspend fun deleteAnswer(answerEntity: AnswerEntity)
 
-    @Query("Select * from respondent_form_data")
+    @Query("Select * from respondent_form_data order by createdAt desc")
     fun getAnswer(): LiveData<List<AnswerEntity>>
 
 }

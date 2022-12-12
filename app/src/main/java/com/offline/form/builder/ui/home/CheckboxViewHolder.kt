@@ -23,6 +23,7 @@ class CheckboxViewHolder(
         with(binding) {
             questionTitle.text = item.question
             val checkBoxOption = (item.options.firstOrNull() as? OptionType.CheckBox) ?: return
+            checkBoxItems.removeAllViews()
             checkBoxOption.checkboxItems.forEach {
                 val checkBoxItem = CheckboxMainItemBinding.inflate(
                     LayoutInflater.from(binding.root.context),
@@ -35,7 +36,8 @@ class CheckboxViewHolder(
                 checkBoxItems.addView(checkBoxItem.root)
             }
             checkBoxItems.setOnCheckedChangeListener { _, i ->
-                val checkboxText = checkBoxItems.findViewById<RadioButton>(i).text
+                val checkboxText = checkBoxItems.findViewById<RadioButton?>(i)?.text
+                    ?: return@setOnCheckedChangeListener
                 checkBoxOption.checkboxItems.first {
                     it.optionTitle == checkboxText
                 }.let {

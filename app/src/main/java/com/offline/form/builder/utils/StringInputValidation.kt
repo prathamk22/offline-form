@@ -10,10 +10,6 @@ class StringInputValidation : Validation<Any> {
             errorMsg = "Text should not be empty"
             return false
         }
-        if (item.length > 6){
-            errorMsg = "Text should not have more than 6 length"
-            return false
-        }
         errorMsg = ""
         return true
     }
