@@ -9,7 +9,7 @@ class NumberInputValidation(
 
     override fun isValid(it: Any): Boolean {
         try {
-            val item = it as Long
+            val item = it.toString().toLong()
             if (item <= minimum) {
                 errorMessage = "Number should be greater than ${minimum}"
                 return false
@@ -22,6 +22,7 @@ class NumberInputValidation(
             errorMessage = null
             return true
         } catch (e: Exception) {
+            e.printStackTrace()
             return false
         }
     }

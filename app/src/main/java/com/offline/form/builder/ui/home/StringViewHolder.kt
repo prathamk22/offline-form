@@ -2,7 +2,9 @@ package com.offline.form.builder.ui.home
 
 import android.text.Editable
 import android.text.TextWatcher
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.offline.form.builder.OfflineFormApp
 import com.offline.form.builder.databinding.StringItemBinding
 import com.offline.form.builder.utils.OptionType
 import com.offline.form.builder.utils.OptionTypeEnum
@@ -46,11 +48,11 @@ class StringViewHolder(
 
 class LocalTextWatcher(
     private val homeViewModel: HomeViewModel
-): TextWatcher{
+) : TextWatcher {
 
     private var item: Question? = null
 
-    fun updateItem(item: Question){
+    fun updateItem(item: Question) {
         this.item = item
     }
 
@@ -62,12 +64,16 @@ class LocalTextWatcher(
         if (item == null)
             return
         val text = p0?.toString() ?: return
-        if (text.isEmpty()){
+        if (text.isEmpty()) {
             return
         }
         if (item?.validate?.isValid(text) == true) {
             homeViewModel.valueEntered(item!!.id, text)
         } else {
+            val error = item?.validate?.getError() ?: ""
+            if (error.isNotEmpty()){
+                Toast.makeText(OfflineFormApp.mContext, error, Toast.LENGTH_SHORT).show()
+            }
             homeViewModel.clearValue(item!!.id)
         }
     }

@@ -133,10 +133,6 @@ public class ExcelUtils {
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
-            context.startActivity((new ShareCompat.IntentBuilder(context))
-                    .setStream(Uri.fromFile(file))
-                    .setChooserTitle("Share Survey Data")
-                    .getIntent());
         }
         return isSuccess;
     }
