@@ -22,4 +22,9 @@ interface AnswersDao {
     @Query("Select * from respondent_form_data order by createdAt desc")
     fun getAnswer(): LiveData<List<AnswerEntity>>
 
+    @Query("Select * from respondent_form_data")
+    suspend fun getAllAnswers(): List<AnswerEntity>
+
+    @Query("delete from respondent_form_data")
+    suspend fun deleteAllData()
 }

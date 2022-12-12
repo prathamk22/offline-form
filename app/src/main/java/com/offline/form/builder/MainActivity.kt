@@ -5,6 +5,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -12,6 +13,10 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
 import com.offline.form.builder.databinding.ActivityMainBinding
+import com.offline.form.builder.utils.ExcelUtils
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.apache.poi.hssf.usermodel.HSSFCellStyle
 import org.apache.poi.hssf.usermodel.HSSFWorkbook
 import org.apache.poi.hssf.util.HSSFColor
@@ -58,19 +63,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun createExcelFileAndShare() {
-        val workbook: Workbook = HSSFWorkbook()
-        val sheet = workbook.createSheet(EXCEL_SHEET_NAME);
-        val row: Row = sheet.createRow(0)
-
-        var cell: Cell? = null
-
-        val cellStyle = workbook.createCellStyle()
-        cellStyle.fillForegroundColor = HSSFColor.AQUA.index
-        cellStyle.fillPattern = HSSFCellStyle.SOLID_FOREGROUND
-        cellStyle.alignment = CellStyle.ALIGN_CENTER
-        cell = row.createCell(0)
-        cell.setCellValue("First Cell")
-        cell.cellStyle = cellStyle
+        lifecycleScope.launch{
+            val allAns = withContext(Dispatchers.IO){ OfflineFormApp.db.answersDao().getAllAnswers() }
+            val isCreated = ExcelUtils().exportDataIntoWorkbook(this@MainActivity, "${System.currentTimeMillis()}.xls", allAns)
+            if (isCreated){
+                OfflineFormApp.db.answersDao().deleteAllData()
+            }
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
