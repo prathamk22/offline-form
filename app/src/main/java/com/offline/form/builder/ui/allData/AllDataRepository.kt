@@ -1,4 +1,4 @@
-package com.offline.form.builder.ui.slideshow
+package com.offline.form.builder.ui.allData
 
 import com.offline.form.builder.OfflineFormApp
 import com.offline.form.builder.data.db.AnswersDao

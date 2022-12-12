@@ -1,4 +1,4 @@
-package com.offline.form.builder.ui.slideshow
+package com.offline.form.builder.ui.allData
 
 import androidx.lifecycle.ViewModel
 

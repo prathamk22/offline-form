@@ -2,10 +2,12 @@ package com.offline.form.builder.ui.home
 
 import android.text.InputType
 import android.util.Log
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.offline.form.builder.data.db.AnswerEntity
 import com.offline.form.builder.utils.*
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class HomeViewModel(
@@ -42,21 +44,38 @@ class HomeViewModel(
 
     private val answers = mutableMapOf<String, String>()
 
+    val isEnabled = MutableLiveData(false)
+
     fun valueEntered(key: String, value: String) {
         Log.e("TAG", "valueEntered: Value is here $key $value")
         answers[key] = value
+        checkAndUpdateButton()
+    }
+
+    private fun checkAndUpdateButton() {
+        viewModelScope.launch(Dispatchers.Default) {
+            questions.forEach {
+                if (!it.isOptional && answers[it.id].isNullOrEmpty()) {
+                    isEnabled.postValue(false)
+                    return@launch
+                }
+            }
+            isEnabled.postValue(true)
+        }
     }
 
     fun getAnsIfAvailable(key: String): String? = answers[key]
 
     fun clearValue(key: String) {
         answers.remove(key)
+        checkAndUpdateButton()
     }
 
-    fun insertData(answerEntity: AnswerEntity) {
-        viewModelScope.launch {
-            repo.insertData(answerEntity)
-        }
+    fun insertData() {
+//        val answerEntity =
+//        viewModelScope.launch {
+//            repo.insertData(answerEntity)
+//        }
     }
 
 }

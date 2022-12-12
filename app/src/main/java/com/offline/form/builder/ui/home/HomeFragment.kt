@@ -25,6 +25,8 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding!!.vm = homeViewModel
+        _binding!!.lifecycleOwner = viewLifecycleOwner
         return binding.root
     }
 
@@ -34,6 +36,11 @@ class HomeFragment : Fragment() {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = questionAdapter
             questionAdapter.submitList(homeViewModel.questions)
+        }
+        binding.submitData.setOnClickListener {
+            if (it.isEnabled) {
+                homeViewModel.insertData()
+            }
         }
     }
 
