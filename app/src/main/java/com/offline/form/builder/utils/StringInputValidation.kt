@@ -1,7 +1,9 @@
 package com.offline.form.builder.utils
 
-class StringInputValidation : Validation {
-    override fun isValid() {
+class StringInputValidation : Validation<String> {
 
+    override fun isValid(item: String): Boolean {
+        return true
     }
+
 }

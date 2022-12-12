@@ -5,12 +5,14 @@ sealed class OptionType {
     data class InputField(val inputType: Int) : OptionType()
 
     data class CheckBox(
-        val checkboxItems: List<CheckBoxItems>
+        val checkboxItems: List<CheckBoxItems>,
+        val isOtherOptionAllowed: Boolean = false
     ) : OptionType()
 
 }
 
 
 data class CheckBoxItems(
+    val id: String,
     val optionTitle: String,
 )

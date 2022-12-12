@@ -15,7 +15,9 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val homeViewModel: HomeViewModel by viewModels()
-    private val questionAdapter: QuestionAdapter = QuestionAdapter()
+    private val questionAdapter: QuestionAdapter by lazy {
+        QuestionAdapter(homeViewModel)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
