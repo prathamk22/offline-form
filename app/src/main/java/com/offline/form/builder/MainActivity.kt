@@ -2,18 +2,28 @@ package com.offline.form.builder
 
 import android.os.Bundle
 import android.view.Menu
-import com.google.android.material.snackbar.Snackbar
-import com.google.android.material.navigation.NavigationView
+import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import androidx.drawerlayout.widget.DrawerLayout
-import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.navigation.NavigationView
 import com.offline.form.builder.databinding.ActivityMainBinding
+import org.apache.poi.hssf.usermodel.HSSFCellStyle
+import org.apache.poi.hssf.usermodel.HSSFWorkbook
+import org.apache.poi.hssf.util.HSSFColor
+import org.apache.poi.ss.usermodel.Cell
+import org.apache.poi.ss.usermodel.CellStyle
+import org.apache.poi.ss.usermodel.Row
+import org.apache.poi.ss.usermodel.Workbook
+
 
 class MainActivity : AppCompatActivity() {
+
+    private val EXCEL_SHEET_NAME = "Sheet1"
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
@@ -33,6 +43,34 @@ class MainActivity : AppCompatActivity() {
             AppBarConfiguration(setOf(R.id.nav_home, R.id.nav_slideshow), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+    }
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        menuInflater.inflate(R.menu.main, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.action_settings){
+            createExcelFileAndShare()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun createExcelFileAndShare() {
+        val workbook: Workbook = HSSFWorkbook()
+        val sheet = workbook.createSheet(EXCEL_SHEET_NAME);
+        val row: Row = sheet.createRow(0)
+
+        var cell: Cell? = null
+
+        val cellStyle = workbook.createCellStyle()
+        cellStyle.fillForegroundColor = HSSFColor.AQUA.index
+        cellStyle.fillPattern = HSSFCellStyle.SOLID_FOREGROUND
+        cellStyle.alignment = CellStyle.ALIGN_CENTER
+        cell = row.createCell(0)
+        cell.setCellValue("First Cell")
+        cell.cellStyle = cellStyle
     }
 
     override fun onSupportNavigateUp(): Boolean {
