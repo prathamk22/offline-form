@@ -1,11 +1,11 @@
 package com.offline.form.builder.utils
 
 class NumberInputValidation(
-    private val minimum: Int,
-    private val maximum: Int
+    private val minimum: Int = 0,
+    private val maximum: Int = Int.MAX_VALUE
 ) : Validation<Any> {
 
-    private var errorMessage = ""
+    private var errorMessage: String? = null
 
     override fun isValid(it: Any): Boolean {
         try {
@@ -19,6 +19,7 @@ class NumberInputValidation(
                 errorMessage = "Number should be smaller than ${maximum}"
                 return false
             }
+            errorMessage = null
             return true
         } catch (e: Exception) {
             return false
