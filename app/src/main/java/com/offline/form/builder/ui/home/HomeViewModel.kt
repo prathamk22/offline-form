@@ -37,13 +37,16 @@ class HomeViewModel : ViewModel() {
 
     private val answers = mutableMapOf<String, String>()
 
-
     fun valueEntered(key: String, value: String) {
         Log.e("TAG", "valueEntered: Value is here $key $value")
         answers[key] = value
     }
 
     fun getAnsIfAvailable(key: String): String? = answers[key]
+
+    fun clearValue(key: String) {
+        answers.remove(key)
+    }
 
 
 }

@@ -35,10 +35,11 @@ class CheckboxViewHolder(
                 checkBoxItems.addView(checkBoxItem.root)
             }
             checkBoxItems.setOnCheckedChangeListener { _, i ->
+                val checkboxText = checkBoxItems.findViewById<RadioButton>(i).text
                 checkBoxOption.checkboxItems.first {
-                    it.optionTitle == checkBoxItems.findViewById<RadioButton>(i).text
+                    it.optionTitle == checkboxText
                 }.let {
-                    if (item.validate.isValid()) {
+                    if (item.validate.isValid(checkboxText)) {
                         homeViewModel.valueEntered(item.id, it.id)
                     }
                 }
