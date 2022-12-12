@@ -1,8 +1,12 @@
 package com.offline.form.builder.utils
 
-class CheckboxInputValidation : Validation<CheckBoxItems> {
+class CheckboxInputValidation : Validation<Any> {
 
-    override fun isValid(item: CheckBoxItems): Boolean {
+    override fun isValid(it: Any): Boolean {
         return true
+    }
+
+    override fun getError(): String {
+        return ""
     }
 }

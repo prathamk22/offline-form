@@ -13,7 +13,7 @@ class HomeViewModel : ViewModel() {
                 id = "Input 1",
                 question = "What is your name",
                 options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_TEXT)
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter your name")
                 ),
                 validate = StringInputValidation(),
                 optionType = OptionTypeEnum.INPUT
@@ -37,13 +37,16 @@ class HomeViewModel : ViewModel() {
 
     private val answers = mutableMapOf<String, String>()
 
-
     fun valueEntered(key: String, value: String) {
         Log.e("TAG", "valueEntered: Value is here $key $value")
         answers[key] = value
     }
 
     fun getAnsIfAvailable(key: String): String? = answers[key]
+
+    fun clearValue(key: String) {
+        answers.remove(key)
+    }
 
 
 }
