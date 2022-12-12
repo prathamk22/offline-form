@@ -27,13 +27,13 @@ class QuestionAdapter(
         return when (viewType) {
             OptionTypeEnum.CHECK_BOX.id -> CheckboxViewHolder(
                 CheckboxItemBinding.inflate(
-                    LayoutInflater.from(parent.context), null, false
+                    LayoutInflater.from(parent.context), parent, false
                 ),
                 homeViewModel
             )
             OptionTypeEnum.INPUT.id -> StringViewHolder(
                 StringItemBinding.inflate(
-                    LayoutInflater.from(parent.context), null, false
+                    LayoutInflater.from(parent.context), parent, false
                 ),
                 homeViewModel
             )

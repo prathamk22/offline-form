@@ -1,13 +1,7 @@
 package com.offline.form.builder.ui.home
 
-import android.view.LayoutInflater
-import android.view.View
-import android.widget.EditText
-import android.widget.RadioButton
-import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.RecyclerView
-import com.offline.form.builder.databinding.CheckboxMainItemBinding
 import com.offline.form.builder.databinding.StringItemBinding
 import com.offline.form.builder.utils.OptionType
 import com.offline.form.builder.utils.OptionTypeEnum
@@ -22,14 +16,21 @@ class StringViewHolder(
         if (item.optionType != OptionTypeEnum.INPUT)
             return
         with(binding) {
-//            questionTitle.text = item.question
+            questionTitle.text = item.question
             val inputOption = (item.options.firstOrNull() as? OptionType.InputField) ?: return
-            val et = EditText(binding.root.context)
-            et.addTextChangedListener {
+            if (inputOption.hint.isEmpty()) {
+                textInputLayout.hint = ""
+            } else {
+                textInputLayout.hint = inputOption.hint
+            }
+            textInputEditText.inputType = inputOption.inputType
+            textInputLayout.hint = inputOption.hint
+            textInputEditText.addTextChangedListener {
                 val text = it?.toString() ?: return@addTextChangedListener
                 if (item.validate.isValid(text)) {
                     homeViewModel.valueEntered(item.id, text)
                 } else {
+                    textInputEditText.error = item.validate.getError()
                     homeViewModel.clearValue(item.id)
                 }
             }

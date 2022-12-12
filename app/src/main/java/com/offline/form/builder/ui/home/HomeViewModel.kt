@@ -13,7 +13,7 @@ class HomeViewModel : ViewModel() {
                 id = "Input 1",
                 question = "What is your name",
                 options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_TEXT)
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter your name")
                 ),
                 validate = StringInputValidation(),
                 optionType = OptionTypeEnum.INPUT

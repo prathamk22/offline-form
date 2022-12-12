@@ -2,7 +2,7 @@ package com.offline.form.builder.utils
 
 sealed class OptionType {
 
-    data class InputField(val inputType: Int) : OptionType()
+    data class InputField(val inputType: Int, val hint: String) : OptionType()
 
     data class CheckBox(
         val checkboxItems: List<CheckBoxItems>,
