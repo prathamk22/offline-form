@@ -543,7 +543,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "C6",
-                question = "Value of house hold assets",
+                question = "C6 Value of house hold assets",
                 options = listOf(
                     OptionType.Button(
                         "Enter Value of house hold assets",
@@ -560,8 +560,8 @@ class HomeViewModel(
                     )
                 ),
                 isOptional = true,
-                validate = NumberInputValidation(),
-                optionType = OptionTypeEnum.INPUT
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.Button
             ),
             Question(
                 id = "D1",
