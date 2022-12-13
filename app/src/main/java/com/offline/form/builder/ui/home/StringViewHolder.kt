@@ -16,6 +16,10 @@ class StringViewHolder(
     val localTextWatcher: LocalTextWatcher
 ) : RecyclerView.ViewHolder(binding.root), OfflineViewHolder {
 
+    init {
+        localTextWatcher.setBinding(binding)
+    }
+
     override fun onBind(item: Question) {
         if (item.optionType != OptionTypeEnum.INPUT)
             return
@@ -50,6 +54,7 @@ class LocalTextWatcher(
     private val homeViewModel: HomeViewModel
 ) : TextWatcher {
 
+    private lateinit var viewBinding: StringItemBinding
     private var item: Question? = null
 
     fun updateItem(item: Question) {
@@ -71,6 +76,9 @@ class LocalTextWatcher(
             homeViewModel.valueEntered(item!!.id, text)
         } else {
             val error = item?.validate?.getError() ?: ""
+            if (::viewBinding.isInitialized){
+                viewBinding.textInputEditText.error = error
+            }
             if (error.isNotEmpty()){
                 Toast.makeText(OfflineFormApp.mContext, error, Toast.LENGTH_SHORT).show()
             }
@@ -80,6 +88,10 @@ class LocalTextWatcher(
 
     override fun afterTextChanged(p0: Editable?) {
 
+    }
+
+    fun setBinding(binding: StringItemBinding) {
+        this.viewBinding = binding
     }
 
 }

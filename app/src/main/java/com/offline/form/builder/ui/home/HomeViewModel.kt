@@ -12,6 +12,7 @@ import com.google.gson.Gson
 import com.offline.form.builder.R
 import com.offline.form.builder.data.db.AnswerEntity
 import com.offline.form.builder.utils.*
+import com.pradeep.form.simple_form.model.Form
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -37,7 +38,10 @@ class HomeViewModel(
                     OptionType.Button("Enter family members", object : ButtonAction {
                         override fun doAction(view: View, question: Question) {
                             view.findNavController()
-                                .navigate(R.id.action_nav_home_to_nav_gallery, bundleOf())
+                                .navigate(
+                                    R.id.action_nav_home_to_nav_gallery,
+                                    bundleOf("formKey" to question.id)
+                                )
                         }
                     })
                 ),
@@ -1310,7 +1314,8 @@ class HomeViewModel(
     private fun checkAndUpdateButton() {
         viewModelScope.launch(Dispatchers.Default) {
             questions.forEach {
-                if (!it.isOptional && answers[it.id] != null) {
+                if (!it.isOptional && answers[it.id] == null) {
+                    Log.e("TAG", "checkAndUpdateButton: error is jere $it", )
                     isEnabled.postValue(false)
                     return@launch
                 }
@@ -1335,6 +1340,32 @@ class HomeViewModel(
         )
         viewModelScope.launch {
             repo.insertData(answerEntity)
+        }
+    }
+
+    fun submitData(key: String, forms: List<List<Form>>) {
+        if (key.isEmpty())
+            return
+        viewModelScope.launch {
+            val tableData = forms.map {
+                TableData(
+                    Constants.USERS_SHEET,
+                    it,
+                    columnNames = listOf(
+                        "B4",
+                        "B5",
+                        "B6",
+                        "B7",
+                        "B8",
+                        "B9",
+                        "B10",
+                        "B11",
+                    )
+                )
+            }
+            val data = Gson().toJson(tableData)
+            Log.e("TAG", "submitData: $key $data")
+            answers[key] = data
         }
     }
 
