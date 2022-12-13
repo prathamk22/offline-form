@@ -111,16 +111,6 @@ class HouseHoldAssetsFragment : BaseTableFragment() {
             Form(
                 isMandatory = true,
                 formType = FormTypes.NUMBER,
-                question = "Purchase old price item",
-                hint = "Enter old price",
-                singleLineTextType = SingleLineTextType.TEXT,
-                errorMessage = "Please provide an answer",
-            )
-        )
-        forms.add(
-            Form(
-                isMandatory = true,
-                formType = FormTypes.NUMBER,
                 question = "Purchase new price item",
                 hint = "Enter new price",
                 singleLineTextType = SingleLineTextType.TEXT,
