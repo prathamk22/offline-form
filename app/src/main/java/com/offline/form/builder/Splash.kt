@@ -19,7 +19,7 @@ class Splash : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
         supportActionBar?.hide()
         textView=findViewById(R.id.surveyText)
-        textView.text=Html.fromHtml("Programme Name: <b>Cashew Infrastructure Development Project (CIDP)</b> \nClient Name: <b>Ministry of Agriculture, Govt of the Republic of Zambia</b>  \n<b>Survey for Beneficiary Impact Assessment (BIA) of CIDP project</b>  \n<b>Survey By: SPA Capital Advisors Pvt. Ltd. & KCM Green Ltd.</b> ")
+        textView.text=Html.fromHtml("Programme Name: <b>Cashew Infrastructure Development Project (CIDP)</b> || \nClient Name: <b>Ministry of Agriculture, Govt of the Republic of Zambia</b> || \n<b>Survey for Beneficiary Impact Assessment (BIA) of CIDP project</b> || \n<b>Survey By: SPA Capital Advisors Pvt. Ltd. & KCM Green Ltd.</b> ")
 
         val start_btn=findViewById(R.id.btnStart) as Button
         start_btn.setOnClickListener{
