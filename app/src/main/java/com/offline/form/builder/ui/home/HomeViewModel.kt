@@ -855,7 +855,23 @@ class HomeViewModel(
                 optionType = OptionTypeEnum.CHECK_BOX
             ),
 
-            //SECTION F not created
+            Question(
+                id = "F",
+                question = "F Crop Profile",
+                options = listOf(
+                    OptionType.Button("Crop Profile", object : ButtonAction {
+                        override fun doAction(view: View, question: Question) {
+                            view.findNavController()
+                                .navigate(
+                                    R.id.action_nav_home_to_cropProfileFragment,
+                                    bundleOf("formKey" to question.id)
+                                )
+                        }
+                    })
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.Button
+            ),
 
             Question(
                 id = "G1",
@@ -1621,6 +1637,32 @@ class HomeViewModel(
                         "J10.0",
                         "J10.1",
                         "J10.2",
+                    )
+                )
+            }
+            val data = Gson().toJson(tableData)
+            Log.e("TAG", "submitData: $key $data")
+            answers[key] = data
+            checkAndUpdateButton()
+        }
+    }
+
+    fun submitFData(key: String, forms: MutableList<List<Form>>) {
+        if (key.isEmpty())
+            return
+        viewModelScope.launch {
+            val tableData = forms.map {
+                TableData(
+                    Constants.CROP_PROFILE,
+                    it,
+                    columnNames = listOf(
+                        "F1",
+                        "F2",
+                        "F3",
+                        "F4",
+                        "F5",
+                        "F6",
+                        "F7",
                     )
                 )
             }

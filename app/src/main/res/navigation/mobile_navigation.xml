@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_nav_home_to_farmerGroupAssociation"
             app:destination="@id/farmerGroupAssociation" />
+        <action
+            android:id="@+id/action_nav_home_to_cropProfileFragment"
+            app:destination="@id/cropProfileFragment" />
     </fragment>
 
     <fragment
@@ -40,4 +43,8 @@
         android:id="@+id/farmerGroupAssociation"
         android:name="com.offline.form.builder.ui.FarmerGroupAssociation"
         android:label="FarmerGroupAssociation" />
+    <fragment
+        android:id="@+id/cropProfileFragment"
+        android:name="com.offline.form.builder.ui.CropProfileFragment"
+        android:label="CropProfileFragment" />
 </navigation>

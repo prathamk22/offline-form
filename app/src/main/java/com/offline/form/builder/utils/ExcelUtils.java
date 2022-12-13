@@ -129,14 +129,18 @@ public class ExcelUtils {
         if (tempSheet == null) {
             tempSheet = workbook.createSheet(temp.getSheetName());
         }
-        temp.getColumnNames().add("data_id");
-        Row row = tempSheet.createRow(0);
-        int i = 0;
-        for (String item : temp.getColumnNames()) {
-            Cell cell = row.createCell(i);
-            cell.setCellValue(item);
-            cell.setCellStyle(headerCellStyle);
-            i++;
+        int lastRow = tempSheet.getLastRowNum();
+        Log.e("TAG", "createNewTableData: " + lastRow);
+        if (lastRow == 0){
+            temp.getColumnNames().add("data_id");
+            Row row = tempSheet.createRow(0);
+            int i = 0;
+            for (String item : temp.getColumnNames()) {
+                Cell cell = row.createCell(i);
+                cell.setCellValue(item);
+                cell.setCellStyle(headerCellStyle);
+                i++;
+            }
         }
 
         for (int p = 0; p < tableDataList.size(); p++) {

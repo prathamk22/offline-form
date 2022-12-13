@@ -9,6 +9,7 @@ data class TableData(
 )
 
 object Constants{
+    const val CROP_PROFILE: String = "Crop Profile"
     const val USERS_SHEET = "Users Sheet"
     const val HOUSE_HOLD_ASSETS_SHEET = "House hold assets sheet"
     const val FARMERS_ASSOCAITION = "Farmers association"
