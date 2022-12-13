@@ -50,4 +50,15 @@
         android:text="PRESS TO START"
         app:layout_constraintTop_toBottomOf="@+id/intro"
         />
+
+    <TextView
+        android:id="@+id/surveyText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="250dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginLeft="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
 </RelativeLayout>
