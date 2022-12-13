@@ -32,23 +32,6 @@ class HomeViewModel(
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
-                id = "A99",
-                question = "A99 Enter your family members ",
-                options = listOf(
-                    OptionType.Button("Enter family members", object : ButtonAction {
-                        override fun doAction(view: View, question: Question) {
-                            view.findNavController()
-                                .navigate(
-                                    R.id.action_nav_home_to_nav_gallery,
-                                    bundleOf("formKey" to question.id)
-                                )
-                        }
-                    })
-                ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.Button
-            ),
-            Question(
                 id = "A2",
                 question = "A2 District Name ",
                 options = listOf(
@@ -244,9 +227,23 @@ class HomeViewModel(
                 validate = NumberInputValidation(0, Int.MAX_VALUE),
                 optionType = OptionTypeEnum.INPUT
             ),
-
-            //B2-B11 Not Written
-
+            Question(
+                id = "B2",
+                question = "B2 Enter your family members ",
+                options = listOf(
+                    OptionType.Button("Enter family members", object : ButtonAction {
+                        override fun doAction(view: View, question: Question) {
+                            view.findNavController()
+                                .navigate(
+                                    R.id.action_nav_home_to_nav_gallery,
+                                    bundleOf("formKey" to question.id)
+                                )
+                        }
+                    })
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.Button
+            ),
             Question(
                 id = "B12",
                 question = "B12 What is the most common health related issue/disease in your area?",

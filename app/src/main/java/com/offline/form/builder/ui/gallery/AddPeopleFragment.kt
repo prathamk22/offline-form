@@ -126,8 +126,6 @@ class AddPeopleFragment : Fragment() {
                 errorMessage = "Please choose"
             )
         )
-
-
         return forms
     }
 
