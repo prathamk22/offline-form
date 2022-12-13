@@ -50,6 +50,7 @@ class AddPeopleFragment : Fragment() {
         val forms = mutableListOf<Form>()
         forms.add(
             Form(
+                isMandatory = true,
                 formType = FormTypes.SINGLE_LINE_TEXT,
 
                 question = "Name of the household member",
@@ -60,6 +61,7 @@ class AddPeopleFragment : Fragment() {
         )
         forms.add(
             Form(
+                isMandatory = true,
                 formType = FormTypes.SINGLE_CHOICE,
                 question = "Gender",
                 choices = listOf("1. Male", "2. Female"),
@@ -68,6 +70,7 @@ class AddPeopleFragment : Fragment() {
         )
         forms.add(
             Form(
+                isMandatory = true,
                 formType = FormTypes.SINGLE_LINE_TEXT,
 
                 question = "Age",
@@ -79,6 +82,7 @@ class AddPeopleFragment : Fragment() {
         )
         forms.add(
             Form(
+                isMandatory = true,
                 formType = FormTypes.SINGLE_CHOICE,
                 question = "Education Level",
                 hint = "1=No Formal Education; 2 = Less than Grade 5; 3 = Less than grade 10; 4 = Less than Grade 12; 5= College Student; 6 = University Undergraduate Student; 7= Tertiary Certificate; Diploma; 8= Bachelors Degree; 9 = Masters Degree and Above.",
@@ -88,6 +92,7 @@ class AddPeopleFragment : Fragment() {
         )
         forms.add(
             Form(
+                isMandatory = true,
                 formType = FormTypes.SINGLE_CHOICE,
                 question = "Actively involved in Farming",
                 choices = listOf("1. Yes", "2. No"),
@@ -96,6 +101,7 @@ class AddPeopleFragment : Fragment() {
         )
         forms.add(
             Form(
+                isMandatory = true,
                 formType = FormTypes.SINGLE_CHOICE,
                 question = "Earning member of HH",
                 choices = listOf("1. Yes", "2. No"),
@@ -104,6 +110,7 @@ class AddPeopleFragment : Fragment() {
         )
         forms.add(
             Form(
+                isMandatory = true,
                 formType = FormTypes.SINGLE_CHOICE,
                 question = "Suffered from COVID-19 at any time",
                 choices = listOf("1. Yes", "2. No"),
@@ -112,6 +119,7 @@ class AddPeopleFragment : Fragment() {
         )
         forms.add(
             Form(
+                isMandatory = true,
                 formType = FormTypes.SINGLE_CHOICE,
                 question = "Suffered from HIV AIDS",
                 choices = listOf("1. Yes", "2. No"),
@@ -120,6 +128,7 @@ class AddPeopleFragment : Fragment() {
         )
         forms.add(
             Form(
+                isMandatory = true,
                 formType = FormTypes.SINGLE_CHOICE,
                 question = "Suffered from any other Health issue",
                 choices = listOf("1. Yes", "2. No"),

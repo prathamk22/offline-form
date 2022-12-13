@@ -14,6 +14,7 @@ class FarmerGroupAssociation : BaseTableFragment() {
         val forms = mutableListOf<Form>()
         forms.add(
             Form(
+                isMandatory = true,
                 formType = FormTypes.SINGLE_CHOICE,
                 question = "Group name",
                 choices = listOf(
@@ -29,6 +30,7 @@ class FarmerGroupAssociation : BaseTableFragment() {
         )
         forms.add(
             Form(
+                isMandatory = true,
                 formType = FormTypes.SINGLE_CHOICE,
                 question = "Are you a member",
                 choices = listOf("1. Yes", "2. No"),
@@ -37,6 +39,7 @@ class FarmerGroupAssociation : BaseTableFragment() {
         )
         forms.add(
             Form(
+                isMandatory = true,
                 formType = FormTypes.SINGLE_CHOICE,
                 question = "Is the group actively working?",
                 choices = listOf("1. Yes", "2. No"),
@@ -45,6 +48,7 @@ class FarmerGroupAssociation : BaseTableFragment() {
         )
         forms.add(
             Form(
+                isMandatory = true,
                 formType = FormTypes.NUMBER,
                 question = "Period of membership (Years)",
                 hint = "please enter your membership",

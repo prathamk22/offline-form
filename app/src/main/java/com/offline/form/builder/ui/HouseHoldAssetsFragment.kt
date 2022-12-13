@@ -14,6 +14,7 @@ class HouseHoldAssetsFragment : BaseTableFragment() {
         val forms = mutableListOf<Form>()
         forms.add(
             Form(
+                isMandatory = true,
                 formType = FormTypes.SINGLE_CHOICE,
                 question = "Production Asset",
                 choices = listOf(
@@ -69,6 +70,7 @@ class HouseHoldAssetsFragment : BaseTableFragment() {
         )
         forms.add(
             Form(
+                isMandatory = true,
                 formType = FormTypes.SINGLE_CHOICE,
                 question = "Who Owns it",
                 choices = listOf("M", "F"),
@@ -77,6 +79,7 @@ class HouseHoldAssetsFragment : BaseTableFragment() {
         )
         forms.add(
             Form(
+                isMandatory = true,
                 formType = FormTypes.NUMBER,
                 question = "Total number",
                 hint = "Enter total numbers",
@@ -86,6 +89,7 @@ class HouseHoldAssetsFragment : BaseTableFragment() {
         )
         forms.add(
             Form(
+                isMandatory = true,
                 formType = FormTypes.NUMBER,
                 question = "Total number acquired in last 12 months",
                 hint = "Enter total numbers",
@@ -95,6 +99,7 @@ class HouseHoldAssetsFragment : BaseTableFragment() {
         )
         forms.add(
             Form(
+                isMandatory = true,
                 formType = FormTypes.NUMBER,
                 question = "Purchase old price item",
                 hint = "Enter old price",
@@ -104,6 +109,7 @@ class HouseHoldAssetsFragment : BaseTableFragment() {
         )
         forms.add(
             Form(
+                isMandatory = true,
                 formType = FormTypes.NUMBER,
                 question = "Purchase old price item",
                 hint = "Enter old price",
@@ -113,6 +119,7 @@ class HouseHoldAssetsFragment : BaseTableFragment() {
         )
         forms.add(
             Form(
+                isMandatory = true,
                 formType = FormTypes.NUMBER,
                 question = "Purchase new price item",
                 hint = "Enter new price",

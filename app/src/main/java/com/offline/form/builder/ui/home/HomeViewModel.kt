@@ -1196,9 +1196,23 @@ class HomeViewModel(
                 validate = CheckboxInputValidation(),
                 optionType = OptionTypeEnum.CHECK_BOX
             ),
-
-            //J10 not done
-
+            Question(
+                id = "J10",
+                question = "J10 What are the costs of marketting of cashew nuts and how these costs have changed in last 5 years?",
+                options = listOf(
+                    OptionType.Button("Costs of marketting", object : ButtonAction {
+                        override fun doAction(view: View, question: Question) {
+                            view.findNavController()
+                                .navigate(
+                                    R.id.action_nav_home_to_farmerGroupAssociation,
+                                    bundleOf("formKey" to question.id)
+                                )
+                        }
+                    })
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.Button
+            ),
             Question(
                 id = "J11",
                 question = "J11 What are the main challenges in marketing Cashew Nuts?",
@@ -1585,6 +1599,28 @@ class HomeViewModel(
                         "L2",
                         "L3",
                         "L4",
+                    )
+                )
+            }
+            val data = Gson().toJson(tableData)
+            Log.e("TAG", "submitData: $key $data")
+            answers[key] = data
+            checkAndUpdateButton()
+        }
+    }
+
+    fun submitJ10Data(key: String, forms: MutableList<List<Form>>) {
+        if (key.isEmpty())
+            return
+        viewModelScope.launch {
+            val tableData = forms.map {
+                TableData(
+                    Constants.CASHEW_COST_MARKETING,
+                    it,
+                    columnNames = listOf(
+                        "J10.0",
+                        "J10.1",
+                        "J10.2",
                     )
                 )
             }
