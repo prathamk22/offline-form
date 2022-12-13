@@ -19,7 +19,7 @@ class HomeViewModel(
         listOf(
             Question(
                 id = "A1",
-                question = "Name of the Respondent",
+                question = "A1" + "Name of the Respondent",
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_TEXT, "Enter your name")
                 ),
@@ -28,7 +28,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "A2",
-                question = " District Name ",
+                question = "A2" + " District Name ",
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_TEXT, "Enter District Name")
                 ),
@@ -37,7 +37,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "A3",
-                question = "Block Name",
+                question = "A3" + "Block Name",
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_TEXT, "Enter name of Block")
                 ),
@@ -46,7 +46,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "A4",
-                question = "Agri-Camp Name",
+                question = "A4" + "Agri-Camp Name",
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_TEXT, "Enter Agri-Camp Name")
                 ),
@@ -55,7 +55,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "A5",
-                question = "Village Name",
+                question = "A5" + "Village Name",
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_TEXT, "Enter Village Name")
                 ),
@@ -64,7 +64,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "A6",
-                question = "Household Serial No.",
+                question = "A6" + "Household Serial No.",
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter Household Serial No.")
                 ),
@@ -73,7 +73,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "A7",
-                question = "Consent from the Respondent",
+                question = "A7" + "Consent from the Respondent",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -88,7 +88,7 @@ class HomeViewModel(
 
             Question(
                 id = "A8",
-                question = " Age of Respondent",
+                question = "A8" + " Age of Respondent",
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter Age of Respondent")
                 ),
@@ -97,7 +97,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "A9",
-                question = "Gender of the Respondent",
+                question = "A9" + "Gender of the Respondent",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -111,7 +111,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "A10",
-                question = "Mobile number of respondent / House Hold member",
+                question = "A10" + "Mobile number of respondent / House Hold member",
                 options = listOf(
                     OptionType.InputField(
                         InputType.TYPE_CLASS_PHONE,
@@ -123,7 +123,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "A11",
-                question = "Are you Head of the Family",
+                question = "A11" + "Are you Head of the Family",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -139,7 +139,7 @@ class HomeViewModel(
             //ADD  A.12 Name of the family Head (if response of A.10 is (2))
             Question(
                 id = "A13",
-                question = "Gender of the head of Household",
+                question = "A13" + "Gender of the head of Household",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -153,7 +153,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "A14",
-                question = "Relationship of respondent to Head of HH",
+                question = "A14" + "Relationship of respondent to Head of HH",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -173,7 +173,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "A15",
-                question = "Marital status of respondent",
+                question = "A15" + "Marital status of respondent",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -193,7 +193,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "A16",
-                question = "Highest Education level of respondent",
+                question = "A16" + "Highest Education level of respondent",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -215,7 +215,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "B1",
-                question = "How many people are in this household",
+                question = "B1" + "How many people are in this household",
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter no. of people")
                 ),
@@ -227,7 +227,7 @@ class HomeViewModel(
 
             Question(
                 id = "B12",
-                question = "What is the most common health related issue/disease in your area?",
+                question = "B12" + "What is the most common health related issue/disease in your area?",
                 options = listOf(
                     OptionType.InputField(
                         InputType.TYPE_CLASS_TEXT,
@@ -239,7 +239,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "B13",
-                question = "Is the family receiving Government support for medical expenses?",
+                question = "B13" + "Is the family receiving Government support for medical expenses?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -253,7 +253,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "B14",
-                question = "Is the family receiving Government support for educational expenses for children in the family??",
+                question = "B14" + "Is the family receiving Government support for educational expenses for children in the family??",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -267,7 +267,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "C1",
-                question = "What is the main source of drinking water for members of your household?",
+                question = "C1" + "What is the main source of drinking water for members of your household?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -285,7 +285,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "C2",
-                question = "What kind of toilet facility does your household use?",
+                question = "C2" + "What kind of toilet facility does your household use?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -301,7 +301,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "C2(a)",
-                question = "How do you dispose of domestic waste?",
+                question = "C2(a)" + "How do you dispose of domestic waste?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -315,7 +315,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "C3",
-                question = "Do you produce enough food to the last year?",
+                question = "C3" + "Do you produce enough food to the last year?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -333,7 +333,7 @@ class HomeViewModel(
 
             Question(
                 id = "C4(a)",
-                question = "What energy source does your household rely for cooking and lighting? 1.=,  2=, 3=, 4=,  5=, 6=, 7= , 8.= (Specify) ",
+                question = "C4(a)" + "What energy source does your household rely for cooking and lighting? 1.=,  2=, 3=, 4=,  5=, 6=, 7= , 8.= (Specify) ",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -353,7 +353,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "C4(b)",
-                question = "Is your household involved in crop production?",
+                question = "C4(b)" + "Is your household involved in crop production?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -367,7 +367,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "C4(c)",
-                question = "What does your household use to cultivate your farmland?",
+                question = "C4(c)" + "What does your household use to cultivate your farmland?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -388,7 +388,7 @@ class HomeViewModel(
 
             Question(
                 id = "D1",
-                question = "Annual Household Income (in Kwacha)",
+                question = "D1" + "Annual Household Income (in Kwacha)",
                 options = listOf(
                     OptionType.InputField(
                         InputType.TYPE_CLASS_NUMBER,
@@ -400,7 +400,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "D2",
-                question = "Number of earning household members",
+                question = "D2" + "Number of earning household members",
                 options = listOf(
                     OptionType.InputField(
                         InputType.TYPE_CLASS_NUMBER,
@@ -412,7 +412,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "D3",
-                question = "Income earned by Women household members (in Kwacha)",
+                question = "D3" + "Income earned by Women household members (in Kwacha)",
                 options = listOf(
                     OptionType.InputField(
                         InputType.TYPE_CLASS_NUMBER,
@@ -424,7 +424,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "D41",
-                question = "Annual Income of the Household From Farming / Agriculture",
+                question = "D41" + "Annual Income of the Household From Farming / Agriculture",
                 options = listOf(
                     OptionType.InputField(
                         InputType.TYPE_CLASS_NUMBER,
@@ -436,7 +436,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "D42",
-                question = "Annual Income of the Household From Livestock / Dairy",
+                question = "D42" + "Annual Income of the Household From Livestock / Dairy",
                 options = listOf(
                     OptionType.InputField(
                         InputType.TYPE_CLASS_NUMBER,
@@ -448,7 +448,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "D43",
-                question = "Annual Income of the Household From selling animal meat",
+                question = "D43" + "Annual Income of the Household From selling animal meat",
                 options = listOf(
                     OptionType.InputField(
                         InputType.TYPE_CLASS_NUMBER,
@@ -460,7 +460,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "D44",
-                question = "Annual Income of the Household From Labour (on-farm)",
+                question = "D44" + "Annual Income of the Household From Labour (on-farm)",
                 options = listOf(
                     OptionType.InputField(
                         InputType.TYPE_CLASS_NUMBER,
@@ -472,7 +472,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "D45",
-                question = "Annual Income of the Household From Labour (off-farm activities such as construction etc.)",
+                question = "D45" + "Annual Income of the Household From Labour (off-farm activities such as construction etc.)",
                 options = listOf(
                     OptionType.InputField(
                         InputType.TYPE_CLASS_NUMBER,
@@ -484,7 +484,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "D46",
-                question = "Annual Income of the Household From non-farm business activities",
+                question = "D46" + "Annual Income of the Household From non-farm business activities",
                 options = listOf(
                     OptionType.InputField(
                         InputType.TYPE_CLASS_NUMBER,
@@ -496,7 +496,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "D47",
-                question = "Annual Income of the Household From Salary of HH member (migrated/non-migrated) ",
+                question = "D47" + "Annual Income of the Household From Salary of HH member (migrated/non-migrated) ",
                 options = listOf(
                     OptionType.InputField(
                         InputType.TYPE_CLASS_NUMBER,
@@ -508,7 +508,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "D48",
-                question = "Annual Income of the Household From fish farming",
+                question = "D48" + "Annual Income of the Household From fish farming",
                 options = listOf(
                     OptionType.InputField(
                         InputType.TYPE_CLASS_NUMBER,
@@ -520,7 +520,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "D49",
-                question = "Annual Income of the Household From Remittances",
+                question = "D49" + "Annual Income of the Household From Remittances",
                 options = listOf(
                     OptionType.InputField(
                         InputType.TYPE_CLASS_NUMBER,
@@ -532,7 +532,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "D410",
-                question = "Annual Income of the Household From Pension",
+                question = "D410" + "Annual Income of the Household From Pension",
                 options = listOf(
                     OptionType.InputField(
                         InputType.TYPE_CLASS_NUMBER,
@@ -544,7 +544,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "D411",
-                question = "Annual Income of the Household From Aid",
+                question = "D411" + "Annual Income of the Household From Aid",
                 options = listOf(
                     OptionType.InputField(
                         InputType.TYPE_CLASS_NUMBER,
@@ -556,7 +556,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "D412",
-                question = "Annual Income of the Household From Other",
+                question = "D412" + "Annual Income of the Household From Other",
                 options = listOf(
                     OptionType.InputField(
                         InputType.TYPE_CLASS_NUMBER,
@@ -568,7 +568,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "D5",
-                question = "Has income changed in the last 12 Months",
+                question = "D5" + "Has income changed in the last 12 Months",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -583,7 +583,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "D6",
-                question = "Has income changed in the last 24 Months",
+                question = "D6" + "Has income changed in the last 24 Months",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -599,7 +599,7 @@ class HomeViewModel(
 
             Question(
                 id = "E1",
-                question = "Total Area under cultivation (in Ha.)",
+                question = "E1" + "Total Area under cultivation (in Ha.)",
                 options = listOf(
                     OptionType.InputField(
                         InputType.TYPE_CLASS_NUMBER,
@@ -611,7 +611,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "E2",
-                question = "Area under Irrigation (in Ha.)",
+                question = "E2" + "Area under Irrigation (in Ha.)",
                 options = listOf(
                     OptionType.InputField(
                         InputType.TYPE_CLASS_NUMBER,
@@ -623,7 +623,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "E3",
-                question = "Rain fed Area (in Ha.)",
+                question = "E3" + "Rain fed Area (in Ha.)",
                 options = listOf(
                     OptionType.InputField(
                         InputType.TYPE_CLASS_NUMBER,
@@ -635,7 +635,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "E4",
-                question = "Leased in / Rent in Land, if any (in Ha.) ",
+                question = "E4" + "Leased in / Rent in Land, if any (in Ha.) ",
                 options = listOf(
                     OptionType.InputField(
                         InputType.TYPE_CLASS_NUMBER,
@@ -647,7 +647,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "E5",
-                question = "Sources of Irrigation",
+                question = "E5" + "Sources of Irrigation",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -664,7 +664,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "E6",
-                question = "Type of irrigation",
+                question = "E6" + "Type of irrigation",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -682,7 +682,7 @@ class HomeViewModel(
 
             Question(
                 id = "G1",
-                question = "Are you aware of Cashew Infrastructure Development Project (CIDP) being implemented in the District?",
+                question = "G1" + "Are you aware of Cashew Infrastructure Development Project (CIDP) being implemented in the District?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -701,7 +701,7 @@ class HomeViewModel(
 
             Question(
                 id = "H2",
-                question = "Have you received/purchased new planting material in the last five years (2016-21)",
+                question = "H2" + "Have you received/purchased new planting material in the last five years (2016-21)",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -715,7 +715,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "H3",
-                question = "From where did you received/purchased planting material for new plantation",
+                question = "H3" + "From where did you received/purchased planting material for new plantation",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -732,7 +732,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "H4",
-                question = "How far is the nearest nursery/planting material source from your place (in Kms) ",
+                question = "H4" + "How far is the nearest nursery/planting material source from your place (in Kms) ",
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter (in Kms) ")
                 ),
@@ -741,7 +741,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "H5",
-                question = "How will you rate the planting material used at your farm on a scale of “1 to 5”, wherein “1 “is poor and “5” is the best?",
+                question = "H5" + "How will you rate the planting material used at your farm on a scale of “1 to 5”, wherein “1 “is poor and “5” is the best?",
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter Value")
                 ),
@@ -750,7 +750,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "H6",
-                question = " Can you mention three benefits that you think the community has received from nurseries promoted under the project?",
+                question = "H6" + " Can you mention three benefits that you think the community has received from nurseries promoted under the project?",
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_TEXT, "Enter Benefits")
                 ),
@@ -759,7 +759,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "H7",
-                question = "Did you get your Cashew plantation rejuvenated/rehabilitated under the project in last five years (2016-21)",
+                question = "H7" + "Did you get your Cashew plantation rejuvenated/rehabilitated under the project in last five years (2016-21)",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -776,7 +776,7 @@ class HomeViewModel(
 
             Question(
                 id = "H9",
-                question = "Can you please mention specific support received for cashew plantation rejuvenation/rehabilitation",
+                question = "H9" + "Can you please mention specific support received for cashew plantation rejuvenation/rehabilitation",
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_TEXT, "Enter Benefits")
                 ),
@@ -785,7 +785,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "H10",
-                question = "Did the productivity of the cashew plantation  improve because of rejuvenation?",
+                question = "H10" + "Did the productivity of the cashew plantation  improve because of rejuvenation?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -799,7 +799,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "H11",
-                question = "Did you get bare area in your cashew plantation replanted under the project in last five years (2016-21)",
+                question = "H11" + "Did you get bare area in your cashew plantation replanted under the project in last five years (2016-21)",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -813,7 +813,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "H13",
-                question = "Can you please mention specific support received for replantation in bare are in orchard",
+                question = "H13" + "Can you please mention specific support received for replantation in bare are in orchard",
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_TEXT, "Enter")
                 ),
@@ -822,7 +822,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "H14",
-                question = "Did the productivity of the cashew plantation improved due to replantation?",
+                question = "H14" + "Did the productivity of the cashew plantation improved due to replantation?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -836,7 +836,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "H16",
-                question = "Did you bring new area under cashew production during CIDP project in the last five years (2016-21)",
+                question = "H16" + "Did you bring new area under cashew production during CIDP project in the last five years (2016-21)",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -850,7 +850,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "H18",
-                question = "Can you please mention specific support received for bringing new area under the cashew production ?",
+                question = "H18" + "Can you please mention specific support received for bringing new area under the cashew production ?",
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_TEXT, "Enter")
                 ),
@@ -859,7 +859,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "H19",
-                question = "Is yield levels of new orchard is higher than the old orchards?",
+                question = "H19" + "Is yield levels of new orchard is higher than the old orchards?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -873,7 +873,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "I1",
-                question = "Did you or anyone in your family receive any training under the project in the last five years (2016-21)",
+                question = "I1" + "Did you or anyone in your family receive any training under the project in the last five years (2016-21)",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -889,7 +889,7 @@ class HomeViewModel(
             //I2 to I4 not written
             Question(
                 id = "J1",
-                question = "Where do you sell the cashew nuts?",
+                question = "J1" + "Where do you sell the cashew nuts?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -907,7 +907,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "J2",
-                question = "Can you please mention the name of the market?",
+                question = "J2" + "Can you please mention the name of the market?",
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_TEXT, "Enter")
                 ),
@@ -916,7 +916,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "J3",
-                question = "How far is the market from your place? (in Kms)",
+                question = "J3" + "How far is the market from your place? (in Kms)",
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter")
                 ),
@@ -925,7 +925,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "J5",
-                question = "How do you pack the Cashew Nuts for marketing?",
+                question = "J5" + "How do you pack the Cashew Nuts for marketing?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -942,7 +942,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "J6",
-                question = "How do you transport Cashew nuts to the marketplace?",
+                question = "J6" + "How do you transport Cashew nuts to the marketplace?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -960,7 +960,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "J7",
-                question = "How is the connectivity of the market to your place? ",
+                question = "J7" + "How is the connectivity of the market to your place? ",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -976,7 +976,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "J8",
-                question = "Whom do you sell your Cashew nuts in the market?",
+                question = "J8" + "Whom do you sell your Cashew nuts in the market?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -994,7 +994,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "J9",
-                question = "What is the type of market, in which you sell Cashew Nuts? ",
+                question = "J9" + "What is the type of market, in which you sell Cashew Nuts? ",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -1014,7 +1014,7 @@ class HomeViewModel(
 
             Question(
                 id = "J11",
-                question = "What are the main challenges in marketing Cashew Nuts?",
+                question = "J11" + "What are the main challenges in marketing Cashew Nuts?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -1032,7 +1032,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "J12",
-                question = "What are the sources of market information?",
+                question = "J12" + "What are the sources of market information?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -1050,7 +1050,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "K1",
-                question = "Have you been  availed any loan/grant  for Cashew Production",
+                question = "K1" + "Have you been  availed any loan/grant  for Cashew Production",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -1064,7 +1064,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "K3",
-                question = "What is the source of the loan / financing?",
+                question = "K3" + "What is the source of the loan / financing?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -1081,7 +1081,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "K4",
-                question = "What is the purpose of loan / Funding?",
+                question = "K4" + "What is the purpose of loan / Funding?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -1098,7 +1098,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "K5",
-                question = "What has been annual rate of interest for the loan amount?",
+                question = "K5" + "What has been annual rate of interest for the loan amount?",
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter")
                 ),
@@ -1107,7 +1107,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "K6",
-                question = "What is the repayment period for the loan?",
+                question = "K6" + "What is the repayment period for the loan?",
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter")
                 ),
@@ -1116,7 +1116,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "K7",
-                question = "Did the loan require mortgage of property or any guarantee?",
+                question = "K7" + "Did the loan require mortgage of property or any guarantee?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -1130,7 +1130,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "K8",
-                question = "How will you rate ease of availing loan for cashew production?",
+                question = "K8" + "How will you rate ease of availing loan for cashew production?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -1149,7 +1149,7 @@ class HomeViewModel(
 
             Question(
                 id = "M1",
-                question = "How satisfied are you with the support received under the Cashew Infrastructure Development Project (CIDP)? ",
+                question = "M1" + "How satisfied are you with the support received under the Cashew Infrastructure Development Project (CIDP)? ",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -1166,7 +1166,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "M2",
-                question = "How satisfied are you with the CIDP program intervention for women and youth engagement? ",
+                question = "M2" + "How satisfied are you with the CIDP program intervention for women and youth engagement? ",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -1183,7 +1183,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "M3",
-                question = " Are there any changes in women involvement in household decision making after the CIDP program?",
+                question = "M3" + " Are there any changes in women involvement in household decision making after the CIDP program?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -1197,7 +1197,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "M4",
-                question = "Are there any changes in women’s incomes and welfare, including nutrition  as a result of the Cashew project interventions?",
+                question = "M4" + "Are there any changes in women’s incomes and welfare, including nutrition  as a result of the Cashew project interventions?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -1211,7 +1211,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "M5",
-                question = "Are you willing to participate in similar projects in the future?",
+                question = "M5" + "Are you willing to participate in similar projects in the future?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -1228,7 +1228,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "M6",
-                question = "How satisfied are you with the support  of the extension staff?",
+                question = "M6" + "How satisfied are you with the support  of the extension staff?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -1245,7 +1245,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "M7",
-                question = "Which aspect of the Cashew Infrastructure Development Project (CIDP) should  be improved?",
+                question = "M7" + "Which aspect of the Cashew Infrastructure Development Project (CIDP) should  be improved?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -1264,7 +1264,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "M8",
-                question = "Please provide any suggestions or comments regarding the Cashew Infrastructure Development Project (CIDP)",
+                question = "M8" + "Please provide any suggestions or comments regarding the Cashew Infrastructure Development Project (CIDP)",
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_TEXT, "Enter")
                 ),
