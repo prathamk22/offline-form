@@ -24,7 +24,7 @@ class StringViewHolder(
         if (item.optionType != OptionTypeEnum.INPUT)
             return
         with(binding) {
-            questionTitle.text = item.question
+            questionTitle.text = item.question.plus(if (item.isOptional) " ( Optional )" else "")
             val inputOption = (item.options.firstOrNull() as? OptionType.InputField) ?: run {
                 textInputEditText.setText("")
                 return

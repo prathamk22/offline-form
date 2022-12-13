@@ -21,7 +21,7 @@ class CheckboxViewHolder(
         if (item.optionType != OptionTypeEnum.CHECK_BOX)
             return
         with(binding) {
-            questionTitle.text = item.question
+            questionTitle.text = item.question.plus(if (item.isOptional) " ( Optional )" else "")
             val checkBoxOption = (item.options.firstOrNull() as? OptionType.CheckBox) ?: return
             checkBoxItems.removeAllViews()
             checkBoxOption.checkboxItems.forEach {

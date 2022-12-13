@@ -412,6 +412,16 @@ class HomeViewModel(
                 optionType = OptionTypeEnum.CHECK_BOX
             ),
             Question(
+                id = "C51.1",
+                question = "C51.1 If response to is Yes, how much",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter number")
+                ),
+                validate = NumberInputValidation(),
+                optionType = OptionTypeEnum.INPUT,
+                isOptional = true
+            ),
+            Question(
                 id = "C52",
                 question = "C52 Does any member of your household own Sheep?",
                 options = listOf(
@@ -424,6 +434,16 @@ class HomeViewModel(
                 ),
                 validate = CheckboxInputValidation(),
                 optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "C52.1",
+                question = "C52.1 If response to is Yes, how much",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter number")
+                ),
+                validate = NumberInputValidation(),
+                optionType = OptionTypeEnum.INPUT,
+                isOptional = true
             ),
             Question(
                 id = "C53",
@@ -440,6 +460,16 @@ class HomeViewModel(
                 optionType = OptionTypeEnum.CHECK_BOX
             ),
             Question(
+                id = "C53.1",
+                question = "C53.1 If response to is Yes, how much",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter number")
+                ),
+                validate = NumberInputValidation(),
+                optionType = OptionTypeEnum.INPUT,
+                isOptional = true
+            ),
+            Question(
                 id = "C54",
                 question = "C54 Does any member of your household own Cattle?",
                 options = listOf(
@@ -452,6 +482,16 @@ class HomeViewModel(
                 ),
                 validate = CheckboxInputValidation(),
                 optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "C54.1",
+                question = "C54.1 If response to is Yes, how much",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter number")
+                ),
+                validate = NumberInputValidation(),
+                optionType = OptionTypeEnum.INPUT,
+                isOptional = true
             ),
             Question(
                 id = "C55",
@@ -468,6 +508,16 @@ class HomeViewModel(
                 optionType = OptionTypeEnum.CHECK_BOX
             ),
             Question(
+                id = "C55.1",
+                question = "C55.1 If response to is Yes, how much",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter number")
+                ),
+                validate = NumberInputValidation(),
+                optionType = OptionTypeEnum.INPUT,
+                isOptional = true
+            ),
+            Question(
                 id = "C56",
                 question = "C56 Does any member of your household own others?",
                 options = listOf(
@@ -481,9 +531,16 @@ class HomeViewModel(
                 validate = CheckboxInputValidation(),
                 optionType = OptionTypeEnum.CHECK_BOX
             ),
-
-
-
+            Question(
+                id = "C56.1",
+                question = "C56.1 If response to is Yes, how much",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter number")
+                ),
+                validate = NumberInputValidation(),
+                optionType = OptionTypeEnum.INPUT,
+                isOptional = true
+            ),
             Question(
                 id = "C6",
                 question = "Value of house hold assets",
