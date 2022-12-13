@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_nav_home_to_nav_gallery"
             app:destination="@id/nav_gallery" />
+        <action
+            android:id="@+id/action_nav_home_to_houseHoldAssetsFragment"
+            app:destination="@id/houseHoldAssetsFragment" />
     </fragment>
 
     <fragment
@@ -26,4 +29,8 @@
         android:name="com.offline.form.builder.ui.allData.AllFormDataFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/houseHoldAssetsFragment"
+        android:name="com.offline.form.builder.ui.HouseHoldAssetsFragment"
+        android:label="HouseHoldAssetsFragment" />
 </navigation>

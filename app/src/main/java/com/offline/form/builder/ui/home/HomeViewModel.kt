@@ -346,10 +346,6 @@ class HomeViewModel(
                 validate = CheckboxInputValidation(),
                 optionType = OptionTypeEnum.CHECK_BOX
             ),
-
-
-            //C3(a) and C3(b) Not Written
-
             Question(
                 id = "C4(a)",
                 question = "C4(a) What energy source does your household rely for cooking and lighting? 1.=,  2=, 3=, 4=,  5=, 6=, 7= , 8.= (Specify) ",
@@ -402,9 +398,29 @@ class HomeViewModel(
                 optionType = OptionTypeEnum.CHECK_BOX
             ),
 
-            //C5 not written
-            //Value of household assets not written
 
+            Question(
+                id = "C6",
+                question = "Value of house hold assets",
+                options = listOf(
+                    OptionType.Button(
+                        "Enter Value of house hold assets",
+                        object : ButtonAction{
+                            override fun doAction(view: View, question: Question) {
+                                view.findNavController()
+                                    .navigate(
+                                        R.id.action_nav_home_to_houseHoldAssetsFragment,
+                                        bundleOf("formKey" to question.id)
+                                    )
+                            }
+
+                        }
+                    )
+                ),
+                isOptional = true,
+                validate = NumberInputValidation(),
+                optionType = OptionTypeEnum.INPUT
+            ),
             Question(
                 id = "D1",
                 question = "D1 Annual Household Income (in Kwacha)",
@@ -793,9 +809,16 @@ class HomeViewModel(
                 validate = CheckboxInputValidation(),
                 optionType = OptionTypeEnum.CHECK_BOX
             ),
-
-            //H8 not written
-
+            Question(
+                id = "H8",
+                question = "H8 If response to G7 is Yes, please mention number of trees rejuvenated/rehabilitated",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter number of trees rejuvenated/rehabilitated")
+                ),
+                validate = NumberInputValidation(),
+                optionType = OptionTypeEnum.INPUT,
+                isOptional = true
+            ),
             Question(
                 id = "H9",
                 question = "H9 Can you please mention specific support received for cashew plantation rejuvenation/rehabilitation",
@@ -1312,7 +1335,7 @@ class HomeViewModel(
         viewModelScope.launch(Dispatchers.Default) {
             questions.forEach {
                 if (!it.isOptional && answers[it.id] == null) {
-                    Log.e("TAG", "checkAndUpdateButton: error is jere $it", )
+                    Log.e("TAG", "checkAndUpdateButton: error is jere $it")
                     isEnabled.postValue(false)
                     return@launch
                 }
@@ -1330,12 +1353,12 @@ class HomeViewModel(
     }
 
     fun insertData() {
-        val answerEntity = AnswerEntity(
-            nameOfRespondent = answers["A1"]?.toString() ?: "",
-            data = Gson().toJson(answers.toMap()),
-            createdAt = System.currentTimeMillis()
-        )
         viewModelScope.launch {
+            val answerEntity = AnswerEntity(
+                nameOfRespondent = answers["A1"]?.toString() ?: "",
+                data = Gson().toJson(questions.associate { it.id to answers[it.id] }),
+                createdAt = System.currentTimeMillis()
+            )
             repo.insertData(answerEntity)
         }
     }
@@ -1349,6 +1372,7 @@ class HomeViewModel(
                     Constants.USERS_SHEET,
                     it,
                     columnNames = listOf(
+                        "B3",
                         "B4",
                         "B5",
                         "B6",
@@ -1363,6 +1387,32 @@ class HomeViewModel(
             val data = Gson().toJson(tableData)
             Log.e("TAG", "submitData: $key $data")
             answers[key] = data
+            checkAndUpdateButton()
+        }
+    }
+
+    fun submitC6Data(key: String, forms: MutableList<List<Form>>) {
+        if (key.isEmpty())
+            return
+        viewModelScope.launch {
+            val tableData = forms.map {
+                TableData(
+                    Constants.HOUSE_HOLD_ASSETS_SHEET,
+                    it,
+                    columnNames = listOf(
+                        "C6.1",
+                        "C6.2",
+                        "C6.3",
+                        "C6.4",
+                        "C6.5",
+                        "C6.6",
+                    )
+                )
+            }
+            val data = Gson().toJson(tableData)
+            Log.e("TAG", "submitData: $key $data")
+            answers[key] = data
+            checkAndUpdateButton()
         }
     }
 
