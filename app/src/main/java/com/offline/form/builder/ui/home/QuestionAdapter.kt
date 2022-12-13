@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import com.offline.form.builder.databinding.ButtonItemBinding
 import com.offline.form.builder.databinding.CheckboxItemBinding
 import com.offline.form.builder.databinding.StringItemBinding
 import com.offline.form.builder.utils.OptionTypeEnum
@@ -38,6 +39,11 @@ class QuestionAdapter(
                 homeViewModel,
                 LocalTextWatcher(homeViewModel)
             )
+            OptionTypeEnum.Button.id -> ButtonViewHolder(
+                ButtonItemBinding.inflate(
+                    LayoutInflater.from(parent.context), parent, false
+                ),
+            )
             else -> throw IllegalStateException("Input type not found")
         }
     }
@@ -47,7 +53,7 @@ class QuestionAdapter(
         (holder as? OfflineViewHolder)?.onAttachedToWindow()
     }
 
-    override fun onViewDetachedFromWindow(holder: ViewHolder){
+    override fun onViewDetachedFromWindow(holder: ViewHolder) {
         super.onViewDetachedFromWindow(holder)
         (holder as? OfflineViewHolder)?.onDetachedFromWindow()
     }

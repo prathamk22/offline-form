@@ -8,6 +8,6 @@
     <string name="action_settings">Share</string>
 
     <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
+    <string name="menu_gallery">People</string>
     <string name="menu_slideshow">All data</string>
 </resources>

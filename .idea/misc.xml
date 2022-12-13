@@ -5,11 +5,14 @@
       <map>
         <entry key="app/src/main/res/layout/all_data_item.xml" value="0.3515625" />
         <entry key="app/src/main/res/layout/app_bar_main.xml" value="0.3203272501627604" />
+        <entry key="app/src/main/res/layout/button_item.xml" value="0.3515625" />
         <entry key="app/src/main/res/layout/checkbox_item.xml" value="0.3515625" />
         <entry key="app/src/main/res/layout/checkbox_main_item.xml" value="0.3515625" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.16510416666666666" />
+        <entry key="app/src/main/res/layout/fragment_gallery.xml" value="0.2375" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_slideshow.xml" value="0.35260416666666666" />
+        <entry key="app/src/main/res/layout/nav_header_main.xml" value="0.17916666666666667" />
         <entry key="app/src/main/res/layout/string_item.xml" value="0.35260416666666666" />
         <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.34717948717948716" />
         <entry key="app/src/main/res/menu/main.xml" value="0.35260416666666666" />

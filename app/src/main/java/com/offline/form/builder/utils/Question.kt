@@ -11,5 +11,6 @@ data class Question(
 
 enum class OptionTypeEnum(val id: Int){
     INPUT(0),
-    CHECK_BOX(1)
+    CHECK_BOX(1),
+    Button(2)
 }

@@ -9,11 +9,15 @@
         android:id="@+id/nav_home"
         android:name="com.offline.form.builder.ui.home.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_nav_gallery"
+            app:destination="@id/nav_gallery" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.offline.form.builder.ui.gallery.GalleryFragment"
+        android:name="com.offline.form.builder.ui.gallery.AddPeopleFragment"
         android:label="@string/menu_gallery"
         tools:layout="@layout/fragment_gallery" />
 
