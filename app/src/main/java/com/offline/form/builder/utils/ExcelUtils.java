@@ -7,6 +7,7 @@ import android.util.Log;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.offline.form.builder.data.db.AnswerEntity;
+import com.pradeep.form.simple_form.model.Form;
 
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
@@ -22,7 +23,6 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Consumer;
 
 public class ExcelUtils {
 
@@ -77,9 +77,9 @@ public class ExcelUtils {
         Row row = sheet.createRow(0);
 
         AnswerEntity answerEntity = dataList.get(0);
-        Type typeToken = new TypeToken<Map<String, String>>() {
+        Type typeToken = new TypeToken<Map<String, Object>>() {
         }.getType();
-        Map<String, String> map = new Gson().fromJson(answerEntity.getData(), typeToken);
+        Map<String, Object> map = new Gson().fromJson(answerEntity.getData(), typeToken);
         int i = 0;
         for (String item : map.keySet()) {
             Cell cell = row.createCell(i);
@@ -91,18 +91,65 @@ public class ExcelUtils {
 
     private void fillDataIntoExcel(List<AnswerEntity> dataList) {
         for (int i = 0; i < dataList.size(); i++) {
-            // Create a New Row for every new entry in list
             Type typeToken = new TypeToken<Map<String, String>>() {
             }.getType();
-            Map<String, String> map = new Gson().fromJson(dataList.get(i).getData(), typeToken);
+            AnswerEntity answerEntity = dataList.get(i);
+            Map<String, String> map = new Gson().fromJson(answerEntity.getData(), typeToken);
             Row rowData = sheet.createRow(i + 1);
 
             int j = 0;
             for (String key : map.keySet()) {
                 Cell cell = rowData.createCell(j);
-                cell.setCellValue(map.get(key));
+                String data = map.get(key);
+                List<TableData> tableData = null;
+                if (data != null) {
+                    Type tableList = new TypeToken<List<TableData>>() {
+                    }.getType();
+                    try{
+                        tableData = new Gson().fromJson(data, tableList);
+                    }catch (Exception e){
+
+                    }
+                    if (tableData == null) {
+                        cell.setCellValue(data);
+                        j++;
+                    } else {
+                        createNewTableData(tableData, answerEntity);
+                    }
+                }
+            }
+        }
+    }
+
+    private void createNewTableData(List<TableData> tableDataList, AnswerEntity data) {
+        if (tableDataList.isEmpty())
+            return;
+        TableData temp = tableDataList.get(0);
+        HSSFSheet tempSheet = workbook.getSheet(temp.getSheetName());
+        if (tempSheet == null) {
+            tempSheet = workbook.createSheet(temp.getSheetName());
+        }
+        temp.getColumnNames().add("data_id");
+        Row row = tempSheet.createRow(0);
+        int i = 0;
+        for (String item : temp.getColumnNames()) {
+            Cell cell = row.createCell(i);
+            cell.setCellValue(item);
+            cell.setCellStyle(headerCellStyle);
+            i++;
+        }
+
+        for (int p = 0; p < tableDataList.size(); p++) {
+            Row rowData = tempSheet.createRow(p + 1);
+            TableData tableData = tableDataList.get(p);
+            int j = 0;
+            for (Form item : tableData.getFormAns()) {
+                Cell cell = rowData.createCell(j);
+                cell.setCellValue(item.getAnswer());
                 j++;
             }
+            Cell cell = rowData.createCell(j);
+            cell.setCellValue(String.valueOf(data.getId()));
         }
     }
 
