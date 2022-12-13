@@ -1,11 +1,8 @@
 package com.offline.form.builder.utils;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Environment;
 import android.util.Log;
-
-import androidx.core.app.ShareCompat;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
