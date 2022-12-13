@@ -1331,9 +1331,23 @@ class HomeViewModel(
                 validate = CheckboxInputValidation(),
                 optionType = OptionTypeEnum.CHECK_BOX
             ),
-
-            //L not created
-
+            Question(
+                id = "L",
+                question = "L Farmers groups and associations",
+                options = listOf(
+                    OptionType.Button("Farmers groups and associations", object : ButtonAction {
+                        override fun doAction(view: View, question: Question) {
+                            view.findNavController()
+                                .navigate(
+                                    R.id.action_nav_home_to_farmerGroupAssociation,
+                                    bundleOf("formKey" to question.id)
+                                )
+                        }
+                    })
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.Button
+            ),
             Question(
                 id = "M1",
                 question = "M1 How satisfied are you with the support received under the Cashew Infrastructure Development Project (CIDP)? ",
@@ -1548,6 +1562,29 @@ class HomeViewModel(
                         "C6.4",
                         "C6.5",
                         "C6.6",
+                    )
+                )
+            }
+            val data = Gson().toJson(tableData)
+            Log.e("TAG", "submitData: $key $data")
+            answers[key] = data
+            checkAndUpdateButton()
+        }
+    }
+
+    fun submitLData(key: String, forms: MutableList<List<Form>>) {
+        if (key.isEmpty())
+            return
+        viewModelScope.launch {
+            val tableData = forms.map {
+                TableData(
+                    Constants.FARMERS_ASSOCAITION,
+                    it,
+                    columnNames = listOf(
+                        "L1",
+                        "L2",
+                        "L3",
+                        "L4",
                     )
                 )
             }

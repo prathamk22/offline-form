@@ -66,9 +66,9 @@ class MainActivity : AppCompatActivity() {
         lifecycleScope.launch{
             val allAns = withContext(Dispatchers.IO){ OfflineFormApp.db.answersDao().getAllAnswers() }
             val isCreated = ExcelUtils().exportDataIntoWorkbook(this@MainActivity, "${System.currentTimeMillis()}.xls", allAns)
-            if (isCreated){
-                OfflineFormApp.db.answersDao().deleteAllData()
-            }
+//            if (isCreated){
+//                OfflineFormApp.db.answersDao().deleteAllData()
+//            }
         }
     }
 

@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_nav_home_to_houseHoldAssetsFragment"
             app:destination="@id/houseHoldAssetsFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_farmerGroupAssociation"
+            app:destination="@id/farmerGroupAssociation" />
     </fragment>
 
     <fragment
@@ -33,4 +36,8 @@
         android:id="@+id/houseHoldAssetsFragment"
         android:name="com.offline.form.builder.ui.HouseHoldAssetsFragment"
         android:label="HouseHoldAssetsFragment" />
+    <fragment
+        android:id="@+id/farmerGroupAssociation"
+        android:name="com.offline.form.builder.ui.FarmerGroupAssociation"
+        android:label="FarmerGroupAssociation" />
 </navigation>
