@@ -1156,6 +1156,24 @@ class HomeViewModel(
                 isOptional = true
             ),
             Question(
+                id = "I4",
+                question = "I.4 How have you adopted the knowledge gained through trainings? What benefits these trainings have brought in cashew production?",
+                options = listOf(
+                    OptionType.Button("Knowledge Training", object : ButtonAction {
+                        override fun doAction(view: View, question: Question) {
+                            view.findNavController()
+                                .navigate(
+                                    R.id.action_nav_home_to_training,
+                                    bundleOf("formKey" to question.id)
+                                )
+                        }
+                    })
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.Button,
+                isOptional = true
+            ),
+            Question(
                 id = "J1",
                 question = "J1 Where do you sell the cashew nuts?",
                 options = listOf(
@@ -1803,6 +1821,29 @@ class HomeViewModel(
                         "I.3.2",
                         "I.3.3",
                         "I.3.4",
+                    )
+                )
+            }
+            val data = Gson().toJson(tableData)
+            Log.e("TAG", "submitData: $key $data")
+            answers[key] = data
+            checkAndUpdateButton()
+        }
+    }
+
+    fun submitI4Data(key: String, forms: MutableList<List<Form>>) {
+        if (key.isEmpty())
+            return
+        viewModelScope.launch {
+            val tableData = forms.map {
+                TableData(
+                    Constants.I4_KNOWLEDGE_TRANING,
+                    it,
+                    columnNames = listOf(
+                        "I.4.0",
+                        "I.4.1",
+                        "I.4.2",
+                        "I.4.3",
                     )
                 )
             }

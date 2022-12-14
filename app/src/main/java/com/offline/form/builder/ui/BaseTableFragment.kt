@@ -4,8 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.offline.form.builder.databinding.FragmentHouseHoldAssetsBinding
 import com.offline.form.builder.ui.home.HomeViewModel
 import com.pradeep.form.simple_form.model.Form
@@ -38,10 +41,21 @@ abstract class BaseTableFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.simpleForm.setData(getSection1FormData(), callback)
-        binding.submitList.setOnClickListener {
-            onSubmitListCalled()
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+            if (userdataList.size > 0) {
+                MaterialAlertDialogBuilder(requireContext())
+                    .setTitle("Do you want to add data?")
+                    .setCancelable(true)
+                    .setMessage("Do you want to add these items into the data?")
+                    .setPositiveButton("Add and Exit") { d, i ->
+                        onSubmitListCalled()
+                        findNavController().navigateUp()
+                    }.setNegativeButton("Cancel and Exit") { d, i ->
+                        findNavController().navigateUp()
+                    }.create().show()
+            }
         }
+        binding.simpleForm.setData(getSection1FormData(), callback)
     }
 
     abstract fun onSubmitListCalled()
