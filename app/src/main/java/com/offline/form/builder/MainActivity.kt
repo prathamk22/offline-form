@@ -3,6 +3,7 @@ package com.offline.form.builder
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.lifecycleScope
@@ -66,6 +67,9 @@ class MainActivity : AppCompatActivity() {
         lifecycleScope.launch{
             val allAns = withContext(Dispatchers.IO){ OfflineFormApp.db.answersDao().getAllAnswers() }
             val isCreated = ExcelUtils().exportDataIntoWorkbook(this@MainActivity, "${System.currentTimeMillis()}.xls", allAns)
+            withContext(Dispatchers.Main){
+                Toast.makeText(this@MainActivity, "File Created", Toast.LENGTH_SHORT).show()
+            }
 //            if (isCreated){
 //                OfflineFormApp.db.answersDao().deleteAllData()
 //            }
