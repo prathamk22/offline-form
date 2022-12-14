@@ -108,9 +108,9 @@ public class ExcelUtils {
                 if (data != null) {
                     Type tableList = new TypeToken<List<TableData>>() {
                     }.getType();
-                    try{
+                    try {
                         tableData = new Gson().fromJson(data, tableList);
-                    }catch (Exception e){
+                    } catch (Exception e) {
 
                     }
                     if (tableData == null) {
@@ -130,37 +130,49 @@ public class ExcelUtils {
     }
 
     private void createNewTableData(List<TableData> tableDataList, AnswerEntity data) {
-        if (tableDataList.isEmpty())
-            return;
-        TableData temp = tableDataList.get(0);
-        HSSFSheet tempSheet = workbook.getSheet(temp.getSheetName());
-        if (tempSheet == null) {
-            tempSheet = workbook.createSheet(temp.getSheetName());
-        }
-        int lastRow = tempSheet.getLastRowNum();
-        if (lastRow == 0){
-            temp.getColumnNames().add("data_id");
-            Row row = tempSheet.createRow(0);
-            int i = 0;
-            for (String item : temp.getColumnNames()) {
-                Cell cell = row.createCell(i);
-                cell.setCellValue(item);
-                cell.setCellStyle(headerCellStyle);
-                i++;
+        try {
+            if (tableDataList.isEmpty())
+                return;
+            TableData temp = tableDataList.get(0);
+            HSSFSheet tempSheet;
+            try {
+                tempSheet = workbook.createSheet(temp.getSheetName());
+            } catch (IllegalArgumentException e) {
+                tempSheet = workbook.getSheet(temp.getSheetName());
+            } catch (Exception e) {
+                e.printStackTrace();
+                return;
             }
-        }
+            if (tempSheet == null)
+                return;
+            int lastRow = tempSheet.getLastRowNum();
+            if (lastRow == 0) {
+                temp.getColumnNames().add("data_id");
+                Row row = tempSheet.createRow(0);
+                int i = 0;
+                for (String item : temp.getColumnNames()) {
+                    Cell cell = row.createCell(i);
+                    cell.setCellValue(item);
+                    cell.setCellStyle(headerCellStyle);
+                    i++;
+                }
+            }
 
-        for (int p = 0; p < tableDataList.size(); p++) {
-            Row rowData = tempSheet.createRow(lastRow + p + 1);
-            TableData tableData = tableDataList.get(p);
-            int j = 0;
-            for (Form item : tableData.getFormAns()) {
+            for (int p = 0; p < tableDataList.size(); p++) {
+                Row rowData = tempSheet.createRow(lastRow + p + 1);
+                TableData tableData = tableDataList.get(p);
+                int j = 0;
+                for (Form item : tableData.getFormAns()) {
+                    Cell cell = rowData.createCell(j);
+                    cell.setCellValue(item.getAnswer());
+                    j++;
+                }
                 Cell cell = rowData.createCell(j);
-                cell.setCellValue(item.getAnswer());
-                j++;
+                cell.setCellValue(data.getId());
             }
-            Cell cell = rowData.createCell(j);
-            cell.setCellValue(data.getId());
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.e("TAG", "createNewTableData: " + e.getLocalizedMessage());
         }
     }
 
