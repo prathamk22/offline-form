@@ -1594,6 +1594,8 @@ class HomeViewModel(
 
     val isEnabled = MutableLiveData(false)
 
+    val errorText = MutableLiveData<String>(null)
+
     fun valueEntered(key: String, value: String) {
         Log.e("TAG", "valueEntered: Value is here $key $value")
         answers[key] = value
@@ -1605,10 +1607,12 @@ class HomeViewModel(
             questions.forEach {
                 if (!it.isOptional && answers[it.id] == null) {
                     Log.e("TAG", "checkAndUpdateButton: error is jere $it")
+                    errorText.postValue("Please enter ${it.id} to enable submit button ")
                     isEnabled.postValue(false)
                     return@launch
                 }
             }
+            errorText.postValue(null)
             isEnabled.postValue(true)
         }
     }
