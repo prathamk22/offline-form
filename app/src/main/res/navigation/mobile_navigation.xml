@@ -22,6 +22,18 @@
         <action
             android:id="@+id/action_nav_home_to_cropProfileFragment"
             app:destination="@id/cropProfileFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_costAndMarketting"
+            app:destination="@id/costAndMarketting" />
+        <action
+            android:id="@+id/action_nav_home_to_awarenessAccess"
+            app:destination="@id/awarenessAccess" />
+        <action
+            android:id="@+id/action_nav_home_to_cashewProduction"
+            app:destination="@id/cashewProduction" />
+        <action
+            android:id="@+id/action_nav_home_to_training"
+            app:destination="@id/training" />
     </fragment>
 
     <fragment
@@ -47,4 +59,20 @@
         android:id="@+id/cropProfileFragment"
         android:name="com.offline.form.builder.ui.CropProfileFragment"
         android:label="CropProfileFragment" />
+    <fragment
+        android:id="@+id/costAndMarketting"
+        android:name="com.offline.form.builder.ui.CostAndMarketting"
+        android:label="CostAndMarketting" />
+    <fragment
+        android:id="@+id/awarenessAccess"
+        android:name="com.offline.form.builder.ui.AwarenessAccess"
+        android:label="AwarenessAccess" />
+    <fragment
+        android:id="@+id/cashewProduction"
+        android:name="com.offline.form.builder.ui.CashewProduction"
+        android:label="CashewProduction" />
+    <fragment
+        android:id="@+id/training"
+        android:name="com.offline.form.builder.ui.Training"
+        android:label="Training" />
 </navigation>

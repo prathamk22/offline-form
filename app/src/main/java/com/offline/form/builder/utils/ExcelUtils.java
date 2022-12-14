@@ -87,6 +87,9 @@ public class ExcelUtils {
             cell.setCellStyle(headerCellStyle);
             i++;
         }
+        Cell cell = row.createCell(i);
+        cell.setCellValue("data_id");
+        cell.setCellStyle(headerCellStyle);
     }
 
     private void fillDataIntoExcel(List<AnswerEntity> dataList) {
@@ -112,12 +115,17 @@ public class ExcelUtils {
                     }
                     if (tableData == null) {
                         cell.setCellValue(data);
-                        j++;
                     } else {
+                        cell.setCellValue("REFER SHEETS BELOW");
                         createNewTableData(tableData, answerEntity);
                     }
+                } else {
+                    cell.setCellValue("NA");
                 }
+                j++;
             }
+            Cell cell = rowData.createCell(j);
+            cell.setCellValue(answerEntity.getId());
         }
     }
 
@@ -130,7 +138,6 @@ public class ExcelUtils {
             tempSheet = workbook.createSheet(temp.getSheetName());
         }
         int lastRow = tempSheet.getLastRowNum();
-        Log.e("TAG", "createNewTableData: " + lastRow);
         if (lastRow == 0){
             temp.getColumnNames().add("data_id");
             Row row = tempSheet.createRow(0);
@@ -144,7 +151,7 @@ public class ExcelUtils {
         }
 
         for (int p = 0; p < tableDataList.size(); p++) {
-            Row rowData = tempSheet.createRow(p + 1);
+            Row rowData = tempSheet.createRow(lastRow + p + 1);
             TableData tableData = tableDataList.get(p);
             int j = 0;
             for (Form item : tableData.getFormAns()) {
@@ -153,7 +160,7 @@ public class ExcelUtils {
                 j++;
             }
             Cell cell = rowData.createCell(j);
-            cell.setCellValue(String.valueOf(data.getId()));
+            cell.setCellValue(data.getId());
         }
     }
 

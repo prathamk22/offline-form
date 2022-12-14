@@ -547,7 +547,7 @@ class HomeViewModel(
                 options = listOf(
                     OptionType.Button(
                         "Enter Value of house hold assets",
-                        object : ButtonAction{
+                        object : ButtonAction {
                             override fun doAction(view: View, question: Question) {
                                 view.findNavController()
                                     .navigate(
@@ -887,11 +887,42 @@ class HomeViewModel(
                 validate = CheckboxInputValidation(),
                 optionType = OptionTypeEnum.CHECK_BOX
             ),
-
-            //G2 - G4 not created
-
-            //H1 not created
-
+            Question(
+                id = "G2",
+                question = "G2 If the response to G.1 is “1=Yes”, please suggest, which component are you aware of and if you have benefited anything under the project",
+                options = listOf(
+                    OptionType.Button("Awareness and access", object : ButtonAction {
+                        override fun doAction(view: View, question: Question) {
+                            view.findNavController()
+                                .navigate(
+                                    R.id.action_nav_home_to_awarenessAccess,
+                                    bundleOf("formKey" to question.id)
+                                )
+                        }
+                    })
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.Button,
+                isOptional = true
+            ),
+            Question(
+                id = "H1",
+                question = "H.1 Can you please provide information on cashew plantation",
+                options = listOf(
+                    OptionType.Button("Cashew plantation", object : ButtonAction {
+                        override fun doAction(view: View, question: Question) {
+                            view.findNavController()
+                                .navigate(
+                                    R.id.action_nav_home_to_cashewProduction,
+                                    bundleOf("formKey" to question.id)
+                                )
+                        }
+                    })
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.Button,
+                isOptional = true
+            ),
             Question(
                 id = "H2",
                 question = "H2 Have you received/purchased new planting material in the last five years (2016-21)",
@@ -971,7 +1002,10 @@ class HomeViewModel(
                 id = "H8",
                 question = "H8 If response to G7 is Yes, please mention number of trees rejuvenated/rehabilitated",
                 options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter number of trees rejuvenated/rehabilitated")
+                    OptionType.InputField(
+                        InputType.TYPE_CLASS_NUMBER,
+                        "Enter number of trees rejuvenated/rehabilitated"
+                    )
                 ),
                 validate = NumberInputValidation(),
                 optionType = OptionTypeEnum.INPUT,
@@ -1088,8 +1122,39 @@ class HomeViewModel(
                 validate = CheckboxInputValidation(),
                 optionType = OptionTypeEnum.CHECK_BOX
             ),
-
-            //I2 to I4 not written
+            Question(
+                id = "I2",
+                question = "I.2 If response to I.1 is “1=Yes”, please mention the number of training received by all the family members in this period",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "Male"),
+                            CheckBoxItems("2", "Female"),
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX,
+                isOptional = true
+            ),
+            Question(
+                id = "I3",
+                question = "I.3 If the response to H.1 is “1=Yes”, Can you please mention the following details of training?",
+                options = listOf(
+                    OptionType.Button("Training", object : ButtonAction {
+                        override fun doAction(view: View, question: Question) {
+                            view.findNavController()
+                                .navigate(
+                                    R.id.action_nav_home_to_training,
+                                    bundleOf("formKey" to question.id)
+                                )
+                        }
+                    })
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.Button,
+                isOptional = true
+            ),
             Question(
                 id = "J1",
                 question = "J1 Where do you sell the cashew nuts?",
@@ -1220,7 +1285,7 @@ class HomeViewModel(
                         override fun doAction(view: View, question: Question) {
                             view.findNavController()
                                 .navigate(
-                                    R.id.action_nav_home_to_farmerGroupAssociation,
+                                    R.id.action_nav_home_to_costAndMarketting,
                                     bundleOf("formKey" to question.id)
                                 )
                         }
@@ -1542,7 +1607,7 @@ class HomeViewModel(
         viewModelScope.launch {
             val answerEntity = AnswerEntity(
                 nameOfRespondent = answers["A1"]?.toString() ?: "",
-                data = Gson().toJson(questions.associate { it.id to answers[it.id] }),
+                data = Gson().toJson(questions.associate { it.id to if (answers[it.id] != null) answers[it.id] else "NA" }),
                 createdAt = System.currentTimeMillis()
             )
             repo.insertData(answerEntity)
@@ -1663,6 +1728,81 @@ class HomeViewModel(
                         "F5",
                         "F6",
                         "F7",
+                    )
+                )
+            }
+            val data = Gson().toJson(tableData)
+            Log.e("TAG", "submitData: $key $data")
+            answers[key] = data
+            checkAndUpdateButton()
+        }
+    }
+
+    fun submitG2Data(key: String, forms: MutableList<List<Form>>) {
+        if (key.isEmpty())
+            return
+        viewModelScope.launch {
+            val tableData = forms.map {
+                TableData(
+                    Constants.AWARENESS_ACCESS_CIDP,
+                    it,
+                    columnNames = listOf(
+                        "Project Intervention",
+                        "G.2.a",
+                        "G.2.b",
+                        "G.2.c",
+                    )
+                )
+            }
+            val data = Gson().toJson(tableData)
+            Log.e("TAG", "submitData: $key $data")
+            answers[key] = data
+            checkAndUpdateButton()
+        }
+    }
+
+    fun submitH1Data(key: String, forms: MutableList<List<Form>>) {
+        if (key.isEmpty())
+            return
+        viewModelScope.launch {
+            val tableData = forms.map {
+                TableData(
+                    Constants.CASHEW_PRODUCTION,
+                    it,
+                    columnNames = listOf(
+                        "Particular",
+                        "Yr. 2015",
+                        "Yr. 2016",
+                        "Yr. 2017",
+                        "Yr. 2018",
+                        "Yr. 2019",
+                        "Yr. 2020",
+                        "Yr. 2021",
+                        "Yr. 2022",
+                        "Total",
+                    )
+                )
+            }
+            val data = Gson().toJson(tableData)
+            Log.e("TAG", "submitData: $key $data")
+            answers[key] = data
+            checkAndUpdateButton()
+        }
+    }
+
+    fun submitI3Data(key: String, forms: MutableList<List<Form>>) {
+        if (key.isEmpty())
+            return
+        viewModelScope.launch {
+            val tableData = forms.map {
+                TableData(
+                    Constants.I3_TRAINING,
+                    it,
+                    columnNames = listOf(
+                        "I.3.1",
+                        "I.3.2",
+                        "I.3.3",
+                        "I.3.4",
                     )
                 )
             }
