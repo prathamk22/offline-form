@@ -68,7 +68,7 @@ class MainActivity : AppCompatActivity() {
             val allAns = withContext(Dispatchers.IO){ OfflineFormApp.db.answersDao().getAllAnswers() }
             val isCreated = ExcelUtils().exportDataIntoWorkbook(this@MainActivity, "${System.currentTimeMillis()}.xls", allAns)
             withContext(Dispatchers.Main){
-                Toast.makeText(this@MainActivity, "File Created", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@MainActivity, if (isCreated) "File Created" else "Failed to created the file", Toast.LENGTH_SHORT).show()
             }
 //            if (isCreated){
 //                OfflineFormApp.db.answersDao().deleteAllData()
