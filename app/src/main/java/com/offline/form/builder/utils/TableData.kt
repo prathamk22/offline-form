@@ -9,6 +9,7 @@ data class TableData(
 )
 
 object Constants{
+    const val RUN_OUT_FOOD: String = "Run out food"
     const val I4_KNOWLEDGE_TRANING: String = "I4 Knowledge Training"
     const val I3_TRAINING: String = "I3 Traning"
     const val CASHEW_PRODUCTION: String = "H1 Cashew Production"

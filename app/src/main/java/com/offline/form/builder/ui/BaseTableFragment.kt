@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -25,6 +26,11 @@ abstract class BaseTableFragment : Fragment() {
 
     private val callback = object : FormSubmitCallback {
         override fun onFormSubmitted(forms: List<Form>) {
+            val count = arguments?.getInt("count", Int.MAX_VALUE) ?: Int.MAX_VALUE
+            if (userdataList.size >= count){
+                Toast.makeText(requireContext(), "Only $count entries are allowed", Toast.LENGTH_SHORT).show()
+                return
+            }
             userdataList.add(forms)
             binding.simpleForm.setData(getSection1FormData(), this)
         }
@@ -53,6 +59,8 @@ abstract class BaseTableFragment : Fragment() {
                     }.setNegativeButton("Cancel and Exit") { d, i ->
                         findNavController().navigateUp()
                     }.create().show()
+            } else {
+                findNavController().navigateUp()
             }
         }
         binding.simpleForm.setData(getSection1FormData(), callback)

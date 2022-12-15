@@ -79,9 +79,6 @@ class LocalTextWatcher(
             if (::viewBinding.isInitialized){
                 viewBinding.textInputEditText.error = error
             }
-            if (error.isNotEmpty()){
-                Toast.makeText(OfflineFormApp.mContext, error, Toast.LENGTH_SHORT).show()
-            }
             homeViewModel.clearValue(item!!.id)
         }
     }

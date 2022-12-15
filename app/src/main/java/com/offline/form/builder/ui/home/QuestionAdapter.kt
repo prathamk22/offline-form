@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.offline.form.builder.databinding.ButtonItemBinding
 import com.offline.form.builder.databinding.CheckboxItemBinding
 import com.offline.form.builder.databinding.StringItemBinding
+import com.offline.form.builder.databinding.SwitchItemBinding
 import com.offline.form.builder.utils.OptionTypeEnum
 import com.offline.form.builder.utils.Question
 
@@ -43,6 +44,12 @@ class QuestionAdapter(
                 ButtonItemBinding.inflate(
                     LayoutInflater.from(parent.context), parent, false
                 ),
+            )
+            OptionTypeEnum.Switch.id -> SwitchViewHolder(
+                SwitchItemBinding.inflate(
+                    LayoutInflater.from(parent.context), parent, false
+                ),
+                homeViewModel
             )
             else -> throw IllegalStateException("Input type not found")
         }

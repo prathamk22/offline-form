@@ -37,6 +37,9 @@
         <action
             android:id="@+id/action_nav_home_to_knowledgeTraning"
             app:destination="@id/knowledgeTraning" />
+        <action
+            android:id="@+id/action_nav_home_to_runOutFood"
+            app:destination="@id/runOutFood" />
     </fragment>
 
     <fragment
@@ -82,4 +85,8 @@
         android:id="@+id/knowledgeTraning"
         android:name="com.offline.form.builder.ui.KnowledgeTraning"
         android:label="KnowledgeTraning" />
+    <fragment
+        android:id="@+id/runOutFood"
+        android:name="com.offline.form.builder.ui.RunOutFood"
+        android:label="RunOutFood" />
 </navigation>

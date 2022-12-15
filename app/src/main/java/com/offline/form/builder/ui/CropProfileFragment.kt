@@ -78,7 +78,7 @@ class CropProfileFragment : BaseTableFragment() {
             Form(
                 isMandatory = true,
                 formType = FormTypes.NUMBER,
-                question = "F7 Quantity sold ",
+                question = "F7 Quantity sold (in Kg) ",
                 hint = "please enter Quantity sold ",
                 singleLineTextType = SingleLineTextType.TEXT,
                 errorMessage = "Please provide an answer"

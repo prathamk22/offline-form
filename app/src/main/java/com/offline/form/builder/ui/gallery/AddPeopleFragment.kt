@@ -17,7 +17,6 @@ class AddPeopleFragment : BaseTableFragment() {
             Form(
                 isMandatory = true,
                 formType = FormTypes.SINGLE_LINE_TEXT,
-
                 question = "Name of the household member",
                 hint = "please enter your name",
                 singleLineTextType = SingleLineTextType.TEXT,
@@ -50,8 +49,17 @@ class AddPeopleFragment : BaseTableFragment() {
                 isMandatory = true,
                 formType = FormTypes.SINGLE_CHOICE,
                 question = "Education Level",
-                hint = "1=No Formal Education; 2 = Less than Grade 5; 3 = Less than grade 10; 4 = Less than Grade 12; 5= College Student; 6 = University Undergraduate Student; 7= Tertiary Certificate; Diploma; 8= Bachelors Degree; 9 = Masters Degree and Above.",
-                choices = listOf("1","2","3","4","5","6","7","8","9"),
+                choices = listOf(
+                    "1 = No Formal Education",
+                    "2 = Less than Grade 5",
+                    "3 = Less than grade 10",
+                    "4 = Less than Grade 12",
+                    "5 = College Student",
+                    "6 = University Undergraduate Student",
+                    "7 = Tertiary Certificate, Diploma",
+                    "8= Bachelors Degree",
+                    "9 = Masters Degree and Above.",
+                ),
                 errorMessage = "Please provide an answer"
             )
         )

@@ -3,12 +3,14 @@ package com.offline.form.builder.ui.home
 import android.text.InputType
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.findNavController
 import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import com.offline.form.builder.R
 import com.offline.form.builder.data.db.AnswerEntity
 import com.offline.form.builder.utils.*
@@ -123,7 +125,7 @@ class HomeViewModel(
                         "Enter Mobile number of respondent / House Hold member"
                     )
                 ),
-                validate = StringInputValidation(),
+                validate = StringInputValidation(10),
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
@@ -233,11 +235,21 @@ class HomeViewModel(
                 options = listOf(
                     OptionType.Button("Enter family members", object : ButtonAction {
                         override fun doAction(view: View, question: Question) {
-                            view.findNavController()
-                                .navigate(
-                                    R.id.action_nav_home_to_nav_gallery,
-                                    bundleOf("formKey" to question.id)
-                                )
+                            val count = try {
+                                answers["B1"]?.toString()?.toInt() ?: -1
+                            } catch(e: Exception){
+                                -1
+                            }
+
+                            if (count > 0){
+                                view.findNavController()
+                                    .navigate(
+                                        R.id.action_nav_home_to_nav_gallery,
+                                        bundleOf("formKey" to question.id, "count" to count)
+                                    )
+                            } else {
+                                Toast.makeText(view.context, "Please enter proper value of B1 question", Toast.LENGTH_SHORT).show()
+                            }
                         }
                     })
                 ),
@@ -347,8 +359,43 @@ class HomeViewModel(
                 optionType = OptionTypeEnum.CHECK_BOX
             ),
             Question(
+                id = "C3(a)",
+                question = "C3a If No, in which months do you run out of food?",
+                options = listOf(
+                    OptionType.Button(
+                        "Enter which month you run out?",
+                        object : ButtonAction {
+                            override fun doAction(view: View, question: Question) {
+                                view.findNavController()
+                                    .navigate(
+                                        R.id.action_nav_home_to_runOutFood,
+                                        bundleOf("formKey" to question.id)
+                                    )
+                            }
+
+                        }
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.Button
+            ),
+            Question(
+                id = "C3(b)",
+                question = "3.b) If No, did you manage to buy adequate food for your household during the months you ran out of food?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "Yes"),
+                            CheckBoxItems("2", "No"),
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
                 id = "C4(a)",
-                question = "C4(a) What energy source does your household rely for cooking and lighting? 1.=,  2=, 3=, 4=,  5=, 6=, 7= , 8.= (Specify) ",
+                question = "C4(a) What energy source does your household rely for cooking and lighting?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -364,7 +411,7 @@ class HomeViewModel(
                     )
                 ),
                 validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
+                optionType = OptionTypeEnum.Switch
             ),
             Question(
                 id = "C4(b)",
@@ -559,7 +606,6 @@ class HomeViewModel(
                         }
                     )
                 ),
-                isOptional = true,
                 validate = StringInputValidation(),
                 optionType = OptionTypeEnum.Button
             ),
@@ -837,7 +883,7 @@ class HomeViewModel(
                     )
                 ),
                 validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
+                optionType = OptionTypeEnum.Switch
             ),
             Question(
                 id = "E6",
@@ -852,7 +898,7 @@ class HomeViewModel(
                     )
                 ),
                 validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
+                optionType = OptionTypeEnum.Switch
             ),
 
             Question(
@@ -921,7 +967,6 @@ class HomeViewModel(
                 ),
                 validate = StringInputValidation(),
                 optionType = OptionTypeEnum.Button,
-                isOptional = true
             ),
             Question(
                 id = "H2",
@@ -955,7 +1000,7 @@ class HomeViewModel(
                     )
                 ),
                 validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
+                optionType = OptionTypeEnum.Switch
             ),
             Question(
                 id = "H4",
@@ -1163,7 +1208,7 @@ class HomeViewModel(
                         override fun doAction(view: View, question: Question) {
                             view.findNavController()
                                 .navigate(
-                                    R.id.action_nav_home_to_training,
+                                    R.id.action_nav_home_to_knowledgeTraning,
                                     bundleOf("formKey" to question.id)
                                 )
                         }
@@ -1594,7 +1639,7 @@ class HomeViewModel(
 
     val isEnabled = MutableLiveData(false)
 
-    val errorText = MutableLiveData<String>(null)
+    val errorText = MutableLiveData<String?>(null)
 
     fun valueEntered(key: String, value: String) {
         Log.e("TAG", "valueEntered: Value is here $key $value")
@@ -1606,8 +1651,7 @@ class HomeViewModel(
         viewModelScope.launch(Dispatchers.Default) {
             questions.forEach {
                 if (!it.isOptional && answers[it.id] == null) {
-                    Log.e("TAG", "checkAndUpdateButton: error is jere $it")
-                    errorText.postValue("Please enter ${it.id} to enable submit button ")
+                    errorText.postValue("Please fill ${it.id} question to enable submit button ")
                     isEnabled.postValue(false)
                     return@launch
                 }
@@ -1770,6 +1814,7 @@ class HomeViewModel(
                     it,
                     columnNames = listOf(
                         "Project Intervention",
+                        "Project Intervention Type",
                         "G.2.a",
                         "G.2.b",
                         "G.2.c",
@@ -1856,6 +1901,66 @@ class HomeViewModel(
             answers[key] = data
             checkAndUpdateButton()
         }
+    }
+
+    fun submitC3aData(key: String, forms: MutableList<List<Form>>) {
+        if (key.isEmpty())
+            return
+        viewModelScope.launch {
+            val tableData = forms.map {
+                TableData(
+                    Constants.RUN_OUT_FOOD,
+                    it,
+                    columnNames = listOf("J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D")
+                )
+            }
+            val data = Gson().toJson(tableData)
+            Log.e("TAG", "submitData: $key $data")
+            answers[key] = data
+            checkAndUpdateButton()
+        }
+    }
+
+    fun valueEnteredInCheckbox(key: String, value: String, checked: Boolean) {
+        viewModelScope.launch(Dispatchers.IO) {
+            val array = answers[key]
+            val list = if (array == null || array.toString().isEmpty()){
+                mutableListOf()
+            } else {
+                val type = object : TypeToken<List<String>>(){}.type
+                Gson().fromJson<List<String>>(array.toString(), type).toMutableList()
+            }
+            Log.e("TAG", "valueEnteredInCheckbox: $checked $value")
+            if (checked){
+                if (!list.contains(value)){
+                    list.add(value)
+                }
+            } else {
+                if (list.contains(value)){
+                    list.remove(value)
+                }
+            }
+
+            if (list.isEmpty()){
+                Log.e("TAG", "valueEntered: Value removed from here $key $list")
+                answers.remove(key)
+            } else {
+                Log.e("TAG", "valueEntered: Value is here $key $list")
+                answers[key] = Gson().toJson(list)
+            }
+            checkAndUpdateButton()
+        }
+    }
+
+    fun getAnsForCheckboxIfAvailable(key: String): String? {
+        val array = answers[key]
+        val list = if (array == null || array.toString().isEmpty()){
+            mutableListOf()
+        } else {
+            val type = object : TypeToken<List<String>>(){}.type
+            Gson().fromJson<List<String>>(array.toString(), type).toMutableList()
+        }
+        return list.firstOrNull { it == key }
     }
 
 }
