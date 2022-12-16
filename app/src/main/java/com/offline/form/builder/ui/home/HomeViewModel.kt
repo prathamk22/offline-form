@@ -376,8 +376,10 @@ class HomeViewModel(
                         }
                     )
                 ),
+                isOptional = true,
                 validate = CheckboxInputValidation(),
                 optionType = OptionTypeEnum.Button
+
             ),
             Question(
                 id = "C3(b)",
@@ -390,6 +392,7 @@ class HomeViewModel(
                         )
                     )
                 ),
+                isOptional = true,
                 validate = CheckboxInputValidation(),
                 optionType = OptionTypeEnum.CHECK_BOX
             ),
@@ -445,8 +448,8 @@ class HomeViewModel(
                 optionType = OptionTypeEnum.CHECK_BOX
             ),
             Question(
-                id = "C51",
-                question = "C51 Does any member of your household own Chickens or other poultry?",
+                id = "C 5.1",
+                question = "C 5.1 Does any member of your household own Chickens or other poultry?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -459,8 +462,8 @@ class HomeViewModel(
                 optionType = OptionTypeEnum.CHECK_BOX
             ),
             Question(
-                id = "C51.1",
-                question = "C51.1 If response to is Yes, how much",
+                id = "C 5.1.1",
+                question = "C 5.1.1 If response to is Yes, how much",
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter number")
                 ),
@@ -469,8 +472,8 @@ class HomeViewModel(
                 isOptional = true
             ),
             Question(
-                id = "C52",
-                question = "C52 Does any member of your household own Sheep?",
+                id = "C 5.2",
+                question = "C 5.2 Does any member of your household own Sheep?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -483,8 +486,8 @@ class HomeViewModel(
                 optionType = OptionTypeEnum.CHECK_BOX
             ),
             Question(
-                id = "C52.1",
-                question = "C52.1 If response to is Yes, how much",
+                id = "C 5.2.1",
+                question = "C 5.2.1 If response to is Yes, how much",
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter number")
                 ),
@@ -493,8 +496,8 @@ class HomeViewModel(
                 isOptional = true
             ),
             Question(
-                id = "C53",
-                question = "C53 Does any member of your household own Goats?",
+                id = "C 5.3",
+                question = "C 5.3 Does any member of your household own Goats?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -507,8 +510,8 @@ class HomeViewModel(
                 optionType = OptionTypeEnum.CHECK_BOX
             ),
             Question(
-                id = "C53.1",
-                question = "C53.1 If response to is Yes, how much",
+                id = "C 5.3.1",
+                question = "C 5.3.1 If response to is Yes, how much",
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter number")
                 ),
@@ -517,8 +520,8 @@ class HomeViewModel(
                 isOptional = true
             ),
             Question(
-                id = "C54",
-                question = "C54 Does any member of your household own Cattle?",
+                id = "C 5.4",
+                question = "C 5.4 Does any member of your household own Cattle?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -531,8 +534,8 @@ class HomeViewModel(
                 optionType = OptionTypeEnum.CHECK_BOX
             ),
             Question(
-                id = "C54.1",
-                question = "C54.1 If response to is Yes, how much",
+                id = "C 5.4.1",
+                question = "C 5.4.1 If response to is Yes, how much",
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter number")
                 ),
@@ -541,8 +544,8 @@ class HomeViewModel(
                 isOptional = true
             ),
             Question(
-                id = "C55",
-                question = "C55 Does any member of your household own Pigs?",
+                id = "C 5.5",
+                question = "C 5.5 Does any member of your household own Pigs?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -555,8 +558,8 @@ class HomeViewModel(
                 optionType = OptionTypeEnum.CHECK_BOX
             ),
             Question(
-                id = "C55.1",
-                question = "C55.1 If response to is Yes, how much",
+                id = "C 5.5.1",
+                question = "C 5.5.1 If response to is Yes, how much",
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter number")
                 ),
@@ -565,8 +568,8 @@ class HomeViewModel(
                 isOptional = true
             ),
             Question(
-                id = "C56",
-                question = "C56 Does any member of your household own others?",
+                id = "C 5.6",
+                question = "C 5.6 Does any member of your household own others?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -579,8 +582,8 @@ class HomeViewModel(
                 optionType = OptionTypeEnum.CHECK_BOX
             ),
             Question(
-                id = "C56.1",
-                question = "C56.1 If response to is Yes, how much",
+                id = "C 5.6.1",
+                question = "C 5.6.1 If response to is Yes, how much",
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter number")
                 ),
@@ -646,8 +649,8 @@ class HomeViewModel(
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
-                id = "D41",
-                question = "D41 Annual Income of the Household From Farming / Agriculture",
+                id = "D 4.1",
+                question = "D 4.1 Annual Income of the Household From Farming / Agriculture",
                 options = listOf(
                     OptionType.InputField(
                         InputType.TYPE_CLASS_NUMBER,
@@ -658,8 +661,8 @@ class HomeViewModel(
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
-                id = "D42",
-                question = "D42 Annual Income of the Household From Livestock / Dairy",
+                id = "D 4.2",
+                question = "D 4.2 Annual Income of the Household From Livestock / Dairy",
                 options = listOf(
                     OptionType.InputField(
                         InputType.TYPE_CLASS_NUMBER,
@@ -670,8 +673,8 @@ class HomeViewModel(
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
-                id = "D43",
-                question = "D43 Annual Income of the Household From selling animal meat",
+                id = "D 4.3",
+                question = "D 4.3 Annual Income of the Household From selling animal meat",
                 options = listOf(
                     OptionType.InputField(
                         InputType.TYPE_CLASS_NUMBER,
@@ -682,8 +685,8 @@ class HomeViewModel(
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
-                id = "D44",
-                question = "D44 Annual Income of the Household From Labour (on-farm)",
+                id = "D 4.4",
+                question = "D 4.4 Annual Income of the Household From Labour (on-farm)",
                 options = listOf(
                     OptionType.InputField(
                         InputType.TYPE_CLASS_NUMBER,
@@ -694,8 +697,8 @@ class HomeViewModel(
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
-                id = "D45",
-                question = "D45 Annual Income of the Household From Labour (off-farm activities such as construction etc.)",
+                id = "D 4.5",
+                question = "D 4.5 Annual Income of the Household From Labour (off-farm activities such as construction etc.)",
                 options = listOf(
                     OptionType.InputField(
                         InputType.TYPE_CLASS_NUMBER,
@@ -706,8 +709,8 @@ class HomeViewModel(
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
-                id = "D46",
-                question = "D46 Annual Income of the Household From non-farm business activities",
+                id = "D 4.6",
+                question = "D 4.6 Annual Income of the Household From non-farm business activities",
                 options = listOf(
                     OptionType.InputField(
                         InputType.TYPE_CLASS_NUMBER,
@@ -718,8 +721,8 @@ class HomeViewModel(
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
-                id = "D47",
-                question = "D47 Annual Income of the Household From Salary of HH member (migrated/non-migrated) ",
+                id = "D 4.7",
+                question = "D 4.7 Annual Income of the Household From Salary of HH member (migrated/non-migrated) ",
                 options = listOf(
                     OptionType.InputField(
                         InputType.TYPE_CLASS_NUMBER,
@@ -730,8 +733,8 @@ class HomeViewModel(
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
-                id = "D48",
-                question = "D48 Annual Income of the Household From fish farming",
+                id = "D 4.8",
+                question = "D 4.8 Annual Income of the Household From fish farming",
                 options = listOf(
                     OptionType.InputField(
                         InputType.TYPE_CLASS_NUMBER,
@@ -742,8 +745,8 @@ class HomeViewModel(
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
-                id = "D49",
-                question = "D49 Annual Income of the Household From Remittances",
+                id = "D 4.9",
+                question = "D 4.9 Annual Income of the Household From Remittances",
                 options = listOf(
                     OptionType.InputField(
                         InputType.TYPE_CLASS_NUMBER,
@@ -754,8 +757,8 @@ class HomeViewModel(
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
-                id = "D410",
-                question = "D410 Annual Income of the Household From Pension",
+                id = "D 4.10",
+                question = "D 4.10 Annual Income of the Household From Pension",
                 options = listOf(
                     OptionType.InputField(
                         InputType.TYPE_CLASS_NUMBER,
@@ -766,8 +769,8 @@ class HomeViewModel(
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
-                id = "D411",
-                question = "D411 Annual Income of the Household From Aid",
+                id = "D 4.11",
+                question = "D 4.11 Annual Income of the Household From Aid",
                 options = listOf(
                     OptionType.InputField(
                         InputType.TYPE_CLASS_NUMBER,
@@ -778,8 +781,8 @@ class HomeViewModel(
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
-                id = "D412",
-                question = "D412 Annual Income of the Household From Other",
+                id = "D 4.12",
+                question = "D 4.12 Annual Income of the Household From Other",
                 options = listOf(
                     OptionType.InputField(
                         InputType.TYPE_CLASS_NUMBER,
@@ -1045,7 +1048,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "H8",
-                question = "H8 If response to G7 is Yes, please mention number of trees rejuvenated/rehabilitated",
+                question = "H8 If response to H7 is Yes, please mention number of trees rejuvenated/rehabilitated",
                 options = listOf(
                     OptionType.InputField(
                         InputType.TYPE_CLASS_NUMBER,
@@ -1081,7 +1084,20 @@ class HomeViewModel(
             ),
             Question(
                 id = "H11",
-                question = "H11 Did you get bare area in your cashew plantation replanted under the project in last five years (2016-21)",
+                question = "H11 If response to H10 is “Yes”, please mention the improvement in yield (increase in yield Kg/Plant) ",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "Enter")
+                ),
+                isOptional=true,
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT
+
+
+
+            ),
+            Question(
+                id = "H12",
+                question = "H12 Did you get bare area in your cashew plantation replanted under the project in last five years (2016-21)",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -1095,7 +1111,20 @@ class HomeViewModel(
             ),
             Question(
                 id = "H13",
-                question = "H13 Can you please mention specific support received for replantation in bare are in orchard",
+                question = "H13 If response to H12 is “Yes”,please mention number of trees replanted ",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "Enter")
+                ),
+                isOptional=true,
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT
+
+
+
+            ),
+            Question(
+                id = "H14",
+                question = "H14 Can you please mention specific support received for replantation in bare are in orchard",
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_TEXT, "Enter")
                 ),
@@ -1103,8 +1132,8 @@ class HomeViewModel(
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
-                id = "H14",
-                question = "H14 Did the productivity of the cashew plantation improved due to replantation?",
+                id = "H15",
+                question = "H15 Did the productivity of the cashew plantation improved due to replantation?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -1118,7 +1147,20 @@ class HomeViewModel(
             ),
             Question(
                 id = "H16",
-                question = "H16 Did you bring new area under cashew production during CIDP project in the last five years (2016-21)",
+                question = "H16 If response to H15 is “Yes”,please mention the improvement in yield (increase in yield Kg/Plant)",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "Enter")
+                ),
+                isOptional=true,
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT
+
+
+
+            ),
+            Question(
+                id = "H17",
+                question = "H17 Did you bring new area under cashew production during CIDP project in the last five years (2016-21)",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -1132,7 +1174,20 @@ class HomeViewModel(
             ),
             Question(
                 id = "H18",
-                question = "H18 Can you please mention specific support received for bringing new area under the cashew production ?",
+                question = "H18 If response to H17 is “Yes”,please mention number of trees replanted.",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "Enter")
+                ),
+                isOptional=true,
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT
+
+
+
+            ),
+            Question(
+                id = "H19",
+                question = "H19 Can you please mention specific support received for bringing new area under the cashew production ?",
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_TEXT, "Enter")
                 ),
@@ -1140,8 +1195,8 @@ class HomeViewModel(
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
-                id = "H19",
-                question = "H19 Is yield levels of new orchard is higher than the old orchards?",
+                id = "H20",
+                question = "H20 Is yield levels of new orchard is higher than the old orchards?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -1152,6 +1207,19 @@ class HomeViewModel(
                 ),
                 validate = CheckboxInputValidation(),
                 optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "H21",
+                question = "H21 If response to H20 is “Yes”,please mention the improvement in yield (difference in yield Kg/Plant).",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "Enter")
+                ),
+                isOptional=true,
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT
+
+
+
             ),
             Question(
                 id = "I1",
@@ -1184,7 +1252,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "I3",
-                question = "I.3 If the response to H.1 is “1=Yes”, Can you please mention the following details of training?",
+                question = "I.3 If the response to I.1 is “1=Yes”, Can you please mention the following details of training?",
                 options = listOf(
                     OptionType.Button("Training", object : ButtonAction {
                         override fun doAction(view: View, question: Question) {
@@ -1406,6 +1474,16 @@ class HomeViewModel(
                 ),
                 validate = CheckboxInputValidation(),
                 optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "K2",
+                question = "K2 If Response to K1 is “1=Yes”, How much amount of a loan/grant have you been availed (in Kwacha)",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter amount")
+                ),
+                validate = NumberInputValidation(),
+                optionType = OptionTypeEnum.INPUT,
+                isOptional = true
             ),
             Question(
                 id = "K3",
