@@ -1,9 +1,12 @@
 package com.offline.form.builder.ui.home
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -40,6 +43,12 @@ class HomeFragment : Fragment() {
         binding.submitData.setOnClickListener {
             if (it.isEnabled) {
                 homeViewModel.insertData()
+                Handler(Looper.getMainLooper()).postDelayed({
+                    binding.textHome.adapter = null
+                    questionAdapter.submitList(homeViewModel.questions)
+                    binding.textHome.adapter = questionAdapter
+                    Toast.makeText(requireContext(), "Data added in the list", Toast.LENGTH_SHORT).show()
+                }, 1000)
             }
         }
     }

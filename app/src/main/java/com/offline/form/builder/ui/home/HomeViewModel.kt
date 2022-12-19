@@ -1755,6 +1755,7 @@ class HomeViewModel(
                 createdAt = System.currentTimeMillis()
             )
             repo.insertData(answerEntity)
+            answers.clear()
         }
     }
 

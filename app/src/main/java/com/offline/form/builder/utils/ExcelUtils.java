@@ -4,8 +4,12 @@ import android.content.Context;
 import android.os.Environment;
 import android.util.Log;
 
+import androidx.core.app.ShareCompat;
+import androidx.core.content.FileProvider;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.offline.form.builder.BuildConfig;
 import com.offline.form.builder.data.db.AnswerEntity;
 import com.pradeep.form.simple_form.model.Form;
 
@@ -21,6 +25,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.lang.reflect.Type;
+import java.net.URLConnection;
 import java.util.List;
 import java.util.Map;
 
@@ -197,6 +202,10 @@ public class ExcelUtils {
                 if (null != fileOutputStream) {
                     fileOutputStream.close();
                 }
+                new ShareCompat.IntentBuilder(context)
+                        .setStream(FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID + ".provider", file))
+                        .setType(URLConnection.guessContentTypeFromName(file.getName()))
+                        .startChooser();
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
