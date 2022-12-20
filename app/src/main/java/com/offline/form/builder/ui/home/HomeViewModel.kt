@@ -85,7 +85,7 @@ class HomeViewModel(
                     OptionType.CheckBox(
                         listOf(
                             CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("1", "No")
+                            CheckBoxItems("2", "No")
                         )
                     )
                 ),
@@ -142,8 +142,19 @@ class HomeViewModel(
                 validate = CheckboxInputValidation(),
                 optionType = OptionTypeEnum.CHECK_BOX
             ),
-
-            //ADD  A.12 Name of the family Head (if response of A.10 is (2))
+            Question(
+                id = "A12",
+                question = "A12 Name of the family Head (if response of A.11 is (2))",
+                options = listOf(
+                    OptionType.InputField(
+                        InputType.TYPE_CLASS_TEXT,
+                        "Enter Name of the family Head"
+                    )
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT,
+                isOptional = true
+            ),
             Question(
                 id = "A13",
                 question = "A13 Gender of the head of Household",
@@ -176,7 +187,7 @@ class HomeViewModel(
                     )
                 ),
                 validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
+                optionType = OptionTypeEnum.Switch
             ),
             Question(
                 id = "A15",
@@ -196,7 +207,7 @@ class HomeViewModel(
                     )
                 ),
                 validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
+                optionType = OptionTypeEnum.Switch
             ),
             Question(
                 id = "A16",
@@ -218,7 +229,7 @@ class HomeViewModel(
                     )
                 ),
                 validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
+                optionType = OptionTypeEnum.Switch
             ),
             Question(
                 id = "B1",
@@ -237,18 +248,22 @@ class HomeViewModel(
                         override fun doAction(view: View, question: Question) {
                             val count = try {
                                 answers["B1"]?.toString()?.toInt() ?: -1
-                            } catch(e: Exception){
+                            } catch (e: Exception) {
                                 -1
                             }
 
-                            if (count > 0){
+                            if (count > 0) {
                                 view.findNavController()
                                     .navigate(
                                         R.id.action_nav_home_to_nav_gallery,
                                         bundleOf("formKey" to question.id, "count" to count)
                                     )
                             } else {
-                                Toast.makeText(view.context, "Please enter proper value of B1 question", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(
+                                    view.context,
+                                    "Please enter proper value of B1 question",
+                                    Toast.LENGTH_SHORT
+                                ).show()
                             }
                         }
                     })
@@ -312,7 +327,7 @@ class HomeViewModel(
                     )
                 ),
                 validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
+                optionType = OptionTypeEnum.Switch
             ),
             Question(
                 id = "C2",
@@ -1088,10 +1103,9 @@ class HomeViewModel(
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_TEXT, "Enter")
                 ),
-                isOptional=true,
+                isOptional = true,
                 validate = StringInputValidation(),
                 optionType = OptionTypeEnum.INPUT
-
 
 
             ),
@@ -1115,10 +1129,9 @@ class HomeViewModel(
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_TEXT, "Enter")
                 ),
-                isOptional=true,
+                isOptional = true,
                 validate = StringInputValidation(),
                 optionType = OptionTypeEnum.INPUT
-
 
 
             ),
@@ -1151,10 +1164,9 @@ class HomeViewModel(
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_TEXT, "Enter")
                 ),
-                isOptional=true,
+                isOptional = true,
                 validate = StringInputValidation(),
                 optionType = OptionTypeEnum.INPUT
-
 
 
             ),
@@ -1178,10 +1190,9 @@ class HomeViewModel(
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_TEXT, "Enter")
                 ),
-                isOptional=true,
+                isOptional = true,
                 validate = StringInputValidation(),
                 optionType = OptionTypeEnum.INPUT
-
 
 
             ),
@@ -1214,10 +1225,9 @@ class HomeViewModel(
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_TEXT, "Enter")
                 ),
-                isOptional=true,
+                isOptional = true,
                 validate = StringInputValidation(),
                 optionType = OptionTypeEnum.INPUT
-
 
 
             ),
@@ -1708,9 +1718,20 @@ class HomeViewModel(
                 validate = StringInputValidation(),
                 optionType = OptionTypeEnum.INPUT
             ),
+            Question(
+                id = "N1",
+                question = "N1 Please enter Surveyor Name",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "Enter Surveyor Name")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT
+            ),
 
 
-            )
+            ).run {
+            this.subList(0, 16)
+        }
     }
 
     private val answers = mutableMapOf<String, Any>()
@@ -1727,7 +1748,21 @@ class HomeViewModel(
 
     private fun checkAndUpdateButton() {
         viewModelScope.launch(Dispatchers.Default) {
-            questions.forEach {
+            val necessaryQuestions = questions.subList(0, 7)
+            val otherQuestions = questions.subList(8, questions.size)
+            necessaryQuestions.forEach {
+                if (!it.isOptional && answers[it.id] == null) {
+                    errorText.postValue("Please fill ${it.id} question to enable submit button ")
+                    isEnabled.postValue(false)
+                    return@launch
+                }
+            }
+            if (answers["A7"] == "2") {
+                errorText.postValue(null)
+                isEnabled.postValue(true)
+                return@launch
+            }
+            otherQuestions.forEach {
                 if (!it.isOptional && answers[it.id] == null) {
                     errorText.postValue("Please fill ${it.id} question to enable submit button ")
                     isEnabled.postValue(false)
@@ -1751,7 +1786,13 @@ class HomeViewModel(
         viewModelScope.launch {
             val answerEntity = AnswerEntity(
                 nameOfRespondent = answers["A1"]?.toString() ?: "",
-                data = Gson().toJson(questions.associate { it.id to if (answers[it.id] != null) answers[it.id] else "NA" }),
+                data = Gson().toJson(
+                    questions.associate {
+                        it.id to if (answers[it.id] != null) answers[it.id] else "NA"
+                    }.toMutableMap().run {
+                    put("Date", getCurrentDateTime().toString("dd/MM/yyyy"))
+                    this
+                }),
                 createdAt = System.currentTimeMillis()
             )
             repo.insertData(answerEntity)
@@ -2003,24 +2044,24 @@ class HomeViewModel(
     fun valueEnteredInCheckbox(key: String, value: String, checked: Boolean) {
         viewModelScope.launch(Dispatchers.IO) {
             val array = answers[key]
-            val list = if (array == null || array.toString().isEmpty()){
+            val list = if (array == null || array.toString().isEmpty()) {
                 mutableListOf()
             } else {
-                val type = object : TypeToken<List<String>>(){}.type
+                val type = object : TypeToken<List<String>>() {}.type
                 Gson().fromJson<List<String>>(array.toString(), type).toMutableList()
             }
             Log.e("TAG", "valueEnteredInCheckbox: $checked $value")
-            if (checked){
-                if (!list.contains(value)){
+            if (checked) {
+                if (!list.contains(value)) {
                     list.add(value)
                 }
             } else {
-                if (list.contains(value)){
+                if (list.contains(value)) {
                     list.remove(value)
                 }
             }
 
-            if (list.isEmpty()){
+            if (list.isEmpty()) {
                 Log.e("TAG", "valueEntered: Value removed from here $key $list")
                 answers.remove(key)
             } else {
@@ -2031,15 +2072,15 @@ class HomeViewModel(
         }
     }
 
-    fun getAnsForCheckboxIfAvailable(key: String): String? {
+    fun getAnsForCheckboxIfAvailable(key: String, value: String): Boolean {
         val array = answers[key]
-        val list = if (array == null || array.toString().isEmpty()){
+        val list = if (array == null || array.toString().isEmpty()) {
             mutableListOf()
         } else {
-            val type = object : TypeToken<List<String>>(){}.type
+            val type = object : TypeToken<List<String>>() {}.type
             Gson().fromJson<List<String>>(array.toString(), type).toMutableList()
         }
-        return list.firstOrNull { it == key }
+        return list.contains(value)
     }
 
 }

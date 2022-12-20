@@ -88,12 +88,12 @@ public class ExcelUtils {
         int i = 0;
         for (String item : map.keySet()) {
             Cell cell = row.createCell(i);
-            cell.setCellValue(item);
+            setCellValue(cell, item);
             cell.setCellStyle(headerCellStyle);
             i++;
         }
         Cell cell = row.createCell(i);
-        cell.setCellValue("data_id");
+        setCellValue(cell, "data_id");
         cell.setCellStyle(headerCellStyle);
     }
 
@@ -119,18 +119,18 @@ public class ExcelUtils {
 
                     }
                     if (tableData == null) {
-                        cell.setCellValue(data);
+                        setCellValue(cell, data);
                     } else {
-                        cell.setCellValue("REFER SHEETS BELOW");
+                        setCellValue(cell, "REFER SHEETS BELOW");
                         createNewTableData(tableData, answerEntity);
                     }
                 } else {
-                    cell.setCellValue("NA");
+                    setCellValue(cell, "NA");
                 }
                 j++;
             }
             Cell cell = rowData.createCell(j);
-            cell.setCellValue(answerEntity.getId());
+            setCellValue(cell, answerEntity.getId());
         }
     }
 
@@ -157,7 +157,7 @@ public class ExcelUtils {
                 int i = 0;
                 for (String item : temp.getColumnNames()) {
                     Cell cell = row.createCell(i);
-                    cell.setCellValue(item);
+                    setCellValue(cell, item);
                     cell.setCellStyle(headerCellStyle);
                     i++;
                 }
@@ -169,16 +169,28 @@ public class ExcelUtils {
                 int j = 0;
                 for (Form item : tableData.getFormAns()) {
                     Cell cell = rowData.createCell(j);
-                    cell.setCellValue(item.getAnswer());
+                    setCellValue(cell, item.getAnswer());
                     j++;
                 }
                 Cell cell = rowData.createCell(j);
-                cell.setCellValue(data.getId());
+                setCellValue(cell, data.getId());
             }
         } catch (Exception e) {
             e.printStackTrace();
             Log.e("TAG", "createNewTableData: " + e.getLocalizedMessage());
         }
+    }
+
+    private void setCellValue(Cell cell, String value) {
+        if (value == null || value.isEmpty()){
+            value = "NA";
+        }
+        if (value.contains("[\"")){
+            Type type = new TypeToken<List<String>>(){}.getType();
+            List<String> multipleChoices = new Gson().fromJson(value, type);
+            value = ExtensionsKt.joinToStringFromJava(multipleChoices);
+        }
+        cell.setCellValue(value);
     }
 
     private boolean storeExcelInStorage(Context context, String fileName) {

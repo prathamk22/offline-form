@@ -27,9 +27,9 @@ class SwitchViewHolder(
                     null,
                     false
                 )
-                checkBoxItem.checkBox.text = it.optionTitle
-                checkBoxItem.checkBox.isChecked = it.id == homeViewModel.getAnsForCheckboxIfAvailable(item.id)
                 checkBoxItem.checkBox.id = View.generateViewId()
+                checkBoxItem.checkBox.text = it.optionTitle
+                checkBoxItem.checkBox.isChecked = homeViewModel.getAnsForCheckboxIfAvailable(item.id, it.id)
                 checkBoxItem.checkBox.setOnClickListener { view->
                     val checkboxText = checkBoxItem.checkBox.text
                     checkBoxOption.checkboxItems.first { checkboxItem ->
