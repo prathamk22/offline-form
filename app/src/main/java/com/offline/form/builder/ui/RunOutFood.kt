@@ -10,7 +10,7 @@ class RunOutFood : BaseTableFragment() {
     }
 
     override fun getSection1FormData(): List<Form> {
-        return listOf("J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D").map {
+        return listOf("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December").map {
             Form(
                 formType = FormTypes.SINGLE_CHOICE,
                 question = it,
