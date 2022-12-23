@@ -1729,9 +1729,7 @@ class HomeViewModel(
             ),
 
 
-            ).run {
-            this.subList(0, 16)
-        }
+            )
     }
 
     private val answers = mutableMapOf<String, Any>()
