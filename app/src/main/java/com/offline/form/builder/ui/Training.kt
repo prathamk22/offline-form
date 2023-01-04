@@ -36,8 +36,8 @@ class Training : BaseTableFragment() {
             Form(
                 isMandatory = true,
                 formType = FormTypes.SINGLE_LINE_TEXT,
-                question = "I.3.3 Add a check for firebase config for login enabled or not in splash and trust fragment",
-                hint = "please enter ",
+                question = "I.3.3 Name of Training Institute/Department",
+                hint = "please enter name of Training Institute/Department",
                 singleLineTextType = SingleLineTextType.TEXT,
                 errorMessage = "Please provide an answer"
             )

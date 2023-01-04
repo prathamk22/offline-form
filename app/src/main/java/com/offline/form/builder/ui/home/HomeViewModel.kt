@@ -26,7 +26,7 @@ class HomeViewModel(
         listOf(
             Question(
                 id = "A1",
-                question = "A1 Name of the Respondent",
+                question = "Section A - RESPONDENT’S PROFILE \n\n A1 Name of the Respondent",
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_TEXT, "Enter your name")
                 ),
@@ -233,7 +233,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "B1",
-                question = "B1 How many people are in this household",
+                question = "SECTION B: COMPOSITION OF HOUSEHOLD \n\n B1 How many people are in this household",
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter no. of people")
                 ),
@@ -313,7 +313,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "C1",
-                question = "C1 What is the main source of drinking water for members of your household?",
+                question = "SECTION C: Household Asset and Food Security \n\n C1 What is the main source of drinking water for members of your household?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -478,7 +478,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "C 5.1.1",
-                question = "C 5.1.1 If response to is Yes, how much",
+                question = "C 5.1.1 If response to is Yes, how many",
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter number")
                 ),
@@ -502,7 +502,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "C 5.2.1",
-                question = "C 5.2.1 If response to is Yes, how much",
+                question = "C 5.2.1 If response to is Yes, how many",
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter number")
                 ),
@@ -526,7 +526,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "C 5.3.1",
-                question = "C 5.3.1 If response to is Yes, how much",
+                question = "C 5.3.1 If response to is Yes, how many",
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter number")
                 ),
@@ -550,7 +550,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "C 5.4.1",
-                question = "C 5.4.1 If response to is Yes, how much",
+                question = "C 5.4.1 If response to is Yes, how many",
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter number")
                 ),
@@ -574,7 +574,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "C 5.5.1",
-                question = "C 5.5.1 If response to is Yes, how much",
+                question = "C 5.5.1 If response to is Yes, how many",
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter number")
                 ),
@@ -598,7 +598,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "C 5.6.1",
-                question = "C 5.6.1 If response to is Yes, how much",
+                question = "C 5.6.1 If response to is Yes, how many",
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter number")
                 ),
@@ -629,7 +629,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "D1",
-                question = "D1 Annual Household Income (in Kwacha)",
+                question = "SECTION D: INCOME PROFILE \n\n D1 Annual Household Income (in Kwacha)",
                 options = listOf(
                     OptionType.InputField(
                         InputType.TYPE_CLASS_NUMBER,
@@ -768,7 +768,7 @@ class HomeViewModel(
                         "Enter Annual Income of the Household From Remittances"
                     )
                 ),
-                validate = NumberInputValidation(),
+                validate = NumberInputValidation(-1),
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
@@ -840,7 +840,7 @@ class HomeViewModel(
 
             Question(
                 id = "E1",
-                question = "E1 Total Area under cultivation (in Ha.)",
+                question = "SECTION E: LAND PROFILE \n\n E1 Total Area under cultivation (in Ha.)",
                 options = listOf(
                     OptionType.InputField(
                         InputType.TYPE_CLASS_NUMBER,
@@ -921,7 +921,7 @@ class HomeViewModel(
 
             Question(
                 id = "F",
-                question = "F Crop Profile",
+                question = "SECTION F: CROP PROFILE \n\n F Crop Profile",
                 options = listOf(
                     OptionType.Button("Crop Profile", object : ButtonAction {
                         override fun doAction(view: View, question: Question) {
@@ -939,7 +939,7 @@ class HomeViewModel(
 
             Question(
                 id = "G1",
-                question = "G1 Are you aware of Cashew Infrastructure Development Project (CIDP) being implemented in the District?",
+                question = "SECTION G: Awareness of and Access to CIDP services \n\n G1 Are you aware of Cashew Infrastructure Development Project (CIDP) being implemented in the District?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -971,7 +971,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "H1",
-                question = "H.1 Can you please provide information on cashew plantation",
+                question = "SECTION H: Cashew Production \n\n H.1 Can you please provide information on cashew plantation",
                 options = listOf(
                     OptionType.Button("Cashew plantation", object : ButtonAction {
                         override fun doAction(view: View, question: Question) {
@@ -1233,7 +1233,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "I1",
-                question = "I1 Did you or anyone in your family receive any training under the project in the last five years (2016-21)",
+                question = "SECTION I: Training & Capacity building \n\n I1 Did you or anyone in your family receive any training under the project in the last five years (2016-21)",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -1249,15 +1249,18 @@ class HomeViewModel(
                 id = "I2",
                 question = "I.2 If response to I.1 is “1=Yes”, please mention the number of training received by all the family members in this period",
                 options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Male"),
-                            CheckBoxItems("2", "Female"),
-                        )
-                    )
+                    OptionType.Button("Training by family", object : ButtonAction {
+                        override fun doAction(view: View, question: Question) {
+                            view.findNavController()
+                                .navigate(
+                                    R.id.action_nav_home_to_familyTraining,
+                                    bundleOf("formKey" to question.id)
+                                )
+                        }
+                    })
                 ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX,
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.Button,
                 isOptional = true
             ),
             Question(
@@ -1298,7 +1301,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "J1",
-                question = "J1 Where do you sell the cashew nuts?",
+                question = "SECTION J: Cashew Processing and Marketing \n\n J1 Where do you sell the cashew nuts?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -1473,7 +1476,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "K1",
-                question = "K1 Have you been  availed any loan/grant  for Cashew Production",
+                question = "SECTION K: Access to Finance \n\n K1 Have you been  availed any loan/grant  for Cashew Production",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -1579,7 +1582,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "L",
-                question = "L Farmers groups and associations",
+                question = "SECTION L: FARMER’S GROUPS or ASSOCIATIONS \n\n L Farmers groups and associations",
                 options = listOf(
                     OptionType.Button("Farmers groups and associations", object : ButtonAction {
                         override fun doAction(view: View, question: Question) {
@@ -1596,7 +1599,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "M1",
-                question = "M1 How satisfied are you with the support received under the Cashew Infrastructure Development Project (CIDP)? ",
+                question = "SECTION M: PERCEPTION ABOUT CIDP \n\n M1 How satisfied are you with the support received under the Cashew Infrastructure Development Project (CIDP)? ",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -2010,7 +2013,6 @@ class HomeViewModel(
                         "I.4.0",
                         "I.4.1",
                         "I.4.2",
-                        "I.4.3",
                     )
                 )
             }
@@ -2079,6 +2081,27 @@ class HomeViewModel(
             Gson().fromJson<List<String>>(array.toString(), type).toMutableList()
         }
         return list.contains(value)
+    }
+
+    fun submitI2Data(key: String, forms: MutableList<List<Form>>) {
+        if (key.isEmpty())
+            return
+        viewModelScope.launch {
+            val tableData = forms.map {
+                TableData(
+                    Constants.FARMERS_ASSOCAITION,
+                    it,
+                    columnNames = listOf(
+                        "I2.1",
+                        "I2.2",
+                    )
+                )
+            }
+            val data = Gson().toJson(tableData)
+            Log.e("TAG", "submitData: $key $data")
+            answers[key] = data
+            checkAndUpdateButton()
+        }
     }
 
 }

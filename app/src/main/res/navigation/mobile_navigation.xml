@@ -40,6 +40,9 @@
         <action
             android:id="@+id/action_nav_home_to_runOutFood"
             app:destination="@id/runOutFood" />
+        <action
+            android:id="@+id/action_nav_home_to_familyTraining"
+            app:destination="@id/familyTraining" />
     </fragment>
 
     <fragment
@@ -89,4 +92,8 @@
         android:id="@+id/runOutFood"
         android:name="com.offline.form.builder.ui.RunOutFood"
         android:label="RunOutFood" />
+    <fragment
+        android:id="@+id/familyTraining"
+        android:name="com.offline.form.builder.ui.FamilyTraining"
+        android:label="FamilyTraining" />
 </navigation>

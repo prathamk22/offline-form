@@ -59,16 +59,6 @@ class KnowledgeTraning : BaseTableFragment() {
                 errorMessage = "Please provide an answer"
             )
         )
-        forms.add(
-            Form(
-                isMandatory = true,
-                formType = FormTypes.SINGLE_LINE_TEXT,
-                question = "I.4.3",
-                hint = "please enter ",
-                singleLineTextType = SingleLineTextType.TEXT,
-                errorMessage = "Please provide an answer"
-            )
-        )
         return forms
     }
 }
