@@ -1747,8 +1747,7 @@ class HomeViewModel(
                     )
                 ),
                 validate = StringInputValidation(),
-                optionType = OptionTypeEnum.INPUT,
-                isOptional = true
+                optionType = OptionTypeEnum.INPUT
             ),
 
             Question(
@@ -1842,13 +1841,12 @@ class HomeViewModel(
                     )
                 ),
                 validate = StringInputValidation(),
-                optionType = OptionTypeEnum.INPUT,
-                isOptional = true
+                optionType = OptionTypeEnum.INPUT
             ),
 
             Question(
                 id = "S2 1.a",
-                question = "Section 2 : SURVEY\n\n1. DISABILITY: TO RESPONDENT OR EACH HH MEMBER\n\n1.a Do you have difficulty seeing, even if wearing glasses?",
+                question = "\n\nSECTION 2 : SURVEY\n1. DISABILITY: TO RESPONDENT OR EACH HH MEMBER\n1.a Do you have difficulty seeing, even if wearing glasses?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -1950,7 +1948,7 @@ class HomeViewModel(
 
             Question(
                 id = "S2 2.a",
-                question = "2. CHILD MORTALITY\n\n2.a Has any child who is a member of the household died in the last 12 months?",
+                question = "\n2. CHILD MORTALITY\n2.a Has any child who is a member of the household died in the last 12 months?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -1970,7 +1968,8 @@ class HomeViewModel(
                     OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter number of children")
                 ),
                 validate = NumberInputValidation(0, Int.MAX_VALUE),
-                optionType = OptionTypeEnum.INPUT
+                optionType = OptionTypeEnum.INPUT,
+                isOptional = true
             )
         )
     }
