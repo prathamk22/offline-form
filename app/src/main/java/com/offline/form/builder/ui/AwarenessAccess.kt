@@ -79,8 +79,8 @@ class AwarenessAccess : BaseTableFragment() {
         forms.add(
             Form(
                 formType = FormTypes.SINGLE_LINE_TEXT,
-                question = "Explain how what and how much benefits have accrued",
-                hint = "please enter your explaination",
+                question = "Explain how what and how much benefits have occurred",
+                hint = "Please enter your explanation",
                 singleLineTextType = SingleLineTextType.TEXT,
                 errorMessage = "Please provide an answer"
             )
