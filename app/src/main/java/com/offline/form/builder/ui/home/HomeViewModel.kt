@@ -1805,7 +1805,10 @@ class HomeViewModel(
                 id = "A6",
                 question = "A6 NAME OF SAVINGS GROUP/COOP/SACCO/AGENT",
                 options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "Enter name of Savings Group/COOP/SACCO?Agent")
+                    OptionType.InputField(
+                        InputType.TYPE_CLASS_TEXT,
+                        "Enter name of Savings Group/COOP/SACCO?Agent"
+                    )
                 ),
                 validate = StringInputValidation(),
                 optionType = OptionTypeEnum.INPUT
@@ -1870,7 +1873,7 @@ class HomeViewModel(
                             CheckBoxItems("2", "Yes, some difficulty"),
                             CheckBoxItems("3", "Yes, a lot of difficulty"),
                             CheckBoxItems("4", "Cannot do it at all")
-                            )
+                        )
                     )
                 ),
                 validate = CheckboxInputValidation(),
@@ -2023,62 +2026,37 @@ class HomeViewModel(
                 validate = CheckboxInputValidation(),
                 optionType = OptionTypeEnum.CHECK_BOX
             ),
-
             Question(
                 id = "S2 3.c 1",
-                question = "3.c What is the MAIN material of the dwelling floor?\nNATURAL FLOOR",
+                question = "3.c What is the MAIN material of the dwelling floor?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
+                            CheckBoxItems("1", "NATURAL FLOOR", true),
                             CheckBoxItems("1", "EARTH/SAND"),
-                            CheckBoxItems("2", "DUNG")
+                            CheckBoxItems("2", "DUNG"),
+                            CheckBoxItems("3", "RUDIMENTARY FLOOR", true),
+                            CheckBoxItems("3", "WOOD PLANKS"),
+                            CheckBoxItems("4", "PALM/BAMBOO"),
+                            CheckBoxItems("5", "FINISHED FLOOR", true),
+                            CheckBoxItems("5", "POLISHED WOOD"),
+                            CheckBoxItems("6", "TILED (CERAMIC, VINYL OR ASPHALT"),
+                            CheckBoxItems("7", "CEMENT"),
+                            CheckBoxItems("0", "OTHER")
                         )
                     )
                 ),
                 validate = CheckboxInputValidation(),
                 optionType = OptionTypeEnum.CHECK_BOX,
-                isOptional = true
             ),
-
-            Question(
-                id = "S2 3.c 2",
-                question = "RUDIMENTARY FLOOR",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "WOOD PLANKS"),
-                            CheckBoxItems("2", "PALM/BAMBOO")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX,
-                isOptional = true
-            ),
-
-            Question(
-                id = "S2 3.c 3",
-                question = "FINISHED FLOOR",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "POLISHED WOOD"),
-                            CheckBoxItems("2", "TILED (CERAMIC, VINYL OR ASPHALT"),
-                            CheckBoxItems("3", "CEMENT"),
-                            CheckBoxItems("4", "OTHER")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX,
-                isOptional = true
-            ),
-
             Question(
                 id = "S2 3.d",
                 question = "3.d What is the number of sleeping rooms in the dwelling?",
                 options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter no. of sleeping rooms")
+                    OptionType.InputField(
+                        InputType.TYPE_CLASS_NUMBER,
+                        "Enter no. of sleeping rooms"
+                    )
                 ),
                 validate = NumberInputValidation(0, Int.MAX_VALUE),
                 optionType = OptionTypeEnum.INPUT
@@ -2345,9 +2323,9 @@ class HomeViewModel(
                     questions.associate {
                         it.id to if (answers[it.id] != null) answers[it.id] else "NA"
                     }.toMutableMap().run {
-                    put("Date", getCurrentDateTime().toString("dd/MM/yyyy"))
-                    this
-                }),
+                        put("Date", getCurrentDateTime().toString("dd/MM/yyyy"))
+                        this
+                    }),
                 createdAt = System.currentTimeMillis()
             )
             repo.insertData(answerEntity)

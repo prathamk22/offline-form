@@ -26,4 +26,5 @@ interface ButtonAction {
 data class CheckBoxItems(
     val id: String,
     val optionTitle: String,
+    val isTextOnly: Boolean = false,
 )
