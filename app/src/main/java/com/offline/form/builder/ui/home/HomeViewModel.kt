@@ -1739,7 +1739,7 @@ class HomeViewModel(
         listOf(
             Question(
                 id = "A1",
-                question = "A1 NAME OF THE RESPONDENT",
+                question = "NAME OF THE RESPONDENT",
                 options = listOf(
                     OptionType.InputField(
                         InputType.TYPE_CLASS_TEXT,
@@ -1752,7 +1752,7 @@ class HomeViewModel(
 
             Question(
                 id = "A2",
-                question = "A2 MARITAL STATUS",
+                question = "MARITAL STATUS",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -1770,7 +1770,7 @@ class HomeViewModel(
 
             Question(
                 id = "A3",
-                question = "A3 MOBILE NUMBER",
+                question = "MOBILE NUMBER",
                 options = listOf(
                     OptionType.InputField(
                         InputType.TYPE_CLASS_PHONE,
@@ -1783,7 +1783,7 @@ class HomeViewModel(
 
             Question(
                 id = "A4",
-                question = "A4 VILLAGE/AREA NAME",
+                question = "VILLAGE/AREA NAME",
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_TEXT, "Enter Village/Area Name")
                 ),
@@ -1793,7 +1793,7 @@ class HomeViewModel(
 
             Question(
                 id = "A5",
-                question = "A5 DISTRICT",
+                question = "DISTRICT",
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_TEXT, "Enter District Name")
                 ),
@@ -1803,7 +1803,7 @@ class HomeViewModel(
 
             Question(
                 id = "A6",
-                question = "A6 NAME OF SAVINGS GROUP/COOP/SACCO/AGENT",
+                question = "NAME OF SAVINGS GROUP/COOP/SACCO/AGENT",
                 options = listOf(
                     OptionType.InputField(
                         InputType.TYPE_CLASS_TEXT,
@@ -1816,7 +1816,7 @@ class HomeViewModel(
 
             Question(
                 id = "A7",
-                question = "A7 NAME OF CHAIRPERSON",
+                question = "NAME OF CHAIRPERSON",
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_TEXT, "Enter name of Chairperson")
                 ),
@@ -1826,7 +1826,7 @@ class HomeViewModel(
 
             Question(
                 id = "A8",
-                question = "A8 CHAIRPERSON'S NUMBER",
+                question = "CHAIRPERSON'S NUMBER",
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_TEXT, "Enter number of Chairperson")
                 ),
@@ -1835,8 +1835,8 @@ class HomeViewModel(
             ),
 
             Question(
-                id = "A1",
-                question = "A1 NAME OF IMPLEMENTING PARTNER",
+                id = "A9",
+                question = "NAME OF IMPLEMENTING PARTNER",
                 options = listOf(
                     OptionType.InputField(
                         InputType.TYPE_CLASS_TEXT,
@@ -1847,8 +1847,8 @@ class HomeViewModel(
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
-                id = "B2",
-                question = "B2 Enter your family members ",
+                id = "S1",
+                question = "\n\nSECTION 1 : HOUSEHOLD DEMOGRAPHICS\nEnter your family members ",
                 options = listOf(
                     OptionType.Button("Enter family members", object : ButtonAction {
                         override fun doAction(view: View, question: Question) {
@@ -1865,7 +1865,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "S2 1.a",
-                question = "\n\nSECTION 2 : SURVEY\n1. DISABILITY: TO RESPONDENT OR EACH HH MEMBER\n1.a Do you have difficulty seeing, even if wearing glasses?",
+                question = "\n\nSECTION 2 : SURVEY\n1. DISABILITY: TO RESPONDENT OR EACH HH MEMBER\n1.A Do you have difficulty seeing, even if wearing glasses?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -1882,7 +1882,7 @@ class HomeViewModel(
 
             Question(
                 id = "S2 1.b",
-                question = "1.b Do you have difficulty hearing, even if using a hearing aid?",
+                question = "1.B Do you have difficulty hearing, even if using a hearing aid?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -1899,7 +1899,7 @@ class HomeViewModel(
 
             Question(
                 id = "S2 1.c",
-                question = "1.c Do you have difficulty walking or climbing steps",
+                question = "1.C Do you have difficulty walking or climbing steps",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -1916,7 +1916,7 @@ class HomeViewModel(
 
             Question(
                 id = "S2 1.d",
-                question = "1.d Do you have difficulty remembering or concentrating?",
+                question = "1.D Do you have difficulty remembering or concentrating?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -1933,7 +1933,7 @@ class HomeViewModel(
 
             Question(
                 id = "S2 1.e",
-                question = "1.e Do you have difficulty (with self-care such as) washing all over or dressing?",
+                question = "1.E Do you have difficulty (with self-care such as) washing all over or dressing?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -1950,7 +1950,7 @@ class HomeViewModel(
 
             Question(
                 id = "S2 1.f",
-                question = "1.f Do you have difficulty using your usual language, do you have difficulty communicating, (for example understanding or being understood by others)?",
+                question = "1.F Do you have difficulty using your usual language, do you have difficulty communicating, (for example understanding or being understood by others)?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -1967,7 +1967,7 @@ class HomeViewModel(
 
             Question(
                 id = "S2 2.a",
-                question = "\n2. CHILD MORTALITY\n2.a Has any child who is a member of the household died in the last 12 months?",
+                question = "\n2. CHILD MORTALITY\n2.A Has any child who is a member of the household died in the last 12 months?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -1982,7 +1982,7 @@ class HomeViewModel(
 
             Question(
                 id = "S2 2.b",
-                question = "2.b If YES, how many? (If answer of 2.a is YES)",
+                question = "2.B If YES, how many? (If answer of 2.A is YES)",
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter number of children")
                 ),
@@ -1993,7 +1993,7 @@ class HomeViewModel(
 
             Question(
                 id = "S2 3.a",
-                question = "\n3. TYPE OF HOUSING\n3.a What type of housing do you currently live in?",
+                question = "\n3. TYPE OF HOUSING\n3.A What type of housing do you currently live in?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -2012,7 +2012,7 @@ class HomeViewModel(
 
             Question(
                 id = "S2 3.b",
-                question = "3.b On what basis does the household occupy the dwelling?",
+                question = "3.B On what basis does the household occupy the dwelling?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -2028,7 +2028,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "S2 3.c 1",
-                question = "3.c What is the MAIN material of the dwelling floor?",
+                question = "3.C What is the MAIN material of the dwelling floor?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -2051,7 +2051,7 @@ class HomeViewModel(
             ),
             Question(
                 id = "S2 3.d",
-                question = "3.d What is the number of sleeping rooms in the dwelling?",
+                question = "3.D What is the number of sleeping rooms in the dwelling?",
                 options = listOf(
                     OptionType.InputField(
                         InputType.TYPE_CLASS_NUMBER,
@@ -2064,7 +2064,7 @@ class HomeViewModel(
 
             Question(
                 id = "S2 4.a",
-                question = "\n4. TYPE OF HOUSING\n4.a What is the MAIN source of drinking water for members of your household in the wet season?",
+                question = "\n4. TYPE OF HOUSING\n4.A What is the MAIN source of drinking water for members of your household in the wet season?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -2086,11 +2086,25 @@ class HomeViewModel(
                 ),
                 validate = CheckboxInputValidation(),
                 optionType = OptionTypeEnum.CHECK_BOX
+            ),
+
+            Question(
+                id = "S2 4.a 2",
+                question = "(If you choose OTHER in 4.A)",
+                options = listOf(
+                    OptionType.InputField(
+                        InputType.TYPE_CLASS_TEXT,
+                        ""
+                    )
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT,
+                isOptional = true
             ),
 
             Question(
                 id = "S2 4.b",
-                question = "4.b What is the main source of water during the dry season?",
+                question = "4.B What is the main source of water during the dry season?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -2115,8 +2129,22 @@ class HomeViewModel(
             ),
 
             Question(
+                id = "S2 4.b 2",
+                question = "(If you choose OTHER in 4.B)",
+                options = listOf(
+                    OptionType.InputField(
+                        InputType.TYPE_CLASS_TEXT,
+                        ""
+                    )
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT,
+                isOptional = true
+            ),
+
+            Question(
                 id = "S2 4.c",
-                question = "4.c How long does it take to go there, get water, and come back?",
+                question = "4.C How long does it take to go there, get water, and come back?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -2131,7 +2159,7 @@ class HomeViewModel(
 
             Question(
                 id = "S2 4.d",
-                question = "4.d How is drinking water treated?",
+                question = "4.D How is drinking water treated?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -2147,8 +2175,22 @@ class HomeViewModel(
             ),
 
             Question(
+                id = "S2 4.d 2",
+                question = "(If you choose OTHER in 4.D)",
+                options = listOf(
+                    OptionType.InputField(
+                        InputType.TYPE_CLASS_TEXT,
+                        ""
+                    )
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT,
+                isOptional = true
+            ),
+
+            Question(
                 id = "S2 5.a",
-                question = "\n5. SANITATION AND HEALTH\n5.a What kind of toilet facility does your household use?",
+                question = "\n5. SANITATION AND HEALTH\n5.A What kind of toilet facility does your household use?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -2166,8 +2208,22 @@ class HomeViewModel(
             ),
 
             Question(
+                id = "S2 5.a 2",
+                question = "(If you choose OTHER in 5.A)",
+                options = listOf(
+                    OptionType.InputField(
+                        InputType.TYPE_CLASS_TEXT,
+                        ""
+                    )
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT,
+                isOptional = true
+            ),
+
+            Question(
                 id = "S2 5.b",
-                question = "5.b Is this toilet facility located within your dwelling, or yard or compound?",
+                question = "5.B Is this toilet facility located within your dwelling, or yard or compound?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -2182,7 +2238,7 @@ class HomeViewModel(
 
             Question(
                 id = "S2 5.c",
-                question = "5.c What kind of health facility is available in your vicinity?",
+                question = "5.C What kind of health facility is available in your vicinity?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -2199,8 +2255,22 @@ class HomeViewModel(
             ),
 
             Question(
+                id = "S2 5.c 2",
+                question = "(If you choose OTHER in 5.C)",
+                options = listOf(
+                    OptionType.InputField(
+                        InputType.TYPE_CLASS_TEXT,
+                        ""
+                    )
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT,
+                isOptional = true
+            ),
+
+            Question(
                 id = "S2 5.d",
-                question = "5.d What is the distance of nearest health centre? (Km)",
+                question = "5.D What is the distance of nearest health centre? (Km)",
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter distance")
                 ),
@@ -2210,7 +2280,7 @@ class HomeViewModel(
 
             Question(
                 id = "S2 6.a",
-                question = "\n6. FOOD SECURITY\n6.a In the past 12 months, did your household experience a hungry season?\n" +
+                question = "\n6. FOOD SECURITY\n6.A In the past 12 months, did your household experience a hungry season?\n" +
                         "(The hungry season means the number of months a household does not have enough food because their own stores are depleted and they do not have money to buy food)",
                 options = listOf(
                     OptionType.CheckBox(
@@ -2226,7 +2296,7 @@ class HomeViewModel(
 
             Question(
                 id = "S2 6.b",
-                question = "6.b During what month did the hungry season begin?",
+                question = "6.B During what month did the hungry season begin?",
                 options = listOf(
                     OptionType.InputField(
                         InputType.TYPE_CLASS_TEXT,
@@ -2239,7 +2309,7 @@ class HomeViewModel(
 
             Question(
                 id = "S2 6.c",
-                question = "6.c During what month did the hungry season end?",
+                question = "6.C During what month did the hungry season end?",
                 options = listOf(
                     OptionType.InputField(
                         InputType.TYPE_CLASS_TEXT,
@@ -2252,7 +2322,7 @@ class HomeViewModel(
 
             Question(
                 id = "S2 6.d",
-                question = "6.d In the past 12 months, did your household experience a second hungry season?",
+                question = "6.D In the past 12 months, did your household experience a second hungry season?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -2263,9 +2333,679 @@ class HomeViewModel(
                 ),
                 validate = CheckboxInputValidation(),
                 optionType = OptionTypeEnum.CHECK_BOX
+            ),
+
+            Question(
+                id = "S2 7.a",
+                question = "\n7. HOUSEHOLD ASSET-RELATED QUESTIONS\n7.A Does your household have ....\nElectricity/Solar",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "YES"),
+                            CheckBoxItems("2", "NO")
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+
+            Question(
+                id = "S2 7.a 2",
+                question = "Radio",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "YES"),
+                            CheckBoxItems("2", "NO")
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+
+            Question(
+                id = "S2 7.a 3",
+                question = "Television",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "YES"),
+                            CheckBoxItems("2", "NO")
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+
+            Question(
+                id = "S2 7.a 4",
+                question = "Refrigerator",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "YES"),
+                            CheckBoxItems("2", "NO")
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "S2 7.a 5",
+                question = "Others (Fan, decoder, etc.)",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "YES"),
+                            CheckBoxItems("2", "NO")
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+
+            Question(
+                id = "S2 7.a 6",
+                question = "(If you choose OTHER in 7.A)",
+                options = listOf(
+                    OptionType.InputField(
+                        InputType.TYPE_CLASS_TEXT,
+                        ""
+                    )
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT,
+                isOptional = true
+            ),
+
+            Question(
+                id = "S2 7.b",
+                question = "7.B How would you describe your household assets base since taking part in project activities?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "INCREASED"),
+                            CheckBoxItems("2", "DECREASED"),
+                            CheckBoxItems("3", "NO CHANGE")
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+
+            Question(
+                id = "S2 7.c 1",
+                question = "7.C Does any member of your household own...?\nBicycle",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "Yes"),
+                            CheckBoxItems("2", "No")
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+
+            Question(
+                id = "S2 7.c 2",
+                question = "Motorcycle or Scooter",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "Yes"),
+                            CheckBoxItems("2", "No")
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+
+            Question(
+                id = "S2 7.c 3",
+                question = "Car or Truck",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "Yes"),
+                            CheckBoxItems("2", "No")
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+
+            Question(
+                id = "S2 7.c 4",
+                question = "Others",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "Yes"),
+                            CheckBoxItems("2", "No")
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+
+            Question(
+                id = "S2 7.c 5",
+                question = "(If you choose OTHER in 7.C)",
+                options = listOf(
+                    OptionType.InputField(
+                        InputType.TYPE_CLASS_TEXT,
+                        ""
+                    )
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT,
+                isOptional = true
+            ),
+
+            Question(
+                id = "S2 7.d",
+                question = "7.D What type of fuel does your household MAINLY use for cooking?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "Electricity"),
+                            CheckBoxItems("2", "LPG/Natural Gas"),
+                            CheckBoxItems("3", "Biogas"),
+                            CheckBoxItems("4", "Kerosene"),
+                            CheckBoxItems("5", "Charcoal"),
+                            CheckBoxItems("6", "Firewood"),
+                            CheckBoxItems("7", "Dung"),
+                            CheckBoxItems("8", "Other"),
+
+                            )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.Switch
+            ),
+
+            Question(
+                id = "S2 7.d 2",
+                question = "(If you choose OTHER in 7.D)",
+                options = listOf(
+                    OptionType.InputField(
+                        InputType.TYPE_CLASS_TEXT,
+                        ""
+                    )
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT,
+                isOptional = true
+            ),
+
+            Question(
+                id = "S2 8.1.a 1",
+                question = "\nLIVELIHOODS\n8.1 Farming\n8.1.A Are you or any members of your household involved in cultivating any farmland?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "Yes"),
+                            CheckBoxItems("2", "No")
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+
+            Question(
+                id = "S2 8.1.a 2",
+                question = "If YES, what is the size of the field(Ha)?",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter size of field (in Ha)")
+                ),
+                validate = NumberInputValidation(0, Int.MAX_VALUE),
+                optionType = OptionTypeEnum.INPUT,
+                isOptional = true
+            ),
+
+            Question(
+                id = "S2 8.1.b 1",
+                question = "8.1.B How did your household acquire the [PLOT]?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "INHERITED"),
+                            CheckBoxItems("2", "PURCHASED OR LEASE"),
+                            CheckBoxItems("3", "ALLOCATED BY GOVERNMENT"),
+                            CheckBoxItems("4", "ALLOCATED BY LOCAL LEADER"),
+                            CheckBoxItems("5", "RENTED IN"),
+                            CheckBoxItems("6", "SHARE-CROPPED"),
+                            CheckBoxItems("7", "BORROWED FOR FREE"),
+                            CheckBoxItems("8", "CLEARED AND OCCUPIED"),
+                            CheckBoxItems("9", "OTHER")
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+
+            Question(
+                id = "S2 8.1.b 2",
+                question = "(If you choose OTHER in 8.1.B)",
+                options = listOf(
+                    OptionType.InputField(
+                        InputType.TYPE_CLASS_TEXT,
+                        ""
+                    )
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT,
+                isOptional = true
+            ),
+
+            Question(
+                id = "S2 8.1.c 1",
+                question = "8.1.C What does your household use to cultivate MOST of your farmland?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "HAND TOOL (HOE/SPADE)"),
+                            CheckBoxItems("2", "ANIMAL-DRAWN PLOUGH"),
+                            CheckBoxItems("3", "TRACTOR-DRAWN PLOUGH"),
+                            CheckBoxItems("4", "POWER TILLER"),
+                            CheckBoxItems("5", "OTHER")
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+
+            Question(
+                id = "S2 8.1.c 2",
+                question = "(If you choose OTHER in 8.1.C)",
+                options = listOf(
+                    OptionType.InputField(
+                        InputType.TYPE_CLASS_TEXT,
+                        ""
+                    )
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT,
+                isOptional = true
+            ),
+
+            Question(
+                id = "S2 8.1.f",
+                question = "8.1.F Are you or any members of your household involved in any gardening?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "YES"),
+                            CheckBoxItems("2", "NO")
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+
+            Question(
+                id = "S2 8.1.g",
+                question = "8.1.G Is it irrigated?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "YES"),
+                            CheckBoxItems("2", "NO")
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+
+            Question(
+                id = "S2 8.1.h",
+                question = "8.1.H What is the source of irrigation water?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "PIPED INTO HOUSE"),
+                            CheckBoxItems("2", "PIPED INTO YARD OR PLOT"),
+                            CheckBoxItems("3", "PUBLIC TAP"),
+                            CheckBoxItems("4", "TUBEWELL/BOREHOLE WITH PUMP"),
+                            CheckBoxItems("5", "PROTECTED DUG WELL"),
+                            CheckBoxItems("6", "PROTECTED SPRING"),
+                            CheckBoxItems("7", "RAINWATER COLLECTION"),
+                            CheckBoxItems("8", "BOTTLED WATER"),
+                            CheckBoxItems("9", "UNPROTECTED DUG WELL"),
+                            CheckBoxItems("10", "UNPROTECTED SPRING"),
+                            CheckBoxItems("11", "POND, RIVER OR STREAM"),
+                            CheckBoxItems("12", "TANKER-TRUCK, VENDOR"),
+                            CheckBoxItems("13", "OTHER")
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+
+            Question(
+                id = "S2 8.1.h 2",
+                question = "(If you choose OTHER in 8.1.H)",
+                options = listOf(
+                    OptionType.InputField(
+                        InputType.TYPE_CLASS_TEXT,
+                        ""
+                    )
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT,
+                isOptional = true
+            ),
+
+            Question(
+                id = "S2 8.1.i",
+                question = "8.1.I Apart from members of your household, did you use any labour in this farmland in the past 12 months?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "YES"),
+                            CheckBoxItems("2", "NO")
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+
+            Question(
+                id = "S2 8.1.j 1",
+                question = "8.1.J Did you pay wages to the labourers?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "Yes"),
+                            CheckBoxItems("2", "No")
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+
+            Question(
+                id = "S2 8.1.j 2",
+                question = "If YES, how much did you pay (ZMW)?",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "")
+                ),
+                validate = NumberInputValidation(0, Int.MAX_VALUE),
+                optionType = OptionTypeEnum.INPUT,
+                isOptional = true
+            ),
+
+            Question(
+                id = "S2 8.1.k 1",
+                question = "8.1.K Does any member of your household own any livestock?\nChickens or other poultry?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "Yes"),
+                            CheckBoxItems("2", "No")
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+
+            Question(
+                id = "S2 8.1.k 2",
+                question = "If YES, how many?",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "")
+                ),
+                validate = NumberInputValidation(0, Int.MAX_VALUE),
+                optionType = OptionTypeEnum.INPUT,
+                isOptional = true
+            ),
+
+            Question(
+                id = "S2 8.1.k 3",
+                question = "Sheep?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "Yes"),
+                            CheckBoxItems("2", "No")
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+
+            Question(
+                id = "S2 8.1.k 4",
+                question = "If YES, how many?",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "")
+                ),
+                validate = NumberInputValidation(0, Int.MAX_VALUE),
+                optionType = OptionTypeEnum.INPUT,
+                isOptional = true
+            ),
+
+            Question(
+                id = "S2 8.1.k 5",
+                question = "Goats",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "Yes"),
+                            CheckBoxItems("2", "No")
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+
+            Question(
+                id = "S2 8.1.k 6",
+                question = "If YES, how many?",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "")
+                ),
+                validate = NumberInputValidation(0, Int.MAX_VALUE),
+                optionType = OptionTypeEnum.INPUT,
+                isOptional = true
+            ),
+
+            Question(
+                id = "S2 8.1.k 7",
+                question = "Cattle",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "Yes"),
+                            CheckBoxItems("2", "No")
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+
+            Question(
+                id = "S2 8.1.k 8",
+                question = "If YES, how many?",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "")
+                ),
+                validate = NumberInputValidation(0, Int.MAX_VALUE),
+                optionType = OptionTypeEnum.INPUT,
+                isOptional = true
+            ),
+
+            Question(
+                id = "S2 8.1.k 9",
+                question = "Pigs",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "Yes"),
+                            CheckBoxItems("2", "No")
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+
+            Question(
+                id = "S2 8.1.k 10",
+                question = "If YES, how many?",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "")
+                ),
+                validate = NumberInputValidation(0, Int.MAX_VALUE),
+                optionType = OptionTypeEnum.INPUT,
+                isOptional = true
+            ),
+
+            Question(
+                id = "S2 8.2.a",
+                question = "8.2 Household Income\n8.2.A Annual household Income (in Kwacha)",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter Annual Household Income")
+                ),
+                validate = NumberInputValidation(0, Int.MAX_VALUE),
+                optionType = OptionTypeEnum.INPUT
+            ),
+
+            Question(
+                id = "S2 8.2.b",
+                question = "8.2.B Number of earning household members",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter no. of earning household members")
+                ),
+                validate = NumberInputValidation(0, Int.MAX_VALUE),
+                optionType = OptionTypeEnum.INPUT
+            ),
+
+            Question(
+                id = "S2 8.2.c",
+                question = "8.2.C Income earned by Women household members (in Kwacha)",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "")
+                ),
+                validate = NumberInputValidation(0, Int.MAX_VALUE),
+                optionType = OptionTypeEnum.INPUT
+            ),
+
+            Question(
+                id = "S2 8.2.d 1",
+                question = "8.2.D Please provide different source-wise annual Income of the Household (in Kwacha)\nFrom Farming/Agriculture",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "")
+                ),
+                validate = NumberInputValidation(0, Int.MAX_VALUE),
+                optionType = OptionTypeEnum.INPUT
+            ),
+
+            Question(
+                id = "S2 8.2.d 2",
+                question = "From selling milk",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "")
+                ),
+                validate = NumberInputValidation(0, Int.MAX_VALUE),
+                optionType = OptionTypeEnum.INPUT
+            ),
+
+            Question(
+                id = "S2 8.2.d 3",
+                question = "From selling animal meat",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "")
+                ),
+                validate = NumberInputValidation(0, Int.MAX_VALUE),
+                optionType = OptionTypeEnum.INPUT
+            ),
+
+            Question(
+                id = "S2 8.2.d 4",
+                question = "From Labour(off-farm activities such as construction etc.)",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "")
+                ),
+                validate = NumberInputValidation(0, Int.MAX_VALUE),
+                optionType = OptionTypeEnum.INPUT
+            ),
+
+            Question(
+                id = "S2 8.2.d 5",
+                question = "From Enterprise",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "")
+                ),
+                validate = NumberInputValidation(0, Int.MAX_VALUE),
+                optionType = OptionTypeEnum.INPUT
+            ),
+
+            Question(
+                id = "S2 8.2.d 6",
+                question = "From Salary of HH member (migrated/non-migrated)",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "")
+                ),
+                validate = NumberInputValidation(0, Int.MAX_VALUE),
+                optionType = OptionTypeEnum.INPUT
+            ),
+
+            Question(
+                id = "S2 8.2.d 7",
+                question = "Remittances",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "")
+                ),
+                validate = NumberInputValidation(0, Int.MAX_VALUE),
+                optionType = OptionTypeEnum.INPUT
+            ),
+
+            Question(
+                id = "S2 8.2.d 8",
+                question = "Pension",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "")
+                ),
+                validate = NumberInputValidation(0, Int.MAX_VALUE),
+                optionType = OptionTypeEnum.INPUT
+            ),
+
+            Question(
+                id = "S2 8.2.d 9",
+                question = "Aid/ Government Grant",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "")
+                ),
+                validate = NumberInputValidation(0, Int.MAX_VALUE),
+                optionType = OptionTypeEnum.INPUT
             )
         )
     }
+
 
     private val answers = mutableMapOf<String, Any>()
 
