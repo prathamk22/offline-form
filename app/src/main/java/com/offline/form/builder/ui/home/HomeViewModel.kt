@@ -1765,7 +1765,7 @@ class HomeViewModel(
                     )
                 ),
                 validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.Switch
+                optionType = OptionTypeEnum.CHECK_BOX
             ),
 
             Question(
@@ -1858,7 +1858,7 @@ class HomeViewModel(
                     )
                 ),
                 validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.Switch
+                optionType = OptionTypeEnum.CHECK_BOX
             ),
 
             Question(
@@ -1875,7 +1875,7 @@ class HomeViewModel(
                     )
                 ),
                 validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.Switch
+                optionType = OptionTypeEnum.CHECK_BOX
             ),
 
             Question(
@@ -1892,7 +1892,7 @@ class HomeViewModel(
                     )
                 ),
                 validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.Switch
+                optionType = OptionTypeEnum.CHECK_BOX
             ),
 
             Question(
@@ -1909,7 +1909,7 @@ class HomeViewModel(
                     )
                 ),
                 validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.Switch
+                optionType = OptionTypeEnum.CHECK_BOX
             ),
 
             Question(
@@ -1926,7 +1926,7 @@ class HomeViewModel(
                     )
                 ),
                 validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.Switch
+                optionType = OptionTypeEnum.CHECK_BOX
             ),
 
             Question(
@@ -1943,7 +1943,7 @@ class HomeViewModel(
                     )
                 ),
                 validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.Switch
+                optionType = OptionTypeEnum.CHECK_BOX
             ),
 
             Question(
@@ -1970,6 +1970,305 @@ class HomeViewModel(
                 validate = NumberInputValidation(0, Int.MAX_VALUE),
                 optionType = OptionTypeEnum.INPUT,
                 isOptional = true
+            ),
+
+            Question(
+                id = "S2 3.a",
+                question = "\n3. TYPE OF HOUSING\n3.a What type of housing do you currently live in?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "MUD AND GRASS THATCH"),
+                            CheckBoxItems("2", "UN-BURNT BRICK AND IRON SHEETS"),
+                            CheckBoxItems("3", "UN-BURNT BRICK AND GRASS THATCH"),
+                            CheckBoxItems("4", "BURNT BRICKS AND IRON SHEETS"),
+                            CheckBoxItems("5", "CONCRETE BRICKS AND IRON SHEETS"),
+                            CheckBoxItems("6", "OTHER")
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+
+            Question(
+                id = "S2 3.b",
+                question = "3.b On what basis does the household occupy the dwelling?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "PRIVATELY OWNED"),
+                            CheckBoxItems("2", "FREE OF RENT"),
+                            CheckBoxItems("3", "RENTED"),
+                            CheckBoxItems("4", "OTHER")
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+
+            Question(
+                id = "S2 3.c 1",
+                question = "3.c What is the MAIN material of the dwelling floor?\nNATURAL FLOOR",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "EARTH/SAND"),
+                            CheckBoxItems("2", "DUNG")
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX,
+                isOptional = true
+            ),
+
+            Question(
+                id = "S2 3.c 2",
+                question = "RUDIMENTARY FLOOR",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "WOOD PLANKS"),
+                            CheckBoxItems("2", "PALM/BAMBOO")
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX,
+                isOptional = true
+            ),
+
+            Question(
+                id = "S2 3.c 3",
+                question = "FINISHED FLOOR",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "POLISHED WOOD"),
+                            CheckBoxItems("2", "TILED (CERAMIC, VINYL OR ASPHALT"),
+                            CheckBoxItems("3", "CEMENT"),
+                            CheckBoxItems("4", "OTHER")
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX,
+                isOptional = true
+            ),
+
+            Question(
+                id = "S2 3.d",
+                question = "3.d What is the number of sleeping rooms in the dwelling?",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter no. of sleeping rooms")
+                ),
+                validate = NumberInputValidation(0, Int.MAX_VALUE),
+                optionType = OptionTypeEnum.INPUT
+            ),
+
+            Question(
+                id = "S2 4.a",
+                question = "\n4. TYPE OF HOUSING\n4.a What is the MAIN source of drinking water for members of your household in the wet season?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "PIPED INTO HOUSE"),
+                            CheckBoxItems("2", "PIPED INTO YARD OR PLOT"),
+                            CheckBoxItems("3", "PUBLIC TAP"),
+                            CheckBoxItems("4", "TUBEWELL/BOREHOLE WITH PUMP"),
+                            CheckBoxItems("5", "PROTECTED DUG WELL"),
+                            CheckBoxItems("6", "PROTECTED SPRING"),
+                            CheckBoxItems("7", "RAINWATER COLLECTION"),
+                            CheckBoxItems("8", "BOTTLED WATER"),
+                            CheckBoxItems("9", "UNPROTECTED DUG WELL"),
+                            CheckBoxItems("10", "UNPROTECTED SPRING"),
+                            CheckBoxItems("11", "POND, RIVER OR STREAM"),
+                            CheckBoxItems("12", "TANKER-TRUCK, VENDOR"),
+                            CheckBoxItems("13", "OTHER")
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+
+            Question(
+                id = "S2 4.b",
+                question = "4.b What is the main source of water during the dry season?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "PIPED INTO HOUSE"),
+                            CheckBoxItems("2", "PIPED INTO YARD OR PLOT"),
+                            CheckBoxItems("3", "PUBLIC TAP"),
+                            CheckBoxItems("4", "TUBEWELL/BOREHOLE WITH PUMP"),
+                            CheckBoxItems("5", "PROTECTED DUG WELL"),
+                            CheckBoxItems("6", "PROTECTED SPRING"),
+                            CheckBoxItems("7", "RAINWATER COLLECTION"),
+                            CheckBoxItems("8", "BOTTLED WATER"),
+                            CheckBoxItems("9", "UNPROTECTED DUG WELL"),
+                            CheckBoxItems("10", "UNPROTECTED SPRING"),
+                            CheckBoxItems("11", "POND, RIVER OR STREAM"),
+                            CheckBoxItems("12", "TANKER-TRUCK, VENDOR"),
+                            CheckBoxItems("13", "OTHER")
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+
+            Question(
+                id = "S2 4.c",
+                question = "4.c How long does it take to go there, get water, and come back?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "Water within premises"),
+                            CheckBoxItems("2", "No answer or don't know")
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+
+            Question(
+                id = "S2 4.d",
+                question = "4.d How is drinking water treated?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "BOIL"),
+                            CheckBoxItems("2", "ADD CHLORINE"),
+                            CheckBoxItems("3", "DON'T TREAT"),
+                            CheckBoxItems("4", "OTHER")
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+
+            Question(
+                id = "S2 5.a",
+                question = "\n5. SANITATION AND HEALTH\n5.a What kind of toilet facility does your household use?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "NO FACILITY/BUSH/FIELD"),
+                            CheckBoxItems("2", "OPEN  PIT/TRADITIONAL PIT LATRINE"),
+                            CheckBoxItems("3", "IMPROVED PIT LATRINE (VIP)"),
+                            CheckBoxItems("4", "POUR FLUSH LATRINE"),
+                            CheckBoxItems("5", "FLUSH TOILET WITH SOAK AWAY"),
+                            CheckBoxItems("6", "OTHER")
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+
+            Question(
+                id = "S2 5.b",
+                question = "5.b Is this toilet facility located within your dwelling, or yard or compound?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "Yes"),
+                            CheckBoxItems("2", "No")
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+
+            Question(
+                id = "S2 5.c",
+                question = "5.c What kind of health facility is available in your vicinity?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "NO FACILITY"),
+                            CheckBoxItems("2", "HOSPITAL"),
+                            CheckBoxItems("3", "HEALTH CENTER"),
+                            CheckBoxItems("4", "HEALTH CLINIC"),
+                            CheckBoxItems("5", "OTHER")
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+
+            Question(
+                id = "S2 5.d",
+                question = "5.d What is the distance of nearest health centre? (Km)",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter distance")
+                ),
+                validate = NumberInputValidation(0, Int.MAX_VALUE),
+                optionType = OptionTypeEnum.INPUT
+            ),
+
+            Question(
+                id = "S2 6.a",
+                question = "\n6. FOOD SECURITY\n6.a In the past 12 months, did your household experience a hungry season?\n" +
+                        "(The hungry season means the number of months a household does not have enough food because their own stores are depleted and they do not have money to buy food)",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "YES"),
+                            CheckBoxItems("2", "NO")
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+
+            Question(
+                id = "S2 6.b",
+                question = "6.b During what month did the hungry season begin?",
+                options = listOf(
+                    OptionType.InputField(
+                        InputType.TYPE_CLASS_TEXT,
+                        "MONTH THAT HUNGRY SEASON BEGAN"
+                    )
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT
+            ),
+
+            Question(
+                id = "S2 6.c",
+                question = "6.c During what month did the hungry season end?",
+                options = listOf(
+                    OptionType.InputField(
+                        InputType.TYPE_CLASS_TEXT,
+                        "MONTH THAT HUNGRY SEASON ENDED"
+                    )
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT
+            ),
+
+            Question(
+                id = "S2 6.d",
+                question = "6.d In the past 12 months, did your household experience a second hungry season?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "YES"),
+                            CheckBoxItems("2", "NO")
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
             )
         )
     }
