@@ -17,8 +17,17 @@ class AddPeopleFragment : BaseTableFragment() {
             Form(
                 isMandatory = true,
                 formType = FormTypes.SINGLE_LINE_TEXT,
-                question = "Name of the household member",
-                hint = "please enter your name",
+                question = "Full name",
+                hint = "Please enter full name of the user",
+                errorMessage = "Please enter proper value"
+            )
+        )
+        forms.add(
+            Form(
+                isMandatory = true,
+                formType = FormTypes.SINGLE_LINE_TEXT,
+                question = "Relation to Head of the Household",
+                hint = "please enter Relation to Head of the Household",
                 singleLineTextType = SingleLineTextType.TEXT,
                 errorMessage = "Please provide an answer"
             )
@@ -27,38 +36,43 @@ class AddPeopleFragment : BaseTableFragment() {
             Form(
                 isMandatory = true,
                 formType = FormTypes.SINGLE_CHOICE,
-                question = "Gender",
-                choices = listOf("1. Male", "2. Female"),
-                errorMessage = "Please choose"
+                question = "Sex",
+                choices = listOf(
+                    "Male",
+                    "Female"
+                ),
+                errorMessage = "Please provide an answer"
             )
         )
         forms.add(
             Form(
                 isMandatory = true,
-                formType = FormTypes.SINGLE_LINE_TEXT,
-
-                question = "Age",
-                hint = "in yrs",
-                singleLineTextType = SingleLineTextType.TEXT,
-                errorMessage = "Please provide an answer",
-
+                formType = FormTypes.NUMBER,
+                question = "How old was (NAME) on his/her last birthday?",
+                hint = "Please enter the age of the user",
+                errorMessage = "Please provide an answer"
+            )
+        )
+        forms.add(
+            Form(
+                isMandatory = true,
+                formType = FormTypes.NUMBER,
+                question = "How old was (NAME) on his/her last birthday?",
+                hint = "Please enter the age of the user",
+                errorMessage = "Please provide an answer"
             )
         )
         forms.add(
             Form(
                 isMandatory = true,
                 formType = FormTypes.SINGLE_CHOICE,
-                question = "Education Level",
+                question = "Can he/she read a newspaper or letter?",
                 choices = listOf(
-                    "1 = No Formal Education",
-                    "2 = Less than Grade 5",
-                    "3 = Less than grade 10",
-                    "4 = Less than Grade 12",
-                    "5 = College Student",
-                    "6 = University Undergraduate Student",
-                    "7 = Tertiary Certificate, Diploma",
-                    "8= Bachelors Degree",
-                    "9 = Masters Degree and Above.",
+                    "EASILY",
+                    "WITH DIFFICULTY",
+                    "NOT AT ALL",
+                    "DON’T KNOW",
+                    "OR NOT APPLICABLE",
                 ),
                 errorMessage = "Please provide an answer"
             )
@@ -67,45 +81,12 @@ class AddPeopleFragment : BaseTableFragment() {
             Form(
                 isMandatory = true,
                 formType = FormTypes.SINGLE_CHOICE,
-                question = "Actively involved in Farming",
-                choices = listOf("1. Yes", "2. No"),
-                errorMessage = "Please choose"
-            )
-        )
-        forms.add(
-            Form(
-                isMandatory = true,
-                formType = FormTypes.SINGLE_CHOICE,
-                question = "Earning member of HH",
-                choices = listOf("1. Yes", "2. No"),
-                errorMessage = "Please choose"
-            )
-        )
-        forms.add(
-            Form(
-                isMandatory = true,
-                formType = FormTypes.SINGLE_CHOICE,
-                question = "Suffered from COVID-19 at any time",
-                choices = listOf("1. Yes", "2. No"),
-                errorMessage = "Please choose"
-            )
-        )
-        forms.add(
-            Form(
-                isMandatory = true,
-                formType = FormTypes.SINGLE_CHOICE,
-                question = "Suffered from HIV AIDS",
-                choices = listOf("1. Yes", "2. No"),
-                errorMessage = "Please choose"
-            )
-        )
-        forms.add(
-            Form(
-                isMandatory = true,
-                formType = FormTypes.SINGLE_CHOICE,
-                question = "Suffered from any other Health issue",
-                choices = listOf("1. Yes", "2. No"),
-                errorMessage = "Please choose"
+                question = "Is he/she attending school?",
+                choices = listOf(
+                    "YES",
+                    "NO",
+                ),
+                errorMessage = "Please provide an answer"
             )
         )
         return forms

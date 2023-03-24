@@ -1843,7 +1843,23 @@ class HomeViewModel(
                 validate = StringInputValidation(),
                 optionType = OptionTypeEnum.INPUT
             ),
-
+            Question(
+                id = "B2",
+                question = "B2 Enter your family members ",
+                options = listOf(
+                    OptionType.Button("Enter family members", object : ButtonAction {
+                        override fun doAction(view: View, question: Question) {
+                            view.findNavController()
+                                .navigate(
+                                    R.id.action_nav_home_to_nav_gallery,
+                                    bundleOf("formKey" to question.id)
+                                )
+                        }
+                    })
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.Button
+            ),
             Question(
                 id = "S2 1.a",
                 question = "\n\nSECTION 2 : SURVEY\n1. DISABILITY: TO RESPONDENT OR EACH HH MEMBER\n1.a Do you have difficulty seeing, even if wearing glasses?",
