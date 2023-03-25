@@ -30,7 +30,7 @@ class HouseHoldMembers : NewBaseTableFragment() {
             Form(
                 isMandatory = true,
                 formType = if (maxCount == 1) FormTypes.SINGLE_CHOICE else FormTypes.MULTI_CHOICE,
-                question = "Who participates in the [CROP] cultivation?",
+                question = "Select from the members list",
                 choices = tableList.mapIndexed { i, item ->
                     item.formAns.getOrNull(i)?.answer ?: ""
                 },
