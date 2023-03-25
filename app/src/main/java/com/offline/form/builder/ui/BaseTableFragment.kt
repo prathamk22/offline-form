@@ -54,7 +54,9 @@ abstract class BaseTableFragment : Fragment() {
                     .setCancelable(true)
                     .setMessage("Do you want to add these items into the data?")
                     .setPositiveButton("Add and Exit") { d, i ->
-                        onSubmitListCalled()
+                        if(validateAndSubmit()){
+                            onSubmitListCalled()
+                        }
                         findNavController().navigateUp()
                     }.setNegativeButton("Cancel and Exit") { d, i ->
                         findNavController().navigateUp()
@@ -70,5 +72,6 @@ abstract class BaseTableFragment : Fragment() {
 
     abstract fun getSection1FormData(): List<Form>
 
+    open fun validateAndSubmit() = true
 
 }

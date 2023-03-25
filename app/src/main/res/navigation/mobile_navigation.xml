@@ -43,6 +43,9 @@
         <action
             android:id="@+id/action_nav_home_to_familyTraining"
             app:destination="@id/familyTraining" />
+        <action
+            android:id="@+id/action_nav_home_to_houseHoldMembers"
+            app:destination="@id/houseHoldMembers" />
     </fragment>
 
     <fragment
@@ -96,4 +99,8 @@
         android:id="@+id/familyTraining"
         android:name="com.offline.form.builder.ui.FamilyTraining"
         android:label="FamilyTraining" />
+    <fragment
+        android:id="@+id/houseHoldMembers"
+        android:name="com.offline.form.builder.ui.houseHoldMembers.HouseHoldMembers"
+        android:label="HouseHoldMembers" />
 </navigation>

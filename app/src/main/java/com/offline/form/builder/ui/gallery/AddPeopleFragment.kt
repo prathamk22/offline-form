@@ -56,15 +56,6 @@ class AddPeopleFragment : BaseTableFragment() {
         forms.add(
             Form(
                 isMandatory = true,
-                formType = FormTypes.NUMBER,
-                question = "How old was (NAME) on his/her last birthday?",
-                hint = "Please enter the age of the user",
-                errorMessage = "Please provide an answer"
-            )
-        )
-        forms.add(
-            Form(
-                isMandatory = true,
                 formType = FormTypes.SINGLE_CHOICE,
                 question = "Can he/she read a newspaper or letter?",
                 choices = listOf(
@@ -74,6 +65,15 @@ class AddPeopleFragment : BaseTableFragment() {
                     "DON’T KNOW",
                     "OR NOT APPLICABLE",
                 ),
+                errorMessage = "Please provide an answer"
+            )
+        )
+        forms.add(
+            Form(
+                isMandatory = true,
+                formType = FormTypes.NUMBER,
+                question = "Number of years of school that have been completed",
+                hint = "Please enter the age of the user",
                 errorMessage = "Please provide an answer"
             )
         )
