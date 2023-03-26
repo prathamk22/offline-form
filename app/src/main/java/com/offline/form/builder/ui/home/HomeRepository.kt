@@ -17,7 +17,7 @@ class HomeRepository(
 ) {
 
     val questions: List<Question> by lazy {
-        listOf(
+        mutableListOf(
             Question(
                 id = "A1",
                 question = "NAME OF THE RESPONDENT",
@@ -1229,217 +1229,52 @@ class HomeRepository(
                 id = "S2 9.1.b",
                 question = "Are any of these financial products or services available in the community?",
                 options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Agency Banking Booths", true),
-                            CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("2", "No"),
-                            CheckBoxItems("3", "Insurance products for Savings Groups", true),
-                            CheckBoxItems("3", "Yes"),
-                            CheckBoxItems("4", "No"),
-                            CheckBoxItems("5", "Micro-investment loans", true),
-                            CheckBoxItems("5", "Yes"),
-                            CheckBoxItems("6", "No"),
-                            CheckBoxItems("7", "Savings Group Accounts", true),
-                            CheckBoxItems("7", "Yes"),
-                            CheckBoxItems("8", "No"),
-                            CheckBoxItems("9", "Livestock financing product", true),
-                            CheckBoxItems("9", "Yes"),
-                            CheckBoxItems("10", "No"),
-                            CheckBoxItems("11", "Mobile Money Accounts", true),
-                            CheckBoxItems("11", "Yes"),
-                            CheckBoxItems("12", "No"),
-                            CheckBoxItems("13", "Savings Group loan product", true),
-                            CheckBoxItems("13", "Yes"),
-                            CheckBoxItems("14", "No"),
-                            CheckBoxItems("15", "Self Help Group Accounts", true),
-                            CheckBoxItems("15", "Yes"),
-                            CheckBoxItems("16", "No"),
-                            CheckBoxItems("17", "Agro-Dealer Agency points", true),
-                            CheckBoxItems("17", "Yes"),
-                            CheckBoxItems("18", "No"),
-                            CheckBoxItems("19", "Digital Payment Services (various)", true),
-                            CheckBoxItems("19", "Yes"),
-                            CheckBoxItems("20", "No"),
-                            CheckBoxItems("21", "Money transfers, cash in, cash out", true),
-                            CheckBoxItems("21", "Yes"),
-                            CheckBoxItems("22", "No"),
-                            CheckBoxItems("23", "Digital Savings Accounts", true),
-                            CheckBoxItems("23", "Yes"),
-                            CheckBoxItems("24", "No"),
-                            CheckBoxItems("25", "Digital Loan disbursements", true),
-                            CheckBoxItems("25", "Yes"),
-                            CheckBoxItems("26", "No"),
-                            CheckBoxItems("27", "Digital Loan repayments", true),
-                            CheckBoxItems("27", "Yes"),
-                            CheckBoxItems("28", "No"),
-                            CheckBoxItems("29", "Lay-by input facility, Paygo", true),
-                            CheckBoxItems("29", "Yes"),
-                            CheckBoxItems("30", "No"),
-                            CheckBoxItems("31", "Mobile App (various capabilities)", true),
-                            CheckBoxItems("31", "Yes"),
-                            CheckBoxItems("32", "No"),
-                            CheckBoxItems("33", "Invoice discount for Farmers", true),
-                            CheckBoxItems("33", "Yes"),
-                            CheckBoxItems("34", "No"),
-                            CheckBoxItems("35", "Digitized Savings Groups", true),
-                            CheckBoxItems("35", "Yes"),
-                            CheckBoxItems("36", "No"),
-                            CheckBoxItems("37", "e-Wallet accounts", true),
-                            CheckBoxItems("37", "Yes"),
-                            CheckBoxItems("38", "No"),
-                            CheckBoxItems("39", "Point of Sale machines (PoS)", true),
-                            CheckBoxItems("39", "Yes"),
-                            CheckBoxItems("40", "No"),
-                        )
-                    )
+                    OptionType.Button("Select from the financial products", object : ButtonAction {
+                        override fun doAction(view: View, question: Question) {
+                            view.findNavController()
+                                .navigate(
+                                    R.id.action_nav_home_to_financialProducts,
+                                    bundleOf("formKey" to question.id)
+                                )
+                        }
+                    })
                 ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.Switch
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.Button
             ),
             Question(
                 id = "S2 9.1.c.1",
                 question = "Are you aware of financial services listed above?",
                 options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Agency Banking Booths", true),
-                            CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("2", "No"),
-                            CheckBoxItems("3", "Insurance products for Savings Groups", true),
-                            CheckBoxItems("3", "Yes"),
-                            CheckBoxItems("4", "No"),
-                            CheckBoxItems("5", "Micro-investment loans", true),
-                            CheckBoxItems("5", "Yes"),
-                            CheckBoxItems("6", "No"),
-                            CheckBoxItems("7", "Savings Group Accounts", true),
-                            CheckBoxItems("7", "Yes"),
-                            CheckBoxItems("8", "No"),
-                            CheckBoxItems("9", "Livestock financing product", true),
-                            CheckBoxItems("9", "Yes"),
-                            CheckBoxItems("10", "No"),
-                            CheckBoxItems("11", "Mobile Money Accounts", true),
-                            CheckBoxItems("11", "Yes"),
-                            CheckBoxItems("12", "No"),
-                            CheckBoxItems("13", "Savings Group loan product", true),
-                            CheckBoxItems("13", "Yes"),
-                            CheckBoxItems("14", "No"),
-                            CheckBoxItems("15", "Self Help Group Accounts", true),
-                            CheckBoxItems("15", "Yes"),
-                            CheckBoxItems("16", "No"),
-                            CheckBoxItems("17", "Agro-Dealer Agency points", true),
-                            CheckBoxItems("17", "Yes"),
-                            CheckBoxItems("18", "No"),
-                            CheckBoxItems("19", "Digital Payment Services (various)", true),
-                            CheckBoxItems("19", "Yes"),
-                            CheckBoxItems("20", "No"),
-                            CheckBoxItems("21", "Money transfers, cash in, cash out", true),
-                            CheckBoxItems("21", "Yes"),
-                            CheckBoxItems("22", "No"),
-                            CheckBoxItems("23", "Digital Savings Accounts", true),
-                            CheckBoxItems("23", "Yes"),
-                            CheckBoxItems("24", "No"),
-                            CheckBoxItems("25", "Digital Loan disbursements", true),
-                            CheckBoxItems("25", "Yes"),
-                            CheckBoxItems("26", "No"),
-                            CheckBoxItems("27", "Digital Loan repayments", true),
-                            CheckBoxItems("27", "Yes"),
-                            CheckBoxItems("28", "No"),
-                            CheckBoxItems("29", "Lay-by input facility, Paygo", true),
-                            CheckBoxItems("29", "Yes"),
-                            CheckBoxItems("30", "No"),
-                            CheckBoxItems("31", "Mobile App (various capabilities)", true),
-                            CheckBoxItems("31", "Yes"),
-                            CheckBoxItems("32", "No"),
-                            CheckBoxItems("33", "Invoice discount for Farmers", true),
-                            CheckBoxItems("33", "Yes"),
-                            CheckBoxItems("34", "No"),
-                            CheckBoxItems("35", "Digitized Savings Groups", true),
-                            CheckBoxItems("35", "Yes"),
-                            CheckBoxItems("36", "No"),
-                            CheckBoxItems("37", "e-Wallet accounts", true),
-                            CheckBoxItems("37", "Yes"),
-                            CheckBoxItems("38", "No"),
-                            CheckBoxItems("39", "Point of Sale machines (PoS)", true),
-                            CheckBoxItems("39", "Yes"),
-                            CheckBoxItems("40", "No"),
-                        )
-                    )
+                    OptionType.Button("Select from the financial products", object : ButtonAction {
+                        override fun doAction(view: View, question: Question) {
+                            view.findNavController()
+                                .navigate(
+                                    R.id.action_nav_home_to_financialProducts,
+                                    bundleOf("formKey" to question.id)
+                                )
+                        }
+                    })
                 ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.Switch
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.Button
             ),
             Question(
                 id = "S2 9.1.c.2",
                 question = "Did you or any member of the household use any of these financial products or services during the [reference period] ?",
                 options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Agency Banking Booths", true),
-                            CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("2", "No"),
-                            CheckBoxItems("3", "Insurance products for Savings Groups", true),
-                            CheckBoxItems("3", "Yes"),
-                            CheckBoxItems("4", "No"),
-                            CheckBoxItems("5", "Micro-investment loans", true),
-                            CheckBoxItems("5", "Yes"),
-                            CheckBoxItems("6", "No"),
-                            CheckBoxItems("7", "Savings Group Accounts", true),
-                            CheckBoxItems("7", "Yes"),
-                            CheckBoxItems("8", "No"),
-                            CheckBoxItems("9", "Livestock financing product", true),
-                            CheckBoxItems("9", "Yes"),
-                            CheckBoxItems("10", "No"),
-                            CheckBoxItems("11", "Mobile Money Accounts", true),
-                            CheckBoxItems("11", "Yes"),
-                            CheckBoxItems("12", "No"),
-                            CheckBoxItems("13", "Savings Group loan product", true),
-                            CheckBoxItems("13", "Yes"),
-                            CheckBoxItems("14", "No"),
-                            CheckBoxItems("15", "Self Help Group Accounts", true),
-                            CheckBoxItems("15", "Yes"),
-                            CheckBoxItems("16", "No"),
-                            CheckBoxItems("17", "Agro-Dealer Agency points", true),
-                            CheckBoxItems("17", "Yes"),
-                            CheckBoxItems("18", "No"),
-                            CheckBoxItems("19", "Digital Payment Services (various)", true),
-                            CheckBoxItems("19", "Yes"),
-                            CheckBoxItems("20", "No"),
-                            CheckBoxItems("21", "Money transfers, cash in, cash out", true),
-                            CheckBoxItems("21", "Yes"),
-                            CheckBoxItems("22", "No"),
-                            CheckBoxItems("23", "Digital Savings Accounts", true),
-                            CheckBoxItems("23", "Yes"),
-                            CheckBoxItems("24", "No"),
-                            CheckBoxItems("25", "Digital Loan disbursements", true),
-                            CheckBoxItems("25", "Yes"),
-                            CheckBoxItems("26", "No"),
-                            CheckBoxItems("27", "Digital Loan repayments", true),
-                            CheckBoxItems("27", "Yes"),
-                            CheckBoxItems("28", "No"),
-                            CheckBoxItems("29", "Lay-by input facility, Paygo", true),
-                            CheckBoxItems("29", "Yes"),
-                            CheckBoxItems("30", "No"),
-                            CheckBoxItems("31", "Mobile App (various capabilities)", true),
-                            CheckBoxItems("31", "Yes"),
-                            CheckBoxItems("32", "No"),
-                            CheckBoxItems("33", "Invoice discount for Farmers", true),
-                            CheckBoxItems("33", "Yes"),
-                            CheckBoxItems("34", "No"),
-                            CheckBoxItems("35", "Digitized Savings Groups", true),
-                            CheckBoxItems("35", "Yes"),
-                            CheckBoxItems("36", "No"),
-                            CheckBoxItems("37", "e-Wallet accounts", true),
-                            CheckBoxItems("37", "Yes"),
-                            CheckBoxItems("38", "No"),
-                            CheckBoxItems("39", "Point of Sale machines (PoS)", true),
-                            CheckBoxItems("39", "Yes"),
-                            CheckBoxItems("40", "No"),
-                        )
-                    )
+                    OptionType.Button("Select from the financial products", object : ButtonAction {
+                        override fun doAction(view: View, question: Question) {
+                            view.findNavController()
+                                .navigate(
+                                    R.id.action_nav_home_to_financialProducts,
+                                    bundleOf("formKey" to question.id)
+                                )
+                        }
+                    })
                 ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.Switch
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.Button
             ),
             Question(
                 id = "S2 9.1.c.3",
@@ -2250,9 +2085,55 @@ class HomeRepository(
                 optionType = OptionTypeEnum.INPUT,
                 isOptional = true
             ),
-        )
+        ).apply {
+            listOf(
+                "Farming/Crop production and sales",
+                "Livestock production and sales",
+                "Wage labour (local)",
+                "Fishing",
+                "Salaried work, including in-kind payment",
+                "Sale of wild/bush products (incl charcoal)",
+                "Other self-employment/own business",
+                "Sale of land/other non-livestock assets",
+                "Wild foods for household consumption",
+                "Mining on community land",
+                "Barter trade",
+                "Remittances",
+                "Gifts/inheritance",
+                "Relief/Donations (church assistance, NGOs, etc.)",
+                "Borrowing",
+                "Bank interests/treasury bills",
+                "Pension funds",
+                "Social security",
+                "Government transfers (e.g., FISP/ social cash transfer)",
+                "Share-out from Saving Group",
+            ).forEachIndexed { index, item ->
+                add(
+                    Question(
+                        id = "15.$index",
+                        question = item,
+                        options = listOf(
+                            OptionType.Button(
+                                "Enter source, rank, stress, change, etc",
+                                object : ButtonAction {
+                                    override fun doAction(view: View, question: Question) {
+                                        view.findNavController()
+                                            .navigate(
+                                                R.id.action_nav_home_to_sourcesOfIncome,
+                                                bundleOf("formKey" to question.id)
+                                            )
+                                    }
+                                })
+                        ),
+                        validate = StringInputValidation(),
+                        optionType = OptionTypeEnum.Button
+                    ),
+                )
+            }
+        }
     }
 
-    suspend fun insertData(answerEntity: AnswerEntity) = withContext(Dispatchers.IO){ answersDao.insertAnswer(answerEntity) }
+    suspend fun insertData(answerEntity: AnswerEntity) =
+        withContext(Dispatchers.IO) { answersDao.insertAnswer(answerEntity) }
 
 }

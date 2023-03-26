@@ -14,11 +14,11 @@
             android:id="@+id/action_nav_home_to_nav_gallery"
             app:destination="@id/nav_gallery" />
         <action
-            android:id="@+id/action_nav_home_to_houseHoldAssetsFragment"
-            app:destination="@id/houseHoldAssetsFragment" />
+            android:id="@+id/action_nav_home_to_financialProducts"
+            app:destination="@id/financialProducts" />
         <action
-            android:id="@+id/action_nav_home_to_farmerGroupAssociation"
-            app:destination="@id/farmerGroupAssociation" />
+            android:id="@+id/action_nav_home_to_sourcesOfIncome"
+            app:destination="@id/sourcesOfIncome" />
         <action
             android:id="@+id/action_nav_home_to_cropProfileFragment"
             app:destination="@id/cropProfileFragment" />
@@ -66,12 +66,12 @@
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
     <fragment
-        android:id="@+id/houseHoldAssetsFragment"
-        android:name="com.offline.form.builder.ui.HouseHoldAssetsFragment"
+        android:id="@+id/financialProducts"
+        android:name="com.offline.form.builder.ui.FinancialProducts"
         android:label="HouseHoldAssetsFragment" />
     <fragment
-        android:id="@+id/farmerGroupAssociation"
-        android:name="com.offline.form.builder.ui.FarmerGroupAssociation"
+        android:id="@+id/sourcesOfIncome"
+        android:name="com.offline.form.builder.ui.SourcesOfIncome"
         android:label="FarmerGroupAssociation" />
     <fragment
         android:id="@+id/cropProfileFragment"
