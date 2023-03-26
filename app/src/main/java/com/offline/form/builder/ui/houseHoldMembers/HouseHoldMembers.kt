@@ -1,6 +1,7 @@
 package com.offline.form.builder.ui.houseHoldMembers
 
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.offline.form.builder.ui.NewBaseTableFragment
@@ -25,6 +26,7 @@ class HouseHoldMembers : NewBaseTableFragment() {
         val houseMembers = viewModel.getAnsIfAvailable("S1")
         if (houseMembers.isNullOrEmpty()){
             Toast.makeText(requireContext(), "No family members are added right now", Toast.LENGTH_LONG).show()
+            findNavController().navigateUp()
             return emptyList()
         }
         val typeToken = object : TypeToken<List<TableData>>() {}.type
