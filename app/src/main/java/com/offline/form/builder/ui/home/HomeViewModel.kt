@@ -353,4 +353,6 @@ class HomeViewModel(
         }
     }
 
+    fun getQuestions() = repo.questions
+
 }

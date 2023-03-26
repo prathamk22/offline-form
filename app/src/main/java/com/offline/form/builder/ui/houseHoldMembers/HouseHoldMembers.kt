@@ -1,5 +1,6 @@
 package com.offline.form.builder.ui.houseHoldMembers
 
+import android.widget.Toast
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.offline.form.builder.ui.NewBaseTableFragment
@@ -22,6 +23,10 @@ class HouseHoldMembers : NewBaseTableFragment() {
 
     override fun getSection1FormData(): List<Form> {
         val houseMembers = viewModel.getAnsIfAvailable("S1")
+        if (houseMembers.isNullOrEmpty()){
+            Toast.makeText(requireContext(), "No family members are added right now", Toast.LENGTH_LONG).show()
+            return emptyList()
+        }
         val typeToken = object : TypeToken<List<TableData>>() {}.type
         val tableList = Gson().fromJson<List<TableData>>(houseMembers, typeToken)
         val forms = mutableListOf<Form>()

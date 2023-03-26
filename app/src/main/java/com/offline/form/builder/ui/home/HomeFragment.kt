@@ -38,14 +38,14 @@ class HomeFragment : Fragment() {
         binding.textHome.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = questionAdapter
-            questionAdapter.submitList(homeViewModel.questions)
+            questionAdapter.submitList(homeViewModel.getQuestions())
         }
         binding.submitData.setOnClickListener {
             if (it.isEnabled) {
                 homeViewModel.insertData()
                 Handler(Looper.getMainLooper()).postDelayed({
                     binding.textHome.adapter = null
-                    questionAdapter.submitList(homeViewModel.questions)
+                    questionAdapter.submitList(homeViewModel.getQuestions())
                     binding.textHome.adapter = questionAdapter
                     Toast.makeText(requireContext(), "Data added in the list", Toast.LENGTH_SHORT).show()
                 }, 1000)
