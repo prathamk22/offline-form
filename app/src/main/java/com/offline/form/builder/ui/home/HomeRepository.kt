@@ -538,7 +538,8 @@ class HomeRepository(
                     )
                 ),
                 validate = StringInputValidation(),
-                optionType = OptionTypeEnum.INPUT
+                optionType = OptionTypeEnum.INPUT,
+                isOptional = true
             ),
             Question(
                 id = "S2 6.c",
@@ -550,7 +551,8 @@ class HomeRepository(
                     )
                 ),
                 validate = StringInputValidation(),
-                optionType = OptionTypeEnum.INPUT
+                optionType = OptionTypeEnum.INPUT,
+                isOptional = true
             ),
             Question(
                 id = "S2 6.d",
@@ -565,6 +567,32 @@ class HomeRepository(
                 ),
                 validate = CheckboxInputValidation(),
                 optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "S2 6.e",
+                question = "6.E During what month did the hungry season begin?",
+                options = listOf(
+                    OptionType.InputField(
+                        InputType.TYPE_CLASS_TEXT,
+                        "MONTH THAT HUNGRY SEASON BEGAN"
+                    )
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT,
+                isOptional = true
+            ),
+            Question(
+                id = "S2 6.f",
+                question = "6.F During what month did the hungry season end?",
+                options = listOf(
+                    OptionType.InputField(
+                        InputType.TYPE_CLASS_TEXT,
+                        "MONTH THAT HUNGRY SEASON ENDED"
+                    )
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT,
+                isOptional = true
             ),
             Question(
                 id = "S2 7.a",
@@ -759,7 +787,7 @@ class HomeRepository(
             ),
             Question(
                 id = "S2 8.1.a 1",
-                question = "\n8. LIVELIHOODS\n8.1 Farming\n8.1.A Are you or any members of your household involved in cultivating any farmland?",
+                question = "\n8. LIVELIHOODS\n8.1 Farming\nAre you or any members of your household involved in cultivating any farmland?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -786,7 +814,7 @@ class HomeRepository(
             ),
             Question(
                 id = "S2 8.1.b 1",
-                question = "8.1.B How did your household acquire the [PLOT]?",
+                question = "How did your household acquire the [PLOT]?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -807,7 +835,7 @@ class HomeRepository(
             ),
             Question(
                 id = "S2 8.1.b 2",
-                question = "(If you choose OTHER in 8.1.B)",
+                question = "(If you choose OTHER in above)",
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_TEXT, "")
                 ),
@@ -817,7 +845,7 @@ class HomeRepository(
             ),
             Question(
                 id = "S2 8.1.c 1",
-                question = "8.1.C What does your household use to cultivate MOST of your farmland?",
+                question = "What does your household use to cultivate MOST of your farmland?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -834,7 +862,7 @@ class HomeRepository(
             ),
             Question(
                 id = "S2 8.1.c 2",
-                question = "(If you choose OTHER in 8.1.C)",
+                question = "(If you choose OTHER above)",
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_TEXT, "")
                 ),
@@ -878,7 +906,7 @@ class HomeRepository(
             ),
             Question(
                 id = "S2 8.1.f",
-                question = "8.1.F Are you or any members of your household involved in any gardening?",
+                question = "Are you or any members of your household involved in any gardening?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -892,7 +920,7 @@ class HomeRepository(
             ),
             Question(
                 id = "S2 8.1.g",
-                question = "8.1.G Is it irrigated?",
+                question = "Is it irrigated?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -906,7 +934,7 @@ class HomeRepository(
             ),
             Question(
                 id = "S2 8.1.h",
-                question = "8.1.H What is the source of irrigation water?",
+                question = "What is the source of irrigation water?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -931,7 +959,7 @@ class HomeRepository(
             ),
             Question(
                 id = "S2 8.1.h 2",
-                question = "(If you choose OTHER in 8.1.H)",
+                question = "(If you choose OTHER above)",
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_TEXT, "")
                 ),
@@ -941,7 +969,7 @@ class HomeRepository(
             ),
             Question(
                 id = "S2 8.1.i",
-                question = "8.1.I Apart from members of your household, did you use any labour in this farmland in the past 12 months?",
+                question = "Apart from members of your household, did you use any labour in this farmland in the past 12 months?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -955,7 +983,7 @@ class HomeRepository(
             ),
             Question(
                 id = "S2 8.1.j 1",
-                question = "8.1.J Did you pay wages to the labourers?",
+                question = "Did you pay wages to the labourers?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -979,7 +1007,7 @@ class HomeRepository(
             ),
             Question(
                 id = "S2 8.1.k 1",
-                question = "8.1.K Does any member of your household own any livestock?\nChickens or other poultry?",
+                question = "Does any member of your household own any livestock?\nChickens or other poultry?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -1099,7 +1127,7 @@ class HomeRepository(
             ),
             Question(
                 id = "S2 8.2.a",
-                question = "8.2 Household Income\n8.2.A Annual household Income (in Kwacha)",
+                question = "8.2 Household Income\nAnnual household Income (in Kwacha)",
                 options = listOf(
                     OptionType.InputField(
                         InputType.TYPE_CLASS_NUMBER,
@@ -1111,7 +1139,7 @@ class HomeRepository(
             ),
             Question(
                 id = "S2 8.2.b",
-                question = "8.2.B Number of earning household members",
+                question = "Number of earning household members",
                 options = listOf(
                     OptionType.InputField(
                         InputType.TYPE_CLASS_NUMBER,
@@ -1123,7 +1151,7 @@ class HomeRepository(
             ),
             Question(
                 id = "S2 8.2.c",
-                question = "8.2.C Income earned by Women household members (in Kwacha)",
+                question = "Income earned by Women household members (in Kwacha)",
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "")
                 ),
@@ -1132,7 +1160,7 @@ class HomeRepository(
             ),
             Question(
                 id = "S2 8.2.d 1",
-                question = "8.2.D Please provide different source-wise annual Income of the Household (in Kwacha)\nFrom Farming/Agriculture",
+                question = "Please provide different source-wise annual Income of the Household (in Kwacha)\nFrom Farming/Agriculture",
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "")
                 ),
@@ -1213,7 +1241,7 @@ class HomeRepository(
             ),
             Question(
                 id = "S2 9.1.a",
-                question = "9. FINANCIAL SERVICES\n9.1 Financial Products\nHas any member of the Household participated in any financial literacy training programs from the project?",
+                question = "\n9. FINANCIAL SERVICES\n9.1 Financial Products\nHas any member of the Household participated in any financial literacy training programs from the project?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -1639,7 +1667,7 @@ class HomeRepository(
             ),
             Question(
                 id = "S2 10.1",
-                question = "10. MOBILE PHONE BANKING\nDoes any member of your household own a cell phone?",
+                question = "\n10. MOBILE PHONE BANKING\nDoes any member of your household own a cell phone?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -1681,7 +1709,7 @@ class HomeRepository(
             ),
             Question(
                 id = "S2 11.a",
-                question = "11. SHOCKS\nHave you experienced any [SHOCK]?",
+                question = "\n11. SHOCKS\nHave you experienced any [SHOCK]?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -1691,65 +1719,6 @@ class HomeRepository(
                     )
                 ),
                 validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 11.a 2",
-                question = "If YES, how severe was the shock?",
-                options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "")
-                ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.INPUT
-            ),
-            Question(
-                id = "S2 11.b",
-                question = "How severe was the [SHOCK]?",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "SEVERE"),
-                            CheckBoxItems("2", "MILD"),
-                            CheckBoxItems("3", "NOT SEVERE")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 11.c",
-                question = "When did the last one occur?",
-                options = listOf(
-                    OptionType.InputField(
-                        InputType.TYPE_CLASS_TEXT,
-                        "MONTH THAT SHOCK BEGAN"
-                    )
-                ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.INPUT
-            ),
-            Question(
-                id = "S2 11.d",
-                question = "How many times in the past 12 months?",
-                options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "")
-                ),
-                validate = NumberInputValidation(0, Int.MAX_VALUE),
-                optionType = OptionTypeEnum.INPUT
-            ),
-            Question(
-                id = "11.1.a",
-                question = "Was your household affected by any of the following distress events/ emergencies in the last 10 years preceding the survey?",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "YES"),
-                            CheckBoxItems("2", "NO"),
-                        )
-                    )
-                ),
-                validate = StringInputValidation(),
                 optionType = OptionTypeEnum.CHECK_BOX
             ),
             Question(
@@ -1881,8 +1850,8 @@ class HomeRepository(
                 optionType = OptionTypeEnum.Button
             ),
             Question(
-                id = "13",
-                question = "Please describe the foods (meals and snacks) that you ate or drank yesterday during the day and night, whether at home or outside the home. Start with the first food or drink of the morning.\n" +
+                id = "S3 13",
+                question = "\n13. Please describe the foods (meals and snacks) that you ate or drank yesterday during the day and night, whether at home or outside the home. Start with the first food or drink of the morning.\n" +
                         "(Write down all foods and drinks mentioned. When composite dishes are mentioned, ask for the list of ingredients. When the respondent has finished, probe for meals and snacks not mentioned.)",
                 options = listOf(
                     OptionType.Button("Enter your food meals", object : ButtonAction {
@@ -1899,7 +1868,8 @@ class HomeRepository(
                 optionType = OptionTypeEnum.Button
             ),
             Question(
-                id = "14.1",
+                id = "S3 14.1",
+                question = "\n14. Include foods eaten by any member of the household, and exclude foods purchased and eaten outside the home.\nCEREALS \n Example is Corn / maize, rice, wheat, sorghum, millet or any other grains or foods made from these (e.g.bread, noodles, porridge or other grain products) + insert local foods e . g . ugali, nshima, porridge or paste",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -1909,25 +1879,11 @@ class HomeRepository(
                     )
                 ),
                 validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX,
-                question = "CEREALS \n Example is Corn / maize, rice, wheat, sorghum, millet or any other grains or foods made from these (e.g.bread, noodles, porridge or other grain products) + insert local foods e . g . ugali, nshima, porridge or paste",
+                optionType = OptionTypeEnum.CHECK_BOX
             ),
             Question(
-                id = "14.2",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("2", "No")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX,
+                id = "S3 14.2",
                 question = "WHITE ROOTS AND TUBERS \n Example is White potatoes, white yam, white cassava, or other foods made from roots",
-            ),
-            Question(
-                id = "14.3",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -1937,11 +1893,11 @@ class HomeRepository(
                     )
                 ),
                 validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX,
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "S3 14.3",
                 question = "VITAMIN A RICH VEGETABLES AND TUBERS(11) \n Example is Pumpkin, carrot, squash, or sweet potato that are orange inside + other locally available vitamin A rich vegetables (e.g. red sweet pepper)",
-            ),
-            Question(
-                id = "14.4",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -1951,11 +1907,11 @@ class HomeRepository(
                     )
                 ),
                 validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX,
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "S3 14.4",
                 question = "DARK GREEN LEAFY VEGETABLES \n Example is Dark green leafy vegetables, including wild forms + locally available vitamin A rich leaves such as amaranth, cassava leaves, kale, spinach",
-            ),
-            Question(
-                id = "14.5",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -1965,11 +1921,11 @@ class HomeRepository(
                     )
                 ),
                 validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX,
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "S3 14.5",
                 question = "OTHER VEGETABLES \n Example is Other vegetables (e.g. tomato, onion, eggplant) + other locally available vegetables",
-            ),
-            Question(
-                id = "14.6",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -1979,11 +1935,11 @@ class HomeRepository(
                     )
                 ),
                 validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX,
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "S3 14.6",
                 question = "VITAMIN A RICH FRUITS \n Example is Ripe mango, cantaloupe, apricot (fresh or dried), ripe papaya, dried peach, and 100% fruit juice made from these + other locally availablevitamin A rich fruits",
-            ),
-            Question(
-                id = "14.7",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -1993,11 +1949,11 @@ class HomeRepository(
                     )
                 ),
                 validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX,
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "S3 14.7",
                 question = "OTHER FRUITS \n Example is Other fruits, including wild fruits and 100% fruit juice made from these",
-            ),
-            Question(
-                id = "14.8",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -2007,11 +1963,11 @@ class HomeRepository(
                     )
                 ),
                 validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX,
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "S3 14.8",
                 question = "ORGAN MEAT \n Example is Liver, kidney, heart or other organ meats or blood – based foods",
-            ),
-            Question(
-                id = "14.9",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -2021,11 +1977,11 @@ class HomeRepository(
                     )
                 ),
                 validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX,
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "S3 14.9",
                 question = "FLESH MEATS \n Example is Beef, pork, lamb, goat, rabbit, game, chicken, duck, other birds, insects",
-            ),
-            Question(
-                id = "14.10",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -2035,11 +1991,11 @@ class HomeRepository(
                     )
                 ),
                 validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX,
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "S3 14.10",
                 question = "EGGS \n Example is Eggs from chicken, duck, guinea fowl or any other egg",
-            ),
-            Question(
-                id = "14.11",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -2049,11 +2005,11 @@ class HomeRepository(
                     )
                 ),
                 validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX,
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "S3 14.11",
                 question = "FISH AND SEA FOOD \n Example is Fresh or dried fish or shellfish",
-            ),
-            Question(
-                id = "14.12",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -2063,11 +2019,11 @@ class HomeRepository(
                     )
                 ),
                 validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX,
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "S3 14.12",
                 question = "LEGUMES, NUTS AND SEEDS \n Example is Dried beans, dried peas, lentils, nuts, seeds or foods made from these (eg. Hummus, peanut butter)",
-            ),
-            Question(
-                id = "14.13",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -2077,11 +2033,11 @@ class HomeRepository(
                     )
                 ),
                 validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX,
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "S3 14.13",
                 question = "MILK AND MILK PRODUCTS \n Example is Milk, cheese, yoghurt or other milk products",
-            ),
-            Question(
-                id = "14.14",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -2091,11 +2047,11 @@ class HomeRepository(
                     )
                 ),
                 validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX,
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "S3 14.14",
                 question = "OILS AND FATS \n Example is Oil, fats or butter added to food or used for cooking",
-            ),
-            Question(
-                id = "14.15",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -2105,11 +2061,11 @@ class HomeRepository(
                     )
                 ),
                 validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX,
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "S3 14.15",
                 question = "SWEETS, SWEETENED AND ALCOHOLIC BEVERAGES  \n Example is sugar, honey, sweetened juice drinks, sugary foods such as chocolates, candies, cookies and cakes, alcoholic beverages and sweetened coffee andtea ",
-            ),
-            Question(
-                id = "14.16",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
@@ -2119,11 +2075,24 @@ class HomeRepository(
                     )
                 ),
                 validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX,
-                question = "SPICES, CONDIMENTS AND UNSWEETENED BEVERAGES \n Example is Spices (black pepper, salt), condiments (soy sauce, hot sauce), and unsweetened coffee and tea.",
+                optionType = OptionTypeEnum.CHECK_BOX
             ),
             Question(
-                id = "14.17",
+                id = "S3 14.16",
+                question = "SPICES, CONDIMENTS AND UNSWEETENED BEVERAGES \n Example is Spices (black pepper, salt), condiments (soy sauce, hot sauce), and unsweetened coffee and tea.",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "Yes"),
+                            CheckBoxItems("2", "No")
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "S3 14.17",
                 question = "Did you or anyone in your household eat anything (meal or snack) OUTSIDE the home yesterday?",
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_TEXT, "")
