@@ -1954,6 +1954,39 @@ class HomeViewModel(
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
+                id = "11.1.a",
+                question = "Was your household affected by any of the following distress events/ emergencies in the last 10 years preceding the survey?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "YES"),
+                            CheckBoxItems("2", "NO"),
+                        )
+                    )
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "S2 11.1.b",
+                question = "If yes, then what strategies did you adopt to cope with the event?",
+                options = listOf(
+                    OptionType.Button(
+                        "Select whether household was affected?",
+                        object : ButtonAction {
+                            override fun doAction(view: View, question: Question) {
+                                view.findNavController()
+                                    .navigate(
+                                        R.id.action_nav_home_to_riskUncertainities,
+                                        bundleOf("formKey" to question.id)
+                                    )
+                            }
+                        }),
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.Button
+            ),
+            Question(
                 id = "S3 12.a",
                 question = "\n\nSECTION 3 : QUESTIONS ON DIETARY DIVERSITY\n12. DIET DIVERSITY\nHas any member of the Household participated in any project-supported activity designed to help improve nutrition?",
                 options = listOf(
@@ -2318,24 +2351,6 @@ class HomeViewModel(
         }
     }
 
-    fun submitC3aData(key: String, forms: MutableList<List<Form>>) {
-        if (key.isEmpty())
-            return
-        viewModelScope.launch {
-            val tableData = forms.map {
-                TableData(
-                    Constants.RUN_OUT_FOOD,
-                    it,
-                    columnNames = listOf("J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D")
-                )
-            }
-            val data = Gson().toJson(tableData)
-            Log.e("TAG", "submitData: $key $data")
-            answers[key] = data
-            checkAndUpdateButton()
-        }
-    }
-
     fun valueEnteredInCheckbox(key: String, value: String, checked: Boolean) {
         viewModelScope.launch(Dispatchers.IO) {
             val array = answers[key]
@@ -2376,27 +2391,6 @@ class HomeViewModel(
             Gson().fromJson<List<String>>(array.toString(), type).toMutableList()
         }
         return list.contains(value)
-    }
-
-    fun submitI2Data(key: String, forms: MutableList<List<Form>>) {
-        if (key.isEmpty())
-            return
-        viewModelScope.launch {
-            val tableData = forms.map {
-                TableData(
-                    Constants.FARMERS_ASSOCAITION,
-                    it,
-                    columnNames = listOf(
-                        "I2.1",
-                        "I2.2",
-                    )
-                )
-            }
-            val data = Gson().toJson(tableData)
-            Log.e("TAG", "submitData: $key $data")
-            answers[key] = data
-            checkAndUpdateButton()
-        }
     }
 
     fun submitDataWithSheetAndColumn(

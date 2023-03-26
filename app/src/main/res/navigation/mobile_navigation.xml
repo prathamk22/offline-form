@@ -41,8 +41,8 @@
             android:id="@+id/action_nav_home_to_foodDayMeal"
             app:destination="@id/foodDayMeal" />
         <action
-            android:id="@+id/action_nav_home_to_familyTraining"
-            app:destination="@id/familyTraining" />
+            android:id="@+id/action_nav_home_to_riskUncertainities"
+            app:destination="@id/riskUncertainities" />
         <action
             android:id="@+id/action_nav_home_to_houseHoldMembers"
             app:destination="@id/houseHoldMembers" />
@@ -102,8 +102,8 @@
         android:name="com.offline.form.builder.ui.FoodDayMeal"
         android:label="RunOutFood" />
     <fragment
-        android:id="@+id/familyTraining"
-        android:name="com.offline.form.builder.ui.FamilyTraining"
+        android:id="@+id/riskUncertainities"
+        android:name="com.offline.form.builder.ui.RiskUncertainities"
         android:label="FamilyTraining" />
     <fragment
         android:id="@+id/houseHoldMembers"
