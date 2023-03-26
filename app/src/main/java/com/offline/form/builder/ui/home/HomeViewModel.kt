@@ -1812,40 +1812,6 @@ class HomeViewModel(
                 optionType = OptionTypeEnum.Button
             ),
             Question(
-                id = "S2 9.4.2",
-                question = "If any response as ‘1’, then please provide the following details about the aforementioned microfinance groups with which the members of the household are associated – (Ask for last one year preceding the survey)",
-                options = listOf(
-                    OptionType.Button("Enter microfinance experience", object : ButtonAction {
-                        override fun doAction(view: View, question: Question) {
-                            view.findNavController()
-                                .navigate(
-                                    R.id.action_nav_home_to_microfinanceExperience,
-                                    bundleOf("formKey" to question.id)
-                                )
-                        }
-                    })
-                ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.Button
-            ),
-            Question(
-                id = "S2 12.b",
-                question = "Who participated in any project-supported activity designed to help improve nutrition?",
-                options = listOf(
-                    OptionType.Button("Select from the members list", object : ButtonAction {
-                        override fun doAction(view: View, question: Question) {
-                            view.findNavController()
-                                .navigate(
-                                    R.id.action_nav_home_to_houseHoldMembers,
-                                    bundleOf("formKey" to question.id)
-                                )
-                        }
-                    })
-                ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.Button
-            ),
-            Question(
                 id = "S2 9.4.1.a",
                 question = "9.4 Microfinance Experience\nIs anybody in the household a member of any of the following groups?",
                 options = listOf(
@@ -1865,6 +1831,23 @@ class HomeViewModel(
                 ),
                 validate = CheckboxInputValidation(),
                 optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "S2 9.4.2",
+                question = "If any response as ‘1’, then please provide the following details about the aforementioned microfinance groups with which the members of the household are associated – (Ask for last one year preceding the survey)",
+                options = listOf(
+                    OptionType.Button("Enter microfinance experience", object : ButtonAction {
+                        override fun doAction(view: View, question: Question) {
+                            view.findNavController()
+                                .navigate(
+                                    R.id.action_nav_home_to_microfinanceExperience,
+                                    bundleOf("formKey" to question.id)
+                                )
+                        }
+                    })
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.Button
             ),
             Question(
                 id = "S2 10.1",
@@ -1985,6 +1968,23 @@ class HomeViewModel(
                 optionType = OptionTypeEnum.CHECK_BOX
             ),
             Question(
+                id = "S2 12.b",
+                question = "Who participated in any project-supported activity designed to help improve nutrition?",
+                options = listOf(
+                    OptionType.Button("Select from the members list", object : ButtonAction {
+                        override fun doAction(view: View, question: Question) {
+                            view.findNavController()
+                                .navigate(
+                                    R.id.action_nav_home_to_houseHoldMembers,
+                                    bundleOf("formKey" to question.id)
+                                )
+                        }
+                    })
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.Button
+            ),
+            Question(
                 id = "S3 12.c",
                 question = "Is there a woman aged 15-49 in this household who can answer a few nutrition questions?",
                 options = listOf(
@@ -2024,11 +2024,6 @@ class HomeViewModel(
                     isEnabled.postValue(false)
                     return@launch
                 }
-            }
-            if (answers["A7"] == "2") {
-                errorText.postValue(null)
-                isEnabled.postValue(true)
-                return@launch
             }
             otherQuestions.forEach {
                 if (!it.isOptional && answers[it.id] == null) {
