@@ -1772,6 +1772,53 @@ class HomeRepository(
                 optionType = OptionTypeEnum.Button
             ),
             Question(
+                id = "S2 11.1.c",
+                question = "Sometimes people find it difficult to meet their living expenses from their regular income sources. Has this ever happened to you any time in the last 12 months?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "Yes"),
+                            CheckBoxItems("2", "No"),
+                            CheckBoxItems("96", "Not applicable (Do not have any personal income)"),
+                            CheckBoxItems("98", "Don’t know"),
+                            CheckBoxItems("99", "Refused"),
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "S2 11.1.d",
+                question = "If Yes, what did you do to make ends meet the last time this happened? (Probe; do not read out. Mark all that apply.)(Multiple answers expected)",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "Draw money out of bank savings"),
+                            CheckBoxItems("2", "Cut back on spending"),
+                            CheckBoxItems("3", "Sell assets that I own"),
+                            CheckBoxItems("100","Creating resources", true),
+                            CheckBoxItems("4", "Work overtime, earn extra money"),
+                            CheckBoxItems("101", "Access credit by using existing contacts or resources", true),
+                            CheckBoxItems("5", "Borrow food or money from family or friend"),
+                            CheckBoxItems("6", "Take food or basic goods on credit from retailer"),
+                            CheckBoxItems("7", "Borrow from employer/salary advanc"),
+                            CheckBoxItems("8", "Pawn something that I own"),
+                            CheckBoxItems("9", "Take a loan from my savings and loans clubs"),
+                            CheckBoxItems("10", "Apply for loan/withdrawal on pension fund"),
+                            CheckBoxItems("102", "Borrow from existing credit line", true),
+                            CheckBoxItems("11", "Use authorised, arranged overdraft or line of credit"),
+                            CheckBoxItems("12", "Use credit card for a cash advance or to pay bills/buy food"),
+                            CheckBoxItems("105", "Access new line of credit", true),
+                            CheckBoxItems("13", "Take out a personal loan from a financial service provider (including bank, credit union or microfinance)"),
+
+                            )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.Switch
+            ),
+            Question(
                 id = "S3 12.a",
                 question = "\n\nSECTION 3 : QUESTIONS ON DIETARY DIVERSITY\n12. DIET DIVERSITY\nHas any member of the Household participated in any project-supported activity designed to help improve nutrition?",
                 options = listOf(
