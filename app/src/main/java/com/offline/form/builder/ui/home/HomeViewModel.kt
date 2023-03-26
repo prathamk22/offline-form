@@ -1997,7 +1997,42 @@ class HomeViewModel(
                 ),
                 validate = CheckboxInputValidation(),
                 optionType = OptionTypeEnum.CHECK_BOX
-            )
+            ),
+            Question(
+                id = "S2 12.c.1",
+                question = "If yes identify within list of HouseHold members",
+                options = listOf(
+                    OptionType.Button("Select from the members list", object : ButtonAction {
+                        override fun doAction(view: View, question: Question) {
+                            view.findNavController()
+                                .navigate(
+                                    R.id.action_nav_home_to_houseHoldMembers,
+                                    bundleOf("formKey" to question.id, "count" to Int.MAX_VALUE)
+                                )
+                        }
+                    })
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.Button
+            ),
+            Question(
+                id = "13",
+                question = "Please describe the foods (meals and snacks) that you ate or drank yesterday during the day and night, whether at home or outside the home. Start with the first food or drink of the morning.\n" +
+                        "(Write down all foods and drinks mentioned. When composite dishes are mentioned, ask for the list of ingredients. When the respondent has finished, probe for meals and snacks not mentioned.)",
+                options = listOf(
+                    OptionType.Button("Enter your food meals", object : ButtonAction {
+                        override fun doAction(view: View, question: Question) {
+                            view.findNavController()
+                                .navigate(
+                                    R.id.action_nav_home_to_foodDayMeal,
+                                    bundleOf("formKey" to question.id)
+                                )
+                        }
+                    })
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.Button
+            ),
         )
     }
 

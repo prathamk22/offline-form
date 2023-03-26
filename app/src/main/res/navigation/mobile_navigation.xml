@@ -38,8 +38,8 @@
             android:id="@+id/action_nav_home_to_knowledgeTraning"
             app:destination="@id/knowledgeTraning" />
         <action
-            android:id="@+id/action_nav_home_to_runOutFood"
-            app:destination="@id/runOutFood" />
+            android:id="@+id/action_nav_home_to_foodDayMeal"
+            app:destination="@id/foodDayMeal" />
         <action
             android:id="@+id/action_nav_home_to_familyTraining"
             app:destination="@id/familyTraining" />
@@ -98,8 +98,8 @@
         android:name="com.offline.form.builder.ui.KnowledgeTraning"
         android:label="KnowledgeTraning" />
     <fragment
-        android:id="@+id/runOutFood"
-        android:name="com.offline.form.builder.ui.RunOutFood"
+        android:id="@+id/foodDayMeal"
+        android:name="com.offline.form.builder.ui.FoodDayMeal"
         android:label="RunOutFood" />
     <fragment
         android:id="@+id/familyTraining"
