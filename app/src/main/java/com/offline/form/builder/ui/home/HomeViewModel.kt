@@ -1938,6 +1938,23 @@ class HomeViewModel(
                 validate = CheckboxInputValidation(),
                 optionType = OptionTypeEnum.CHECK_BOX
             )
+            Question(
+                id = "S2 9.2.3",
+                question = "If yes, please provide the following details about the loans taken",
+                options = listOf(
+                    OptionType.Button("Enter details about the loans taken", object : ButtonAction {
+                        override fun doAction(view: View, question: Question) {
+                            view.findNavController()
+                                .navigate(
+                                    R.id.action_nav_home_to_loanBorrowingData,
+                                    bundleOf("formKey" to question.id, "count" to 2)
+                                )
+                        }
+                    })
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.Button
+            ),
         )
     }
 
