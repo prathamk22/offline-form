@@ -768,7 +768,7 @@ class HomeViewModel(
                             CheckBoxItems("6", "Firewood"),
                             CheckBoxItems("7", "Dung"),
                             CheckBoxItems("8", "Other"),
-                            )
+                        )
                     )
                 ),
                 validate = CheckboxInputValidation(),
@@ -805,7 +805,10 @@ class HomeViewModel(
                 id = "S2 8.1.a 2",
                 question = "If YES, what is the size of the field(Ha)?",
                 options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter size of field (in Ha)")
+                    OptionType.InputField(
+                        InputType.TYPE_CLASS_NUMBER,
+                        "Enter size of field (in Ha)"
+                    )
                 ),
                 validate = NumberInputValidation(0, Int.MAX_VALUE),
                 optionType = OptionTypeEnum.INPUT,
@@ -1137,7 +1140,10 @@ class HomeViewModel(
                 id = "S2 8.2.a",
                 question = "8.2 Household Income\n8.2.A Annual household Income (in Kwacha)",
                 options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter Annual Household Income")
+                    OptionType.InputField(
+                        InputType.TYPE_CLASS_NUMBER,
+                        "Enter Annual Household Income"
+                    )
                 ),
                 validate = NumberInputValidation(0, Int.MAX_VALUE),
                 optionType = OptionTypeEnum.INPUT
@@ -1146,7 +1152,10 @@ class HomeViewModel(
                 id = "S2 8.2.b",
                 question = "8.2.B Number of earning household members",
                 options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter no. of earning household members")
+                    OptionType.InputField(
+                        InputType.TYPE_CLASS_NUMBER,
+                        "Enter no. of earning household members"
+                    )
                 ),
                 validate = NumberInputValidation(0, Int.MAX_VALUE),
                 optionType = OptionTypeEnum.INPUT
@@ -1319,6 +1328,40 @@ class HomeViewModel(
                                 .navigate(
                                     R.id.action_nav_home_to_loanBorrowingData,
                                     bundleOf("formKey" to question.id, "count" to 2)
+                                )
+                        }
+                    })
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.Button
+            ),
+            Question(
+                id = "S2 9.4.2",
+                question = "If any response as ‘1’, then please provide the following details about the aforementioned microfinance groups with which the members of the household are associated – (Ask for last one year preceding the survey)",
+                options = listOf(
+                    OptionType.Button("Enter microfinance experience", object : ButtonAction {
+                        override fun doAction(view: View, question: Question) {
+                            view.findNavController()
+                                .navigate(
+                                    R.id.action_nav_home_to_microfinanceExperience,
+                                    bundleOf("formKey" to question.id)
+                                )
+                        }
+                    })
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.Button
+            ),
+            Question(
+                id = "S2 12.b",
+                question = "Who participated in any project-supported activity designed to help improve nutrition?",
+                options = listOf(
+                    OptionType.Button("Select from the members list", object : ButtonAction {
+                        override fun doAction(view: View, question: Question) {
+                            view.findNavController()
+                                .navigate(
+                                    R.id.action_nav_home_to_houseHoldMembers,
+                                    bundleOf("formKey" to question.id)
                                 )
                         }
                     })

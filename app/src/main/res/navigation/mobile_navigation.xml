@@ -49,6 +49,9 @@
         <action
             android:id="@+id/action_nav_home_to_loanBorrowingData"
             app:destination="@id/loanBorrowingData" />
+        <action
+            android:id="@+id/action_nav_home_to_microfinanceExperience"
+            app:destination="@id/microfinanceExperience" />
     </fragment>
 
     <fragment
@@ -110,4 +113,8 @@
         android:id="@+id/loanBorrowingData"
         android:name="com.offline.form.builder.ui.LoanBorrowingData"
         android:label="LoanBorrowingData" />
+    <fragment
+        android:id="@+id/microfinanceExperience"
+        android:name="com.offline.form.builder.ui.MicrofinanceExperience"
+        android:label="MicrofinanceExperience" />
 </navigation>
