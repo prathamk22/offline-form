@@ -2103,7 +2103,7 @@ class HomeRepository(
             ),
         ).apply {
             listOf(
-                "Farming/Crop production and sales",
+                "SECTION 4: SOURCES OF INCOME \n\n Farming/Crop production and sales",
                 "Livestock production and sales",
                 "Wage labour (local)",
                 "Fishing",
