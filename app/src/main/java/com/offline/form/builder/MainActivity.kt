@@ -8,23 +8,18 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
 import com.offline.form.builder.databinding.ActivityMainBinding
+import com.offline.form.builder.ui.BaseTableFragment
 import com.offline.form.builder.utils.ExcelUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import org.apache.poi.hssf.usermodel.HSSFCellStyle
-import org.apache.poi.hssf.usermodel.HSSFWorkbook
-import org.apache.poi.hssf.util.HSSFColor
-import org.apache.poi.ss.usermodel.Cell
-import org.apache.poi.ss.usermodel.CellStyle
-import org.apache.poi.ss.usermodel.Row
-import org.apache.poi.ss.usermodel.Workbook
 
 
 class MainActivity : AppCompatActivity() {
@@ -49,6 +44,18 @@ class MainActivity : AppCompatActivity() {
             AppBarConfiguration(setOf(R.id.nav_home, R.id.nav_slideshow), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+        binding.appBarMain.toolbar.setNavigationOnClickListener {
+            val navHostFragment: NavHostFragment? = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_content_main) as? NavHostFragment
+            if (navHostFragment != null){
+                val fragment = navHostFragment.childFragmentManager.fragments.getOrNull(0)
+                (fragment as? BaseTableFragment)?.let {
+                    it.onBackPressed()
+                    return@setNavigationOnClickListener
+                }
+            }
+
+            navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+        }
     }
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.

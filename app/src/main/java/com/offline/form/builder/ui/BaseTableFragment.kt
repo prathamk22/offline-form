@@ -48,24 +48,28 @@ abstract class BaseTableFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
-            if (userdataList.size > 0) {
-                MaterialAlertDialogBuilder(requireContext())
-                    .setTitle("Do you want to add data?")
-                    .setCancelable(true)
-                    .setMessage("Do you want to add these items into the data?")
-                    .setPositiveButton("Add and Exit") { d, i ->
-                        if(validateAndSubmit()){
-                            onSubmitListCalled()
-                        }
-                        findNavController().navigateUp()
-                    }.setNegativeButton("Cancel and Exit") { d, i ->
-                        findNavController().navigateUp()
-                    }.create().show()
-            } else {
-                findNavController().navigateUp()
-            }
+            onBackPressed()
         }
         binding.simpleForm.setData(getSection1FormData(), callback)
+    }
+
+    fun onBackPressed(){
+        if (userdataList.size > 0) {
+            MaterialAlertDialogBuilder(requireContext())
+                .setTitle("Do you want to add data?")
+                .setCancelable(true)
+                .setMessage("Do you want to add these items into the data?")
+                .setPositiveButton("Add and Exit") { d, i ->
+                    if(validateAndSubmit()){
+                        onSubmitListCalled()
+                    }
+                    findNavController().navigateUp()
+                }.setNegativeButton("Cancel and Exit") { d, i ->
+                    findNavController().navigateUp()
+                }.create().show()
+        } else {
+            findNavController().navigateUp()
+        }
     }
 
     abstract fun onSubmitListCalled()
