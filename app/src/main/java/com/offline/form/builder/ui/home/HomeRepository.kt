@@ -1318,279 +1318,31 @@ class HomeRepository(
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
-                            CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("2", "No")
+                            CheckBoxItems("1", "Agency Banking Booths",),
+                            CheckBoxItems("2", "Insurance products for Savings Groups",),
+                            CheckBoxItems("3", "Micro- investment loans",),
+                            CheckBoxItems("4", "Savings Group Accounts",),
+                            CheckBoxItems("5", "Livestock financing product",),
+                            CheckBoxItems("6", "Mobile Money Accounts",),
+                            CheckBoxItems("7", "Savings Group loan product",),
+                            CheckBoxItems("8", "Self Help Group Accounts",),
+                            CheckBoxItems("9", "Agro-Dealer Agency points",),
+                            CheckBoxItems("10", "Digital Payment Services (various)",),
+                            CheckBoxItems("11", "Money transfers, cash in, cash out",),
+                            CheckBoxItems("12", "Digital Savings Accounts",),
+                            CheckBoxItems("13", "Digital Loan disbursements",),
+                            CheckBoxItems("14", "Digital Loan repayments",),
+                            CheckBoxItems("15", "Lay-by input facility, Paygo",),
+                            CheckBoxItems("16", "Mobile App (various capabilities)",),
+                            CheckBoxItems("17", "Invoice discount for Farmers",),
+                            CheckBoxItems("18", "Digitized Savings Groups",),
+                            CheckBoxItems("19", "e-Wallet accounts",),
+                            CheckBoxItems("20", "Point of Sale machines (PoS)",),
                         )
                     )
                 ),
                 validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 9.1.b 2",
-                question = "Insurance products for Savings Groups",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "YES"),
-                            CheckBoxItems("2", "NO")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 9.1.b 3",
-                question = "Micro- investment loans",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "YES"),
-                            CheckBoxItems("2", "NO")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 9.1.b 4",
-                question = "Savings Group Accounts",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "YES"),
-                            CheckBoxItems("2", "NO")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 9.1.b 5",
-                question = "Livestock financing product",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "YES"),
-                            CheckBoxItems("2", "NO")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 9.1.b 6",
-                question = "Mobile Money Accounts",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "YES"),
-                            CheckBoxItems("2", "NO")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 9.1.b 7",
-                question = "Savings Group loan product",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "YES"),
-                            CheckBoxItems("2", "NO")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 9.1.b 8",
-                question = "Self Help Group Accounts",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "YES"),
-                            CheckBoxItems("2", "NO")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 9.1.b 9",
-                question = "Agro-Dealer Agency points",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "YES"),
-                            CheckBoxItems("2", "NO")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 9.1.b 10",
-                question = "Digital Payment Services (various)",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "YES"),
-                            CheckBoxItems("2", "NO")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 9.1.b 11",
-                question = "Money transfers, cash in, cash out",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "YES"),
-                            CheckBoxItems("2", "NO")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 9.1.b 12",
-                question = "Digital Savings Accounts",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "YES"),
-                            CheckBoxItems("2", "NO")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 9.1.b 13",
-                question = "Digital Loan disbursements",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "YES"),
-                            CheckBoxItems("2", "NO")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 9.1.b 14",
-                question = "Digital Loan repayments",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "YES"),
-                            CheckBoxItems("2", "NO")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 9.1.b 15",
-                question = "Lay-by input facility, Paygo",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "YES"),
-                            CheckBoxItems("2", "NO")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 9.1.b 16",
-                question = "Mobile App (various capabilities)",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "YES"),
-                            CheckBoxItems("2", "NO")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 9.1.b 17",
-                question = "Invoice discount for Farmers",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "YES"),
-                            CheckBoxItems("2", "NO")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 9.1.b 18",
-                question = "Digitized Savings Groups",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "YES"),
-                            CheckBoxItems("2", "NO")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 9.1.b 19",
-                question = "e-Wallet accounts",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "YES"),
-                            CheckBoxItems("2", "NO")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 9.1.b 20",
-                question = "Point of Sale machines (PoS)",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "YES"),
-                            CheckBoxItems("2", "NO")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
+                optionType = OptionTypeEnum.Switch
             ),
             Question(
                 id = "S2 9.1.c.1",
