@@ -30,15 +30,6 @@
             android:src="@drawable/green_bar"
             app:layout_constraintTop_toBottomOf="@+id/logo" />
 
-        <ImageView
-            android:id="@+id/cashew"
-            android:layout_width="match_parent"
-
-            android:layout_height="350dp"
-            android:layout_marginTop="160dp"
-            android:src="@drawable/cashew_fade"
-            app:layout_constraintTop_toBottomOf="@+id/bar" />
-
         <TextView
             android:id="@+id/intro"
             android:layout_width="match_parent"
@@ -47,7 +38,7 @@
             android:textSize="16sp"
             android:text="\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tINTRODUCTION \n Hello, My name is……………..  We are conducting a survey under the Rural Finance Expansion Programme – Ministry of Finance and National Planning.  This survey will help us in assessing the impact of project activities focusing on rural financial inclusion.  Your participation is voluntary.  You can choose not to answer any questions, and you can stop the interview at any time.  All of your responses will be confidential."
             android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@+id/cashew" />
+            app:layout_constraintTop_toBottomOf="@+id/bar" />
 
         <Button
             android:id="@+id/btnStart"
