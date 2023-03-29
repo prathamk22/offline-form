@@ -1,62 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true">
 
-    <RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Splash">
-
-        <ImageView
-            android:id="@+id/logo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/logo"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/bar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="90dp"
-            android:src="@drawable/green_bar"
-            app:layout_constraintTop_toBottomOf="@+id/logo" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".Splash">
 
         <TextView
-            android:id="@+id/intro"
+            android:id="@+id/topHeader"
+            style="@style/TextAppearance.AppCompat.Large"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="520dp"
-            android:textSize="16sp"
-            android:text="\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tINTRODUCTION \n Hello, My name is……………..  We are conducting a survey under the Rural Finance Expansion Programme – Ministry of Finance and National Planning.  This survey will help us in assessing the impact of project activities focusing on rural financial inclusion.  Your participation is voluntary.  You can choose not to answer any questions, and you can stop the interview at any time.  All of your responses will be confidential."
-            android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@+id/bar" />
+            android:text="Impact Assessemt survey under Rural finance Expansion Programme\n by Ministry of Finance and Nation Planing"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toTopOf="@id/btnStart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/btnStart"
-            android:layout_width="150dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="120dp"
-            android:layout_marginTop="700dp"
+            android:layout_marginBottom="24dp"
             android:text="PRESS TO START"
-            app:layout_constraintTop_toBottomOf="@+id/intro" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-        <TextView
-            android:id="@+id/surveyText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="250dp"
-            android:textSize="22.8sp"
-            android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="parent" />
-    </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
