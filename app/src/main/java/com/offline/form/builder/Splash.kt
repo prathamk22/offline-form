@@ -18,8 +18,6 @@ class Splash : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
         supportActionBar?.hide()
-        textView=findViewById(R.id.surveyText)
-        textView.text=Html.fromHtml("Project Name: <b>Impact Assessment Study</b> || \n<b>Impact Assessment Survey under Rural Finance Expansion Programme</b> || \n<b>Survey By: Ministry of Finance and National Planning</b> ")
 
         val start_btn=findViewById(R.id.btnStart) as Button
         start_btn.setOnClickListener{
