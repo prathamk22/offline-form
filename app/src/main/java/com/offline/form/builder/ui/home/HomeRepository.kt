@@ -56,7 +56,7 @@ class HomeRepository(
                         "Enter Mobile number of respondent"
                     )
                 ),
-                validate = StringInputValidation(10),
+                validate = StringInputValidation(9),
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
@@ -102,9 +102,12 @@ class HomeRepository(
                 id = "A8",
                 question = "CHAIRPERSON'S NUMBER",
                 options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "Enter number of Chairperson")
+                    OptionType.InputField(
+                        InputType.TYPE_CLASS_PHONE,
+                        "Enter number of Chairperson"
+                    )
                 ),
-                validate = StringInputValidation(),
+                validate = StringInputValidation(9),
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
@@ -311,7 +314,7 @@ class HomeRepository(
                     )
                 ),
                 validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX,
+                optionType = OptionTypeEnum.Switch,
             ),
             Question(
                 id = "S2 3.d",
@@ -1722,23 +1725,31 @@ class HomeRepository(
                 optionType = OptionTypeEnum.CHECK_BOX
             ),
             Question(
-                id = "S2 11.1.b",
-                question = "If yes, then what strategies did you adopt to cope with the event?",
+                id = "S2 11.b",
+                question = "How severe was the [SHOCK]?",
                 options = listOf(
-                    OptionType.Button(
-                        "Select whether household was affected?",
-                        object : ButtonAction {
-                            override fun doAction(view: View, question: Question) {
-                                view.findNavController()
-                                    .navigate(
-                                        R.id.action_nav_home_to_riskUncertainities,
-                                        bundleOf("formKey" to question.id)
-                                    )
-                            }
-                        }),
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "SEVERE"),
+                            CheckBoxItems("2", "MILD"),
+                            CheckBoxItems("3", "NOT SEVERE")
+                        )
+                    )
                 ),
                 validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.Button
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "S2 11.1.c",
+                question = "When did the last one occur?",
+                options = listOf(
+                    OptionType.InputField(
+                        InputType.TYPE_CLASS_TEXT,
+                        "MONTH THAT SHOCK BEGAN"
+                    )
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT
             ),
             Question(
                 id = "S2 11.1.c",
