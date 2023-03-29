@@ -1,5 +1,10 @@
 package com.offline.form.builder.ui
 
+import android.widget.Toast
+import androidx.navigation.fragment.findNavController
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import com.offline.form.builder.utils.TableData
 import com.pradeep.form.simple_form.form_items.FormTypes
 import com.pradeep.form.simple_form.model.Form
 
@@ -18,6 +23,25 @@ class LoanBorrowingData : NewBaseTableFragment() {
 
     override fun getSection1FormData(): List<Form> {
         val forms = mutableListOf<Form>()
+        val houseMembers = viewModel.getAnsIfAvailable("S1")
+        if (houseMembers.isNullOrEmpty()){
+            Toast.makeText(requireContext(), "No family members are added right now", Toast.LENGTH_LONG).show()
+            findNavController().navigateUp()
+            return emptyList()
+        }
+        val typeToken = object : TypeToken<List<TableData>>() {}.type
+        val tableList = Gson().fromJson<List<TableData>>(houseMembers, typeToken)
+        forms.add(
+            Form(
+                isMandatory = true,
+                formType = FormTypes.SINGLE_CHOICE,
+                question = "Select from the members list",
+                choices = tableList.mapIndexed { i, item ->
+                    item.formAns.getOrNull(i)?.answer ?: ""
+                },
+                errorMessage = "Please enter proper value"
+            )
+        )
         forms.add(
             Form(
                 isMandatory = true,
