@@ -1777,9 +1777,13 @@ class HomeRepository(
                             CheckBoxItems("1", "Draw money out of bank savings"),
                             CheckBoxItems("2", "Cut back on spending"),
                             CheckBoxItems("3", "Sell assets that I own"),
-                            CheckBoxItems("100","Creating resources", true),
+                            CheckBoxItems("100", "Creating resources", true),
                             CheckBoxItems("4", "Work overtime, earn extra money"),
-                            CheckBoxItems("101", "Access credit by using existing contacts or resources", true),
+                            CheckBoxItems(
+                                "101",
+                                "Access credit by using existing contacts or resources",
+                                true
+                            ),
                             CheckBoxItems("5", "Borrow food or money from family or friend"),
                             CheckBoxItems("6", "Take food or basic goods on credit from retailer"),
                             CheckBoxItems("7", "Borrow from employer/salary advanc"),
@@ -1787,10 +1791,19 @@ class HomeRepository(
                             CheckBoxItems("9", "Take a loan from my savings and loans clubs"),
                             CheckBoxItems("10", "Apply for loan/withdrawal on pension fund"),
                             CheckBoxItems("102", "Borrow from existing credit line", true),
-                            CheckBoxItems("11", "Use authorised, arranged overdraft or line of credit"),
-                            CheckBoxItems("12", "Use credit card for a cash advance or to pay bills/buy food"),
+                            CheckBoxItems(
+                                "11",
+                                "Use authorised, arranged overdraft or line of credit"
+                            ),
+                            CheckBoxItems(
+                                "12",
+                                "Use credit card for a cash advance or to pay bills/buy food"
+                            ),
                             CheckBoxItems("105", "Access new line of credit", true),
-                            CheckBoxItems("13", "Take out a personal loan from a financial service provider (including bank, credit union or microfinance)"),
+                            CheckBoxItems(
+                                "13",
+                                "Take out a personal loan from a financial service provider (including bank, credit union or microfinance)"
+                            ),
 
                             )
                     )
@@ -2140,20 +2153,18 @@ class HomeRepository(
                         id = "15.$index",
                         question = item,
                         options = listOf(
-                            OptionType.Button(
-                                "Enter source, rank, stress, change, etc",
-                                object : ButtonAction {
-                                    override fun doAction(view: View, question: Question) {
-                                        view.findNavController()
-                                            .navigate(
-                                                R.id.action_nav_home_to_sourcesOfIncome,
-                                                bundleOf("formKey" to question.id)
-                                            )
-                                    }
-                                })
+                            OptionType.CheckBox(
+                                listOf(
+                                    CheckBoxItems("1", "Source"),
+                                    CheckBoxItems("2", "Rank"),
+                                    CheckBoxItems("3", "Seasonality (W, D, Y)"),
+                                    CheckBoxItems("4", "Stress"),
+                                    CheckBoxItems("5", "Change"),
+                                )
+                            )
                         ),
-                        validate = StringInputValidation(),
-                        optionType = OptionTypeEnum.Button
+                        validate = CheckboxInputValidation(),
+                        optionType = OptionTypeEnum.Switch
                     ),
                 )
             }
