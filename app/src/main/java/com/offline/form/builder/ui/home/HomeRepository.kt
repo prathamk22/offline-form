@@ -108,11 +108,11 @@ class HomeRepository(
                 question = "MOBILE NUMBER",
                 options = listOf(
                     OptionType.InputField(
-                        InputType.TYPE_CLASS_PHONE,
+                        InputType.TYPE_CLASS_TEXT,
                         "Enter Mobile number of respondent"
                     )
                 ),
-                validate = StringInputValidation(9),
+                validate = StringInputValidation(),
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
@@ -159,11 +159,11 @@ class HomeRepository(
                 question = "CHAIRPERSON'S NUMBER",
                 options = listOf(
                     OptionType.InputField(
-                        InputType.TYPE_CLASS_PHONE,
+                        InputType.TYPE_CLASS_TEXT,
                         "Enter number of Chairperson"
                     )
                 ),
-                validate = StringInputValidation(9),
+                validate = StringInputValidation(),
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
