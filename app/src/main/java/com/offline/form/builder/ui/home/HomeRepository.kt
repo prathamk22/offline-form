@@ -45,9 +45,9 @@ class HomeRepository(
                 id = "A3",
                 question = "CLUSTER",
                 options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter Cluster")
+                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "Enter Cluster")
                 ),
-                validate = NumberInputValidation(0, Int.MAX_VALUE),
+                validate = StringInputValidation(),
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
@@ -2308,7 +2308,7 @@ class HomeRepository(
                     )
 
                 ),
-                validate = StringInputValidation(),
+                validate = CheckboxInputValidation(),
                 optionType = OptionTypeEnum.Switch,
             ),
             Question(
@@ -2381,7 +2381,7 @@ class HomeRepository(
                     )
 
                 ),
-                validate = StringInputValidation(),
+                validate = CheckboxInputValidation(),
                 optionType = OptionTypeEnum.Switch,
             ),
             Question(
@@ -2420,7 +2420,7 @@ class HomeRepository(
                     )
 
                 ),
-                validate = StringInputValidation(),
+                validate = CheckboxInputValidation(),
                 optionType = OptionTypeEnum.Switch,
             ),
             Question(
@@ -2434,57 +2434,51 @@ class HomeRepository(
             ),
             Question(
                 id = "S4 16.2",
-                question = "ENUMERATOR’S NAME:",
+                question = "ENUMERATOR’S CODE:",
                 options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "")
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "Joy Masiye"),
+                            CheckBoxItems("2", "Chibwe Chinungi"),
+                            CheckBoxItems("3", "Brenda Sichone"),
+                            CheckBoxItems("4", "Jones Mvula"),
+                            CheckBoxItems("5", "Nancy Mulemwa"),
+                            CheckBoxItems("6", "Lungowe Mulemwa"),
+                            CheckBoxItems("7", "Joyce Sakala"),
+                            CheckBoxItems("8", "Christinah Kabanda")
+                        )
+                    )
                 ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.INPUT,
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX,
             ),
             Question(
                 id = "S4 16.3",
-                question = "ENUMERATOR’S CODE:",
+                question = "SUPERVISOR’S CODE:",
                 options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "")
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "Joy Masiye"),
+                            CheckBoxItems("2", "Chibwe Chinungi")
+                        )
+                    )
                 ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.INPUT,
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX,
             ),
             Question(
                 id = "S4 16.4",
-                question = "SUPERVISOR’S NAME:",
-                options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "")
-                ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.INPUT,
-            ),
-            Question(
-                id = "S4 16.5",
-                question = "SUPERVISOR’S CODE:",
-                options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "")
-                ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.INPUT,
-            ),
-            Question(
-                id = "S4 16.6",
-                question = "TEAM’S NAME:",
-                options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "")
-                ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.INPUT,
-            ),
-            Question(
-                id = "S4 16.7",
                 question = "TEAM’S CODE:",
                 options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "")
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1A", "TEAM A"),
+                            CheckBoxItems("2B", "TEAM B")
+                        )
+                    )
                 ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.INPUT,
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX,
             ),
         )
     }
