@@ -1318,26 +1318,26 @@ class HomeRepository(
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
-                            CheckBoxItems("1", "Agency Banking Booths",),
-                            CheckBoxItems("2", "Insurance products for Savings Groups",),
-                            CheckBoxItems("3", "Micro- investment loans",),
-                            CheckBoxItems("4", "Savings Group Accounts",),
-                            CheckBoxItems("5", "Livestock financing product",),
-                            CheckBoxItems("6", "Mobile Money Accounts",),
-                            CheckBoxItems("7", "Savings Group loan product",),
-                            CheckBoxItems("8", "Self Help Group Accounts",),
-                            CheckBoxItems("9", "Agro-Dealer Agency points",),
-                            CheckBoxItems("10", "Digital Payment Services (various)",),
-                            CheckBoxItems("11", "Money transfers, cash in, cash out",),
-                            CheckBoxItems("12", "Digital Savings Accounts",),
-                            CheckBoxItems("13", "Digital Loan disbursements",),
-                            CheckBoxItems("14", "Digital Loan repayments",),
-                            CheckBoxItems("15", "Lay-by input facility, Paygo",),
-                            CheckBoxItems("16", "Mobile App (various capabilities)",),
-                            CheckBoxItems("17", "Invoice discount for Farmers",),
-                            CheckBoxItems("18", "Digitized Savings Groups",),
-                            CheckBoxItems("19", "e-Wallet accounts",),
-                            CheckBoxItems("20", "Point of Sale machines (PoS)",),
+                            CheckBoxItems("1", "Agency Banking Booths"),
+                            CheckBoxItems("2", "Insurance products for Savings Groups"),
+                            CheckBoxItems("3", "Micro- investment loans"),
+                            CheckBoxItems("4", "Savings Group Accounts"),
+                            CheckBoxItems("5", "Livestock financing product"),
+                            CheckBoxItems("6", "Mobile Money Accounts"),
+                            CheckBoxItems("7", "Savings Group loan product"),
+                            CheckBoxItems("8", "Self Help Group Accounts"),
+                            CheckBoxItems("9", "Agro-Dealer Agency points"),
+                            CheckBoxItems("10", "Digital Payment Services (various)"),
+                            CheckBoxItems("11", "Money transfers, cash in, cash out"),
+                            CheckBoxItems("12", "Digital Savings Accounts"),
+                            CheckBoxItems("13", "Digital Loan disbursements"),
+                            CheckBoxItems("14", "Digital Loan repayments"),
+                            CheckBoxItems("15", "Lay-by input facility, Paygo"),
+                            CheckBoxItems("16", "Mobile App (various capabilities)"),
+                            CheckBoxItems("17", "Invoice discount for Farmers"),
+                            CheckBoxItems("18", "Digitized Savings Groups"),
+                            CheckBoxItems("19", "e-Wallet accounts"),
+                            CheckBoxItems("20", "Point of Sale machines (PoS)"),
                         )
                     )
                 ),
@@ -2196,50 +2196,221 @@ class HomeRepository(
                 optionType = OptionTypeEnum.INPUT,
                 isOptional = true
             ),
-        ).apply {
-            listOf(
-                "SECTION 4: SOURCES OF INCOME \n\n Farming/Crop production and sales",
-                "Livestock production and sales",
-                "Wage labour (local)",
-                "Fishing",
-                "Salaried work, including in-kind payment",
-                "Sale of wild/bush products (incl charcoal)",
-                "Other self-employment/own business",
-                "Sale of land/other non-livestock assets",
-                "Wild foods for household consumption",
-                "Mining on community land",
-                "Barter trade",
-                "Remittances",
-                "Gifts/inheritance",
-                "Relief/Donations (church assistance, NGOs, etc.)",
-                "Borrowing",
-                "Bank interests/treasury bills",
-                "Pension funds",
-                "Social security",
-                "Government transfers (e.g., FISP/ social cash transfer)",
-                "Share-out from Saving Group",
-            ).forEachIndexed { index, item ->
-                add(
-                    Question(
-                        id = "15.$index",
-                        question = item,
-                        options = listOf(
-                            OptionType.CheckBox(
-                                listOf(
-                                    CheckBoxItems("1", "Source"),
-                                    CheckBoxItems("2", "Rank"),
-                                    CheckBoxItems("3", "Seasonality (W, D, Y)"),
-                                    CheckBoxItems("4", "Stress"),
-                                    CheckBoxItems("5", "Change"),
+            Question(
+                id = "S4 15.a",
+                question = "SECTION 4: SOURCES OF INCOME \n\n Main respondent: Head of the household \n Time reference: Current; past 12 months; recall\n\n What were the sources of your household’s food/income over the last 12 months?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "Farming/Crop production and sales"),
+                            CheckBoxItems("2", "Livestock production and sales"),
+                            CheckBoxItems("3", "Wage labour (local)"),
+                            CheckBoxItems("4", "Fishing"),
+                            CheckBoxItems("5", "Salaried work, including in-kind payment"),
+                            CheckBoxItems("6", "Sale of wild/bush products (incl charcoal)"),
+                            CheckBoxItems("7", "Other self-employment/own business"),
+                            CheckBoxItems("8", "Sale of land/other non-livestock assets"),
+                            CheckBoxItems("9", "Wild foods for household consumption"),
+                            CheckBoxItems("10", "Mining on community land"),
+                            CheckBoxItems("11", "Barter trade"),
+                            CheckBoxItems("12", "Remittances"),
+                            CheckBoxItems("13", "Gifts/inheritance"),
+                            CheckBoxItems(
+                                "14",
+                                "Relief/Donations (church assistance, NGOs, etc.)",
+                            ),
+                            CheckBoxItems("15", "Borrowing"),
+                            CheckBoxItems("16", "Bank interests/treasury bills"),
+                            CheckBoxItems("17", "Pension funds"),
+                            CheckBoxItems("18", "Social security"),
+                            CheckBoxItems(
+                                "19",
+                                "Government transfers (e.g., FISP/ social cash transfer)",
+                            ),
+                            CheckBoxItems("20", "Share-out from Saving Group"),
+                        )
+                    )
+
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.Switch,
+            ),
+            Question(
+                id = "S4 15.b",
+                question = "Rank these sources based on the proportion of food/income they provide for the household. (In column b, indicate 1 for the source that provided the most food/income in the last 12 months, 2 for the source that provides the second most food/income…and so on until the number of sources identified in Q1 is reached).",
+                options = listOf(
+                    OptionType.Button("Enter the rank", object : ButtonAction {
+                        override fun doAction(view: View, question: Question) {
+                            view.findNavController()
+                                .navigate(
+                                    R.id.action_nav_home_to_costAndMarketting,
+                                    bundleOf("formKey" to question.id)
                                 )
-                            )
-                        ),
-                        validate = CheckboxInputValidation(),
-                        optionType = OptionTypeEnum.Switch
-                    ),
-                )
-            }
-        }
+                        }
+                    })
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.Button
+            ),
+            Question(
+                id = "S4 15.c",
+                question = "Which of these food/income sources are seasonal and which season?",
+                options = listOf(
+                    OptionType.Button("Enter the season for food items", object : ButtonAction {
+                        override fun doAction(view: View, question: Question) {
+                            view.findNavController()
+                                .navigate(
+                                    R.id.action_nav_home_to_cashewProduction,
+                                    bundleOf("formKey" to question.id)
+                                )
+                        }
+                    })
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.Button
+            ),
+            Question(
+                id = "S4 15.d",
+                question = "Which are sources that you only rely on during times of stress?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "Farming/Crop production and sales"),
+                            CheckBoxItems("2", "Livestock production and sales"),
+                            CheckBoxItems("3", "Wage labour (local)"),
+                            CheckBoxItems("4", "Fishing"),
+                            CheckBoxItems("5", "Salaried work, including in-kind payment"),
+                            CheckBoxItems("6", "Sale of wild/bush products (incl charcoal)"),
+                            CheckBoxItems("7", "Other self-employment/own business"),
+                            CheckBoxItems("8", "Sale of land/other non-livestock assets"),
+                            CheckBoxItems("9", "Wild foods for household consumption"),
+                            CheckBoxItems("10", "Mining on community land"),
+                            CheckBoxItems("11", "Barter trade"),
+                            CheckBoxItems("12", "Remittances"),
+                            CheckBoxItems("13", "Gifts/inheritance"),
+                            CheckBoxItems(
+                                "14",
+                                "Relief/Donations (church assistance, NGOs, etc.)",
+                            ),
+                            CheckBoxItems("15", "Borrowing"),
+                            CheckBoxItems("16", "Bank interests/treasury bills"),
+                            CheckBoxItems("17", "Pension funds"),
+                            CheckBoxItems("18", "Social security"),
+                            CheckBoxItems(
+                                "19",
+                                "Government transfers (e.g., FISP/ social cash transfer)",
+                            ),
+                            CheckBoxItems("20", "Share-out from Saving Group"),
+                        )
+                    )
+
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.Switch,
+            ),
+            Question(
+                id = "S4 15.e",
+                question = "Over the past 12 months, have you changed any source and their relative importance due to a shock?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "Farming/Crop production and sales"),
+                            CheckBoxItems("2", "Livestock production and sales"),
+                            CheckBoxItems("3", "Wage labour (local)"),
+                            CheckBoxItems("4", "Fishing"),
+                            CheckBoxItems("5", "Salaried work, including in-kind payment"),
+                            CheckBoxItems("6", "Sale of wild/bush products (incl charcoal)"),
+                            CheckBoxItems("7", "Other self-employment/own business"),
+                            CheckBoxItems("8", "Sale of land/other non-livestock assets"),
+                            CheckBoxItems("9", "Wild foods for household consumption"),
+                            CheckBoxItems("10", "Mining on community land"),
+                            CheckBoxItems("11", "Barter trade"),
+                            CheckBoxItems("12", "Remittances"),
+                            CheckBoxItems("13", "Gifts/inheritance"),
+                            CheckBoxItems(
+                                "14",
+                                "Relief/Donations (church assistance, NGOs, etc.)",
+                            ),
+                            CheckBoxItems("15", "Borrowing"),
+                            CheckBoxItems("16", "Bank interests/treasury bills"),
+                            CheckBoxItems("17", "Pension funds"),
+                            CheckBoxItems("18", "Social security"),
+                            CheckBoxItems(
+                                "19",
+                                "Government transfers (e.g., FISP/ social cash transfer)",
+                            ),
+                            CheckBoxItems("20", "Share-out from Saving Group"),
+                        )
+                    )
+
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.Switch,
+            ),
+            Question(
+                id = "S4 16.1",
+                question = "Notes or Comments:",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT,
+            ),
+            Question(
+                id = "S4 16.2",
+                question = "ENUMERATOR’S NAME:",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT,
+            ),
+            Question(
+                id = "S4 16.3",
+                question = "ENUMERATOR’S CODE:",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT,
+            ),
+            Question(
+                id = "S4 16.4",
+                question = "SUPERVISOR’S NAME:",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT,
+            ),
+            Question(
+                id = "S4 16.5",
+                question = "SUPERVISOR’S CODE:",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT,
+            ),
+            Question(
+                id = "S4 16.6",
+                question = "TEAM’S NAME:",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT,
+            ),
+            Question(
+                id = "S4 16.7",
+                question = "TEAM’S CODE:",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT,
+            ),
+        )
     }
 
     suspend fun insertData(answerEntity: AnswerEntity) =

@@ -1,124 +1,45 @@
 package com.offline.form.builder.ui
 
 import com.pradeep.form.simple_form.form_items.FormTypes
-import com.pradeep.form.simple_form.form_items.SingleLineTextType
 import com.pradeep.form.simple_form.model.Form
 
-class CashewProduction : BaseTableFragment() {
+class CashewProduction : NewBaseTableFragment() {
+    override fun getSheetName() = "Season food items"
 
-    override fun onSubmitListCalled() {
-        viewModel.submitH1Data(arguments?.getString("formKey", "") ?: "", userdataList)
+    override fun getColumnNames(): List<String> {
+        return listOf(
+            "Farming/Crop production and sales",
+            "Livestock production and sales",
+            "Wage labour (local)",
+            "Fishing",
+            "Salaried work, including in-kind payment",
+            "Sale of wild/bush products (incl charcoal)",
+            "Other self-employment/own business",
+            "Sale of land/other non-livestock assets",
+            "Wild foods for household consumption",
+            "Mining on community land",
+            "Barter trade",
+            "Remittances",
+            "Gifts/inheritance",
+            "Relief/Donations (church assistance, NGOs, etc.)",
+            "Borrowing",
+            "Bank interests/treasury bills",
+            "Pension funds",
+            "Social security",
+            "Government transfers (e.g., FISP/ social cash transfer)",
+            "Share-out from Saving Group",
+        )
     }
 
     override fun getSection1FormData(): List<Form> {
-        val forms = mutableListOf<Form>()
-        forms.add(
+        return getColumnNames().map {
             Form(
                 isMandatory = true,
-                formType = FormTypes.SINGLE_CHOICE,
-                question = "Particular name",
-                choices = listOf(
-                    "Existing Area (in Ha.)",
-                    "Number of plants (in No.)",
-                    "Total production (in Kgs)",
-                    "Marketed (sold) Quantity (in Kgs)",
-                    "Market price (Kwacha/Kg)",
-                    "Total value of Sale (Kwacha)",
-                ),
-                errorMessage = "Please choose"
+                formType = FormTypes.SINGLE_LINE_TEXT,
+                question = "$it (Enter D for dry season and W for wet season, or Y for year-round)",
+                hint = "Enter the proper value for $it",
+                errorMessage = "Please enter proper rank"
             )
-        )
-        forms.add(
-            Form(
-                isMandatory = true,
-                formType = FormTypes.NUMBER,
-                question = "Yr. 2015",
-                hint = "please enter ",
-                singleLineTextType = SingleLineTextType.TEXT,
-                errorMessage = "Please provide an answer"
-            )
-        )
-        forms.add(
-            Form(
-                isMandatory = true,
-                formType = FormTypes.NUMBER,
-                question = "Yr. 2016",
-                hint = "please enter ",
-                singleLineTextType = SingleLineTextType.TEXT,
-                errorMessage = "Please provide an answer"
-            )
-        )
-        forms.add(
-            Form(
-                isMandatory = true,
-                formType = FormTypes.NUMBER,
-                question = "Yr. 2017",
-                hint = "please enter ",
-                singleLineTextType = SingleLineTextType.TEXT,
-                errorMessage = "Please provide an answer"
-            )
-        )
-        forms.add(
-            Form(
-                isMandatory = true,
-                formType = FormTypes.NUMBER,
-                question = "Yr. 2018",
-                hint = "please enter ",
-                singleLineTextType = SingleLineTextType.TEXT,
-                errorMessage = "Please provide an answer"
-            )
-        )
-        forms.add(
-            Form(
-                isMandatory = true,
-                formType = FormTypes.NUMBER,
-                question = "Yr. 2019",
-                hint = "please enter ",
-                singleLineTextType = SingleLineTextType.TEXT,
-                errorMessage = "Please provide an answer"
-            )
-        )
-        forms.add(
-            Form(
-                isMandatory = true,
-                formType = FormTypes.NUMBER,
-                question = "Yr. 2020",
-                hint = "please enter ",
-                singleLineTextType = SingleLineTextType.TEXT,
-                errorMessage = "Please provide an answer"
-            )
-        )
-        forms.add(
-            Form(
-                isMandatory = true,
-                formType = FormTypes.NUMBER,
-                question = "Yr. 2021",
-                hint = "please enter ",
-                singleLineTextType = SingleLineTextType.TEXT,
-                errorMessage = "Please provide an answer"
-            )
-        )
-        forms.add(
-            Form(
-                isMandatory = true,
-                formType = FormTypes.NUMBER,
-                question = "Yr. 2022",
-                hint = "please enter ",
-                singleLineTextType = SingleLineTextType.TEXT,
-                errorMessage = "Please provide an answer"
-            )
-        )
-        forms.add(
-            Form(
-                isMandatory = true,
-                formType = FormTypes.NUMBER,
-                question = "Total",
-                hint = "please enter ",
-                singleLineTextType = SingleLineTextType.TEXT,
-                errorMessage = "Please provide an answer"
-            )
-        )
-        return forms
+        }
     }
-
 }

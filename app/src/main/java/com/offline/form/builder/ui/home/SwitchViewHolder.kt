@@ -18,7 +18,7 @@ class SwitchViewHolder(
         if (item.optionType != OptionTypeEnum.Switch)
             return
         with(binding) {
-            questionTitle.text = item.question.plus(if (item.isOptional) " ( Optional )" else "")
+            questionTitle.text = item.id + " " + item.question.plus(if (item.isOptional) " ( Optional )" else "")
             val checkBoxOption = (item.options.firstOrNull() as? OptionType.CheckBox) ?: return
             checkBoxesHolder.removeAllViews()
             checkBoxOption.checkboxItems.forEach {
