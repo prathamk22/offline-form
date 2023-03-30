@@ -38,8 +38,8 @@ class HouseHoldMembers : NewBaseTableFragment() {
                 isMandatory = true,
                 formType = if (maxCount == 1) FormTypes.SINGLE_CHOICE else FormTypes.MULTI_CHOICE,
                 question = "Select from the members list",
-                choices = tableList.mapIndexed { i, item ->
-                    item.formAns.getOrNull(i)?.answer ?: ""
+                choices = tableList.map { item ->
+                    item.formAns.getOrNull(0)?.answer ?: ""
                 },
                 errorMessage = "Please enter proper value"
             )
