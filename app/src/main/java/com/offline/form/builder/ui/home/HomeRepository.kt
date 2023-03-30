@@ -1510,7 +1510,7 @@ class HomeRepository(
                             view.findNavController()
                                 .navigate(
                                     R.id.action_nav_home_to_houseHoldMembers,
-                                    bundleOf("formKey" to question.id, "count" to 2)
+                                    bundleOf("formKey" to question.id, "count" to Int.MAX_VALUE)
                                 )
                         }
                     })
@@ -1811,7 +1811,7 @@ class HomeRepository(
                 optionType = OptionTypeEnum.CHECK_BOX
             ),
             Question(
-                id = "S2 11.1.c",
+                id = "S2 11.c",
                 question = "When did the last one occur?",
                 options = listOf(
                     OptionType.InputField(
@@ -1821,6 +1821,81 @@ class HomeRepository(
                 ),
                 validate = StringInputValidation(),
                 optionType = OptionTypeEnum.INPUT
+            ),
+            Question(
+                id = "S2 11.d",
+                question = "How many times in the past 12 months?",
+                options = listOf(
+                    OptionType.InputField(
+                        InputType.TYPE_CLASS_NUMBER,
+                        ""
+                    )
+                ),
+                validate = NumberInputValidation(0, Int.MAX_VALUE),
+                optionType = OptionTypeEnum.INPUT
+            ),
+            Question(
+                id = "S2 11.1.a",
+                question = "Was your household affected by any of the following distress events/ emergencies in the last 10 years preceding the survey?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "Crop failure due to excessive rainfall, very low rainfall or unseasonal rainfall"),
+                            CheckBoxItems("2", "Sudden decline in productivity of crops due to pest infestation, etc."),
+                            CheckBoxItems("3", "Sudden fall in market prices of crops"),
+                            CheckBoxItems("4", "Loss of livestock due to flood, disease, etc."),
+                            CheckBoxItems("5", "Death of the earning member of the household"),
+                            CheckBoxItems("6", "Sudden health problems/ accident"),
+                            CheckBoxItems("7", "Sudden job loss"),
+                            CheckBoxItems("8", "Fire/ theft/ robbery"),
+                            CheckBoxItems("9", "Others")
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.Switch
+            ),
+            Question(
+                id = "S2 11.1.a 2",
+                question = "(If you choose OTHER in above question)",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT,
+                isOptional = true
+            ),
+            Question(
+                id = "S2 11.1.b",
+                question = "If yes, then what strategies did you adopt to cope with the event?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "By taking loan"),
+                            CheckBoxItems("2", "Through personal savings"),
+                            CheckBoxItems("3", "By selling household assets"),
+                            CheckBoxItems("4", "By mortgaging household assets"),
+                            CheckBoxItems("5", "By selling ornaments"),
+                            CheckBoxItems("6", "By selling animals"),
+                            CheckBoxItems("7", "Women of the household started working"),
+                            CheckBoxItems("8", "Through receipt of insurance claims"),
+                            CheckBoxItems("9", "Government assistance"),
+                            CheckBoxItems("7", "Other"),
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.Switch
+            ),
+            Question(
+                id = "S2 11.1.b 2",
+                question = "(If you choose OTHER in above question)",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT,
+                isOptional = true
             ),
             Question(
                 id = "S2 11.1.c",
@@ -1880,7 +1955,8 @@ class HomeRepository(
                     )
                 ),
                 validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.Switch
+                optionType = OptionTypeEnum.Switch,
+                isOptional = true
             ),
             Question(
                 id = "S3 12.a",
