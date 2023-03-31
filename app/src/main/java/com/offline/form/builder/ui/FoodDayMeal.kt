@@ -19,7 +19,7 @@ class FoodDayMeal : NewBaseTableFragment() {
     override fun getSection1FormData(): List<Form> {
         return getColumnNames().map {
             Form(
-                isMandatory = true,
+                isMandatory = false,
                 formType = FormTypes.MULTI_LINE_TEXT,
                 question = it,
                 hint = "Enter your $it",

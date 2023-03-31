@@ -14,7 +14,7 @@ class KnowledgeTraning : BaseTableFragment() {
         val forms = mutableListOf<Form>()
         forms.add(
             Form(
-                isMandatory = true,
+                isMandatory = false,
                 formType = FormTypes.SINGLE_CHOICE,
                 question = "Particulars",
                 choices = listOf(
@@ -34,7 +34,7 @@ class KnowledgeTraning : BaseTableFragment() {
         )
         forms.add(
             Form(
-                isMandatory = true,
+                isMandatory = false,
                 formType = FormTypes.SINGLE_LINE_TEXT,
                 question = "I.4.1 Change in practice (Before and after training)",
                 hint = "please enter ",
@@ -44,7 +44,7 @@ class KnowledgeTraning : BaseTableFragment() {
         )
         forms.add(
             Form(
-                isMandatory = true,
+                isMandatory = false,
                 formType = FormTypes.SINGLE_CHOICE,
                 question = "I.4.2 Benefits received by the adoption of training",
                 hint = "please enter ",

@@ -33,7 +33,7 @@ class LoanBorrowingData : NewBaseTableFragment() {
         val tableList = Gson().fromJson<List<TableData>>(houseMembers, typeToken)
         forms.add(
             Form(
-                isMandatory = true,
+                isMandatory = false,
                 formType = FormTypes.SINGLE_CHOICE,
                 question = "Select from the members list",
                 choices = tableList.mapIndexed { i, item ->
@@ -44,7 +44,7 @@ class LoanBorrowingData : NewBaseTableFragment() {
         )
         forms.add(
             Form(
-                isMandatory = true,
+                isMandatory = false,
                 formType = FormTypes.SINGLE_LINE_TEXT,
                 question = "Serial Number",
                 hint = "Please enter Serial Number",
@@ -53,7 +53,7 @@ class LoanBorrowingData : NewBaseTableFragment() {
         )
         forms.add(
             Form(
-                isMandatory = true,
+                isMandatory = false,
                 formType = FormTypes.SINGLE_CHOICE,
                 choices = listOf(
                     "Government ",
@@ -68,7 +68,7 @@ class LoanBorrowingData : NewBaseTableFragment() {
         )
         forms.add(
             Form(
-                isMandatory = true,
+                isMandatory = false,
                 formType = FormTypes.SINGLE_LINE_TEXT,
                 choices = listOf(
                     "Capital expenditure in farm business",
@@ -97,7 +97,7 @@ class LoanBorrowingData : NewBaseTableFragment() {
         )
         forms.add(
             Form(
-                isMandatory = true,
+                isMandatory = false,
                 formType = FormTypes.SINGLE_LINE_TEXT,
                 question = "Purpose of Loan Codes",
                 hint = "Please enter Purpose of Loan Codes",

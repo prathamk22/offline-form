@@ -1,10 +1,10 @@
 package com.offline.form.builder.ui.home
 
 import android.text.Editable
+import android.text.InputType
 import android.text.TextWatcher
-import android.widget.Toast
+import android.text.method.DigitsKeyListener
 import androidx.recyclerview.widget.RecyclerView
-import com.offline.form.builder.OfflineFormApp
 import com.offline.form.builder.databinding.StringItemBinding
 import com.offline.form.builder.utils.OptionType
 import com.offline.form.builder.utils.OptionTypeEnum
@@ -30,6 +30,9 @@ class StringViewHolder(
                 return
             }
             textInputEditText.inputType = inputOption.inputType
+            if (inputOption.inputType == InputType.TYPE_CLASS_NUMBER){
+                textInputEditText.keyListener = DigitsKeyListener.getInstance("1234567890.")
+            }
             val ansText = homeViewModel.getAnsIfAvailable(item.id)
             if (ansText.isNullOrEmpty()) {
                 textInputEditText.setText("")

@@ -34,7 +34,7 @@ class CostAndMarketting : NewBaseTableFragment() {
     override fun getSection1FormData(): List<Form> {
         return getColumnNames().map {
             Form(
-                isMandatory = true,
+                isMandatory = false,
                 formType = FormTypes.NUMBER,
                 question = it,
                 hint = "Enter the rank of $it",

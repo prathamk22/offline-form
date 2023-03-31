@@ -3,6 +3,7 @@ package com.offline.form.builder.ui.home
 import android.view.LayoutInflater
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
+import com.offline.form.builder.databinding.CheckboxTextItemBinding
 import com.offline.form.builder.databinding.SwitchItemBinding
 import com.offline.form.builder.databinding.SwitchMainItemBinding
 import com.offline.form.builder.utils.OptionType
@@ -22,27 +23,38 @@ class SwitchViewHolder(
             val checkBoxOption = (item.options.firstOrNull() as? OptionType.CheckBox) ?: return
             checkBoxesHolder.removeAllViews()
             checkBoxOption.checkboxItems.forEach {
-                val checkBoxItem = SwitchMainItemBinding.inflate(
-                    LayoutInflater.from(binding.root.context),
-                    null,
-                    false
-                )
-                checkBoxItem.checkBox.id = View.generateViewId()
-                checkBoxItem.checkBox.text = it.optionTitle
-                checkBoxItem.checkBox.isChecked = homeViewModel.getAnsForCheckboxIfAvailable(item.id, it.id)
-                checkBoxItem.checkBox.setOnClickListener { view->
-                    val checkboxText = checkBoxItem.checkBox.text
-                    checkBoxOption.checkboxItems.first { checkboxItem ->
-                        checkboxItem.optionTitle == checkboxText
-                    }.let {
-                        if (item.validate.isValid(checkboxText)) {
-                            homeViewModel.valueEnteredInCheckbox(item.id, it.id, checkBoxItem.checkBox.isChecked)
-                        } else {
-                            homeViewModel.clearValue(item.id)
+                if (it.isTextOnly){
+                    val checkBoxItem = CheckboxTextItemBinding.inflate(
+                        LayoutInflater.from(binding.root.context),
+                        null,
+                        false
+                    )
+                    checkBoxItem.radioTxt.text = it.optionTitle
+                    checkBoxItem.radioTxt.id = View.generateViewId()
+                    checkBoxesHolder.addView(checkBoxItem.root)
+                } else {
+                    val checkBoxItem = SwitchMainItemBinding.inflate(
+                        LayoutInflater.from(binding.root.context),
+                        null,
+                        false
+                    )
+                    checkBoxItem.checkBox.id = View.generateViewId()
+                    checkBoxItem.checkBox.text = it.optionTitle
+                    checkBoxItem.checkBox.isChecked = homeViewModel.getAnsForCheckboxIfAvailable(item.id, it.id)
+                    checkBoxItem.checkBox.setOnClickListener { view->
+                        val checkboxText = checkBoxItem.checkBox.text
+                        checkBoxOption.checkboxItems.first { checkboxItem ->
+                            checkboxItem.optionTitle == checkboxText
+                        }.let {
+                            if (item.validate.isValid(checkboxText)) {
+                                homeViewModel.valueEnteredInCheckbox(item.id, it.id, checkBoxItem.checkBox.isChecked)
+                            } else {
+                                homeViewModel.clearValue(item.id)
+                            }
                         }
                     }
+                    checkBoxesHolder.addView(checkBoxItem.root)
                 }
-                checkBoxesHolder.addView(checkBoxItem.root)
             }
         }
     }

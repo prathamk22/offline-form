@@ -28,7 +28,7 @@ class MicrofinanceExperience : NewBaseTableFragment() {
                     question = "Serial Number (Number of members in the household)",
                     hint = "please enter Serial Number",
                     singleLineTextType = SingleLineTextType.TEXT,
-                    errorMessage = "Please choose"
+                    errorMessage = "Please enter the value"
                 )
             )
             add(
@@ -38,7 +38,7 @@ class MicrofinanceExperience : NewBaseTableFragment() {
                     question = "Name of the Organization providing Microfinance",
                     hint = "please enter Name of the Organization",
                     singleLineTextType = SingleLineTextType.TEXT,
-                    errorMessage = "Please choose"
+                    errorMessage = "Please enter the value"
                 )
             )
             add(
@@ -50,7 +50,7 @@ class MicrofinanceExperience : NewBaseTableFragment() {
                         "SHG", "JLG", "Livelihood collective"
                     ),
                     singleLineTextType = SingleLineTextType.TEXT,
-                    errorMessage = "Please choose"
+                    errorMessage = "Please enter the value"
                 )
             )
             add(
@@ -60,17 +60,21 @@ class MicrofinanceExperience : NewBaseTableFragment() {
                     question = "Number of members in the group",
                     hint = "please enter Number of members",
                     singleLineTextType = SingleLineTextType.TEXT,
-                    errorMessage = "Please choose"
+                    errorMessage = "Please enter the value"
                 )
             )
             add(
                 Form(
                     isMandatory = true,
-                    formType = FormTypes.NUMBER,
+                    formType = FormTypes.SINGLE_CHOICE,
                     question = "Frequency of meetings",
-                    hint = "please enter Frequency of meetings",
-                    singleLineTextType = SingleLineTextType.TEXT,
-                    errorMessage = "Please choose"
+                    choices = listOf(
+                        "Weekly",
+                        "Monthly",
+                        "Quarterly",
+                        "Yearly"
+                    ),
+                    errorMessage = "Please choose one of it"
                 )
             )
             add(
@@ -82,7 +86,7 @@ class MicrofinanceExperience : NewBaseTableFragment() {
                         "YES", "NO"
                     ),
                     singleLineTextType = SingleLineTextType.TEXT,
-                    errorMessage = "Please choose"
+                    errorMessage = "Please enter the value"
                 )
             )
         }

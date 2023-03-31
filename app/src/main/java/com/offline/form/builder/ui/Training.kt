@@ -14,7 +14,7 @@ class Training : BaseTableFragment() {
         val forms = mutableListOf<Form>()
         forms.add(
             Form(
-                isMandatory = true,
+                isMandatory = false,
                 formType = FormTypes.SINGLE_LINE_TEXT,
                 question = "I.3.1 Title / Topic of the training",
                 hint = "please enter ",
@@ -24,7 +24,7 @@ class Training : BaseTableFragment() {
         )
         forms.add(
             Form(
-                isMandatory = true,
+                isMandatory = false,
                 formType = FormTypes.SINGLE_LINE_TEXT,
                 question = "I.3.2 Number of trainings",
                 hint = "please enter ",
@@ -34,7 +34,7 @@ class Training : BaseTableFragment() {
         )
         forms.add(
             Form(
-                isMandatory = true,
+                isMandatory = false,
                 formType = FormTypes.SINGLE_LINE_TEXT,
                 question = "I.3.3 Name of Training Institute/Department",
                 hint = "please enter name of Training Institute/Department",
@@ -44,7 +44,7 @@ class Training : BaseTableFragment() {
         )
         forms.add(
             Form(
-                isMandatory = true,
+                isMandatory = false,
                 formType = FormTypes.SINGLE_LINE_TEXT,
                 question = "I.3.4 How will you rate the usefulness of training on a scale of 1 to 5 (1 for poor and 5 for best)",
                 hint = "please enter ",

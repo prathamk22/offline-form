@@ -9,14 +9,14 @@ class NumberInputValidation(
 
     override fun isValid(it: Any): Boolean {
         try {
-            val item = it.toString().toLong()
+            val item = it.toString().toFloatOrNull() ?: return false
             if (item <= minimum) {
-                errorMessage = "Number should be greater than ${minimum}"
+                errorMessage = "Number should be greater than $minimum"
                 return false
             }
 
             if (item >= maximum) {
-                errorMessage = "Number should be smaller than ${maximum}"
+                errorMessage = "Number should be smaller than $maximum"
                 return false
             }
             errorMessage = null
@@ -28,4 +28,5 @@ class NumberInputValidation(
     }
 
     override fun getError() = errorMessage
+
 }

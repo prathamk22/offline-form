@@ -38,7 +38,7 @@ class FinancialProducts : NewBaseTableFragment() {
             getColumnNames().forEachIndexed { index, s ->
                 add(
                     Form(
-                        isMandatory = true,
+                        isMandatory = false,
                         formType = FormTypes.SINGLE_CHOICE,
                         question = s,
                         choices = listOf(

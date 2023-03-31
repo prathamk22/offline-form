@@ -34,7 +34,7 @@ class CashewProduction : NewBaseTableFragment() {
     override fun getSection1FormData(): List<Form> {
         return getColumnNames().map {
             Form(
-                isMandatory = true,
+                isMandatory = false,
                 formType = FormTypes.SINGLE_LINE_TEXT,
                 question = "$it (Enter D for dry season and W for wet season, or Y for year-round)",
                 hint = "Enter the proper value for $it",

@@ -15,7 +15,7 @@ class AddPeopleFragment : BaseTableFragment() {
         val forms = mutableListOf<Form>()
         forms.add(
             Form(
-                isMandatory = true,
+                isMandatory = false,
                 formType = FormTypes.SINGLE_LINE_TEXT,
                 question = "Full name",
                 hint = "Please enter full name of the user",
@@ -24,7 +24,7 @@ class AddPeopleFragment : BaseTableFragment() {
         )
         forms.add(
             Form(
-                isMandatory = true,
+                isMandatory = false,
                 formType = FormTypes.SINGLE_LINE_TEXT,
                 question = "Relation to Head of the Household",
                 hint = "please enter Relation to Head of the Household",
@@ -34,7 +34,7 @@ class AddPeopleFragment : BaseTableFragment() {
         )
         forms.add(
             Form(
-                isMandatory = true,
+                isMandatory = false,
                 formType = FormTypes.SINGLE_CHOICE,
                 question = "Sex",
                 choices = listOf(
@@ -46,7 +46,7 @@ class AddPeopleFragment : BaseTableFragment() {
         )
         forms.add(
             Form(
-                isMandatory = true,
+                isMandatory = false,
                 formType = FormTypes.NUMBER,
                 question = "How old was (NAME) on his/her last birthday?",
                 hint = "Please enter the age of the user",
@@ -55,7 +55,7 @@ class AddPeopleFragment : BaseTableFragment() {
         )
         forms.add(
             Form(
-                isMandatory = true,
+                isMandatory = false,
                 formType = FormTypes.SINGLE_CHOICE,
                 question = "Can he/she read a newspaper or letter?",
                 choices = listOf(
@@ -70,7 +70,7 @@ class AddPeopleFragment : BaseTableFragment() {
         )
         forms.add(
             Form(
-                isMandatory = true,
+                isMandatory = false,
                 formType = FormTypes.NUMBER,
                 question = "Number of years of school that have been completed",
                 hint = "Please enter the age of the user",
@@ -79,7 +79,7 @@ class AddPeopleFragment : BaseTableFragment() {
         )
         forms.add(
             Form(
-                isMandatory = true,
+                isMandatory = false,
                 formType = FormTypes.SINGLE_CHOICE,
                 question = "Is he/she attending school?",
                 choices = listOf(

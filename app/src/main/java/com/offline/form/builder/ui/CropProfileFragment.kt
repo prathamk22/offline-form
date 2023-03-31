@@ -13,7 +13,7 @@ class CropProfileFragment : BaseTableFragment() {
         val forms = mutableListOf<Form>()
         forms.add(
             Form(
-                isMandatory = true,
+                isMandatory = false,
                 formType = FormTypes.SINGLE_CHOICE,
                 question = "F1 Crop Period",
                 choices = listOf(
@@ -26,7 +26,7 @@ class CropProfileFragment : BaseTableFragment() {
         )
         forms.add(
             Form(
-                isMandatory = true,
+                isMandatory = false,
                 formType = FormTypes.SINGLE_LINE_TEXT,
                 question = "F2 Crop Name",
                 hint = "please enter Crop Name",
@@ -36,7 +36,7 @@ class CropProfileFragment : BaseTableFragment() {
         )
         forms.add(
             Form(
-                isMandatory = true,
+                isMandatory = false,
                 formType = FormTypes.NUMBER,
                 question = "F3 Area (in Ha)",
                 hint = "please enter your membership",
@@ -46,7 +46,7 @@ class CropProfileFragment : BaseTableFragment() {
         )
         forms.add(
             Form(
-                isMandatory = true,
+                isMandatory = false,
                 formType = FormTypes.NUMBER,
                 question = "F4 Total Production (in Kg) ",
                 hint = "please enter Total Production (in Kg)",
@@ -56,7 +56,7 @@ class CropProfileFragment : BaseTableFragment() {
         )
         forms.add(
             Form(
-                isMandatory = true,
+                isMandatory = false,
                 formType = FormTypes.NUMBER,
                 question = "F5 Marketable surplus (in % of total production)  ",
                 hint = "please enter Marketable surplus",
@@ -66,7 +66,7 @@ class CropProfileFragment : BaseTableFragment() {
         )
         forms.add(
             Form(
-                isMandatory = true,
+                isMandatory = false,
                 formType = FormTypes.NUMBER,
                 question = "F6 Selling price (Kwacha per Kg)",
                 hint = "please enter Selling price",
@@ -76,7 +76,7 @@ class CropProfileFragment : BaseTableFragment() {
         )
         forms.add(
             Form(
-                isMandatory = true,
+                isMandatory = false,
                 formType = FormTypes.NUMBER,
                 question = "F7 Quantity sold (in Kg) ",
                 hint = "please enter Quantity sold ",

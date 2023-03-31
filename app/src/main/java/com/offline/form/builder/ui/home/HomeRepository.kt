@@ -867,7 +867,7 @@ class HomeRepository(
                         "Enter size of field (in Ha)"
                     )
                 ),
-                validate = NumberInputValidation(0, Int.MAX_VALUE),
+                validate = NumberInputValidation(-1, Int.MAX_VALUE),
                 optionType = OptionTypeEnum.INPUT,
                 isOptional = true
             ),
@@ -1186,14 +1186,14 @@ class HomeRepository(
             ),
             Question(
                 id = "S2 8.2.a",
-                question = "8.2 Household Income\nAnnual household Income (in Kwacha)",
+                question = "Household Income\nAnnual household Income (in Kwacha)",
                 options = listOf(
                     OptionType.InputField(
                         InputType.TYPE_CLASS_NUMBER,
                         "Enter Annual Household Income"
                     )
                 ),
-                validate = NumberInputValidation(0, Int.MAX_VALUE),
+                validate = NumberInputValidation(-1, Int.MAX_VALUE),
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
@@ -1205,7 +1205,7 @@ class HomeRepository(
                         "Enter no. of earning household members"
                     )
                 ),
-                validate = NumberInputValidation(0, Int.MAX_VALUE),
+                validate = NumberInputValidation(-1, Int.MAX_VALUE),
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
@@ -1214,7 +1214,7 @@ class HomeRepository(
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "")
                 ),
-                validate = NumberInputValidation(0, Int.MAX_VALUE),
+                validate = NumberInputValidation(-1, Int.MAX_VALUE),
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
@@ -1223,7 +1223,7 @@ class HomeRepository(
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "")
                 ),
-                validate = NumberInputValidation(0, Int.MAX_VALUE),
+                validate = NumberInputValidation(-1, Int.MAX_VALUE),
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
@@ -1232,7 +1232,7 @@ class HomeRepository(
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "")
                 ),
-                validate = NumberInputValidation(0, Int.MAX_VALUE),
+                validate = NumberInputValidation(-1, Int.MAX_VALUE),
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
@@ -1241,7 +1241,7 @@ class HomeRepository(
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "")
                 ),
-                validate = NumberInputValidation(0, Int.MAX_VALUE),
+                validate = NumberInputValidation(-1, Int.MAX_VALUE),
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
@@ -1250,7 +1250,7 @@ class HomeRepository(
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "")
                 ),
-                validate = NumberInputValidation(0, Int.MAX_VALUE),
+                validate = NumberInputValidation(-1, Int.MAX_VALUE),
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
@@ -1259,7 +1259,7 @@ class HomeRepository(
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "")
                 ),
-                validate = NumberInputValidation(0, Int.MAX_VALUE),
+                validate = NumberInputValidation(-1, Int.MAX_VALUE),
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
@@ -1268,7 +1268,7 @@ class HomeRepository(
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "")
                 ),
-                validate = NumberInputValidation(0, Int.MAX_VALUE),
+                validate = NumberInputValidation(-1, Int.MAX_VALUE),
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
@@ -1277,7 +1277,7 @@ class HomeRepository(
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "")
                 ),
-                validate = NumberInputValidation(0, Int.MAX_VALUE),
+                validate = NumberInputValidation(-1, Int.MAX_VALUE),
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
@@ -1286,7 +1286,7 @@ class HomeRepository(
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "")
                 ),
-                validate = NumberInputValidation(0, Int.MAX_VALUE),
+                validate = NumberInputValidation(-1, Int.MAX_VALUE),
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
@@ -1295,7 +1295,7 @@ class HomeRepository(
                 options = listOf(
                     OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "")
                 ),
-                validate = NumberInputValidation(0, Int.MAX_VALUE),
+                validate = NumberInputValidation(-1, Int.MAX_VALUE),
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
@@ -1720,7 +1720,7 @@ class HomeRepository(
                     )
                 ),
                 validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
+                optionType = OptionTypeEnum.Switch
             ),
             Question(
                 id = "S2 9.4.2",
@@ -1737,7 +1737,8 @@ class HomeRepository(
                     })
                 ),
                 validate = StringInputValidation(),
-                optionType = OptionTypeEnum.Button
+                optionType = OptionTypeEnum.Button,
+                isOptional = true
             ),
             Question(
                 id = "S2 10.1",

@@ -14,7 +14,7 @@ class AwarenessAccess : BaseTableFragment() {
         val forms = mutableListOf<Form>()
         forms.add(
             Form(
-                isMandatory = true,
+                isMandatory = false,
                 formType = FormTypes.SINGLE_CHOICE,
                 question = "Particular name",
                 choices = listOf(
@@ -28,7 +28,7 @@ class AwarenessAccess : BaseTableFragment() {
         )
         forms.add(
             Form(
-                isMandatory = true,
+                isMandatory = false,
                 formType = FormTypes.SINGLE_CHOICE,
                 question = "Particular type",
                 choices = listOf(
@@ -54,7 +54,7 @@ class AwarenessAccess : BaseTableFragment() {
         )
         forms.add(
             Form(
-                isMandatory = true,
+                isMandatory = false,
                 formType = FormTypes.SINGLE_CHOICE,
                 question = "G.2.a Aware of component",
                 choices = listOf(
@@ -66,7 +66,7 @@ class AwarenessAccess : BaseTableFragment() {
         )
         forms.add(
             Form(
-                isMandatory = true,
+                isMandatory = false,
                 formType = FormTypes.SINGLE_CHOICE,
                 question = "G.2.b Accessed / Availed benefit",
                 choices = listOf(

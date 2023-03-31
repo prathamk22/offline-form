@@ -35,7 +35,7 @@ class HouseHoldMembers : NewBaseTableFragment() {
         val maxCount = arguments?.getInt("count", 1) ?: 1
         forms.add(
             Form(
-                isMandatory = true,
+                isMandatory = false,
                 formType = if (maxCount == 1) FormTypes.SINGLE_CHOICE else FormTypes.MULTI_CHOICE,
                 question = "Select from the members list",
                 choices = tableList.map { item ->
