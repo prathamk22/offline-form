@@ -19,84 +19,23 @@ class HomeRepository(
     val questions: List<Question> by lazy {
         mutableListOf(
             Question(
-                id = "A1",
-                question = "QUESTIONNAIRE NUMBER",
-                options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter Questionnaire Number")
-                ),
-                validate = NumberInputValidation(0, Int.MAX_VALUE),
-                optionType = OptionTypeEnum.INPUT
-            ),
-            Question(
-                id = "A2",
-                question = "RESPONDENT",
+                id = "1.1",
+                question = "आपके परिवार के आय का प्राथमिक स्रोत क्या है ?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
-                            CheckBoxItems("1", "Treatment"),
-                            CheckBoxItems("2", "Control")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.Switch
-            ),
-            Question(
-                id = "A3",
-                question = "CLUSTER",
-                options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "Enter Cluster")
-                ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.INPUT
-            ),
-            Question(
-                id = "A4",
-                question = "HOUSEHOLDER NUMBER",
-                options = listOf(
-                    OptionType.InputField(
-                        InputType.TYPE_CLASS_NUMBER,
-                        "Enter HouseHolder Number"
-                    )
-                ),
-                validate = NumberInputValidation(0, Int.MAX_VALUE),
-                optionType = OptionTypeEnum.INPUT
-            ),
-            Question(
-                id = "A5",
-                question = "DATE",
-                options = listOf(
-                    OptionType.InputField(
-                        InputType.TYPE_CLASS_TEXT,
-                        "Enter Date"
-                    )
-                ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.INPUT
-            ),
-            Question(
-                id = "A6",
-                question = "NAME OF THE RESPONDENT",
-                options = listOf(
-                    OptionType.InputField(
-                        InputType.TYPE_CLASS_TEXT,
-                        "Enter Name of the family Head"
-                    )
-                ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.INPUT
-            ),
-            Question(
-                id = "A7",
-                question = "MARITAL STATUS",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Married"),
-                            CheckBoxItems("2", "Divorced"),
-                            CheckBoxItems("3", "Separated"),
-                            CheckBoxItems("4", "Single"),
-                            CheckBoxItems("5", "Widowed")
+                            CheckBoxItems("1", "पशुपालन/गव्यपालन"),
+                            CheckBoxItems("2", "फसलों की खेती"),
+                            CheckBoxItems("3", "कृषि आधारित दैनिक मजदूरी"),
+                            CheckBoxItems("4", "मत्स्य पालन"),
+                            CheckBoxItems("5", "ऑफ-फार्म/पशुपालन आधारित दैनिक मजदूरी"),
+                            CheckBoxItems("6", "वस्तुओं का व्यापार"),
+                            CheckBoxItems("7", "सार्वजनिक/सरकारी योजनाओं से लाभ"),
+                            CheckBoxItems(
+                                "8",
+                                "घर से सुदूर रहने वाले पारिवारिक सदस्यों द्वारा भेजी गयी राशि से आय"
+                            ),
+                            CheckBoxItems("9", "अन्य, कृपया बताये"),
                         )
                     )
                 ),
@@ -104,91 +43,59 @@ class HomeRepository(
                 optionType = OptionTypeEnum.CHECK_BOX
             ),
             Question(
-                id = "A8",
-                question = "MOBILE NUMBER",
+                id = "1.1.1",
+                question = "कृपया अन्य बताये",
                 options = listOf(
-                    OptionType.InputField(
-                        InputType.TYPE_CLASS_TEXT,
-                        "Enter Mobile number of respondent"
+                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "कृपया अन्य बताये")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT,
+                isOptional = true
+            ),
+            Question(
+                id = "1.2",
+                question = "क्या आपके आय का यह प्राथमिक स्रोत किसी तरह नवाचार पर निर्भर करता है या उसका उपयोग करता है? (हाँ/नहीं)",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "हाँ"),
+                            CheckBoxItems("2", "नहीं"),
+                        )
                     )
                 ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.INPUT
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
             ),
             Question(
-                id = "A9",
-                question = "VILLAGE/AREA NAME",
+                id = "1.2.1",
+                question = "अगर उनके आय का प्राथमिक स्रोत कृषि उत्पादों की बिक्री नहीं है :\n\n आप कितने समय से यह कार्य कर रहे है (महीने में)",
                 options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "Enter Village/Area Name")
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "कृपया महीने बताये")
                 ),
                 validate = StringInputValidation(),
-                optionType = OptionTypeEnum.INPUT
+                optionType = OptionTypeEnum.INPUT,
+                isOptional = true
             ),
             Question(
-                id = "A10",
-                question = "DISTRICT",
+                id = "1.2.2",
+                question = "इस कार्य से आपको सालाना कितना आय हो जाता है ?",
                 options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "Enter District Name")
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "कृपया आय बताये")
                 ),
                 validate = StringInputValidation(),
-                optionType = OptionTypeEnum.INPUT
+                optionType = OptionTypeEnum.INPUT,
+                isOptional = true
             ),
             Question(
-                id = "A11",
-                question = "NAME OF SAVINGS GROUP/COOP/SACCO/AGENT",
+                id = "1.3",
+                question = "आपके साथ कितने व्यक्ति रहते है ? वे कौन है ?",
                 options = listOf(
-                    OptionType.InputField(
-                        InputType.TYPE_CLASS_TEXT,
-                        "Enter name of Savings Group/COOP/SACCO?Agent"
-                    )
-                ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.INPUT
-            ),
-            Question(
-                id = "A12",
-                question = "NAME OF CHAIRPERSON",
-                options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "Enter name of Chairperson")
-                ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.INPUT
-            ),
-            Question(
-                id = "A13",
-                question = "CHAIRPERSON'S NUMBER",
-                options = listOf(
-                    OptionType.InputField(
-                        InputType.TYPE_CLASS_TEXT,
-                        "Enter number of Chairperson"
-                    )
-                ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.INPUT
-            ),
-            Question(
-                id = "A14",
-                question = "NAME OF IMPLEMENTING PARTNER",
-                options = listOf(
-                    OptionType.InputField(
-                        InputType.TYPE_CLASS_TEXT,
-                        "Enter Name of the Implementing Partner"
-                    )
-                ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.INPUT
-            ),
-            Question(
-                id = "S1",
-                question = "\n\nSECTION 1 : HOUSEHOLD DEMOGRAPHICS\nEnter your family members ",
-                options = listOf(
-                    OptionType.Button("Enter family members", object : ButtonAction {
+                    OptionType.Button("कृपया व्यक्ति बताये", object : ButtonAction {
                         override fun doAction(view: View, question: Question) {
-                            view.findNavController()
-                                .navigate(
-                                    R.id.action_nav_home_to_nav_gallery,
-                                    bundleOf("formKey" to question.id)
-                                )
+                            view.findNavController().navigate(
+                                R.id.action_nav_home_to_houseHoldMembers,
+                                bundleOf("formKey" to question.id)
+                            )
                         }
                     })
                 ),
@@ -196,15 +103,13 @@ class HomeRepository(
                 optionType = OptionTypeEnum.Button
             ),
             Question(
-                id = "S2 1.a",
-                question = "\n\nSECTION 2 : SURVEY\n1. DISABILITY: TO RESPONDENT OR EACH HH MEMBER\n1.A Do you have difficulty seeing, even if wearing glasses?",
+                id = "1.4",
+                question = "क्या आपके परिवार का कृषि उत्पादों की बिक्री के अलावे आय का कोई अन्य अतिरिक्त स्रोत है?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
-                            CheckBoxItems("1", "No, no difficulty"),
-                            CheckBoxItems("2", "Yes, some difficulty"),
-                            CheckBoxItems("3", "Yes, a lot of difficulty"),
-                            CheckBoxItems("4", "Cannot do it at all")
+                            CheckBoxItems("1", "हाँ"),
+                            CheckBoxItems("2", "नहीं"),
                         )
                     )
                 ),
@@ -212,1527 +117,15 @@ class HomeRepository(
                 optionType = OptionTypeEnum.CHECK_BOX
             ),
             Question(
-                id = "S2 1.b",
-                question = "1.B Do you have difficulty hearing, even if using a hearing aid?",
+                id = "1.4.0",
+                question = "कृपया अन्य अतिरिक्त स्रोत बताये",
                 options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "No, no difficulty"),
-                            CheckBoxItems("2", "Yes, some difficulty"),
-                            CheckBoxItems("3", "Yes, a lot of difficulty"),
-                            CheckBoxItems("4", "Cannot do it at all")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 1.c",
-                question = "1.C Do you have difficulty walking or climbing steps",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "No, no difficulty"),
-                            CheckBoxItems("2", "Yes, some difficulty"),
-                            CheckBoxItems("3", "Yes, a lot of difficulty"),
-                            CheckBoxItems("4", "Cannot do it at all")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 1.d",
-                question = "1.D Do you have difficulty remembering or concentrating?",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "No, no difficulty"),
-                            CheckBoxItems("2", "Yes, some difficulty"),
-                            CheckBoxItems("3", "Yes, a lot of difficulty"),
-                            CheckBoxItems("4", "Cannot do it at all")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 1.e",
-                question = "1.E Do you have difficulty (with self-care such as) washing all over or dressing?",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "No, no difficulty"),
-                            CheckBoxItems("2", "Yes, some difficulty"),
-                            CheckBoxItems("3", "Yes, a lot of difficulty"),
-                            CheckBoxItems("4", "Cannot do it at all")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 1.f",
-                question = "1.F Do you have difficulty using your usual language, do you have difficulty communicating, (for example understanding or being understood by others)?",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "No, no difficulty"),
-                            CheckBoxItems("2", "Yes, some difficulty"),
-                            CheckBoxItems("3", "Yes, a lot of difficulty"),
-                            CheckBoxItems("4", "Cannot do it at all")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 2.a",
-                question = "\n2. CHILD MORTALITY\n2.A Has any child who is a member of the household died in the last 12 months?",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("2", "No")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 2.b",
-                question = "2.B If YES, how many? (If answer of 2.A is YES)",
-                options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter number of children")
-                ),
-                validate = NumberInputValidation(0, Int.MAX_VALUE),
-                optionType = OptionTypeEnum.INPUT,
-                isOptional = true
-            ),
-            Question(
-                id = "S2 3.a",
-                question = "\n3. TYPE OF HOUSING\n3.A What type of housing do you currently live in?",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "MUD AND GRASS THATCH"),
-                            CheckBoxItems("2", "UN-BURNT BRICK AND IRON SHEETS"),
-                            CheckBoxItems("3", "UN-BURNT BRICK AND GRASS THATCH"),
-                            CheckBoxItems("4", "BURNT BRICKS AND IRON SHEETS"),
-                            CheckBoxItems("5", "CONCRETE BRICKS AND IRON SHEETS"),
-                            CheckBoxItems("6", "OTHER")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 3.b",
-                question = "3.B On what basis does the household occupy the dwelling?",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "PRIVATELY OWNED"),
-                            CheckBoxItems("2", "FREE OF RENT"),
-                            CheckBoxItems("3", "RENTED"),
-                            CheckBoxItems("4", "OTHER")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 3.c 1",
-                question = "3.C What is the MAIN material of the dwelling floor?",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "NATURAL FLOOR", true),
-                            CheckBoxItems("1", "EARTH/SAND"),
-                            CheckBoxItems("2", "DUNG"),
-                            CheckBoxItems("3", "RUDIMENTARY FLOOR", true),
-                            CheckBoxItems("3", "WOOD PLANKS"),
-                            CheckBoxItems("4", "PALM/BAMBOO"),
-                            CheckBoxItems("5", "FINISHED FLOOR", true),
-                            CheckBoxItems("5", "POLISHED WOOD"),
-                            CheckBoxItems("6", "TILED (CERAMIC, VINYL OR ASPHALT"),
-                            CheckBoxItems("7", "CEMENT"),
-                            CheckBoxItems("0", "OTHER")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.Switch,
-            ),
-            Question(
-                id = "S2 3.d",
-                question = "3.D What is the number of sleeping rooms in the dwelling?",
-                options = listOf(
-                    OptionType.InputField(
-                        InputType.TYPE_CLASS_NUMBER,
-                        "Enter no. of sleeping rooms"
-                    )
-                ),
-                validate = NumberInputValidation(0, Int.MAX_VALUE),
-                optionType = OptionTypeEnum.INPUT
-            ),
-            Question(
-                id = "S2 4.a",
-                question = "\n4. TYPE OF HOUSING\n4.A What is the MAIN source of drinking water for members of your household in the wet season?",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "PIPED INTO HOUSE"),
-                            CheckBoxItems("2", "PIPED INTO YARD OR PLOT"),
-                            CheckBoxItems("3", "PUBLIC TAP"),
-                            CheckBoxItems("4", "TUBEWELL/BOREHOLE WITH PUMP"),
-                            CheckBoxItems("5", "PROTECTED DUG WELL"),
-                            CheckBoxItems("6", "PROTECTED SPRING"),
-                            CheckBoxItems("7", "RAINWATER COLLECTION"),
-                            CheckBoxItems("8", "BOTTLED WATER"),
-                            CheckBoxItems("9", "UNPROTECTED DUG WELL"),
-                            CheckBoxItems("10", "UNPROTECTED SPRING"),
-                            CheckBoxItems("11", "POND, RIVER OR STREAM"),
-                            CheckBoxItems("12", "TANKER-TRUCK, VENDOR"),
-                            CheckBoxItems("13", "OTHER")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 4.a 2",
-                question = "(If you choose OTHER in 4.A)",
-                options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "")
-                ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.INPUT,
-                isOptional = true
-            ),
-            Question(
-                id = "S2 4.b",
-                question = "4.B What is the main source of water during the dry season?",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "PIPED INTO HOUSE"),
-                            CheckBoxItems("2", "PIPED INTO YARD OR PLOT"),
-                            CheckBoxItems("3", "PUBLIC TAP"),
-                            CheckBoxItems("4", "TUBEWELL/BOREHOLE WITH PUMP"),
-                            CheckBoxItems("5", "PROTECTED DUG WELL"),
-                            CheckBoxItems("6", "PROTECTED SPRING"),
-                            CheckBoxItems("7", "RAINWATER COLLECTION"),
-                            CheckBoxItems("8", "BOTTLED WATER"),
-                            CheckBoxItems("9", "UNPROTECTED DUG WELL"),
-                            CheckBoxItems("10", "UNPROTECTED SPRING"),
-                            CheckBoxItems("11", "POND, RIVER OR STREAM"),
-                            CheckBoxItems("12", "TANKER-TRUCK, VENDOR"),
-                            CheckBoxItems("13", "OTHER")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 4.b 2",
-                question = "(If you choose OTHER in 4.B)",
-                options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "")
-                ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.INPUT,
-                isOptional = true
-            ),
-            Question(
-                id = "S2 4.c",
-                question = "4.C How long does it take to go there, get water, and come back?",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Water within premises"),
-                            CheckBoxItems("2", "No answer or don't know")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 4.d",
-                question = "4.D How is drinking water treated?",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "BOIL"),
-                            CheckBoxItems("2", "ADD CHLORINE"),
-                            CheckBoxItems("3", "DON'T TREAT"),
-                            CheckBoxItems("4", "OTHER")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 4.d 2",
-                question = "(If you choose OTHER in 4.D)",
-                options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "")
-                ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.INPUT,
-                isOptional = true
-            ),
-            Question(
-                id = "S2 5.a",
-                question = "\n5. SANITATION AND HEALTH\n5.A What kind of toilet facility does your household use?",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "NO FACILITY/BUSH/FIELD"),
-                            CheckBoxItems("2", "OPEN  PIT/TRADITIONAL PIT LATRINE"),
-                            CheckBoxItems("3", "IMPROVED PIT LATRINE (VIP)"),
-                            CheckBoxItems("4", "POUR FLUSH LATRINE"),
-                            CheckBoxItems("5", "FLUSH TOILET WITH SOAK AWAY"),
-                            CheckBoxItems("6", "OTHER")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 5.a 2",
-                question = "(If you choose OTHER in 5.A)",
-                options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "")
-                ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.INPUT,
-                isOptional = true
-            ),
-            Question(
-                id = "S2 5.b",
-                question = "5.B Is this toilet facility located within your dwelling, or yard or compound?",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("2", "No")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 5.c",
-                question = "5.C What kind of health facility is available in your vicinity?",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "NO FACILITY"),
-                            CheckBoxItems("2", "HOSPITAL"),
-                            CheckBoxItems("3", "HEALTH CENTER"),
-                            CheckBoxItems("4", "HEALTH CLINIC"),
-                            CheckBoxItems("5", "OTHER")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 5.c 2",
-                question = "(If you choose OTHER in 5.C)",
-                options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "")
-                ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.INPUT,
-                isOptional = true
-            ),
-            Question(
-                id = "S2 5.d",
-                question = "5.D What is the distance of nearest health centre? (Km)",
-                options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter distance")
-                ),
-                validate = NumberInputValidation(0, Int.MAX_VALUE),
-                optionType = OptionTypeEnum.INPUT
-            ),
-            Question(
-                id = "S2 6.a",
-                question = "\n6. FOOD SECURITY\n6.A In the past 12 months, did your household experience a hungry season?\n" +
-                        "(The hungry season means the number of months a household does not have enough food because their own stores are depleted and they do not have money to buy food)",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "YES"),
-                            CheckBoxItems("2", "NO")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 6.b",
-                question = "6.B During what month did the hungry season begin?",
-                options = listOf(
-                    OptionType.InputField(
-                        InputType.TYPE_CLASS_TEXT,
-                        "MONTH THAT HUNGRY SEASON BEGAN"
-                    )
-                ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.INPUT,
-                isOptional = true
-            ),
-            Question(
-                id = "S2 6.c",
-                question = "6.C During what month did the hungry season end?",
-                options = listOf(
-                    OptionType.InputField(
-                        InputType.TYPE_CLASS_TEXT,
-                        "MONTH THAT HUNGRY SEASON ENDED"
-                    )
-                ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.INPUT,
-                isOptional = true
-            ),
-            Question(
-                id = "S2 6.d",
-                question = "6.D In the past 12 months, did your household experience a second hungry season?",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "YES"),
-                            CheckBoxItems("2", "NO")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 6.e",
-                question = "6.E During what month did the hungry season begin?",
-                options = listOf(
-                    OptionType.InputField(
-                        InputType.TYPE_CLASS_TEXT,
-                        "MONTH THAT HUNGRY SEASON BEGAN"
-                    )
-                ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.INPUT,
-                isOptional = true
-            ),
-            Question(
-                id = "S2 6.f",
-                question = "6.F During what month did the hungry season end?",
-                options = listOf(
-                    OptionType.InputField(
-                        InputType.TYPE_CLASS_TEXT,
-                        "MONTH THAT HUNGRY SEASON ENDED"
-                    )
-                ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.INPUT,
-                isOptional = true
-            ),
-            Question(
-                id = "S2 7.a",
-                question = "\n7. HOUSEHOLD ASSET-RELATED QUESTIONS\n7.A Does your household have ....\nElectricity/Solar",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "YES"),
-                            CheckBoxItems("2", "NO")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 7.a 2",
-                question = "Radio",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "YES"),
-                            CheckBoxItems("2", "NO")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 7.a 3",
-                question = "Television",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "YES"),
-                            CheckBoxItems("2", "NO")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 7.a 4",
-                question = "Refrigerator",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "YES"),
-                            CheckBoxItems("2", "NO")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 7.a 5",
-                question = "Others (Fan, decoder, etc.)",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "YES"),
-                            CheckBoxItems("2", "NO")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 7.a 6",
-                question = "(If you choose OTHER in 7.A)",
-                options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "")
-                ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.INPUT,
-                isOptional = true
-            ),
-            Question(
-                id = "S2 7.b",
-                question = "7.B How would you describe your household assets base since taking part in project activities?",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "INCREASED"),
-                            CheckBoxItems("2", "DECREASED"),
-                            CheckBoxItems("3", "NO CHANGE")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 7.c 1",
-                question = "7.C Does any member of your household own...?\nBicycle",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("2", "No")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 7.c 2",
-                question = "Motorcycle or Scooter",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("2", "No")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 7.c 3",
-                question = "Car or Truck",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("2", "No")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 7.c 4",
-                question = "Others",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("2", "No")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 7.c 5",
-                question = "(If you choose OTHER in 7.C)",
-                options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "")
-                ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.INPUT,
-                isOptional = true
-            ),
-            Question(
-                id = "S2 7.d",
-                question = "7.D What type of fuel does your household MAINLY use for cooking?",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Electricity"),
-                            CheckBoxItems("2", "LPG/Natural Gas"),
-                            CheckBoxItems("3", "Biogas"),
-                            CheckBoxItems("4", "Kerosene"),
-                            CheckBoxItems("5", "Charcoal"),
-                            CheckBoxItems("6", "Firewood"),
-                            CheckBoxItems("7", "Dung"),
-                            CheckBoxItems("8", "Other"),
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.Switch
-            ),
-            Question(
-                id = "S2 7.d 2",
-                question = "(If you choose OTHER in 7.D)",
-                options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "")
-                ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.INPUT,
-                isOptional = true
-            ),
-            Question(
-                id = "S2 8.1.a 1",
-                question = "\n8. LIVELIHOODS\n8.1 Farming\nAre you or any members of your household involved in cultivating any farmland?",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("2", "No")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 8.1.a 2",
-                question = "If YES, what is the size of the field(Ha)?",
-                options = listOf(
-                    OptionType.InputField(
-                        InputType.TYPE_CLASS_NUMBER,
-                        "Enter size of field (in Ha)"
-                    )
-                ),
-                validate = NumberInputValidation(-1, Int.MAX_VALUE),
-                optionType = OptionTypeEnum.INPUT,
-                isOptional = true
-            ),
-            Question(
-                id = "S2 8.1.b 1",
-                question = "How did your household acquire the [PLOT]?",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "INHERITED"),
-                            CheckBoxItems("2", "PURCHASED OR LEASE"),
-                            CheckBoxItems("3", "ALLOCATED BY GOVERNMENT"),
-                            CheckBoxItems("4", "ALLOCATED BY LOCAL LEADER"),
-                            CheckBoxItems("5", "RENTED IN"),
-                            CheckBoxItems("6", "SHARE-CROPPED"),
-                            CheckBoxItems("7", "BORROWED FOR FREE"),
-                            CheckBoxItems("8", "CLEARED AND OCCUPIED"),
-                            CheckBoxItems("9", "OTHER")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 8.1.b 2",
-                question = "(If you choose OTHER in above)",
-                options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "")
-                ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.INPUT,
-                isOptional = true
-            ),
-            Question(
-                id = "S2 8.1.c 1",
-                question = "What does your household use to cultivate MOST of your farmland?",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "HAND TOOL (HOE/SPADE)"),
-                            CheckBoxItems("2", "ANIMAL-DRAWN PLOUGH"),
-                            CheckBoxItems("3", "TRACTOR-DRAWN PLOUGH"),
-                            CheckBoxItems("4", "POWER TILLER"),
-                            CheckBoxItems("5", "OTHER")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 8.1.c 2",
-                question = "(If you choose OTHER above)",
-                options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "")
-                ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.INPUT,
-                isOptional = true
-            ),
-            Question(
-                id = "S2 8.1.d",
-                question = "Who participates in the [CROP] cultivation?",
-                options = listOf(
-                    OptionType.Button("Select from the members list", object : ButtonAction {
+                    OptionType.Button("कृपया अन्य अतिरिक्त स्रोत बताये", object : ButtonAction {
                         override fun doAction(view: View, question: Question) {
-                            view.findNavController()
-                                .navigate(
-                                    R.id.action_nav_home_to_houseHoldMembers,
-                                    bundleOf("formKey" to question.id, "count" to 1)
-                                )
-                        }
-                    })
-                ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.Button
-            ),
-            Question(
-                id = "S2 8.1.e",
-                question = "Who in the household makes the decisions concerning crops to be planted, input use and the timing of cropping activities on the plot?",
-                options = listOf(
-                    OptionType.Button("Select from the members list", object : ButtonAction {
-                        override fun doAction(view: View, question: Question) {
-                            view.findNavController()
-                                .navigate(
-                                    R.id.action_nav_home_to_houseHoldMembers,
-                                    bundleOf("formKey" to question.id, "count" to 2)
-                                )
-                        }
-                    })
-                ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.Button
-            ),
-            Question(
-                id = "S2 8.1.f",
-                question = "Are you or any members of your household involved in any gardening?",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "YES"),
-                            CheckBoxItems("2", "NO")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 8.1.g",
-                question = "Is it irrigated?",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "YES"),
-                            CheckBoxItems("2", "NO")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 8.1.h",
-                question = "What is the source of irrigation water?",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "PIPED INTO HOUSE"),
-                            CheckBoxItems("2", "PIPED INTO YARD OR PLOT"),
-                            CheckBoxItems("3", "PUBLIC TAP"),
-                            CheckBoxItems("4", "TUBEWELL/BOREHOLE WITH PUMP"),
-                            CheckBoxItems("5", "PROTECTED DUG WELL"),
-                            CheckBoxItems("6", "PROTECTED SPRING"),
-                            CheckBoxItems("7", "RAINWATER COLLECTION"),
-                            CheckBoxItems("8", "BOTTLED WATER"),
-                            CheckBoxItems("9", "UNPROTECTED DUG WELL"),
-                            CheckBoxItems("10", "UNPROTECTED SPRING"),
-                            CheckBoxItems("11", "POND, RIVER OR STREAM"),
-                            CheckBoxItems("12", "TANKER-TRUCK, VENDOR"),
-                            CheckBoxItems("13", "OTHER")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 8.1.h 2",
-                question = "(If you choose OTHER above)",
-                options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "")
-                ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.INPUT,
-                isOptional = true
-            ),
-            Question(
-                id = "S2 8.1.i",
-                question = "Apart from members of your household, did you use any labour in this farmland in the past 12 months?",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "YES"),
-                            CheckBoxItems("2", "NO")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 8.1.j 1",
-                question = "Did you pay wages to the labourers?",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("2", "No")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 8.1.j 2",
-                question = "If YES, how much did you pay (ZMW)?",
-                options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "")
-                ),
-                validate = NumberInputValidation(0, Int.MAX_VALUE),
-                optionType = OptionTypeEnum.INPUT,
-                isOptional = true
-            ),
-            Question(
-                id = "S2 8.1.k 1",
-                question = "Does any member of your household own any livestock?\nChickens or other poultry?",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("2", "No")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 8.1.k 2",
-                question = "If YES, how many?",
-                options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "")
-                ),
-                validate = NumberInputValidation(0, Int.MAX_VALUE),
-                optionType = OptionTypeEnum.INPUT,
-                isOptional = true
-            ),
-            Question(
-                id = "S2 8.1.k 3",
-                question = "Sheep?",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("2", "No")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 8.1.k 4",
-                question = "If YES, how many?",
-                options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "")
-                ),
-                validate = NumberInputValidation(0, Int.MAX_VALUE),
-                optionType = OptionTypeEnum.INPUT,
-                isOptional = true
-            ),
-            Question(
-                id = "S2 8.1.k 5",
-                question = "Goats",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("2", "No")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 8.1.k 6",
-                question = "If YES, how many?",
-                options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "")
-                ),
-                validate = NumberInputValidation(0, Int.MAX_VALUE),
-                optionType = OptionTypeEnum.INPUT,
-                isOptional = true
-            ),
-            Question(
-                id = "S2 8.1.k 7",
-                question = "Cattle",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("2", "No")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 8.1.k 8",
-                question = "If YES, how many?",
-                options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "")
-                ),
-                validate = NumberInputValidation(0, Int.MAX_VALUE),
-                optionType = OptionTypeEnum.INPUT,
-                isOptional = true
-            ),
-            Question(
-                id = "S2 8.1.k 9",
-                question = "Pigs",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("2", "No")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 8.1.k 10",
-                question = "If YES, how many?",
-                options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "")
-                ),
-                validate = NumberInputValidation(0, Int.MAX_VALUE),
-                optionType = OptionTypeEnum.INPUT,
-                isOptional = true
-            ),
-            Question(
-                id = "S2 8.2.a",
-                question = "Household Income\nAnnual household Income (in Kwacha)",
-                options = listOf(
-                    OptionType.InputField(
-                        InputType.TYPE_CLASS_NUMBER,
-                        "Enter Annual Household Income"
-                    )
-                ),
-                validate = NumberInputValidation(-1, Int.MAX_VALUE),
-                optionType = OptionTypeEnum.INPUT
-            ),
-            Question(
-                id = "S2 8.2.b",
-                question = "Number of earning household members",
-                options = listOf(
-                    OptionType.InputField(
-                        InputType.TYPE_CLASS_NUMBER,
-                        "Enter no. of earning household members"
-                    )
-                ),
-                validate = NumberInputValidation(-1, Int.MAX_VALUE),
-                optionType = OptionTypeEnum.INPUT
-            ),
-            Question(
-                id = "S2 8.2.c",
-                question = "Income earned by Women household members (in Kwacha)",
-                options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "")
-                ),
-                validate = NumberInputValidation(-1, Int.MAX_VALUE),
-                optionType = OptionTypeEnum.INPUT
-            ),
-            Question(
-                id = "S2 8.2.d 1",
-                question = "Please provide different source-wise annual Income of the Household (in Kwacha)\nFrom Farming/Agriculture",
-                options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "")
-                ),
-                validate = NumberInputValidation(-1, Int.MAX_VALUE),
-                optionType = OptionTypeEnum.INPUT
-            ),
-            Question(
-                id = "S2 8.2.d 2",
-                question = "From selling milk",
-                options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "")
-                ),
-                validate = NumberInputValidation(-1, Int.MAX_VALUE),
-                optionType = OptionTypeEnum.INPUT
-            ),
-            Question(
-                id = "S2 8.2.d 3",
-                question = "From selling animal meat",
-                options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "")
-                ),
-                validate = NumberInputValidation(-1, Int.MAX_VALUE),
-                optionType = OptionTypeEnum.INPUT
-            ),
-            Question(
-                id = "S2 8.2.d 4",
-                question = "From Labour(off-farm activities such as construction etc.)",
-                options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "")
-                ),
-                validate = NumberInputValidation(-1, Int.MAX_VALUE),
-                optionType = OptionTypeEnum.INPUT
-            ),
-            Question(
-                id = "S2 8.2.d 5",
-                question = "From Enterprise",
-                options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "")
-                ),
-                validate = NumberInputValidation(-1, Int.MAX_VALUE),
-                optionType = OptionTypeEnum.INPUT
-            ),
-            Question(
-                id = "S2 8.2.d 6",
-                question = "From Salary of HH member (migrated/non-migrated)",
-                options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "")
-                ),
-                validate = NumberInputValidation(-1, Int.MAX_VALUE),
-                optionType = OptionTypeEnum.INPUT
-            ),
-            Question(
-                id = "S2 8.2.d 7",
-                question = "Remittances",
-                options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "")
-                ),
-                validate = NumberInputValidation(-1, Int.MAX_VALUE),
-                optionType = OptionTypeEnum.INPUT
-            ),
-            Question(
-                id = "S2 8.2.d 8",
-                question = "Pension",
-                options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "")
-                ),
-                validate = NumberInputValidation(-1, Int.MAX_VALUE),
-                optionType = OptionTypeEnum.INPUT
-            ),
-            Question(
-                id = "S2 8.2.d 9",
-                question = "Aid/ Government Grant",
-                options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "")
-                ),
-                validate = NumberInputValidation(-1, Int.MAX_VALUE),
-                optionType = OptionTypeEnum.INPUT
-            ),
-            Question(
-                id = "S2 9.1.a",
-                question = "\n9. FINANCIAL SERVICES\n9.1 Financial Products\nHas any member of the Household participated in any financial literacy training programs from the project?",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("2", "No")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 9.1.b 1",
-                question = "Are any of these financial products or services available in the community?\nAgency Banking Booths",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Agency Banking Booths"),
-                            CheckBoxItems("2", "Insurance products for Savings Groups"),
-                            CheckBoxItems("3", "Micro- investment loans"),
-                            CheckBoxItems("4", "Savings Group Accounts"),
-                            CheckBoxItems("5", "Livestock financing product"),
-                            CheckBoxItems("6", "Mobile Money Accounts"),
-                            CheckBoxItems("7", "Savings Group loan product"),
-                            CheckBoxItems("8", "Self Help Group Accounts"),
-                            CheckBoxItems("9", "Agro-Dealer Agency points"),
-                            CheckBoxItems("10", "Digital Payment Services (various)"),
-                            CheckBoxItems("11", "Money transfers, cash in, cash out"),
-                            CheckBoxItems("12", "Digital Savings Accounts"),
-                            CheckBoxItems("13", "Digital Loan disbursements"),
-                            CheckBoxItems("14", "Digital Loan repayments"),
-                            CheckBoxItems("15", "Lay-by input facility, Paygo"),
-                            CheckBoxItems("16", "Mobile App (various capabilities)"),
-                            CheckBoxItems("17", "Invoice discount for Farmers"),
-                            CheckBoxItems("18", "Digitized Savings Groups"),
-                            CheckBoxItems("19", "e-Wallet accounts"),
-                            CheckBoxItems("20", "Point of Sale machines (PoS)"),
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.Switch
-            ),
-            Question(
-                id = "S2 9.1.c.1",
-                question = "Are you aware of financial services listed above?",
-                options = listOf(
-                    OptionType.Button("Select from the financial products", object : ButtonAction {
-                        override fun doAction(view: View, question: Question) {
-                            view.findNavController()
-                                .navigate(
-                                    R.id.action_nav_home_to_financialProducts,
-                                    bundleOf("formKey" to question.id)
-                                )
-                        }
-                    })
-                ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.Button
-            ),
-            Question(
-                id = "S2 9.1.c.2",
-                question = "Did you or any member of the household use any of these financial products or services during the [reference period] ?",
-                options = listOf(
-                    OptionType.Button("Select from the financial products", object : ButtonAction {
-                        override fun doAction(view: View, question: Question) {
-                            view.findNavController()
-                                .navigate(
-                                    R.id.action_nav_home_to_financialProducts,
-                                    bundleOf("formKey" to question.id)
-                                )
-                        }
-                    })
-                ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.Button
-            ),
-            Question(
-                id = "S2 9.1.c.3",
-                question = "What is the distance of bank branch/financial institution from your household? (kms)",
-                options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "Enter distance")
-                ),
-                validate = NumberInputValidation(0, Int.MAX_VALUE),
-                optionType = OptionTypeEnum.INPUT
-            ),
-            Question(
-                id = "S2 9.1.d",
-                question = "Who in the household decides to apply for the [FINANCIAL SERVICE] during the [reference period]?",
-                options = listOf(
-                    OptionType.Button("Select from the members list", object : ButtonAction {
-                        override fun doAction(view: View, question: Question) {
-                            view.findNavController()
-                                .navigate(
-                                    R.id.action_nav_home_to_houseHoldMembers,
-                                    bundleOf("formKey" to question.id, "count" to 2)
-                                )
-                        }
-                    })
-                ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.Button
-            ),
-            Question(
-                id = "S2 9.1.e",
-                question = "Who in the household did use [FINANCIAL SERVICE] during the [reference period]?",
-                options = listOf(
-                    OptionType.Button("Select from the members list", object : ButtonAction {
-                        override fun doAction(view: View, question: Question) {
-                            view.findNavController()
-                                .navigate(
-                                    R.id.action_nav_home_to_houseHoldMembers,
-                                    bundleOf("formKey" to question.id, "count" to 1)
-                                )
-                        }
-                    })
-                ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.Button
-            ),
-            Question(
-                id = "S2 9.1.f",
-                question = "What choice of Financial Service Provider was used?",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Commercial Bank"),
-                            CheckBoxItems("2", "Micro Finance Institutions"),
-                            CheckBoxItems("3", "SACCO/Cooperative"),
-                            CheckBoxItems("4", "Contract Farming Company"),
-                            CheckBoxItems("5", "Village based savings/loan association"),
-                            CheckBoxItems("6", "Insurance Company"),
-                            CheckBoxItems("7", "Local money lender"),
-                            CheckBoxItems("8", "Friends/Family"),
-                            CheckBoxItems("9", "Church"),
-                            CheckBoxItems("0", "Other")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 9.1.f 1",
-                question = "(If you choose OTHER above)",
-                options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "")
-                ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.INPUT,
-                isOptional = true
-            ),
-            Question(
-                id = "S2 9.1.g",
-                question = "What was the money used for after accessing it from the selected Financial Service Provider?",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Purchase inputs"),
-                            CheckBoxItems("2", "Invest in business"),
-                            CheckBoxItems("3", "Productive assets"),
-                            CheckBoxItems("4", "Daily consumption"),
-                            CheckBoxItems("5", "Education"),
-                            CheckBoxItems("6", "Health expenses"),
-                            CheckBoxItems("7", "House and property"),
-                            CheckBoxItems("8", "Repayment"),
-                            CheckBoxItems("9", "Other")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.Switch
-            ),
-            Question(
-                id = "S2 9.1.g 1",
-                question = "(If you choose OTHER above)",
-                options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "")
-                ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.INPUT,
-                isOptional = true
-            ),
-            Question(
-                id = "S2 9.1.h",
-                question = "Who made the decision about what to do with the money or item from this [FINANCIAL SERVICE PROVIDER]?",
-                options = listOf(
-                    OptionType.Button("Select from the members list", object : ButtonAction {
-                        override fun doAction(view: View, question: Question) {
-                            view.findNavController()
-                                .navigate(
-                                    R.id.action_nav_home_to_houseHoldMembers,
-                                    bundleOf("formKey" to question.id, "count" to 2)
-                                )
-                        }
-                    })
-                ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.Button
-            ),
-            Question(
-                id = "S2 9.1.i",
-                question = "Who is responsible for repaying the money or item borrowed from this [FINANCIAL SERVICE PROVIDER]?",
-                options = listOf(
-                    OptionType.Button("Select from the members list", object : ButtonAction {
-                        override fun doAction(view: View, question: Question) {
-                            view.findNavController()
-                                .navigate(
-                                    R.id.action_nav_home_to_houseHoldMembers,
-                                    bundleOf("formKey" to question.id, "count" to Int.MAX_VALUE)
-                                )
-                        }
-                    })
-                ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.Button
-            ),
-            Question(
-                id = "S2 9.1.j",
-                question = "In general, how satisfied you with the services are provided by [FINANCIAL SERVICE PROVIDER]?",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Very satisfied"),
-                            CheckBoxItems("2", "Somewhat satisfied"),
-                            CheckBoxItems("3", "Somewhat dissatisfied"),
-                            CheckBoxItems("4", "Very dissatisfied")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 9.1.k",
-                question = "Do you still use [FINANCIAL SERVICE]",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("2", "No")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 9.1.l",
-                question = "Does any member of your household have a bank account?",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("2", "No")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 9.1.m",
-                question = "How do members of your household save money?",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "AT HOME"),
-                            CheckBoxItems("2", "LENDING"),
-                            CheckBoxItems("3", "PHYSICAL ASSETS"),
-                            CheckBoxItems("4", "BUSINESS INVESTMENT"),
-                            CheckBoxItems("5", "DON'T SAVE"),
-                            CheckBoxItems("6", "OTHER")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.Switch
-            ),
-            Question(
-                id = "S2 9.1.m 1",
-                question = "(If you choose OTHER in above)",
-                options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "")
-                ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.INPUT,
-                isOptional = true
-            ),
-            Question(
-                id = "S2 9.2.a",
-                question = "9.2 Microfinance Question\nAre you aware of financial Micro insurance?",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("2", "No")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 9.2.b",
-                question = "Has your [FINANCIAL SERVICE PROVIDER] sensitized you on Micro loan/ credit insurance and its benefits",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("2", "No")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 9.2.c",
-                question = "If yes to the question above, what is your understanding of Micro Insurance?",
-                options = listOf(
-                    OptionType.InputField(
-                        InputType.TYPE_CLASS_TEXT,
-                        "Explain"
-                    )
-                ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.INPUT
-            ),
-            Question(
-                id = "S2 9.2.d",
-                question = "What type of micro insurance are you aware of?",
-                options = listOf(
-                    OptionType.InputField(
-                        InputType.TYPE_CLASS_TEXT,
-                        "Explain"
-                    )
-                ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.INPUT
-            ),
-            Question(
-                id = "S2 9.2.e",
-                question = "Have you had any if at all Micro credit/ loans that you have applied for insured?",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("2", "No")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 9.3.1",
-                question = "9.3 Loans & Borrowings\nDoes the household have any outstanding debt as on date?",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("2", "No")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 9.3.2",
-                question = "Has any member of the households taken any loan in the past one year preceding the survey?",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("2", "No")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 9.3.3",
-                question = "If yes, please provide the following details about the loans taken",
-                options = listOf(
-                    OptionType.Button("Enter details about the loans taken", object : ButtonAction {
-                        override fun doAction(view: View, question: Question) {
-                            view.findNavController()
-                                .navigate(
-                                    R.id.action_nav_home_to_loanBorrowingData,
-                                    bundleOf("formKey" to question.id, "count" to 2)
-                                )
-                        }
-                    })
-                ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.Button
-            ),
-            Question(
-                id = "S2 9.4.1.a",
-                question = "9.4 Microfinance Experience\nIs anybody in the household a member of any of the following groups?",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "A)Self Help Groups", true),
-                            CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("2", "No"),
-                            CheckBoxItems("3", "B)Joint Liability Groups(JLG)", true),
-                            CheckBoxItems("3", "Yes"),
-                            CheckBoxItems("4", "No"),
-                            CheckBoxItems("5", "C)Livelihood Collectives", true),
-                            CheckBoxItems("5", "Yes"),
-                            CheckBoxItems("6", "No")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.Switch
-            ),
-            Question(
-                id = "S2 9.4.2",
-                question = "If any response as ‘1’, then please provide the following details about the aforementioned microfinance groups with which the members of the household are associated – (Ask for last one year preceding the survey)",
-                options = listOf(
-                    OptionType.Button("Enter microfinance experience", object : ButtonAction {
-                        override fun doAction(view: View, question: Question) {
-                            view.findNavController()
-                                .navigate(
-                                    R.id.action_nav_home_to_microfinanceExperience,
-                                    bundleOf("formKey" to question.id)
-                                )
+                            view.findNavController().navigate(
+                                R.id.action_nav_home_to_costAndMarketting,
+                                bundleOf("formKey" to question.id)
+                            )
                         }
                     })
                 ),
@@ -1741,115 +134,52 @@ class HomeRepository(
                 isOptional = true
             ),
             Question(
-                id = "S2 10.1",
-                question = "\n10. MOBILE PHONE BANKING\nDoes any member of your household own a cell phone?",
+                id = "2.1",
+                question = "सौर जल पंप का प्रयोग (Use of Solar Water Pump) \n\n आप कितनी बार सौर जल पंप का उपयोग करते हैं? ((प्रत्येक मौसम में प्रति माह उपयोग)",
                 options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("2", "No")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 10.2",
-                question = "Do you transfer/receive money through cell phone money transfer business?",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("2", "No")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 10.3",
-                question = "What about making payments for goods/services?",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("2", "No")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 11.a",
-                question = "\n11. SHOCKS\nHave you experienced any [SHOCK]?",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("2", "No")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 11.b",
-                question = "How severe was the [SHOCK]?",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "SEVERE"),
-                            CheckBoxItems("2", "MILD"),
-                            CheckBoxItems("3", "NOT SEVERE")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 11.c",
-                question = "When did the last one occur?",
-                options = listOf(
-                    OptionType.InputField(
-                        InputType.TYPE_CLASS_TEXT,
-                        "MONTH THAT SHOCK BEGAN"
-                    )
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "बताये")
                 ),
                 validate = StringInputValidation(),
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
-                id = "S2 11.d",
-                question = "How many times in the past 12 months?",
+                id = "2.2",
+                question = "आपने पहली बार कब इस पंप का उपयोग प्रारंभ किया था (महीने में )",
                 options = listOf(
-                    OptionType.InputField(
-                        InputType.TYPE_CLASS_NUMBER,
-                        ""
-                    )
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "बताये")
                 ),
-                validate = NumberInputValidation(0, Int.MAX_VALUE),
+                validate = StringInputValidation(),
                 optionType = OptionTypeEnum.INPUT
             ),
             Question(
-                id = "S2 11.1.a",
-                question = "Was your household affected by any of the following distress events/ emergencies in the last 10 years preceding the survey?",
+                id = "2.3",
+                question = "आपके साथ और कितने परिवार या कृषक सौर जल पंप का प्रयोग करते है ?",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "बताये")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT
+            ),
+            Question(
+                id = "2.4",
+                question = "आपके परिवार में किसे इस सौर जल पंप से लाभ हुआ है ?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
-                            CheckBoxItems("1", "Crop failure due to excessive rainfall, very low rainfall or unseasonal rainfall"),
-                            CheckBoxItems("2", "Sudden decline in productivity of crops due to pest infestation, etc."),
-                            CheckBoxItems("3", "Sudden fall in market prices of crops"),
-                            CheckBoxItems("4", "Loss of livestock due to flood, disease, etc."),
-                            CheckBoxItems("5", "Death of the earning member of the household"),
-                            CheckBoxItems("6", "Sudden health problems/ accident"),
-                            CheckBoxItems("7", "Sudden job loss"),
-                            CheckBoxItems("8", "Fire/ theft/ robbery"),
-                            CheckBoxItems("9", "Others")
+                            CheckBoxItems("1", "समय की बचत"),
+                            CheckBoxItems("2", "मजदूरी की बचत"),
+                            CheckBoxItems("3", "राजस्व/बिक्री में वृद्धि"),
+                            CheckBoxItems("4", "उपज में वृद्धि"),
+                            CheckBoxItems("5", "कृषि गतिविधियों के कार्यशील लागत में कमी"),
+                            CheckBoxItems(
+                                "6",
+                                "मरुस्थलीकरण में कमी एवं मिट्टी के गुणवत्ता में सुधार"
+                            ),
+                            CheckBoxItems(
+                                "7",
+                                "जलवायु परिवर्तन के अनुकूल ढलने की क्षमता में सुधार"
+                            ),
+                            CheckBoxItems("8", "अन्य, कृपया उल्लेख करे"),
                         )
                     )
                 ),
@@ -1857,31 +187,33 @@ class HomeRepository(
                 optionType = OptionTypeEnum.Switch
             ),
             Question(
-                id = "S2 11.1.a 2",
-                question = "(If you choose OTHER in above question)",
+                id = "2.5",
+                question = "आपके साथ और कितने परिवार या कृषक सौर जल पंप का प्रयोग करते है ?",
                 options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "")
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "बताये")
                 ),
                 validate = StringInputValidation(),
-                optionType = OptionTypeEnum.INPUT,
-                isOptional = true
+                optionType = OptionTypeEnum.INPUT
             ),
             Question(
-                id = "S2 11.1.b",
-                question = "If yes, then what strategies did you adopt to cope with the event?",
+                id = "2.6",
+                question = "जब से आपने सौर जल पंप का उपयोग करना शुरू किया है तब से आपकी खेती के तौर-तरीके कैसे बदल गए हैं? लागू होने वाले सभी का चयन करें।",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
-                            CheckBoxItems("1", "By taking loan"),
-                            CheckBoxItems("2", "Through personal savings"),
-                            CheckBoxItems("3", "By selling household assets"),
-                            CheckBoxItems("4", "By mortgaging household assets"),
-                            CheckBoxItems("5", "By selling ornaments"),
-                            CheckBoxItems("6", "By selling animals"),
-                            CheckBoxItems("7", "Women of the household started working"),
-                            CheckBoxItems("8", "Through receipt of insurance claims"),
-                            CheckBoxItems("9", "Government assistance"),
-                            CheckBoxItems("7", "Other"),
+                            CheckBoxItems("1", "कोई बदलाव नहीं"),
+                            CheckBoxItems("2", "फ़सल में बदलाव या नयी फसलों की शुरुआत"),
+                            CheckBoxItems("3", "पुराणी फसलों के स्थान पर नयी फ़सल का उत्पादन"),
+                            CheckBoxItems("4", "सिचाई व्यवस्था में बदलाव"),
+                            CheckBoxItems("5", "राजस्व/उत्पाद में बढ़ोतरी"),
+                            CheckBoxItems("6", "जल के प्रयोग में कमी"),
+                            CheckBoxItems("7", "इंधन/गैस/डीजल के उपयोग में कमी "),
+                            CheckBoxItems(
+                                "8",
+                                "खाद या कीटनासकके प्रयोग में कमी या कोई उपयोग नहीं "
+                            ),
+                            CheckBoxItems("9", "कृषि कार्यों में परिश्रम या प्रयास में परिवर्तन"),
+                            CheckBoxItems("10", "अन्य, कृपया उल्लेख करे"),
                         )
                     )
                 ),
@@ -1889,26 +221,23 @@ class HomeRepository(
                 optionType = OptionTypeEnum.Switch
             ),
             Question(
-                id = "S2 11.1.b 2",
-                question = "(If you choose OTHER in above question)",
+                id = "2.6.1",
+                question = "कृपया अन्य बताये",
                 options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "")
+                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "कृपया उल्लेख करे")
                 ),
                 validate = StringInputValidation(),
                 optionType = OptionTypeEnum.INPUT,
                 isOptional = true
             ),
             Question(
-                id = "S2 11.1.c",
-                question = "Sometimes people find it difficult to meet their living expenses from their regular income sources. Has this ever happened to you any time in the last 12 months?",
+                id = "2.7",
+                question = "क्या आपने जलवायु परिवर्तन के अनुकूलन हेतु अपने कृषि पद्धतियों में कोई बदलाव किया है ?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
-                            CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("2", "No"),
-                            CheckBoxItems("96", "Not applicable (Do not have any personal income)"),
-                            CheckBoxItems("98", "Don’t know"),
-                            CheckBoxItems("99", "Refused"),
+                            CheckBoxItems("1", "हाँ"),
+                            CheckBoxItems("2", "नहीं"),
                         )
                     )
                 ),
@@ -1916,537 +245,261 @@ class HomeRepository(
                 optionType = OptionTypeEnum.CHECK_BOX
             ),
             Question(
-                id = "S2 11.1.d",
-                question = "If Yes, what did you do to make ends meet the last time this happened? (Probe; do not read out. Mark all that apply.)(Multiple answers expected)",
+                id = "2.7.1",
+                question = "अगर हाँ, आपने क्या परिवार्तन किया है ? लागू होने वाले सभी का चयन करें।",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
-                            CheckBoxItems("1", "Draw money out of bank savings"),
-                            CheckBoxItems("2", "Cut back on spending"),
-                            CheckBoxItems("3", "Sell assets that I own"),
-                            CheckBoxItems("100", "Creating resources", true),
-                            CheckBoxItems("4", "Work overtime, earn extra money"),
+                            CheckBoxItems("1", "बुवाई की तारीख/मौसम बदल दिया गया "),
+                            CheckBoxItems("2", "फ़सल में बदलाव किया गया "),
+                            CheckBoxItems("3", "फसलों या कृषि गतिविधियों की विविधता में वृद्धि"),
+                            CheckBoxItems("4", "कृषि कार्य में जल के उपयोग में बदलाव"),
                             CheckBoxItems(
-                                "101",
-                                "Access credit by using existing contacts or resources",
-                                true
+                                "5",
+                                "कृषि भूमि के इनपुट/उपचार में बदलाव (उदहारण: खाद, जुताई के तरीके, अन्य कृषि भूमि कार्य )"
                             ),
-                            CheckBoxItems("5", "Borrow food or money from family or friend"),
-                            CheckBoxItems("6", "Take food or basic goods on credit from retailer"),
-                            CheckBoxItems("7", "Borrow from employer/salary advanc"),
-                            CheckBoxItems("8", "Pawn something that I own"),
-                            CheckBoxItems("9", "Take a loan from my savings and loans clubs"),
-                            CheckBoxItems("10", "Apply for loan/withdrawal on pension fund"),
-                            CheckBoxItems("102", "Borrow from existing credit line", true),
-                            CheckBoxItems(
-                                "11",
-                                "Use authorised, arranged overdraft or line of credit"
-                            ),
-                            CheckBoxItems(
-                                "12",
-                                "Use credit card for a cash advance or to pay bills/buy food"
-                            ),
-                            CheckBoxItems("105", "Access new line of credit", true),
-                            CheckBoxItems(
-                                "13",
-                                "Take out a personal loan from a financial service provider (including bank, credit union or microfinance)"
-                            ),
-
+                            CheckBoxItems("6", "अन्य, कृपया उल्लेख करे"),
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.Switch
+            ),
+            Question(
+                id = "2.8",
+                question = "क्या सौर जल पंप के प्रयोग का कोई नकारात्मक प्रभाव पड़ा ?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "हाँ"),
+                            CheckBoxItems("2", "नहीं"),
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "2.8.1",
+                question = "अगर हाँ तो उन नकारात्मक प्रभावों का उल्लेख करे",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "कृपया उल्लेख करे")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT,
+                isOptional = true
+            ),
+            Question(
+                id = "2.9",
+                question = "क्या सौर जल पंप में सुधार हेतु आपकी दृष्टि में कोई तरीका है?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "हाँ"),
+                            CheckBoxItems("2", "नहीं"),
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "2.9.1",
+                question = "अगर हाँ तो कृपया उल्लेख करे",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "कृपया उल्लेख करे")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT,
+                isOptional = true
+            ),
+            Question(
+                id = "2.10",
+                question = "आपने सौर जल पंप गतिविधि के उपयोग हेतु कितना भुगतान किया (भारतीय रुपये में )",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "कृपया उल्लेख करे")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT,
+            ),
+            Question(
+                id = "2.11",
+                question = "क्या सौर जल पंप में सुधार हेतु आपकी दृष्टि में कोई तरीका है?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "हाँ"),
+                            CheckBoxItems("2", "नहीं"),
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX
+            ),
+            Question(
+                id = "2.11.1",
+                question = "अगर हाँ, तो आपने कितना सब्सिडी प्राप्त किया है ? ( भारतीय रुपये में)",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "कृपया उल्लेख करे")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT,
+                isOptional = true
+            ),
+            Question(
+                id = "2.11.2",
+                question = "आपने कितना ऋण लिया है ? ( भारतीय रुपये में)",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "कृपया उल्लेख करे")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT,
+                isOptional = true
+            ),
+            Question(
+                id = "2.11.3",
+                question = "आपने ऋण किससे लिया है ?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "बैंक"),
+                            CheckBoxItems("2", "सूक्ष्म वित्त संस्था (MFI)"),
+                            CheckBoxItems("3", "मित्र और परिवार"),
+                            CheckBoxItems("4", "अन्य, कृपया उल्लेख करे"),
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX,
+                isOptional = true
+            ),
+            Question(
+                id = "2.11.4",
+                question = "अगर नहीं, क्या आप सौर जल पंप आधारित कार्यों के भुगतान के लिए वित्तीय सहयोग लेना चाहते है?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "हाँ"),
+                            CheckBoxItems("2", "नहीं"),
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX,
+                isOptional = true
+            ),
+            Question(
+                id = "2.12",
+                question = "क्या इस सौर जल पंप गतिविधि के परिणामस्वरूप पहले उपयोग की जाने वाली विधियों या उपकरणों की तुलना में वर्तमान कृषि गतिविधियों में समय की बचत होती है?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "हाँ"),
+                            CheckBoxItems("2", "नहीं"),
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX,
+            ),
+            Question(
+                id = "2.12.1",
+                question = "अगर हाँ, अब आपके कितने पारिवारिक सदस्य या कर्मचारी इस कार्य / गतिविधि को करने से अपना समय बचाते है I (व्यक्तियों की संख्या)",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "कृपया उल्लेख करे")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT,
+                isOptional = true
+            ),
+            Question(
+                id = "2.12.2",
+                question = "इस कार्य को करने वाले प्रत्येक व्यक्ति, सौर जल पंप का उपयोग करने से प्रत्येक माह कितने घंटे की बचत कर लेते है I (कुल घंटे-प्रति व्यक्ति/प्रति माह)",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "कृपया उल्लेख करे")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT,
+                isOptional = true
+            ),
+            Question(
+                id = "2.13",
+                question = "1 से 10 के पैमाने पर आप सौर जल पंप गतिविधियों से कितने संतुष्ट है जहा 10 अंक का मतलब सबसे अधिक संतुष्ट है",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "कृपया उल्लेख करे")
+                ),
+                validate = NumberInputValidation(0, 10),
+                optionType = OptionTypeEnum.INPUT
+            ),
+            Question(
+                id = "2.14",
+                question = "1-10 के पैमाने पर आपके द्वारा अन्य लोगों को सौर जल पंप की अनुशंसा करने की कितनी संभावना है? 10 अंक का मतलब सौर जल पंप की अनुशंसा करने की सबसे अधिक संभावना है।",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "कृपया उल्लेख करे")
+                ),
+                validate = NumberInputValidation(0, 10),
+                optionType = OptionTypeEnum.INPUT
+            ),
+            Question(
+                id = "2.15",
+                question = "आप कब तक सौर जल पंप का उपयोग करने की उम्मीद करते हैं? (वर्ष में)",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "कृपया उल्लेख करे")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT
+            ),
+            Question(
+                id = "3.1",
+                question = "कृषि एवं खाद्य का उपयोग (Agriculture and Food Impact)\n सौर जल पंप तकनीकी के प्रयोग से पूर्व \n\n सौर जल पंप के उपयोग करने से पहले आपकी कृषि भूमि कितने हेक्टेयर की थी? (हेक्टेयर में)",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "कृपया उल्लेख करे")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT
+            ),
+            Question(
+                id = "3.2",
+                question = "सौर जल पंप के उपयोग के पहले आपके खेत में कौन-कौन सी फसलें उपजाई जाती थी?",
+                options = listOf(
+                    OptionType.Button("कृपया फसलें बताये", object : ButtonAction {
+                        override fun doAction(view: View, question: Question) {
+                            view.findNavController().navigate(
+                                R.id.action_nav_home_to_cropProfileFragment,
+                                bundleOf("formKey" to question.id)
                             )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.Switch,
-                isOptional = true
-            ),
-            Question(
-                id = "S3 12.a",
-                question = "\n\nSECTION 3 : QUESTIONS ON DIETARY DIVERSITY\n12. DIET DIVERSITY\nHas any member of the Household participated in any project-supported activity designed to help improve nutrition?",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("2", "No")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 12.b",
-                question = "Who participated in any project-supported activity designed to help improve nutrition?",
-                options = listOf(
-                    OptionType.Button("Select from the members list", object : ButtonAction {
-                        override fun doAction(view: View, question: Question) {
-                            view.findNavController()
-                                .navigate(
-                                    R.id.action_nav_home_to_houseHoldMembers,
-                                    bundleOf("formKey" to question.id)
-                                )
                         }
                     })
                 ),
                 validate = StringInputValidation(),
-                optionType = OptionTypeEnum.Button
+                optionType = OptionTypeEnum.Button,
             ),
             Question(
-                id = "S3 12.c",
-                question = "Is there a woman aged 15-49 in this household who can answer a few nutrition questions?",
+                id = "3.6",
+                question = "सौर जल पंप के प्रयोग के उपरांत \n\n अब आप कितने हेक्टेयर कृषि भूमि में खेती करते है ? (हेक्टेयर में)",
                 options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("2", "No")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S2 12.c.1",
-                question = "If yes identify within list of HouseHold members",
-                options = listOf(
-                    OptionType.Button("Select from the members list", object : ButtonAction {
-                        override fun doAction(view: View, question: Question) {
-                            view.findNavController()
-                                .navigate(
-                                    R.id.action_nav_home_to_houseHoldMembers,
-                                    bundleOf("formKey" to question.id, "count" to Int.MAX_VALUE)
-                                )
-                        }
-                    })
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "कृपया उल्लेख करे")
                 ),
                 validate = StringInputValidation(),
-                optionType = OptionTypeEnum.Button
+                optionType = OptionTypeEnum.INPUT
             ),
             Question(
-                id = "S3 13",
-                question = "\n13. Please describe the foods (meals and snacks) that you ate or drank yesterday during the day and night, whether at home or outside the home. Start with the first food or drink of the morning.\n" +
-                        "(Write down all foods and drinks mentioned. When composite dishes are mentioned, ask for the list of ingredients. When the respondent has finished, probe for meals and snacks not mentioned.)",
+                id = "3.7",
+                question = "इस कुल हेक्टेयर के कितने हिस्से में आप सौर जल पंप से खेती कर रहे है ? (हेक्टेयर में)",
                 options = listOf(
-                    OptionType.Button("Enter your food meals", object : ButtonAction {
-                        override fun doAction(view: View, question: Question) {
-                            view.findNavController()
-                                .navigate(
-                                    R.id.action_nav_home_to_foodDayMeal,
-                                    bundleOf("formKey" to question.id)
-                                )
-                        }
-                    })
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "कृपया उल्लेख करे")
                 ),
                 validate = StringInputValidation(),
-                optionType = OptionTypeEnum.Button
+                optionType = OptionTypeEnum.INPUT
             ),
             Question(
-                id = "S3 14.1",
-                question = "\n14. Include foods eaten by any member of the household, and exclude foods purchased and eaten outside the home.\nCEREALS \n Example is Corn / maize, rice, wheat, sorghum, millet or any other grains or foods made from these (e.g.bread, noodles, porridge or other grain products) + insert local foods e . g . ugali, nshima, porridge or paste",
+                id = "3.8",
+                question = "क्या आपने पहले के बनाम सौर जल पंप के प्रयोग कर खेती करने में फसलों में बदलाव किया है ? (हाँ/नहीं)",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
-                            CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("2", "No")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S3 14.2",
-                question = "WHITE ROOTS AND TUBERS \n Example is White potatoes, white yam, white cassava, or other foods made from roots",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("2", "No")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S3 14.3",
-                question = "VITAMIN A RICH VEGETABLES AND TUBERS(11) \n Example is Pumpkin, carrot, squash, or sweet potato that are orange inside + other locally available vitamin A rich vegetables (e.g. red sweet pepper)",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("2", "No")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S3 14.4",
-                question = "DARK GREEN LEAFY VEGETABLES \n Example is Dark green leafy vegetables, including wild forms + locally available vitamin A rich leaves such as amaranth, cassava leaves, kale, spinach",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("2", "No")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S3 14.5",
-                question = "OTHER VEGETABLES \n Example is Other vegetables (e.g. tomato, onion, eggplant) + other locally available vegetables",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("2", "No")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S3 14.6",
-                question = "VITAMIN A RICH FRUITS \n Example is Ripe mango, cantaloupe, apricot (fresh or dried), ripe papaya, dried peach, and 100% fruit juice made from these + other locally availablevitamin A rich fruits",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("2", "No")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S3 14.7",
-                question = "OTHER FRUITS \n Example is Other fruits, including wild fruits and 100% fruit juice made from these",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("2", "No")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S3 14.8",
-                question = "ORGAN MEAT \n Example is Liver, kidney, heart or other organ meats or blood – based foods",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("2", "No")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S3 14.9",
-                question = "FLESH MEATS \n Example is Beef, pork, lamb, goat, rabbit, game, chicken, duck, other birds, insects",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("2", "No")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S3 14.10",
-                question = "EGGS \n Example is Eggs from chicken, duck, guinea fowl or any other egg",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("2", "No")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S3 14.11",
-                question = "FISH AND SEA FOOD \n Example is Fresh or dried fish or shellfish",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("2", "No")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S3 14.12",
-                question = "LEGUMES, NUTS AND SEEDS \n Example is Dried beans, dried peas, lentils, nuts, seeds or foods made from these (eg. Hummus, peanut butter)",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("2", "No")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S3 14.13",
-                question = "MILK AND MILK PRODUCTS \n Example is Milk, cheese, yoghurt or other milk products",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("2", "No")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S3 14.14",
-                question = "OILS AND FATS \n Example is Oil, fats or butter added to food or used for cooking",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("2", "No")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S3 14.15",
-                question = "SWEETS, SWEETENED AND ALCOHOLIC BEVERAGES  \n Example is sugar, honey, sweetened juice drinks, sugary foods such as chocolates, candies, cookies and cakes, alcoholic beverages and sweetened coffee andtea ",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("2", "No")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S3 14.16",
-                question = "SPICES, CONDIMENTS AND UNSWEETENED BEVERAGES \n Example is Spices (black pepper, salt), condiments (soy sauce, hot sauce), and unsweetened coffee and tea.",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Yes"),
-                            CheckBoxItems("2", "No")
-                        )
-                    )
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.CHECK_BOX
-            ),
-            Question(
-                id = "S3 14.17",
-                question = "Did you or anyone in your household eat anything (meal or snack) OUTSIDE the home yesterday?",
-                options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "")
-                ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.INPUT,
-                isOptional = true
-            ),
-            Question(
-                id = "S4 15.a",
-                question = "SECTION 4: SOURCES OF INCOME \n\n Main respondent: Head of the household \n Time reference: Current; past 12 months; recall\n\n What were the sources of your household’s food/income over the last 12 months?",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Farming/Crop production and sales"),
-                            CheckBoxItems("2", "Livestock production and sales"),
-                            CheckBoxItems("3", "Wage labour (local)"),
-                            CheckBoxItems("4", "Fishing"),
-                            CheckBoxItems("5", "Salaried work, including in-kind payment"),
-                            CheckBoxItems("6", "Sale of wild/bush products (incl charcoal)"),
-                            CheckBoxItems("7", "Other self-employment/own business"),
-                            CheckBoxItems("8", "Sale of land/other non-livestock assets"),
-                            CheckBoxItems("9", "Wild foods for household consumption"),
-                            CheckBoxItems("10", "Mining on community land"),
-                            CheckBoxItems("11", "Barter trade"),
-                            CheckBoxItems("12", "Remittances"),
-                            CheckBoxItems("13", "Gifts/inheritance"),
-                            CheckBoxItems(
-                                "14",
-                                "Relief/Donations (church assistance, NGOs, etc.)",
-                            ),
-                            CheckBoxItems("15", "Borrowing"),
-                            CheckBoxItems("16", "Bank interests/treasury bills"),
-                            CheckBoxItems("17", "Pension funds"),
-                            CheckBoxItems("18", "Social security"),
-                            CheckBoxItems(
-                                "19",
-                                "Government transfers (e.g., FISP/ social cash transfer)",
-                            ),
-                            CheckBoxItems("20", "Share-out from Saving Group"),
-                        )
-                    )
-
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.Switch,
-            ),
-            Question(
-                id = "S4 15.b",
-                question = "Rank these sources based on the proportion of food/income they provide for the household. (In column b, indicate 1 for the source that provided the most food/income in the last 12 months, 2 for the source that provides the second most food/income…and so on until the number of sources identified in Q1 is reached).",
-                options = listOf(
-                    OptionType.Button("Enter the rank", object : ButtonAction {
-                        override fun doAction(view: View, question: Question) {
-                            view.findNavController()
-                                .navigate(
-                                    R.id.action_nav_home_to_costAndMarketting,
-                                    bundleOf("formKey" to question.id)
-                                )
-                        }
-                    })
-                ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.Button
-            ),
-            Question(
-                id = "S4 15.c",
-                question = "Which of these food/income sources are seasonal and which season?",
-                options = listOf(
-                    OptionType.Button("Enter the season for food items", object : ButtonAction {
-                        override fun doAction(view: View, question: Question) {
-                            view.findNavController()
-                                .navigate(
-                                    R.id.action_nav_home_to_cashewProduction,
-                                    bundleOf("formKey" to question.id)
-                                )
-                        }
-                    })
-                ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.Button
-            ),
-            Question(
-                id = "S4 15.d",
-                question = "Which are sources that you only rely on during times of stress?",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Farming/Crop production and sales"),
-                            CheckBoxItems("2", "Livestock production and sales"),
-                            CheckBoxItems("3", "Wage labour (local)"),
-                            CheckBoxItems("4", "Fishing"),
-                            CheckBoxItems("5", "Salaried work, including in-kind payment"),
-                            CheckBoxItems("6", "Sale of wild/bush products (incl charcoal)"),
-                            CheckBoxItems("7", "Other self-employment/own business"),
-                            CheckBoxItems("8", "Sale of land/other non-livestock assets"),
-                            CheckBoxItems("9", "Wild foods for household consumption"),
-                            CheckBoxItems("10", "Mining on community land"),
-                            CheckBoxItems("11", "Barter trade"),
-                            CheckBoxItems("12", "Remittances"),
-                            CheckBoxItems("13", "Gifts/inheritance"),
-                            CheckBoxItems(
-                                "14",
-                                "Relief/Donations (church assistance, NGOs, etc.)",
-                            ),
-                            CheckBoxItems("15", "Borrowing"),
-                            CheckBoxItems("16", "Bank interests/treasury bills"),
-                            CheckBoxItems("17", "Pension funds"),
-                            CheckBoxItems("18", "Social security"),
-                            CheckBoxItems(
-                                "19",
-                                "Government transfers (e.g., FISP/ social cash transfer)",
-                            ),
-                            CheckBoxItems("20", "Share-out from Saving Group"),
-                        )
-                    )
-
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.Switch,
-            ),
-            Question(
-                id = "S4 15.e",
-                question = "Over the past 12 months, have you changed any source and their relative importance due to a shock?",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Farming/Crop production and sales"),
-                            CheckBoxItems("2", "Livestock production and sales"),
-                            CheckBoxItems("3", "Wage labour (local)"),
-                            CheckBoxItems("4", "Fishing"),
-                            CheckBoxItems("5", "Salaried work, including in-kind payment"),
-                            CheckBoxItems("6", "Sale of wild/bush products (incl charcoal)"),
-                            CheckBoxItems("7", "Other self-employment/own business"),
-                            CheckBoxItems("8", "Sale of land/other non-livestock assets"),
-                            CheckBoxItems("9", "Wild foods for household consumption"),
-                            CheckBoxItems("10", "Mining on community land"),
-                            CheckBoxItems("11", "Barter trade"),
-                            CheckBoxItems("12", "Remittances"),
-                            CheckBoxItems("13", "Gifts/inheritance"),
-                            CheckBoxItems(
-                                "14",
-                                "Relief/Donations (church assistance, NGOs, etc.)",
-                            ),
-                            CheckBoxItems("15", "Borrowing"),
-                            CheckBoxItems("16", "Bank interests/treasury bills"),
-                            CheckBoxItems("17", "Pension funds"),
-                            CheckBoxItems("18", "Social security"),
-                            CheckBoxItems(
-                                "19",
-                                "Government transfers (e.g., FISP/ social cash transfer)",
-                            ),
-                            CheckBoxItems("20", "Share-out from Saving Group"),
-                        )
-                    )
-
-                ),
-                validate = CheckboxInputValidation(),
-                optionType = OptionTypeEnum.Switch,
-            ),
-            Question(
-                id = "S4 16.1",
-                question = "Notes or Comments:",
-                options = listOf(
-                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "")
-                ),
-                validate = StringInputValidation(),
-                optionType = OptionTypeEnum.INPUT,
-            ),
-            Question(
-                id = "S4 16.2",
-                question = "ENUMERATOR’S CODE:",
-                options = listOf(
-                    OptionType.CheckBox(
-                        listOf(
-                            CheckBoxItems("1", "Joy Masiye"),
-                            CheckBoxItems("2", "Chibwe Chinungi"),
-                            CheckBoxItems("3", "Brenda Sichone"),
-                            CheckBoxItems("4", "Jones Mvula"),
-                            CheckBoxItems("5", "Nancy Mulemwa"),
-                            CheckBoxItems("6", "Lungowe Mulemwa"),
-                            CheckBoxItems("7", "Joyce Sakala"),
-                            CheckBoxItems("8", "Christinah Kabanda")
+                            CheckBoxItems("1", "हाँ"),
+                            CheckBoxItems("2", "नहीं"),
                         )
                     )
                 ),
@@ -2454,13 +507,29 @@ class HomeRepository(
                 optionType = OptionTypeEnum.CHECK_BOX,
             ),
             Question(
-                id = "S4 16.3",
-                question = "SUPERVISOR’S CODE:",
+                id = "3.8.1",
+                question = "सौर जल पंप के प्रयोग के उपरांत आपने कौन कौन सी फसलों की उपज प्रारंभ की है? सभी फसलों को सूचीबद्ध करें",
+                options = listOf(
+                    OptionType.Button("कृपया फसलें बताये", object : ButtonAction {
+                        override fun doAction(view: View, question: Question) {
+                            view.findNavController().navigate(
+                                R.id.action_nav_home_to_financialProducts,
+                                bundleOf("formKey" to question.id)
+                            )
+                        }
+                    })
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.Button,
+            ),
+            Question(
+                id = "3.15",
+                question = "क्या पूर्व के सामान्य मौसम की तुलना में वर्षा एवं तापमान के बदलाव ने आपके कृषि पद्धतियों एवं फ़सल पैदावार को प्रभावित किया है ?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
-                            CheckBoxItems("1", "Joy Masiye"),
-                            CheckBoxItems("2", "Chibwe Chinungi")
+                            CheckBoxItems("1", "हाँ"),
+                            CheckBoxItems("2", "नहीं"),
                         )
                     )
                 ),
@@ -2468,13 +537,475 @@ class HomeRepository(
                 optionType = OptionTypeEnum.CHECK_BOX,
             ),
             Question(
-                id = "S4 16.4",
-                question = "TEAM’S CODE:",
+                id = "3.15.1",
+                question = "अगर हाँ, कृपया इस परिवर्तन एवं उसका आपके कृषि कार्य पर हुए प्रभाव की व्याख्या करे",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "कृपया उल्लेख करे")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT,
+                isOptional = true
+            ),
+            Question(
+                id = "4.1",
+                question = "जल का उपयोग (Water Impact) \n\n सौर जल पंप के उपयोग से पूर्व  \n\n सौर जल पंप के उपयोग के पूर्व, फसलों की सिचाई/पानी पटाने के लिए क्या-क्या कार्य किया जाता था ?",
                 options = listOf(
                     OptionType.CheckBox(
                         listOf(
-                            CheckBoxItems("1A", "TEAM A"),
-                            CheckBoxItems("2B", "TEAM B")
+                            CheckBoxItems("1", "वर्षा जल"),
+                            CheckBoxItems("2", "कुआं"),
+                            CheckBoxItems("3", "ड्रिप/सूक्ष्म सिंचाई"),
+                            CheckBoxItems("4", "पंप"),
+                            CheckBoxItems("5", "फुहारा/छिरकाव सिंचाई"),
+                            CheckBoxItems("6", "नाली/बाढ़ सिंचाई"),
+                            CheckBoxItems("7", "उप-सिंचाई"),
+                            CheckBoxItems("8", "भारी बाढ़ जल से सिंचाई"),
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX,
+            ),
+            Question(
+                id = "4.2",
+                question = "उपरोक्त माध्यमों का प्रयोग कितने कृषि भूमि पर सिंचाई हेतु किया जाता था ? (हेक्टेयर में )",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "कृपया उल्लेख करे")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT
+            ),
+            Question(
+                id = "4.3",
+                question = "पूर्व के सिंचाई माध्यमों का प्रयोग प्रतिवर्ष कितने महीने किया जाता था ? (माह/प्रतिवर्ष)",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "कृपया उल्लेख करे")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT
+            ),
+            Question(
+                id = "4.4",
+                question = "फसलों की सिंचाई हेतु प्रतिदिन कितने जल का उपयोग किया जाता था ? लीटर/प्रति दिन)",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "कृपया उल्लेख करे")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT
+            ),
+            Question(
+                id = "4.5",
+                question = "प्रतिमाह कितने दिन पूर्व के सिंचाई माध्यमों का प्रयोग आप फसलों की सिंचाई हेतु करते थे ? (प्रतिदिन/माह)-इस प्रश्न का उत्तर प्राप्त करने में सभी फसलों को सम्मिलित करे",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "कृपया उल्लेख करे")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT
+            ),
+            Question(
+                id = "4.6",
+                question = "अलग-अलग मौसमों में इस कार्य का आपने अलग-अलग कितनी बार प्रयोग किया? (कुल संख्या/प्रति मौसम)",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "कृपया उल्लेख करे")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT
+            ),
+            Question(
+                id = "4.6.1",
+                question = "क्या सौर जल पंप के प्रयोग के पहले आपके परिवार की महिलाएं सिंचाई कार्य में सम्मिलित होती थी?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "हाँ"),
+                            CheckBoxItems("2", "नहीं"),
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX,
+            ),
+            Question(
+                id = "4.7",
+                question = "सौर जल पंप के उपयोग के उपरांत \n\n सौर जल पंप के उपयोग करने के बाद खेतों के सिंचाई हेतु अब क्या कार्य किये जाते है?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "वर्षा जल"),
+                            CheckBoxItems("2", "कुआँ"),
+                            CheckBoxItems("3", "ड्रिप/सूक्ष्म सिंचाई"),
+                            CheckBoxItems("4", "पंप (विद्युत/डीजल/सौर-प्रयोग में आने वाले सभी का चुनाव करे)"),
+                            CheckBoxItems("5", "फुहारा/छिरकाव सिंचाई"),
+                            CheckBoxItems("6", "नाली/बाढ़ सिंचाई"),
+                            CheckBoxItems("7", "उप-सिंचाई"),
+                            CheckBoxItems("8", "भारी बाढ़ जल से सिंचाई"),
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX,
+            ),
+            Question(
+                id = "4.8",
+                question = "अब कितने कृषि भूमि पर सौर जल पंप का प्रयोग किया जाता है ? (हेक्टेयर में)",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "कृपया उल्लेख करे")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT
+            ),
+            Question(
+                id = "4.9",
+                question = "क्या आप अभी भी इन्ही फसलों की सिंचाई के लिए अतिरिक्त माध्यमों का प्रयोग करते है?  (प्रयोग में आने वाले सभी का चुनाव करे)",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "वर्षा जल"),
+                            CheckBoxItems("2", "कुआँ"),
+                            CheckBoxItems("3", "ड्रिप/सूक्ष्म सिंचाई"),
+                            CheckBoxItems("4", "पंप (विद्युत/डीजल/सौर-प्रयोग में आने वाले सभी का चुनाव करे)"),
+                            CheckBoxItems("5", "फुहारा/छिरकाव सिंचाई"),
+                            CheckBoxItems("6", "नाली/बाढ़ सिंचाई"),
+                            CheckBoxItems("7", "उप-सिंचाई"),
+                            CheckBoxItems("8", "भारी बाढ़ जल से सिंचाई"),
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.Switch,
+            ),
+            Question(
+                id = "4.10",
+                question = "प्रतिवर्ष कितने माह आप सौर जल पंप का प्रयोग सिंचाई हेतु करते है? (माह/प्रतिवर्ष)",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "कृपया उल्लेख करे")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT
+            ),
+            Question(
+                id = "4.11",
+                question = "प्रतिमाह कितने दिन आप सौर जल पंप का प्रयोग आप खेतों की सिंचाई हेतु करते है ? (दिन/प्रतिमाह)",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "कृपया उल्लेख करे")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT
+            ),
+            Question(
+                id = "4.12",
+                question = "सौर जल पंप का प्रयोग करते हुए फसलों की सिंचाई हेतु प्रतिदिन कितने जल का उपयोग आप करते है? (लीटर में)",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "कृपया उल्लेख करे")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT
+            ),
+            Question(
+                id = "4.13",
+                question = "क्या वर्ष के विभिन्न मौसमों के दौरान आपके द्वारा सौर जल पंप का उपयोग करने की संख्या अलग-अलग है? (मौसम के अनुसार संख्या)",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "कृपया उल्लेख करे")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT
+            ),
+            Question(
+                id = "4.14",
+                question = "इस सौर जल पंप का उपयोग करने के दौरान क्या आपने फ़सल बदलने का निर्णय लिया है क्यूंकि आप नई तकनीकी का प्रयोग कर रहे है?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "हाँ"),
+                            CheckBoxItems("2", "नहीं"),
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX,
+            ),
+            Question(
+                id = "4.14.1",
+                question = "यदि हां तो कृपया विस्तार से बताये",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "कृपया उल्लेख करे")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT,
+                isOptional = true
+            ),
+            Question(
+                id = "4.15",
+                question = "सौर जल पंप के अलावा क्या कोई ऐसा कारण जो आपके कृषि कार्य में कितना पानी का प्रयोग करेंगे, इस बात को प्रभावित करते है? उसकी सूची बनायेI",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "कृपया उल्लेख करे")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT,
+            ),
+            Question(
+                id = "4.16",
+                question = "क्या महिलाएं सिंचाई कार्य में सम्मिलित होती है? (हाँ/नहीं)",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "हाँ"),
+                            CheckBoxItems("2", "नहीं"),
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX,
+            ),
+            Question(
+                id = "4.17",
+                question = "प्रतिवर्ष कितने माह आप सौर जल पंप के अलावे अन्य सिंचाई श्रोतो का प्रयोग करते है ?",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "कृपया उल्लेख करे")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT
+            ),
+            Question(
+                id = "4.18",
+                question = "प्रतिवर्ष कितने माह आप अन्य पंप या स्रोत का उपयोग सिंचाई के लिए करते है? (माह/प्रतिवर्ष)",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "कृपया उल्लेख करे")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT
+            ),
+            Question(
+                id = "4.19",
+                question = "प्रतिमाह कितने दिन अन्य श्रोतों का प्रयोग सिंचाई के लिए करते है ? (दिन/प्रतिमाह)",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "कृपया उल्लेख करे")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT
+            ),
+            Question(
+                id = "4.20",
+                question = "फसलों की सिंचाई के लिए अन्य श्रोतों से कितने जल का उपयोग प्रतिदिन आप करते है? (लीटर में)",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "कृपया उल्लेख करे")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT
+            ),
+            Question(
+                id = "4.21",
+                question = "क्या वर्ष के विभिन्न मौसमों के दौरान आपके द्वारा सौर जल पंप का उपयोग करने की संख्या अलग-अलग है? (मौसम के अनुसार संख्या)",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "कृपया उल्लेख करे")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT
+            ),
+            Question(
+                id = "5.1",
+                question = "उर्जा का उपयोग (Energy Impact) \n\n सौर जल पंप के उपयोग के उपरांत \n\n आप किस कृषि गतिविधि/उद्देश्य के लिए सौर जल पंप का प्रयोग करते है?",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "कृपया उल्लेख करे")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT
+            ),
+            Question(
+                id = "5.2",
+                question = "आप कितने समय से सौर जल पंप का प्रयोग कर रहे है? (महीने में)",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "कृपया उल्लेख करे")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT
+            ),
+            Question(
+                id = "5.3",
+                question = "आप अपने सिंचाई यंत्र को खेत तक कैसे ले जाते है?",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "कृपया उल्लेख करे")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT
+            ),
+            Question(
+                id = "5.4",
+                question = "क्या सिंचाई यत्र को खेत तक ले जाने में कोई परिवहन लागत शामिल है? (लागत रुपये में)",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "कृपया उल्लेख करे")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT
+            ),
+            Question(
+                id = "5.4.1",
+                question = "किलोवाट में पैनल का माप क्या है?",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "कृपया उल्लेख करे")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT
+            ),
+            Question(
+                id = "5.4.2",
+                question = "जल पंप का माप क्या है? (हॉर्सपावर में)",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "कृपया उल्लेख करे")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT
+            ),
+            Question(
+                id = "5.4.3",
+                question = "पंप के जल बहाव का माप क्या है ? (लीटर/प्रति मिनट)",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "कृपया उल्लेख करे")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.INPUT
+            ),
+            Question(
+                id = "5.5",
+                question = "सौर जल पंप के उपयोग के पूर्व \n\n सामान कृषि गतिविधि/उद्देश्य के लिए सौर जल पंप के उपयोग के पूर्व किस उर्जा स्रोत का उपयोग किया जाता था?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "प्रत्यक्ष ईंधन खपत"),
+                            CheckBoxItems("2", "ग्रिड विद्युत"),
+                            CheckBoxItems("3", "जेनेरेटर की बिजली"),
+                            CheckBoxItems("4", "कोई नहीं"),
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX,
+            ),
+            Question(
+                id = "5.6",
+                question = "अगर प्रत्यक्ष ईंधन खपत, किस प्रकार के ईंधन का पूर्व में प्रयोग किया जाता था?",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_TEXT, "कृपया उल्लेख करे")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX,
+                isOptional = true
+            ),
+            Question(
+                id = "5.6.1",
+                question = "प्रत्येक बार आप कितने ईंधन का उपयोग करते है ? (लीटर में)",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "कृपया उल्लेख करे")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX,
+                isOptional = true
+            ),
+            Question(
+                id = "5.6.2",
+                question = "आप इस ईंधन का कितनी बार उपयोग करते है? (दिन/प्रतिवर्ष)",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "कृपया उल्लेख करे")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX,
+                isOptional = true
+            ),
+            Question(
+                id = "5.7",
+                question = "अगर ग्रिड विद्युत् का उपयोग, \n\n क्या बिजली केन्द्रीय विद्युत स्टेशन से ली गयी या छोटे पैमाने की आवासीय वोद्युत प्रणाली से?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "केन्द्रीय विद्युत स्टेशन"),
+                            CheckBoxItems("2", "छोटे पैमाने की आवासीय वोद्युत प्रणाली"),
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX,
+                isOptional = true
+            ),
+            Question(
+                id = "5.7.1",
+                question = "प्रतिदिन कितनी बिजली की खपत की गयी? (किलोवाट/प्रतिघंटा)",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "कृपया उल्लेख करे")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX,
+                isOptional = true
+            ),
+            Question(
+                id = "5.7.2",
+                question = "आप बिजली का कितनी बार उपयोग करते है? (दिन/प्रतिवर्ष)",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "कृपया उल्लेख करे")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX,
+                isOptional = true
+            ),
+            Question(
+                id = "5.8",
+                question = "अगर जेनेरेटर के माध्यम से प्राप्त विद्युत् का उपयोग \n\n प्रत्येक बार जेनेरेटर के उपयोग से कुल कितना विद्युत् का उत्पादन करते है? (किलोवाट/प्रति घंटा)",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "कृपया उल्लेख करे")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX,
+                isOptional = true
+            ),
+            Question(
+                id = "5.8.1",
+                question = "आप जेनेरेटर का कितनी बार उपयोग करते है? (दिन/प्रतिवर्ष)",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "कृपया उल्लेख करे")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX,
+                isOptional = true
+            ),
+            Question(
+                id = "5.8.2",
+                question = "जेनेरेटर के प्रयोग में किस प्रकार का ईंधन का उपयोग करते है?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "विमानन तेल"),
+                            CheckBoxItems("2", "कच्चा तेल/डीजल"),
+                            CheckBoxItems("3", "ईंधन तेल (अवशिष्ट)"),
+                            CheckBoxItems("4", "किरासन"),
+                            CheckBoxItems("5", "तरलीकृत पेट्रोलियम गैस (एलपीजी)"),
+                            CheckBoxItems("6", "लुब्रीकेंट"),
+                            CheckBoxItems("7", "मोटर गैस (पेट्रोल)"),
+                            CheckBoxItems("8", "नेफ्था"),
+                            CheckBoxItems("9", "प्राकृतिक तरल गैस"),
+                            CheckBoxItems("10", "शेल तेल"),
+                        )
+                    )
+                ),
+                validate = CheckboxInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX,
+            ),
+            Question(
+                id = "5.8.3",
+                question = "आपका जेनेरेटर प्रतिवर्ष कितना ईंधन उपयोग करता है (ईंधन)",
+                options = listOf(
+                    OptionType.InputField(InputType.TYPE_CLASS_NUMBER, "कृपया उल्लेख करे")
+                ),
+                validate = StringInputValidation(),
+                optionType = OptionTypeEnum.CHECK_BOX,
+                isOptional = true
+            ),
+            Question(
+                id = "5.8.4",
+                question = "क्या पूर्व में इस्तेमाल किये गए जेनेरेटर के उपयोग के लिए कोई लोंग पुस्तिका या रिकॉर्ड रखा गया था? यदि हाँ, तो क्या आप यह जानकारी साँझा कर सकते है?",
+                options = listOf(
+                    OptionType.CheckBox(
+                        listOf(
+                            CheckBoxItems("1", "हाँ"),
+                            CheckBoxItems("2", "नहीं"),
                         )
                     )
                 ),

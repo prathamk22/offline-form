@@ -11,40 +11,27 @@ import com.pradeep.form.simple_form.model.Form
 
 class HouseHoldMembers : NewBaseTableFragment() {
 
-    override fun getSheetName() = "Sheet_${getTableKey()}"
+    override fun getSheetName() = "1.3"
 
     override fun getColumnNames(): List<String> {
-        return listOf(getTableKey())
-    }
-
-    override fun validateAndSubmit(): Boolean {
-        val maxCount = arguments?.getInt("count", 1) ?: 1
-        return maxCount > (userdataList.getOrNull(0)?.getOrNull(0)?.answers?.size ?: 0)
+        return listOf(
+            "व्यस्क पुरुष",
+            "वयस्क महिलाएं",
+            "बच्चे (पु०)",
+            "बच्चे (स्त्री०)",
+            "कुल",
+        )
     }
 
     override fun getSection1FormData(): List<Form> {
-        val houseMembers = viewModel.getAnsIfAvailable("S1")
-        if (houseMembers.isNullOrEmpty()){
-            Toast.makeText(requireContext(), "No family members are added right now", Toast.LENGTH_LONG).show()
-            findNavController().navigateUp()
-            return emptyList()
-        }
-        val typeToken = object : TypeToken<List<TableData>>() {}.type
-        val tableList = Gson().fromJson<List<TableData>>(houseMembers, typeToken)
-        val forms = mutableListOf<Form>()
-        val maxCount = arguments?.getInt("count", 1) ?: 1
-        forms.add(
+        return getColumnNames().map {
             Form(
-                isMandatory = false,
-                formType = if (maxCount == 1) FormTypes.SINGLE_CHOICE else FormTypes.MULTI_CHOICE,
-                question = "Select from the members list",
-                choices = tableList.map { item ->
-                    item.formAns.getOrNull(0)?.answer ?: ""
-                },
-                errorMessage = "Please enter proper value"
+                isMandatory = true,
+                formType = FormTypes.NUMBER,
+                question = it,
+                hint = "कृपया सदस्यों की संख्या बताये",
+                errorMessage = "कृपया सदस्यों की संख्या बताये"
             )
-        )
-        return forms
+        }
     }
-
 }

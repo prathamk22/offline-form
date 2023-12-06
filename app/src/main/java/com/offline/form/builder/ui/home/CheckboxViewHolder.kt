@@ -1,5 +1,6 @@
 package com.offline.form.builder.ui.home
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.RadioButton
@@ -19,8 +20,10 @@ class CheckboxViewHolder(
     RecyclerView.ViewHolder(binding.root), OfflineViewHolder {
 
     override fun onBind(item: Question) {
-        if (item.optionType != OptionTypeEnum.CHECK_BOX)
+        if (item.optionType != OptionTypeEnum.CHECK_BOX){
+            Log.e("TAG", "onBind: returning from here")
             return
+        }
         with(binding) {
             questionTitle.text = item.id + " " + item.question.plus(if (item.isOptional) " ( Optional )" else "")
             val checkBoxOption = (item.options.firstOrNull() as? OptionType.CheckBox) ?: return
@@ -33,7 +36,6 @@ class CheckboxViewHolder(
                         false
                     )
                     checkBoxItem.radioTxt.text = it.optionTitle
-                    checkBoxItem.radioTxt.id = View.generateViewId()
                     checkBoxItems.addView(checkBoxItem.root)
                 } else {
                     val checkBoxItem = CheckboxMainItemBinding.inflate(
@@ -42,16 +44,18 @@ class CheckboxViewHolder(
                         false
                     )
                     checkBoxItem.radioBtn.text = it.optionTitle
+                    checkBoxItem.radioBtn.tag = it.id
                     checkBoxItem.radioBtn.isChecked = it.id == homeViewModel.getAnsIfAvailable(item.id)
-                    checkBoxItem.radioBtn.id = View.generateViewId()
                     checkBoxItems.addView(checkBoxItem.root)
                 }
             }
             checkBoxItems.setOnCheckedChangeListener { _, i ->
-                val checkboxText = checkBoxItems.findViewById<RadioButton?>(i)?.text
+                val checkboxItem = checkBoxItems.findViewById<RadioButton?>(i)
                     ?: return@setOnCheckedChangeListener
+                val checkboxText = checkboxItem.text
+                val checkboxTag = checkboxItem.tag
                 checkBoxOption.checkboxItems.first {
-                    it.optionTitle == checkboxText
+                    it.id == checkboxTag
                 }.let {
                     if (item.validate.isValid(checkboxText)) {
                         homeViewModel.valueEntered(item.id, it.id)
